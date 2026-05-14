@@ -124,11 +124,7 @@ think-tank 不复制工具型 skill。它通过 capability 说明“需要什么
 
 领域包不能改变 think-tank 协议。
 
-旧 research agent 中关于图像编辑 App 的经验被放入：
-
-```text
-domain-packs/image-editing/
-```
+私有领域经验不进入当前主仓。需要领域知识的项目应在自己的仓库中维护 domain pack 或本地资料。
 
 ## 旧系统迁移关系
 
@@ -136,7 +132,7 @@ domain-packs/image-editing/
 旧 research agent
 ├── skills 工具链          -> capabilities + Claude Code skill mapping
 ├── subagents             -> profiles + Claude Code agent mapping
-├── 图像编辑领域知识       -> domain-packs/image-editing
+├── 私有领域知识           -> 项目本地 domain pack / 本地资料
 └── think-tank 协作原型    -> protocol + research/council modes
 
 旧 agent-council
@@ -191,4 +187,3 @@ Claude Code adapter 的目标是：
 - 标注 verified/mock/tracking/planned
 
 在真实执行和结果回收前，不能把 Claude Code 路径标为 verified。
-

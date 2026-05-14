@@ -39,7 +39,7 @@ not_verified:
 
 一个跨平台 Skill 仓库应该采用“协议核心 + 平台适配 + 能力槽 + 角色模板 + 可选领域包”的分层结构。
 
-think-tank 当前仓库结构已经满足第一版跨平台主 Skill 的基本要求：协议层不绑定平台，平台适配不改写协议，外部工具型 skills 通过 capabilities 共存，旧 subagents 通过 profiles 被抽象，图像编辑领域经验被降级为 domain pack。
+think-tank 当前仓库结构已经满足第一版跨平台主 Skill 的基本要求：协议层不绑定平台，平台适配不改写协议，外部工具型 skills 通过 capabilities 共存，旧 subagents 通过 profiles 被抽象，私有领域知识不进入 core。
 
 ## 依据
 
@@ -92,7 +92,7 @@ docs/
 - Codex smoke test 只能证明单 agent 多 profile 模拟，不证明真实多 agent 协作。
 - Claude Code Agent Team 仍然需要独立验证。
 - 外部 skills 只是候选映射，并未在本仓执行集成测试。
-- domain pack 目前只有 image-editing，尚未证明多领域扩展的通用性。
+- domain pack 仍是扩展点，当前主仓不内置私有领域包。
 
 ### report-architect
 
@@ -118,7 +118,7 @@ docs/
 2. 将当前版本标记为 `0.1.0 foundation`。
 3. 下一步在 Claude Code 平台验证 agent mapping 和 skill mapping。
 4. 为 Codex 路径补一个更正式的 `v0.1-readiness.md`。
-5. 后续新增 domain pack 前，先验证 `domain-packs/image-editing/` 的边界是否清楚。
+5. 后续新增 domain pack 前，先确认它是否适合进入通用主仓；私有领域知识应留在具体项目。
 
 ## 边界
 
@@ -135,4 +135,3 @@ protocol_complete: true
 evidence_boundary_clear: true
 actionable: true
 ```
-

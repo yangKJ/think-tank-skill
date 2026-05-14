@@ -38,6 +38,5 @@ ios_automation_context_imported: false
 
 - 可以作为未来 regression scenario 的素材。
 - 不把旧 history 原文复制成当前规范。
-- 不带入 ios-automation-mcp 项目私有目标。
+- 不带入项目私有目标。
 - 不把旧脚本测试通过当成 think-tank 当前 runtime 已验证。
-

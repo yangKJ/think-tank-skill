@@ -5,7 +5,7 @@
 来源：
 
 ```text
-/Users/condy/Desktop/img-company/agents/research
+legacy research workspace
 ```
 
 ## 结论
@@ -23,7 +23,7 @@ judgement: sufficient_for_think_tank_v0_2
 - `profiles`
 - `capabilities`
 - `platforms/claude-code`
-- `domain-packs/image-editing`
+- `domain-packs` 扩展点
 - `runtime/safety.py`
 - `templates/`
 
@@ -91,15 +91,9 @@ docs/research-agent-capability-map.md
 modes/research.md
 ```
 
-### 4. 图像编辑领域经验到 Domain Pack
+### 4. 私有领域经验不进入主仓
 
-旧 research 中绑定 Awakening、图像编辑 App、VSCO、Lightroom、醒图、美图、AI 消除、Metal、CoreML、小红书图像编辑舆情等内容，已按方向收敛为：
-
-```text
-domain-packs/image-editing/
-```
-
-这类内容不进入 core protocol。
+旧 research 中绑定具体产品、固定竞品、平台私有数据和领域报告的内容不进入当前主仓。需要这些知识的项目应在自己的仓库中维护 domain pack 或本地资料目录。
 
 ## 没有原样迁移的内容
 
@@ -118,7 +112,7 @@ knowledge/
 判断：
 
 - 不属于 think-tank core。
-- 可作为未来 `domain-packs/image-editing/examples/` 或外部知识库素材。
+- 可作为具体项目自己的 domain pack 或外部知识库素材。
 - 不应默认打包进通用 Skill。
 
 ### 2. 运行记录和旧输出

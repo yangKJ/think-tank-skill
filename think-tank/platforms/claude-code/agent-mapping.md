@@ -41,12 +41,12 @@
 
 ## 领域绑定处理
 
-旧 research agent 的 subagent 内容包含图像编辑 App、Awakening、固定竞品等领域知识。
+旧 research agent 的 subagent 内容可能包含具体项目、固定竞品等领域知识。
 
 迁移时应拆分：
 
 - 通用职责：进入 `profiles/`
-- 图像编辑知识：进入 `domain-packs/image-editing/`
+- 私有领域知识：留在具体项目自己的 domain pack 或本地资料中
 - Claude Code 调用细节：留在本目录
 
 ## 能力状态
@@ -59,4 +59,3 @@ result_recovery: planned
 ```
 
 只有在真实执行并回收结果后，才能把具体映射标为 `verified`。
-

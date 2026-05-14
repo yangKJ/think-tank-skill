@@ -75,7 +75,6 @@ REQUIRED_FILES = [
     THINK_TANK / "templates" / "evidence-table.md",
     THINK_TANK / "templates" / "council-state.md",
     THINK_TANK / "domain-packs" / "README.md",
-    THINK_TANK / "domain-packs" / "image-editing" / "legacy-knowledge-index.md",
     THINK_TANK / "examples" / "codex-smoke-research.md",
     THINK_TANK / "examples" / "codex-council-validation.md",
     THINK_TANK / "examples" / "codex-review-validation.md",

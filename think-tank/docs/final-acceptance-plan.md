@@ -45,7 +45,7 @@ v0_3_research_agent_full_migration:
   status: complete
   inventory: docs/research-agent-full-inventory.md
   interop: docs/external-skill-interoperability.md
-  knowledge_index: domain-packs/image-editing/legacy-knowledge-index.md
+  private_domain_knowledge_in_core: false
   check: checks/research_agent_full_migration_check.py
 
 v0_4_agent_council_full_migration:

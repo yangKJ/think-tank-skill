@@ -77,13 +77,9 @@ not_verified:
 
 ### P2: domain pack 的扩展性还只是设计假设
 
-位置：
-
-- `think-tank/domain-packs/image-editing/`
-
 问题：
 
-当前只有 image-editing 一个领域包，能证明旧领域经验被隔离，但不能证明多领域扩展已经成熟。
+当前主仓不内置领域包，domain pack 扩展性仍需要在具体项目中验证。
 
 建议：
 
@@ -135,4 +131,3 @@ protocol_complete: true
 evidence_boundary_clear: true
 actionable: true
 ```
-

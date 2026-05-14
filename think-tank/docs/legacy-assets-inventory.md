@@ -8,10 +8,10 @@
 
 ### research agent think-tank
 
-路径：
+来源：
 
 ```text
-/Users/condy/Desktop/img-company/agents/research
+legacy research workspace
 ```
 
 关键资产：
@@ -52,10 +52,10 @@
 
 ### agent-council
 
-路径：
+来源：
 
 ```text
-/Users/condy/Desktop/ios-automation-mcp/.claude/skills/agent-council
+legacy Claude Code agent-council skill
 ```
 
 关键资产：
@@ -93,7 +93,7 @@
 不要直接迁移：
 
 - `agent-council` 品牌作为平行主线
-- ios-automation-mcp 项目私有上下文
+- 项目私有上下文
 - 旧 history 作为规范来源
 - 旧脚本里的实现细节作为平台无关协议
 

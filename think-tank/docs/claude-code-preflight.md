@@ -113,7 +113,7 @@ source: think-tank/platforms/claude-code/agent-mapping.md
 required_checks:
   - 每个旧 subagent 只能映射到 profile
   - profile 职责不能被旧 subagent frontmatter 覆盖
-  - 图像编辑领域知识不能进入 core profile
+  - 私有领域知识不能进入 core profile
 pass_condition: 旧 subagent 被吸收为可选平台实现，而不是协议来源
 ```
 

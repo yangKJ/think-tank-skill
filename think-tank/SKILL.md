@@ -242,7 +242,7 @@ execution_claim: only_verified_per_run
 
 - 旧 research agent 是 research mode、capabilities、profiles 和 Claude Code 映射的来源材料。
 - 旧 agent-council 是 council mode 和 Claude Code runtime contract 的来源材料。
-- 图像编辑 App 经验属于 `domain-packs/image-editing/`，不是 core。
+- 私有领域知识不进入主仓 core；需要时由具体项目自行提供 domain pack 或本地资料。
 
 ## 能力状态
 

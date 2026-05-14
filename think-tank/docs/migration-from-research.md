@@ -2,16 +2,16 @@
 
 旧 research agent 中的 think-tank 是新主仓的重要来源，但在新体系中 research 只是 think-tank 的一个 mode。
 
-## 来源路径
+## 来源
 
 ```text
-/Users/condy/Desktop/img-company/agents/research/.claude/skills/think-tank
+legacy research think-tank skill
 ```
 
 完整 research agent 全仓来源另见：
 
 ```text
-/Users/condy/Desktop/img-company/agents/research
+legacy research workspace
 ```
 
 v0.3 完整处置记录：

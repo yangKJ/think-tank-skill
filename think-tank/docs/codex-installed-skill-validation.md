@@ -6,8 +6,8 @@
 
 ```yaml
 install_method: repository_relative_symlink
-source: /Users/condy/Desktop/think-tank-skill/think-tank
-target: /Users/condy/Desktop/think-tank-skill/.codex/skills/think-tank
+source: <repo>/think-tank
+target: <repo>/.codex/skills/think-tank
 symlink_target: ../../think-tank
 status: installed
 ```
@@ -23,7 +23,7 @@ status: installed
 
 ```yaml
 skill_entrypoint_readable: true
-entrypoint: /Users/condy/Desktop/think-tank-skill/.codex/skills/think-tank/SKILL.md
+entrypoint: <repo>/.codex/skills/think-tank/SKILL.md
 repository_relative_symlink: true
 symlink_resolves_to_source: true
 subagent_runtime_check: passing

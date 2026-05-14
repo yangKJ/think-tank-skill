@@ -31,7 +31,7 @@ tool_combinations: peer_skills_under_.codex/skills
 legacy_competitive_orchestrator: replaced_by_yaml_provider_policy
 specialist_roles: think-tank/profiles
 subagent_runtime_contract: think-tank/protocol/subagent-runtime-contract.md
-domain_knowledge: think-tank/domain-packs/image-editing
+private_domain_knowledge: excluded_from_core
 ```
 
 ## 用户以后怎么说

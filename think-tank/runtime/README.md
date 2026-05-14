@@ -25,6 +25,6 @@
 
 `safety.py` 只提供检测和清理原语，不执行 shell 命令，不写私有目录，也不创建 Claude Code Team。
 
-`council.py` 只提供平台无关状态判断和 synthesis payload，不实现旧 agent-council 的 HMAC manifest、文件锁、Team 调度或 ios-automation-mcp 项目路径。
+`council.py` 只提供平台无关状态判断和 synthesis payload，不实现旧 agent-council 的 HMAC manifest、文件锁、Team 调度或项目私有路径。
 
 `subagent.py` 不创建真实子进程或外部 agent。它定义专业 subagent runtime 的平台无关任务包、结果包和 fallback 标签，由具体平台 adapter 负责真实派发。

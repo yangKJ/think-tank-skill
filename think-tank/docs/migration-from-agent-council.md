@@ -4,10 +4,10 @@ agent-council 是 think-tank 的历史实现分支，主要价值在于多角色
 
 在新体系中，agent-council 应被收编为 `council mode`，不再作为平行主线。
 
-## 来源路径
+## 来源
 
 ```text
-/Users/condy/Desktop/ios-automation-mcp/.claude/skills/agent-council
+legacy Claude Code agent-council skill
 ```
 
 ## 应保留的设计
@@ -74,7 +74,7 @@ collect -> discuss -> conclude -> complete
 - 文件权限 `700` / `600`
 - manifest 签名
 - Python 状态机脚本
-- ios-automation-mcp 历史案例路径
+- 项目私有历史案例路径
 
 这些内容可以进入 Claude Code adapter 的 runtime contract，作为该平台的工程实现经验。
 

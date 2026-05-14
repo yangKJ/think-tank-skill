@@ -65,6 +65,7 @@ def main() -> None:
         fail("think-tank 未安装到项目内 Codex skills")
 
     present_peer_skills: list[str] = []
+    private_home = str(Path.home())
     for name in OPTIONAL_PEER_SKILLS:
         target = PROJECT_CODEX_SKILLS / name
         if not target.exists():
@@ -75,7 +76,7 @@ def main() -> None:
         if target.is_symlink():
             fail(f"{name} 必须是项目内复制目录，不允许软链接")
         skill_text = (target / "SKILL.md").read_text(encoding="utf-8")
-        for forbidden in ["~/.claude/skills", "/Users/condy/Desktop/img-company/agents/research"]:
+        for forbidden in ["~/.claude/skills", private_home, "legacy research workspace"]:
             if forbidden in skill_text:
                 fail(f"{name}/SKILL.md 仍依赖旧平台路径: {forbidden}")
 

@@ -5,7 +5,7 @@
 来源：
 
 ```text
-/Users/condy/Desktop/img-company/agents/research
+legacy research workspace
 ```
 
 ## 目录级处置
@@ -17,7 +17,7 @@
 | `.claude/agents/` | 全部映射为 think-tank profiles | `profiles/`、`platforms/claude-code/agent-mapping.md` |
 | `.claude/skills/` | 全部映射为 capability 或外部 skill 互操作 | `capabilities/`、`platforms/claude-code/skill-mapping.md`、`docs/external-skill-interoperability.md` |
 | `.claude/skills/think-tank/` | 已完成旧 think-tank 全量迁移 | `docs/legacy-think-tank-full-migration.md` |
-| `knowledge/` | 图像编辑和 iOS 研究知识，不进入 core | `domain-packs/image-editing/legacy-knowledge-index.md` |
+| `knowledge/` | 私有领域研究知识，不进入当前主仓 | 由具体项目自行维护 |
 | `logs/daily/` | 监控简报样例来源 | `templates/monitoring-brief.md` |
 | `memory/` | 历史经验来源，抽象为迁移结论 | `docs/research-migration-audit.md` |
 | `.claude/agent-memory/` | 旧 think-tank issue 和 UX 经验 | `docs/legacy-think-tank-full-migration.md`、`docs/legacy-runtime-safety.md` |
@@ -70,11 +70,7 @@
 
 ## Knowledge
 
-旧 `knowledge/` 下共有 35 个 Markdown 资料文件。它们全部属于领域知识或历史报告，不进入 core protocol。完整索引见：
-
-```text
-domain-packs/image-editing/legacy-knowledge-index.md
-```
+旧 `knowledge/` 下的 Markdown 资料属于私有领域知识或历史报告，不进入当前通用主仓。需要这些知识的项目应在自己的仓库中添加 domain pack 或本地资料目录。
 
 ## Logs 和 Memory
 
@@ -89,8 +85,8 @@ domain-packs/image-editing/legacy-knowledge-index.md
 
 ```yaml
 agents_disposed: 7
-skills_disposed: 25
-knowledge_files_disposed: 35
+skills_disposed: 24
+private_domain_knowledge_in_core: false
 legacy_logs_disposed: true
 legacy_memory_disposed: true
 private_platform_config_excluded: true

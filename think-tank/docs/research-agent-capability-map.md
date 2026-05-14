@@ -5,7 +5,7 @@
 旧 research agent 来源：
 
 ```text
-/Users/condy/Desktop/img-company/agents/research
+legacy research workspace
 ```
 
 ## 核心判断
@@ -26,7 +26,7 @@
   -> 必要时持续监控
 ```
 
-在新 think-tank 中，应吸收它的通用研究能力，而不是吸收它的图像编辑 App 领域绑定。
+在新 think-tank 中，应吸收它的通用研究能力，而不是吸收具体项目的领域绑定。
 
 ## 旧系统能力分层
 
@@ -181,7 +181,7 @@ think-tank 应吸收“如何选择信息源和工具链”的策略，而不是
 - `capabilities/`：source acquisition、media processing、social listening、knowledge persistence、browser automation
 - `profiles/`：source collector、trend analyst、social listener、feedback synthesizer、report architect、skeptic、product strategist
 - `platforms/claude-code/`：旧 skills 和 subagents 的平台映射
-- `domain-packs/image-editing/`：图像编辑领域经验
+- `domain-packs/`：领域扩展点，具体项目自行维护
 
 ## 应进入 research mode 的能力
 
@@ -213,22 +213,17 @@ think-tank 应吸收“如何选择信息源和工具链”的策略，而不是
 
 这些不能进入平台无关协议。
 
-## 应作为 domain pack 的能力
+## 应留在具体项目的领域能力
 
-以下能力是图像编辑 App 领域经验，不应进入 core：
+以下能力是私有领域经验，不应进入当前主仓：
 
-- Awakening 产品背景
-- VSCO、Lightroom、醒图、美图等固定竞品表
-- AI 消除、Neural Engine、Metal、CoreML 等默认技术雷达
-- App Store 竞品 ID
-- 小红书图像编辑舆情关键词
-- `/Users/condy/Desktop/Obsidian/Researchs/` 固定交付路径
+- 具体产品背景
+- 固定竞品表
+- 领域默认技术雷达
+- 私有交付路径
+- 平台或项目专属舆情关键词
 
-这些可沉淀为未来的：
-
-```text
-think-tank/domain-packs/image-editing/
-```
+这些应沉淀到具体项目自己的 domain pack 或本地资料目录。
 
 ## 对统一 think-tank 的启示
 
@@ -243,4 +238,4 @@ research mode
 └── knowledge_output: brief | report | evidence_table | source_queue | knowledge_graph | monitoring_log
 ```
 
-这样既保留旧 research agent 的强能力，又不会把 think-tank 绑定到图像编辑 App 或 Claude Code 平台。
+这样既保留旧 research agent 的强能力，又不会把 think-tank 绑定到某个具体项目或 Claude Code 平台。

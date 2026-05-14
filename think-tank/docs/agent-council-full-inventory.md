@@ -5,7 +5,7 @@
 来源：
 
 ```text
-/Users/condy/Desktop/ios-automation-mcp/.claude/skills/agent-council
+legacy Claude Code agent-council skill
 ```
 
 ## 目录级处置

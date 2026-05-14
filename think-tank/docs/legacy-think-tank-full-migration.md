@@ -5,7 +5,7 @@
 旧来源：
 
 ```text
-/Users/condy/Desktop/img-company/agents/research/.claude/skills/think-tank
+legacy research think-tank skill
 ```
 
 ## 结论
@@ -75,4 +75,3 @@ claude_team_runtime_status: historical_adapter_source
 - 所有旧 Claude Team 限制都有边界说明。
 - 检查脚本能验证迁移后的核心文件存在。
 - 不把旧 mock、tracking、direct call 误写成 full verified。
-

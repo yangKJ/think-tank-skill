@@ -49,9 +49,8 @@
 - 增加 `templates/`，迁移并重写旧 deep research、expert meeting、task kickoff 模板为跨平台协议模板。
 - 增加 Claude Code legacy Team runtime 文档，保留旧 TeamCreate/TeamDelete/checkpoint/heartbeat 经验但不把它们写进 core protocol。
 - 增加旧 think-tank 迁移、安全 runtime 和模板检查脚本。
-- 完成 v0.3 旧 research agent 全仓迁移处置：7 个 agents、25 个 skills、35 个 knowledge 文件、logs、memory 和平台私有配置全部归类。
+- 完成 v0.3 旧 research agent 全仓迁移处置：7 个 agents、24 个 skills、私有领域 knowledge、logs、memory 和平台私有配置全部归类。
 - 增加 `docs/research-agent-full-inventory.md`、`docs/external-skill-interoperability.md`、`docs/v0.3-research-agent-migration.md`。
-- 增加 `domain-packs/image-editing/legacy-knowledge-index.md`，将旧 knowledge 作为领域包素材索引而非 core 依赖。
 - 增加 `templates/monitoring-brief.md` 和 `templates/evidence-table.md`，迁移旧 daily briefing、shared results 和证据表输出形态。
 - 增加 `checks/research_agent_full_migration_check.py`，确保旧 research agent 资产没有未处置项。
 - 完成 v0.4 旧 agent-council 全量迁移处置：references、scripts、history、状态机、安全机制和研究子系统全部归类。

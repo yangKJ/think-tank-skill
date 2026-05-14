@@ -17,7 +17,7 @@ think_tank_core_depends_on_peer_skills: false
 ## 当前安装路径
 
 ```text
-/Users/condy/Desktop/think-tank-skill/.codex/skills/
+<repo>/.codex/skills/
 ├── think-tank
 ├── web-access
 ├── xiaohongshu
@@ -34,7 +34,7 @@ think_tank_core_depends_on_peer_skills: false
 
 这保证 Codex 实际加载入口和主仓 `think-tank/` 是同一份内容，不产生双真相源。
 
-旧 skill 的可执行入口必须指向当前项目本地路径，不能继续依赖 `~/.claude/skills` 或旧 `img-company/agents/research` 路径。历史 README 中若保留 Claude Code 安装说明，只能作为来源记录，不能作为 Codex 执行入口。
+旧 skill 的可执行入口必须指向当前项目本地路径，不能继续依赖用户全局 Claude Code skills 或旧 research workspace 路径。历史 README 中若保留 Claude Code 安装说明，只能作为来源记录，不能作为 Codex 执行入口。
 
 ## 当前项目本地 peer skill 快照
 
