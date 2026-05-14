@@ -17,6 +17,7 @@
 - mode
 - profiles
 - capabilities
+- runtime_provenance
 - sources/evidence 或 discussion inputs
 - disagreements
 - risks
@@ -27,4 +28,3 @@
 ## Boundary
 
 模板可以被 Claude Code、Codex 或其他平台填充，但不得要求某个平台的私有工具。
-

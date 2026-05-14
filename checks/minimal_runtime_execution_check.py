@@ -53,6 +53,11 @@ def load_sample(path: Path) -> dict[str, Any]:
 
 def check_success() -> None:
     data = run_runtime(str(FIXTURE))
+    provenance = data.get("runtime_provenance", {})
+    if provenance.get("provider_invoked") is not True:
+        fail("成功路径 runtime_provenance.provider_invoked 必须是 true")
+    if provenance.get("true_multi_agent_runtime") is not False:
+        fail("成功路径不得声称真实多 agent runtime")
     if data.get("runtime") != "codex-minimal":
         fail("成功路径 runtime 必须是 codex-minimal")
     if data.get("invocation", {}).get("result_status") != "success":
@@ -67,6 +72,11 @@ def check_success() -> None:
 
 def check_failure() -> None:
     data = run_runtime(str(ROOT / "think-tank" / "examples" / "missing-runtime-target.html"))
+    provenance = data.get("runtime_provenance", {})
+    if provenance.get("result_recovered") is not False:
+        fail("失败路径 runtime_provenance.result_recovered 必须是 false")
+    if provenance.get("evidence_state") != "failed":
+        fail("失败路径 runtime_provenance.evidence_state 必须是 failed")
     if data.get("invocation", {}).get("result_status") != "failed":
         fail("失败路径 invocation.result_status 必须是 failed")
     if data.get("recovery", {}).get("result_recovered") is not False:
@@ -87,6 +97,8 @@ def check_static_samples() -> None:
     failure = load_sample(CODEX_FAILURE_SAMPLE)
     if success.get("runtime") != "codex-minimal":
         fail("codex-runtime-sample.runtime 必须是 codex-minimal")
+    if "runtime_provenance" not in success or "runtime_provenance" not in failure:
+        fail("codex runtime samples 必须包含 runtime_provenance")
     if success.get("invocation", {}).get("result_status") != "success":
         fail("codex-runtime-sample 必须是成功路径")
     if not success.get("sources") or not success.get("evidence"):

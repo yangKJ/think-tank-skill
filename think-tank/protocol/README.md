@@ -38,6 +38,10 @@
 - `runtime-contract.md`：平台无关 runtime pipeline
 - `state-result-contract.md`：run、state、result、recovery 最小结构
 - `consensus-contract.md`：显式投票、blocking objection、停止条件
+- `runtime-provenance.md`：运行来源披露门禁，防止把直接工具调用或单 agent 模拟写成真实 runtime
+- `capability-evidence-state-machine.md`：capability 证据状态机
+- `memory-curation.md`：项目记忆候选生成协议
+- `memory-promotion-policy.md`：项目记忆提升到 AGENTS、项目文档或公开协议的规则
 - `versioning.md`：协议版本演进和能力状态标注规则
 
 与外部 peer skills 的连接规则放在 `routing/`。它不是协议真相源，但负责把协议层的 capability slots 转成可执行的 skill route、dispatch decision 和 result recovery。

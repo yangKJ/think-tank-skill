@@ -1,5 +1,21 @@
 {
   "runtime": "codex-runtime-pipeline",
+  "runtime_provenance": {
+    "think_tank_runtime_used": true,
+    "provider_policy_checked": false,
+    "dispatch_decision_emitted": true,
+    "provider_invoked": true,
+    "result_recovered": true,
+    "true_multi_agent_runtime": false,
+    "execution_method": "adapter_runtime",
+    "data_collection": "provider_managed",
+    "evidence_state": "verified_partial",
+    "result_recovery": "automatic",
+    "boundaries": [
+      "Codex runtime pipeline fixture uses adapter runtime.",
+      "No true independent multi-agent runtime is claimed."
+    ]
+  },
   "mode": "research",
   "runtime_plan": {
     "mode": "research",
@@ -56,6 +72,22 @@
   },
   "source_result": {
     "runtime": "codex-minimal",
+    "runtime_provenance": {
+      "think_tank_runtime_used": true,
+      "provider_policy_checked": false,
+      "dispatch_decision_emitted": true,
+      "provider_invoked": true,
+      "result_recovered": true,
+      "true_multi_agent_runtime": false,
+      "execution_method": "adapter_runtime",
+      "data_collection": "local_files",
+      "evidence_state": "recovered",
+      "result_recovery": "automatic",
+      "boundaries": [
+        "Minimal source-acquisition fixture only.",
+        "No full multi-agent runtime is claimed."
+      ]
+    },
     "mode": "research",
     "profile": "source-collector",
     "capability": "source-acquisition",

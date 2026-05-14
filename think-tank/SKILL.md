@@ -191,6 +191,21 @@ authority_level: lower_fallback_single_context
 
 最终输出必须回到 think-tank 结构：
 
+```yaml
+runtime_provenance:
+  think_tank_runtime_used: true | false
+  provider_policy_checked: true | false
+  dispatch_decision_emitted: true | false
+  provider_invoked: true | false
+  result_recovered: true | false
+  true_multi_agent_runtime: true | false
+  execution_method: full_runtime | adapter_runtime | direct_tool_call | single_agent_multi_profile | manual_synthesis | protocol_only
+  data_collection: provider_managed | direct_assistant_tool | user_provided | local_files | none
+  evidence_state: planned | mock | installed | discovered | selected | dispatched | invoked | recovered | verified_partial | verified | blocked | failed | tracking
+  result_recovery: automatic | manual | none
+  boundaries: []
+```
+
 ```text
 结论
 依据
@@ -201,6 +216,11 @@ authority_level: lower_fallback_single_context
 ```
 
 轻量任务可以合并栏目，但不能丢失结论、风险和行动建议。
+
+如果只是按 think-tank 结构输出，但没有真实走 runtime 或 provider dispatch，
+必须明确写出 `think_tank_runtime_used: false` 或相应降级状态。直接使用助手工具收集资料
+时必须写 `data_collection: direct_assistant_tool`，不能说成 provider-managed
+source-acquisition。单 agent 分角色分析必须写 `true_multi_agent_runtime: false`。
 
 ### 8. 质量检查
 
@@ -214,6 +234,9 @@ authority_level: lower_fallback_single_context
 - 是否说明未验证或受限部分
 - 是否没有把 mock/tracking/planned 说成 verified
 - 是否没有把 single-agent fallback 说成 specialist subagent runtime
+- 是否包含 `runtime_provenance`
+- 是否没有把 direct assistant tool use 写成 provider invocation
+- 是否没有把 role labels 写成真实独立 subagents
 
 ## 外部 skills 共存规则
 

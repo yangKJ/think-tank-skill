@@ -1,0 +1,17 @@
+{
+  "think_tank_runtime_used": true,
+  "provider_policy_checked": true,
+  "dispatch_decision_emitted": false,
+  "provider_invoked": false,
+  "result_recovered": false,
+  "true_multi_agent_runtime": false,
+  "execution_method": "single_agent_multi_profile",
+  "data_collection": "user_provided",
+  "evidence_state": "selected",
+  "result_recovery": "manual",
+  "boundaries": [
+    "Profiles are simulated in one model context.",
+    "No external provider was invoked."
+  ]
+}
+

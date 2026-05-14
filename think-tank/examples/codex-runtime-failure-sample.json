@@ -1,5 +1,21 @@
 {
   "runtime": "codex-minimal",
+  "runtime_provenance": {
+    "think_tank_runtime_used": true,
+    "provider_policy_checked": false,
+    "dispatch_decision_emitted": true,
+    "provider_invoked": true,
+    "result_recovered": false,
+    "true_multi_agent_runtime": false,
+    "execution_method": "adapter_runtime",
+    "data_collection": "local_files",
+    "evidence_state": "failed",
+    "result_recovery": "none",
+    "boundaries": [
+      "Codex minimal runtime failure sample invokes one unavailable local target.",
+      "No source or evidence is fabricated."
+    ]
+  },
   "mode": "research",
   "profile": "source-collector",
   "capability": "source-acquisition",

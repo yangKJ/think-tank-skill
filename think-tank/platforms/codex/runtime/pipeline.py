@@ -98,8 +98,25 @@ def run_pipeline(task: str, target: str, strict: bool = False) -> dict[str, Any]
         "stage_results": [stage_result.to_dict()],
     }
     boundaries = runtime_plan["boundaries"] + slot_resolution["boundaries"] + source_result["boundaries"]
+    runtime_provenance = {
+        "think_tank_runtime_used": True,
+        "provider_policy_checked": False,
+        "dispatch_decision_emitted": True,
+        "provider_invoked": True,
+        "result_recovered": bool(source_result["sources"]),
+        "true_multi_agent_runtime": False,
+        "execution_method": "adapter_runtime",
+        "data_collection": "provider_managed",
+        "evidence_state": "verified_partial" if source_result["sources"] else "failed",
+        "result_recovery": "automatic" if source_result["sources"] else "none",
+        "boundaries": [
+            "Codex runtime pipeline uses adapter runtime, not true independent multi-agent runtime.",
+            "Provider policy routing is not checked by this minimal pipeline.",
+        ],
+    }
     return {
         "runtime": "codex-runtime-pipeline",
+        "runtime_provenance": runtime_provenance,
         "mode": runtime_plan["mode"],
         "runtime_plan": runtime_plan,
         "slot_resolution": slot_resolution,

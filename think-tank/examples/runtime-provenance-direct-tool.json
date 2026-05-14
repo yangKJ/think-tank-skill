@@ -1,0 +1,17 @@
+{
+  "think_tank_runtime_used": false,
+  "provider_policy_checked": false,
+  "dispatch_decision_emitted": false,
+  "provider_invoked": false,
+  "result_recovered": false,
+  "true_multi_agent_runtime": false,
+  "execution_method": "direct_tool_call",
+  "data_collection": "direct_assistant_tool",
+  "evidence_state": "invoked",
+  "result_recovery": "manual",
+  "boundaries": [
+    "Data was collected by direct assistant tool use, not by think-tank provider dispatch.",
+    "Role labels, if present, are single-agent perspectives, not independent subagents."
+  ]
+}
+

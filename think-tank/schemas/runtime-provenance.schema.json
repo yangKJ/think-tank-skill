@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://think-tank.local/schemas/runtime-provenance.schema.json",
+  "title": "think-tank runtime provenance",
+  "type": "object",
+  "required": [
+    "think_tank_runtime_used",
+    "provider_policy_checked",
+    "dispatch_decision_emitted",
+    "provider_invoked",
+    "result_recovered",
+    "true_multi_agent_runtime",
+    "execution_method",
+    "data_collection",
+    "evidence_state",
+    "result_recovery",
+    "boundaries"
+  ],
+  "properties": {
+    "think_tank_runtime_used": {"type": "boolean"},
+    "provider_policy_checked": {"type": "boolean"},
+    "dispatch_decision_emitted": {"type": "boolean"},
+    "provider_invoked": {"type": "boolean"},
+    "result_recovered": {"type": "boolean"},
+    "true_multi_agent_runtime": {"type": "boolean"},
+    "execution_method": {
+      "type": "string",
+      "enum": [
+        "full_runtime",
+        "adapter_runtime",
+        "direct_tool_call",
+        "single_agent_multi_profile",
+        "manual_synthesis",
+        "protocol_only"
+      ]
+    },
+    "data_collection": {
+      "type": "string",
+      "enum": [
+        "provider_managed",
+        "direct_assistant_tool",
+        "user_provided",
+        "local_files",
+        "none"
+      ]
+    },
+    "evidence_state": {
+      "type": "string",
+      "enum": [
+        "planned",
+        "mock",
+        "installed",
+        "discovered",
+        "selected",
+        "dispatched",
+        "invoked",
+        "recovered",
+        "verified_partial",
+        "verified",
+        "blocked",
+        "failed",
+        "tracking"
+      ]
+    },
+    "result_recovery": {
+      "type": "string",
+      "enum": ["automatic", "manual", "none"]
+    },
+    "boundaries": {
+      "type": "array",
+      "items": {"type": "string"},
+      "minItems": 1
+    }
+  },
+  "additionalProperties": false
+}
+

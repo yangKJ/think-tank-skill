@@ -1,5 +1,21 @@
 {
   "runtime": "codex-minimal",
+  "runtime_provenance": {
+    "think_tank_runtime_used": true,
+    "provider_policy_checked": false,
+    "dispatch_decision_emitted": true,
+    "provider_invoked": true,
+    "result_recovered": true,
+    "true_multi_agent_runtime": false,
+    "execution_method": "adapter_runtime",
+    "data_collection": "local_files",
+    "evidence_state": "recovered",
+    "result_recovery": "automatic",
+    "boundaries": [
+      "Codex minimal runtime sample reads one local static fixture.",
+      "No true independent multi-agent runtime is claimed."
+    ]
+  },
   "mode": "research",
   "profile": "source-collector",
   "capability": "source-acquisition",

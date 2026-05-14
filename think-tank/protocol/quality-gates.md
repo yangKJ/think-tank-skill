@@ -5,11 +5,34 @@ think-tank 每次输出前必须通过质量门禁。
 ## 必过门禁
 
 - 是否明确采用了哪个 mode
+- 是否包含 Runtime Provenance，并说明执行方式、数据来源和结果回收方式
 - 是否说明了核心结论
 - 是否区分事实、推断和建议
 - 是否列出关键风险或分歧
 - 是否给出可执行下一步
 - 是否标注未验证或受限部分
+
+## Runtime Provenance 门禁
+
+所有 think-tank 风格输出都必须包含 `runtime_provenance`：
+
+```yaml
+runtime_provenance_present: true
+execution_method_clear: true
+data_collection_clear: true
+provider_invocation_truthful: true
+multi_agent_truthful: true
+recovery_truthful: true
+```
+
+必须区分：
+
+- `direct_assistant_tool`：助手直接调用工具，不等于 think-tank provider dispatch。
+- `single_agent_multi_profile`：单 agent 扮演多个 profile，不等于真实多 agent。
+- `manual_synthesis`：手工汇总，不等于自动 result recovery contract。
+- `protocol_only`：只执行协议推理，不代表外部能力已调用。
+
+完整规则见 `protocol/runtime-provenance.md`。
 
 ## 高风险任务追加门禁
 

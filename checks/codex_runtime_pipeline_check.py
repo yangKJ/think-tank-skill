@@ -43,6 +43,13 @@ def main() -> None:
     data = run_pipeline(FIXTURE)
     if data.get("runtime") != "codex-runtime-pipeline":
         fail("runtime 必须是 codex-runtime-pipeline")
+    provenance = data.get("runtime_provenance", {})
+    if provenance.get("execution_method") != "adapter_runtime":
+        fail("runtime_provenance.execution_method 必须是 adapter_runtime")
+    if provenance.get("true_multi_agent_runtime") is not False:
+        fail("Codex minimal pipeline 不得声称真实多 agent runtime")
+    if provenance.get("provider_invoked") is not True:
+        fail("Codex minimal pipeline 必须声明 provider/tool 已调用")
     if data.get("mode") != "research":
         fail("mode 必须是 research")
     if data.get("slot_resolution", {}).get("can_continue") is not True:

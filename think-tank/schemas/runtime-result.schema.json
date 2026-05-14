@@ -5,6 +5,7 @@
   "type": "object",
   "required": [
     "runtime",
+    "runtime_provenance",
     "mode",
     "runtime_plan",
     "slot_resolution",
@@ -18,6 +19,7 @@
   "additionalProperties": false,
   "properties": {
     "runtime": {"type": "string"},
+    "runtime_provenance": {"$ref": "runtime-provenance.schema.json"},
     "mode": {"type": "string", "enum": ["research", "council", "review", "strategy"]},
     "runtime_plan": {"type": "object"},
     "slot_resolution": {

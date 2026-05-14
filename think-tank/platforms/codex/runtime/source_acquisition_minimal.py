@@ -56,8 +56,25 @@ def summarize(content: str) -> str:
 
 def runtime_result(target: str, runtime: str) -> dict[str, Any]:
     success, content, status = read_target(target)
+    runtime_provenance = {
+        "think_tank_runtime_used": True,
+        "provider_policy_checked": False,
+        "dispatch_decision_emitted": True,
+        "provider_invoked": True,
+        "result_recovered": success,
+        "true_multi_agent_runtime": False,
+        "execution_method": "adapter_runtime",
+        "data_collection": "local_files" if not urlparse(target).scheme.startswith("http") else "provider_managed",
+        "evidence_state": "recovered" if success else "failed",
+        "result_recovery": "automatic" if success else "none",
+        "boundaries": [
+            "Minimal runtime path only; no full multi-agent runtime is claimed.",
+            "Provider policy routing is not checked by this source-acquisition runner.",
+        ],
+    }
     base: dict[str, Any] = {
         "runtime": runtime,
+        "runtime_provenance": runtime_provenance,
         "mode": "research",
         "profile": "source-collector",
         "capability": "source-acquisition",

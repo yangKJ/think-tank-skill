@@ -4,6 +4,18 @@
 mode: council
 runtime_state: council
 capabilities: []
+runtime_provenance:
+  think_tank_runtime_used: "{true|false}"
+  provider_policy_checked: "{true|false}"
+  dispatch_decision_emitted: "{true|false}"
+  provider_invoked: false
+  result_recovered: "{true|false}"
+  true_multi_agent_runtime: "{true|false}"
+  execution_method: "{full_runtime|single_agent_multi_profile|manual_synthesis|protocol_only}"
+  data_collection: "{user_provided|local_files|none}"
+  evidence_state: "{selected|recovered|verified_partial|tracking}"
+  result_recovery: "{automatic|manual|none}"
+  boundaries: []
 ```
 
 ## Topic
@@ -73,4 +85,5 @@ all_selected_profiles_heard: true
 blocking_objections_recorded: true
 no_l1_with_blocking_objection: true
 ios_project_context_removed: true
+runtime_provenance_present: true
 ```

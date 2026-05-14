@@ -8,6 +8,18 @@ profiles:
   - skeptic
   - report-architect
 capabilities: []
+runtime_provenance:
+  think_tank_runtime_used: "{true|false}"
+  provider_policy_checked: "{true|false}"
+  dispatch_decision_emitted: "{true|false}"
+  provider_invoked: false
+  result_recovered: "{true|false}"
+  true_multi_agent_runtime: "{true|false}"
+  execution_method: "{full_runtime|single_agent_multi_profile|manual_synthesis|protocol_only}"
+  data_collection: "{user_provided|local_files|none}"
+  evidence_state: "{selected|recovered|verified_partial|tracking}"
+  result_recovery: "{automatic|manual|none}"
+  boundaries: []
 ```
 
 ## Topic
@@ -78,5 +90,5 @@ all_required_profiles_heard: "{true|false}"
 blocking_objections_addressed: "{true|false}"
 no_external_tool_claim_without_invocation: true
 actionable: "{true|false}"
+runtime_provenance_present: true
 ```
-

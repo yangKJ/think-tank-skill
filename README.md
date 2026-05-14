@@ -87,6 +87,7 @@ Readiness status:
 - [`think-tank/protocol/memory-curation.md`](think-tank/protocol/memory-curation.md)
 - [`think-tank/protocol/capability-evidence-state-machine.md`](think-tank/protocol/capability-evidence-state-machine.md)
 - [`think-tank/protocol/memory-promotion-policy.md`](think-tank/protocol/memory-promotion-policy.md)
+- [`think-tank/protocol/runtime-provenance.md`](think-tank/protocol/runtime-provenance.md)
 
 ## Validation
 
@@ -134,6 +135,7 @@ python3 checks/local_workspace_check.py
 python3 checks/memory_curation_check.py
 python3 checks/capability_evidence_state_check.py
 python3 checks/memory_promotion_policy_check.py
+python3 checks/runtime_provenance_check.py
 python3 checks/release_privacy_check.py
 ```
 
@@ -162,6 +164,7 @@ Codex foundation status:
 - Project memory capture is implemented as propose-then-review; it does not auto-select persistence providers or auto-write private knowledge stores.
 - v2.1 capability evidence states distinguish installed, discovered, selected, dispatched, invoked, recovered, verified_partial, and verified.
 - v2.1 memory promotion policy controls whether memory stays local, moves to AGENTS.md, becomes project docs, or is generalized into public protocol.
+- v2.2 runtime provenance gate requires every think-tank-style output to disclose runtime, provider invocation, data collection, result recovery, and multi-agent truthfulness.
 
 ## Design Boundary
 

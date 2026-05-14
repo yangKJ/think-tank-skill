@@ -39,6 +39,11 @@ def main() -> None:
     for key in ["runtime_plan", "slot_resolution", "run_state", "source_result", "consensus_result", "final_output"]:
         if not isinstance(fixture.get(key), dict):
             fail(f"fixture.{key} 必须是 object")
+    provenance = fixture.get("runtime_provenance", {})
+    if provenance.get("true_multi_agent_runtime") is not False:
+        fail("fixture runtime_provenance 必须明确不声称真实多 agent runtime")
+    if provenance.get("result_recovery") != "automatic":
+        fail("fixture runtime_provenance.result_recovery 必须是 automatic")
     if fixture["slot_resolution"].get("can_continue") is not True:
         fail("fixture slot_resolution.can_continue 必须是 true")
     print("runtime result schema 检查通过")

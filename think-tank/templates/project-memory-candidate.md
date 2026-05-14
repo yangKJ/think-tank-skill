@@ -29,6 +29,18 @@ quality_check:
   no_secret:
   no_unverified_claim_as_fact:
   no_duplicate:
+runtime_provenance:
+  think_tank_runtime_used:
+  provider_policy_checked:
+  dispatch_decision_emitted:
+  provider_invoked:
+  result_recovered:
+  true_multi_agent_runtime:
+  execution_method:
+  data_collection:
+  evidence_state:
+  result_recovery:
+  boundaries: []
 ```
 
 ## Proposed Content
