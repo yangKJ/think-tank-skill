@@ -2,6 +2,15 @@
 
 本文记录旧 research agent 触发词和组合技能如何迁移到新的 think-tank 主体系。
 
+更通用的平台无关触发路由已经提升到：
+
+```text
+protocol/intent-routing.md
+recipes/
+```
+
+本文只保留旧 research agent 迁移解释，不作为新的唯一真相源。
+
 ## 已吸收的旧能力
 
 旧 research agent 的能力可以分成四类：
@@ -16,6 +25,8 @@
 ```yaml
 research_agent_identity: replaced_by_think_tank_research_mode
 trigger_words: platforms/codex/trigger-routing.md
+generic_intents: protocol/intent-routing.md
+task_recipes: recipes/
 tool_combinations: peer_skills_under_.codex/skills
 specialist_roles: think-tank/profiles
 subagent_runtime_contract: think-tank/protocol/subagent-runtime-contract.md

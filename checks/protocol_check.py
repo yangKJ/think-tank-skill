@@ -17,6 +17,7 @@ REQUIRED_FILES = [
     THINK_TANK / "protocol" / "think-tank-protocol.md",
     THINK_TANK / "protocol" / "roles.md",
     THINK_TANK / "protocol" / "agent-selection.md",
+    THINK_TANK / "protocol" / "intent-routing.md",
     THINK_TANK / "protocol" / "mode-selection.md",
     THINK_TANK / "protocol" / "quality-gates.md",
     THINK_TANK / "protocol" / "runtime-contract.md",

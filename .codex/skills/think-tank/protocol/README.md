@@ -30,6 +30,7 @@
 
 - `think-tank-protocol.md`：核心协议正文
 - `input-output.md`：输入输出契约
+- `intent-routing.md`：平台无关自然语言触发、intent 和 recipe 路由规则
 - `roles.md`：角色职责、选择规则和角色输出契约
 - `agent-selection.md`：场景驱动的角色和平台 agent 选择规则
 - `mode-selection.md`：场景模式选择规则

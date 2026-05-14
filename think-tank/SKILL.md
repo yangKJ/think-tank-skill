@@ -17,15 +17,30 @@ think-tank 是一个跨平台、可复用的高阶 Skill，用于多角色信息
 - 需要策略、路线、产品或架构判断
 - 需要把复杂资料汇总为行动建议
 
-旧 research agent 风格触发词也应进入 think-tank：
+通用触发词也应进入 think-tank：
 
-- `研究一下`、`帮我了解一下`、`行业分析`
-- `深度研究`、`全面研究`、`系统分析`
-- `竞品分析`、`竞品动态`
-- `舆情分析`、`小红书用户评价`
-- `开会讨论`、`讨论一下`
+- 研究：`研究一下`、`帮我了解一下`、`深度研究`、`全面分析`
+- 竞争：`竞品分析`、`竞争分析`、`对比一下对手`
+- 市场：`市场调研`、`行业分析`、`用户需求`
+- 技术：`技术调研`、`方案调研`、`可行性分析`
+- 反馈：`舆情分析`、`用户反馈`、`评论分析`
+- 决策：`开会讨论`、`讨论一下`、`帮我判断`
+- 审查：`审查`、`review`、`验收`、`找问题`
+- 策略：`制定策略`、`路线图`、`行动方案`
 
-Codex 平台的详细触发路由见：
+平台无关的 intent 路由见：
+
+```text
+protocol/intent-routing.md
+```
+
+跨项目任务配方见：
+
+```text
+recipes/
+```
+
+Codex 平台只负责把这些 intent/recipe 映射到当前可用能力，见：
 
 ```text
 platforms/codex/trigger-routing.md
@@ -51,7 +66,23 @@ platforms/codex/trigger-routing.md
 - 是否需要实时信息
 - 期望输出
 
-### 2. 选择 mode
+### 2. 选择 intent、mode 和 recipe
+
+按 `protocol/intent-routing.md` 识别通用任务意图，并在 `recipes/` 中选择任务配方。
+
+常用 intent：
+
+- `general_research`
+- `competitive_intelligence`
+- `market_research`
+- `technical_research`
+- `user_feedback_analysis`
+- `media_research`
+- `decision_council`
+- `review_acceptance`
+- `strategy_planning`
+- `monitoring_plan`
+- `synthesis`
 
 按 `protocol/mode-selection.md` 选择：
 
@@ -61,6 +92,8 @@ platforms/codex/trigger-routing.md
 - `strategy`：路线、产品、架构和优先级
 
 如果无法判断，默认使用 `council`，并说明原因。
+
+recipe 可以建议 profiles、capabilities 和 optional peer skills，但不能把外部 peer skills 变成 core 依赖。
 
 ### 3. 选择 profiles
 
@@ -163,6 +196,14 @@ think-tank 可以编排外部 skills，但不拥有它们。
 
 如果外部 skill 不可用，按 capability 的降级策略处理，并在边界中说明。
 
+recipe 中出现的 `optional_peer_skills` 只表示候选实现：
+
+```yaml
+optional_peer_skills_are_dependencies: false
+missing_peer_skill_behavior: degrade_to_core_protocol
+execution_claim: only_verified_per_run
+```
+
 ## 旧资产关系
 
 - 旧 research agent 是 research mode、capabilities、profiles 和 Claude Code 映射的来源材料。
@@ -182,7 +223,9 @@ think-tank 可以编排外部 skills，但不拥有它们。
 
 - 架构总览：`docs/architecture.md`
 - 核心协议：`protocol/think-tank-protocol.md`
+- intent 路由：`protocol/intent-routing.md`
 - mode 选择：`protocol/mode-selection.md`
+- 通用 recipes：`recipes/`
 - profiles：`profiles/`
 - profile prompt pack：`profiles/prompt-pack.md`
 - capabilities：`capabilities/`

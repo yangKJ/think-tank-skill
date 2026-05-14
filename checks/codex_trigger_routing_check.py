@@ -15,6 +15,9 @@ REQUIRED_TRIGGERS = [
     "研究一下",
     "深度研究",
     "竞品分析",
+    "竞争分析",
+    "市场调研",
+    "技术调研",
     "小红书用户评价",
     "舆情分析",
     "持续监控",
@@ -76,6 +79,11 @@ def main() -> None:
 
     if "router_owner: think-tank" not in routing:
         fail("trigger routing 必须声明 think-tank 是路由主语")
+    if "protocol/intent-routing.md" not in routing or "recipes/" not in routing:
+        fail("Codex trigger routing 必须引用平台无关 intent/recipe 真相源")
+    for term in ["selected_intent:", "selected_recipe:"]:
+        if term not in routing:
+            fail(f"Codex trigger routing 测试说法缺少字段: {term}")
     if "research_agent_identity: replaced_by_think_tank_research_mode" not in migration:
         fail("迁移文档必须声明旧 research agent 身份被 research mode 接管")
 
