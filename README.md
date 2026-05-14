@@ -100,6 +100,10 @@ python3 checks/runtime_planner_check.py
 python3 checks/slot_resolver_check.py
 python3 checks/state_model_check.py
 python3 checks/consensus_runtime_check.py
+python3 checks/runtime_result_schema_check.py
+python3 checks/codex_runtime_pipeline_check.py
+python3 checks/claude_runtime_pipeline_spec_check.py
+python3 checks/runtime_e2e_fixture_check.py
 ```
 
 Codex foundation status:
@@ -114,6 +118,7 @@ Codex foundation status:
 - Claude Code runtime and true multi-agent execution remain planned.
 - v0.2 runtime hardening contracts are specified and checked.
 - v0.2 platform-neutral minimal runtime library is implemented and checked.
+- v0.2 Codex runtime pipeline and platform-neutral runtime result schema are checked.
 
 ## Design Boundary
 

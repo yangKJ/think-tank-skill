@@ -41,6 +41,8 @@
 - 增加 v0.2 四个检查脚本：`runtime_contract_check.py`、`slot_contract_check.py`、`consensus_contract_check.py`、`research_protocol_check.py`。
 - 增加 v0.2 平台无关 minimal runtime library：planner、slot resolver、state model、consensus evaluator。
 - 增加 v0.2 runtime 实现检查脚本：`runtime_planner_check.py`、`slot_resolver_check.py`、`state_model_check.py`、`consensus_runtime_check.py`。
+- 增加 v0.2 adapter integration：平台无关 `runtime-result.schema.json`、Codex runtime pipeline、Claude Code runtime pipeline spec 和 E2E fixture。
+- 增加 adapter integration 检查脚本：`runtime_result_schema_check.py`、`codex_runtime_pipeline_check.py`、`claude_runtime_pipeline_spec_check.py`、`runtime_e2e_fixture_check.py`。
 - 增加 optional capability 后续验证路线图。
 - 增加 MIT License。
 

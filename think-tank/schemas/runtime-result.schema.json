@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://think-tank.dev/schemas/runtime-result.schema.json",
+  "title": "Think Tank Runtime Result",
+  "type": "object",
+  "required": [
+    "runtime",
+    "mode",
+    "runtime_plan",
+    "slot_resolution",
+    "run_state",
+    "source_result",
+    "consensus_result",
+    "final_output",
+    "quality_check",
+    "boundaries"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "runtime": {"type": "string"},
+    "mode": {"type": "string", "enum": ["research", "council", "review", "strategy"]},
+    "runtime_plan": {"type": "object"},
+    "slot_resolution": {
+      "type": "object",
+      "required": ["resolutions", "missing_required", "can_continue", "boundaries"],
+      "additionalProperties": true,
+      "properties": {
+        "resolutions": {"type": "array"},
+        "missing_required": {"type": "array", "items": {"type": "string"}},
+        "can_continue": {"type": "boolean"},
+        "boundaries": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "run_state": {"type": "object"},
+    "source_result": {"type": "object"},
+    "consensus_result": {"type": "object"},
+    "final_output": {
+      "type": "object",
+      "required": ["conclusion", "evidence", "recommendations"],
+      "additionalProperties": true,
+      "properties": {
+        "conclusion": {"type": "string"},
+        "evidence": {"type": "array", "items": {"type": "string"}},
+        "recommendations": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "quality_check": {
+      "type": "object",
+      "required": ["protocol_complete", "evidence_boundary_clear", "actionable"],
+      "additionalProperties": false,
+      "properties": {
+        "protocol_complete": {"type": "boolean"},
+        "evidence_boundary_clear": {"type": "boolean"},
+        "actionable": {"type": "boolean"}
+      }
+    },
+    "boundaries": {"type": "array", "items": {"type": "string"}}
+  }
+}

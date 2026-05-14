@@ -23,6 +23,7 @@
 - `dispatch-prompt.md`：Claude Code dispatch 验证标准提示词
 - `final-validation-prompt.md`：Claude Code 最终低流量验证提示词
 - `minimal-runtime.md`：Claude Code 最小 adapter runtime 约定
+- `runtime-pipeline.md`：Claude Code runtime pipeline v0.2 映射规范
 - `runtime-contract.md`：真实执行、结果回收和失败恢复约定
 - `skill-mapping.md`：Claude Code skills 到 think-tank capabilities 的映射
 - `agent-mapping.md`：Claude Code subagents 到 think-tank profiles 的映射

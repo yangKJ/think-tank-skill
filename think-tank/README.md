@@ -120,6 +120,10 @@ python3 checks/runtime_planner_check.py
 python3 checks/slot_resolver_check.py
 python3 checks/state_model_check.py
 python3 checks/consensus_runtime_check.py
+python3 checks/runtime_result_schema_check.py
+python3 checks/codex_runtime_pipeline_check.py
+python3 checks/claude_runtime_pipeline_spec_check.py
+python3 checks/runtime_e2e_fixture_check.py
 ```
 
 仍未声明完成：

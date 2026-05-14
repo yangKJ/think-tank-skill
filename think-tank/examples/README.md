@@ -42,3 +42,4 @@
 - `browser-automation-integration.md`：Codex Browser 最小集成测试输出
 - `schema-sample-input.json`：输入 schema 样例
 - `schema-sample-output.json`：输出 schema 样例
+- `runtime-e2e-fixture.json`：平台无关 runtime pipeline 端到端 fixture

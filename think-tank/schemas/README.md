@@ -10,6 +10,7 @@
 - `output.schema.json`：标准输出结构
 - `claude-dispatch.schema.json`：Claude Code dispatch 输出结构
 - `claude-runtime.schema.json`：Claude Code minimal runtime 输出结构，用于检查成功与失败路径样例
+- `runtime-result.schema.json`：平台无关 runtime pipeline 输出结构
 
 ## 使用原则
 

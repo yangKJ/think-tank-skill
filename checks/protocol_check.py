@@ -32,6 +32,7 @@ REQUIRED_FILES = [
     THINK_TANK / "platforms" / "claude-code" / "final-validation-prompt.md",
     THINK_TANK / "platforms" / "claude-code" / "minimal-runtime.md",
     THINK_TANK / "platforms" / "claude-code" / "runtime-contract.md",
+    THINK_TANK / "platforms" / "claude-code" / "runtime-pipeline.md",
     THINK_TANK / "platforms" / "claude-code" / "skill-mapping.md",
     THINK_TANK / "platforms" / "claude-code" / "agent-mapping.md",
     THINK_TANK / "platforms" / "codex" / "adapter.md",
@@ -40,6 +41,7 @@ REQUIRED_FILES = [
     THINK_TANK / "platforms" / "codex" / "minimal-runtime.md",
     THINK_TANK / "platforms" / "codex" / "operating-guide.md",
     THINK_TANK / "platforms" / "codex" / "runtime" / "source_acquisition_minimal.py",
+    THINK_TANK / "platforms" / "codex" / "runtime" / "pipeline.py",
     THINK_TANK / "platforms" / "codex" / "smoke-test.md",
     THINK_TANK / "platforms" / "codex" / "task-templates.md",
     THINK_TANK / "runtime" / "README.md",
@@ -79,6 +81,7 @@ REQUIRED_FILES = [
     THINK_TANK / "examples" / "browser-automation-integration.md",
     THINK_TANK / "examples" / "schema-sample-input.json",
     THINK_TANK / "examples" / "schema-sample-output.json",
+    THINK_TANK / "examples" / "runtime-e2e-fixture.json",
     THINK_TANK / "examples" / "claude-dispatch-sample.json",
     THINK_TANK / "examples" / "claude-runtime-sample.json",
     THINK_TANK / "examples" / "claude-runtime-failure-sample.json",
@@ -102,6 +105,7 @@ REQUIRED_FILES = [
     THINK_TANK / "schemas" / "output.schema.json",
     THINK_TANK / "schemas" / "claude-dispatch.schema.json",
     THINK_TANK / "schemas" / "claude-runtime.schema.json",
+    THINK_TANK / "schemas" / "runtime-result.schema.json",
 ]
 
 MODE_REQUIRED_SECTIONS = [
