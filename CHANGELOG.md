@@ -22,6 +22,7 @@
 - 移除旧本地 policy 路径兼容思路，避免多个项目本地入口形成多套逻辑。
 - 更新 Codex routing 文档，明确触发词和 provider 偏好应由 `.think-tank/provider-policy.yaml` 项目实例配置承载。
 - Codex provider policy runtime 改为“默认 policy + `.think-tank` overlay”合并模式，避免本地配置启用后丢失基础 research、council、review 和 strategy 路由。
+- 收紧 project memory capture 默认触发词，避免公开 policy 抢占平台或用户自己的通用记忆指令。
 
 ## [0.1.0] - 2026-05-14
 

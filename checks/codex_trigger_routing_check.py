@@ -25,8 +25,8 @@ REQUIRED_TRIGGERS = [
     "开会讨论",
     "审查",
     "制定策略",
-    "记下来",
-    "沉淀到项目记忆",
+    "用 think-tank 生成项目记忆候选",
+    "think-tank memory candidate",
 ]
 
 REQUIRED_SKILLS = [

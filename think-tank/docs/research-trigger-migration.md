@@ -78,6 +78,17 @@ private_domain_knowledge: excluded_from_core
 先不要创建自动化，先输出监控指标、来源、频率、风险和触发条件。
 ```
 
+### 项目记忆候选
+
+```text
+用 think-tank 生成项目记忆候选：[要沉淀的经验]
+think-tank memory candidate: [lesson]
+```
+
+不要在公开默认 policy 中使用 `记下来` 这类通用触发词。它可能属于 Codex、
+Claude Code 或用户自己的平台级记忆系统。think-tank 的默认语义只负责生成
+项目本地 memory candidate，不表示写入平台长期记忆。
+
 ## Codex 执行要求
 
 每次触发旧 research agent 风格任务时，Codex 必须先输出或内部形成：

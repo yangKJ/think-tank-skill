@@ -120,11 +120,15 @@ def main() -> None:
     if not effective_strategy["matched"] or effective_strategy["selected_recipe"] != "strategy-planning":
         fail("本地 policy overlay 后仍必须保留 strategy-planning route")
 
-    memory = module.resolve_request("记下来：provider selection 不能当作 invocation", loaded_policy, provider_registry["providers"])
+    generic_memory = module.resolve_request("记下来：provider selection 不能当作 invocation", loaded_policy, provider_registry["providers"])
+    if generic_memory["matched"]:
+        fail("公开默认 policy 不应抢占通用“记下来”触发词")
+
+    memory = module.resolve_request("用 think-tank 生成项目记忆候选：provider selection 不能当作 invocation", loaded_policy, provider_registry["providers"])
     if not memory["matched"] or memory["selected_intent"] != "project_memory_capture":
-        fail("记下来 未命中 project_memory_capture policy route")
+        fail("think-tank 项目记忆候选 未命中 project_memory_capture policy route")
     if memory["selected_recipe"] != "project-memory-capture":
-        fail("记下来 未选择 project-memory-capture recipe")
+        fail("think-tank 项目记忆候选 未选择 project-memory-capture recipe")
     if memory["fallback"] != "propose_only":
         fail("project memory capture 默认必须 propose_only")
     if memory["skill_route"]["selected_provider"] is not None:

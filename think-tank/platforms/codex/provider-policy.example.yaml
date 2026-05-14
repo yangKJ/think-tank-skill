@@ -239,7 +239,7 @@ routes:
     triggers:
       match: regex
       patterns:
-        - "(记下来|沉淀到项目记忆|写进项目技能|保存这次经验|把这次分析变成项目规则)"
+        - "(think-tank.*(项目记忆|memory candidate|记忆候选|沉淀候选)|用 think-tank .*?(沉淀|生成|整理).*?(项目记忆|记忆候选)|把这次分析变成 think-tank 项目记忆候选)"
     intent: project_memory_capture
     mode: review
     recipe: project-memory-capture

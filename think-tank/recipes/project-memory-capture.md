@@ -6,13 +6,17 @@ think-tank result into project-local knowledge.
 ## Triggers
 
 ```text
-把这次经验记下来
-沉淀到项目记忆
-写进项目技能
-以后遇到这个项目别忘了
-保存这次分析
-把这个执行链保存下来
+用 think-tank 生成项目记忆候选
+用 think-tank 把这次分析沉淀成项目记忆候选
+think-tank memory candidate
+think-tank 项目记忆
+把这次分析变成 think-tank 项目记忆候选
 ```
+
+Avoid generic memory triggers such as `记下来` in public default policy. That
+phrase may belong to the host platform's own memory system or a user's personal
+workflow. Project-local policy may opt into shorter triggers only when the user
+explicitly wants them.
 
 ## Default Mode
 
