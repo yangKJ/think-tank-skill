@@ -129,9 +129,8 @@ capability 不是具体工具。平台 adapter 负责把 capability 映射成当
 当 recipe 或 capability 需要外部能力时，按 `routing/` 形成中间连接决策：
 
 ```text
-recipe.optional_peer_skills
-  + capability candidate skills
-  + platform available skills
+recipe.required_capabilities
+  + platform available provider registry
   + task constraints
   -> skill_route
   -> dispatch_decision
@@ -146,7 +145,7 @@ routing/dispatch-policy.md
 routing/result-recovery.md
 ```
 
-routing 层只选择和连接 optional peer skills，不改变 think-tank core。peer skill 缺失、未授权或失败时，必须降级到 core protocol、用户材料或本地材料，并在边界中说明。
+routing 层只选择和连接当前平台声明的能力提供者，不改变 think-tank core。provider 缺失、未授权或失败时，必须降级到 core protocol、用户材料或本地材料，并在边界中说明。
 
 如果当前平台是 Claude Code，并且任务需要调用外部 skill/tool，必须遵守：
 
@@ -211,12 +210,14 @@ authority_level: lower_fallback_single_context
 
 think-tank 可以编排外部 skills，但不拥有它们。
 
-示例映射：
+外部 skill 名称只能来自当前平台 adapter 的运行时发现结果、项目本地 registry 或用户显式指定，不能由主协议或通用 router 写死。
 
-- 视频研究：`media-processing` -> `yt-dlp`、`openai-whisper`、`summarize`
-- 社媒舆情：`social-listening` -> `xiaohongshu`、`social-media-analyzer`
-- 知识沉淀：`knowledge-persistence` -> `obsidian`、`notebooklm`
-- 浏览器任务：`browser-automation` -> `web-access`、`playwright-cli`
+示例关系应该这样表达：
+
+- 视频研究：`media-processing` -> 当前平台可用的媒体处理 provider
+- 社媒舆情：`social-listening` -> 当前平台可用且已授权的社媒样本 provider
+- 知识沉淀：`knowledge-persistence` -> 当前平台可用且已授权的知识 artifact provider
+- 浏览器任务：`browser-automation` -> 当前平台可用的只读浏览器或页面读取 provider
 
 如果外部 skill 不可用，按 capability 的降级策略处理，并在边界中说明。
 

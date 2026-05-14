@@ -60,7 +60,7 @@ think-tank-skill/
 
 ### capabilities
 
-能力槽层定义 think-tank 如何与工具型 skills 共存。`yt-dlp`、`obsidian`、`playwright-cli`、`xiaohongshu` 等不应被复制进 core，而应通过能力槽由平台适配层调用。
+能力槽层定义 think-tank 如何与工具型能力共存。具体工具或 skill 名不应被复制进 core，也不应写成通用协议依赖，而应由平台适配层在运行时发现并注册为 capability provider。
 
 ### recipes
 
@@ -68,7 +68,7 @@ think-tank-skill/
 
 ### routing
 
-技能路由中间层定义 capability 如何连接到 optional peer skills。它取代旧 `competitor_analysis` 那种“任务配方、工具连接、报告输出混在一起”的模式，把连接逻辑拆成 `skill_route`、`dispatch_decision` 和 `result_recovery`。
+技能路由中间层定义 capability 如何连接到当前平台可用的能力提供者。它取代旧 `competitor_analysis` 那种“任务配方、工具连接、报告输出混在一起”的模式，把连接逻辑拆成 `skill_route`、`dispatch_decision` 和 `result_recovery`。通用 router 不维护具体 skill 名单，具体名称只能来自平台 adapter、本地 registry 或用户显式指定。
 
 ### profiles
 

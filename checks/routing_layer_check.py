@@ -21,7 +21,7 @@ REQUIRED_ROUTING_TERMS = {
     "README.md": [
         "connect_capabilities_to_optional_peer_skills",
         "think_tank_core_depends_on_peer_skills: false",
-        "competitor_analysis",
+        "optional peer skill",
         "recipes/competitive-intelligence.md",
         "routing/skill-router.md",
         "platforms/<platform>/",
@@ -30,11 +30,11 @@ REQUIRED_ROUTING_TERMS = {
         "selected_intent:",
         "selected_recipe:",
         "selected_capabilities:",
-        "available_peer_skills:",
+        "available_providers:",
         "skill_route:",
         "dispatch_allowed:",
-        "Capability Candidate Map",
-        "competitor_analysis",
+        "Capability Provider Requirements",
+        "provider_requirements:",
         "Anti-Patterns",
     ],
     "dispatch-policy.md": [
@@ -97,12 +97,27 @@ def main() -> None:
 
     router = (ROUTING / "skill-router.md").read_text(encoding="utf-8")
     for forbidden in [
-        "`竞品分析` 直接等于调用 `competitor_analysis`",
-        "`obsidian` 已安装就默认写用户私有库",
-        "`yt-dlp` 已安装就默认下载视频",
+        "`竞品分析` 直接等于调用某个固定竞品分析 skill",
+        "当前机器安装了某个知识库 skill 就默认写用户私有库",
+        "当前机器安装了某个媒体 skill 就默认下载视频",
+        "在主协议或通用 router 中维护平台私有 skill 名单",
     ]:
         if forbidden not in router:
             fail(f"skill-router.md 缺少反模式: {forbidden}")
+
+    concrete_skill_terms = [
+        "web-access",
+        "playwright-cli",
+        "xiaohongshu",
+        "yt-dlp",
+        "obsidian",
+        "juejin-search",
+        "36kr-hotlist",
+        "mcp-cli",
+    ]
+    for term in concrete_skill_terms:
+        if term in router:
+            fail(f"skill-router.md 不应写死具体平台 skill: {term}")
 
     print("routing layer 检查通过")
 
