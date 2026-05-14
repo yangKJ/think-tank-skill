@@ -54,7 +54,7 @@ def main() -> None:
     current_registry = module.registry(PROJECT_SKILLS)
     providers = current_registry["providers"]
     provider_ids = {provider["id"] for provider in providers}
-    for required in ["web-access", "summarize", "competitor_analysis", "yt-dlp", "obsidian", "xiaohongshu"]:
+    for required in ["web-access", "summarize", "yt-dlp", "obsidian", "xiaohongshu"]:
         if (PROJECT_SKILLS / required / "SKILL.md").exists() and required not in provider_ids:
             fail(f"本地 skill 未注册为 provider: {required}")
 

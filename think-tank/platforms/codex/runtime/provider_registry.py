@@ -26,12 +26,6 @@ KNOWN_PROVIDER_RULES: dict[str, dict[str, Any]] = {
         "requires_permission": True,
         "recovery_targets": ["artifact", "boundary_only"],
     },
-    "competitor_analysis": {
-        "capabilities": ["source-acquisition", "social-listening"],
-        "access_level": "network",
-        "requires_permission": False,
-        "recovery_targets": ["sources", "evidence", "role_result"],
-    },
     "google-ai-mode-skill": {
         "capabilities": ["source-acquisition"],
         "access_level": "network",

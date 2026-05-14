@@ -106,7 +106,7 @@ execution_claim: only_verified_per_run
 禁止：
 
 - 把某个 recipe 写成必须依赖某个外部 skill。
-- 把 `competitor_analysis`、`xiaohongshu`、`yt-dlp` 等工具写入 think-tank core 行为。
+- 把具体工具或平台私有 skill 写入 think-tank core 行为。
 - 把 peer skill 文件存在说成已真实执行。
 
 peer skill 的连接规则不写在 recipe 中，而写在：

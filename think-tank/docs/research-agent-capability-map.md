@@ -82,7 +82,6 @@
 | 社媒舆情 | `xiaohongshu`、`social-media-analyzer` | social listening |
 | 行业热点 | `36kr-hotlist` | news and trend feed |
 | 深度自主研究 | `omni-research` | autonomous research loop |
-| 竞品分析 | `competitor_analysis` | competitor intelligence |
 | PDF 报告 | `pdf-extraction` | document extraction |
 | 视频播客 | `yt-dlp`、`openai-whisper`、`xiaoyuzhou-transcribe` | media research |
 | 知识沉淀 | `obsidian`、`notebooklm` | knowledge persistence |

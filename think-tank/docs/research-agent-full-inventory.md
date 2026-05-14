@@ -45,7 +45,6 @@
 |----------|------|--------|------|
 | `36kr-hotlist` | news/trend feed | `source-acquisition` | mapped |
 | `apple-reminders` | personal reminder/task app | out-of-core, optional external skill | classified |
-| `competitor_analysis` | image-editing domain workflow | `domain-packs/image-editing/` | migrated |
 | `google-ai-mode-skill` | web research | `source-acquisition` | mapped |
 | `juejin-search` | community source | `source-acquisition` | mapped |
 | `knowledge-graph-builder` | knowledge structure | `knowledge-persistence` | mapped |
@@ -97,4 +96,3 @@ legacy_memory_disposed: true
 private_platform_config_excluded: true
 research_agent_migration_status: complete
 ```
-

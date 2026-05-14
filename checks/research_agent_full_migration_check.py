@@ -31,7 +31,6 @@ OLD_AGENTS = [
 OLD_SKILLS = [
     "36kr-hotlist",
     "apple-reminders",
-    "competitor_analysis",
     "google-ai-mode-skill",
     "juejin-search",
     "knowledge-graph-builder",
@@ -76,7 +75,6 @@ OLD_KNOWLEDGE_FILES = [
     "awakening/运维发布流程分析.md",
     "awakening/配置与扩展模块深度报告.md",
     "awakening_missing_ai_models.md",
-    "competitor_analysis_method.md",
     "ios_automation_research_report_2026-05-04.md",
     "ios_automation_xcodebuildmcp_integration.md",
     "ios_memory_optimization_report.md",
@@ -140,4 +138,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

@@ -35,7 +35,6 @@ think-tank 是高阶编排 Skill，不复制外部工具型 skill。
 | `research-workflow` | `research_depth: quick_scan | deep_research | continuous_monitoring` |
 | `omni-research` | `research_depth: autonomous_research` |
 | `think-tank` | `council mode`、`research mode` 和 runtime contracts |
-| `competitor_analysis` | `domain-packs/image-editing/` |
 
 ### Out-of-Core Optional Skills
 
@@ -67,4 +66,3 @@ old_research_skills_all_classified: true
 minimal_install_supported: true
 full_external_tool_runtime_verified: false
 ```
-

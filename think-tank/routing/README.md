@@ -20,9 +20,9 @@ owns_peer_skills: false
 think_tank_core_depends_on_peer_skills: false
 ```
 
-## 与旧 competitor_analysis 的关系
+## 与旧任务编排技能的关系
 
-旧 `competitor_analysis` 同时承担了三件事：
+旧竞品分析编排技能同时承担了三件事：
 
 1. 竞品分析任务配方。
 2. 工具技能连接器。
@@ -44,7 +44,7 @@ platforms/<platform>/
   -> 定义具体平台如何真实调用、失败和回收结果
 ```
 
-因此 `competitor_analysis` 现在只是一个 optional peer skill，不是路由中心。
+因此旧竞品分析编排职责已经被 routing policy 替代。竞品研究方法论已进入 recipe、template 或 domain pack，不再需要保留独立 peer skill。
 
 ## 文件
 

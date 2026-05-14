@@ -42,7 +42,6 @@ think_tank_core_depends_on_peer_skills: false
 installed_optional_peer_skills:
   - 36kr-hotlist
   - apple-reminders
-  - competitor_analysis
   - google-ai-mode-skill
   - juejin-search
   - knowledge-graph-builder
@@ -78,7 +77,7 @@ installed_optional_peer_skills:
 | `media-processing` | `yt-dlp`、`openai-whisper`、`xiaoyuzhou-transcribe`、`summarize`、`vision-analysis` |
 | `knowledge-persistence` | `obsidian`、`notebooklm`、`knowledge-graph-builder`、`taskflow` |
 | out-of-core optional | `apple-reminders`、`stable-diffusion-image-generation`、`using-tmux-for-interactive-commands` |
-| domain workflow | `competitor_analysis`、`omni-research`、`research-workflow` |
+| domain workflow | `omni-research`、`research-workflow` |
 
 ## 状态边界
 

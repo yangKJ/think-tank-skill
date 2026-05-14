@@ -21,7 +21,6 @@ FORBIDDEN_DIR_NAMES = {
 OPTIONAL_PEER_SKILLS = [
     "36kr-hotlist",
     "apple-reminders",
-    "competitor_analysis",
     "google-ai-mode-skill",
     "juejin-search",
     "knowledge-graph-builder",

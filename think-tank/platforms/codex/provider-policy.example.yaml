@@ -87,8 +87,10 @@ routes:
       - social-listening
     providers:
       prefer:
-        - competitor_analysis
         - web-access
+        - summarize
+        - juejin-search
+        - xiaohongshu
       allow: []
       deny: []
     fallback: core_protocol

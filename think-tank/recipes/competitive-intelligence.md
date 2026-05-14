@@ -31,7 +31,6 @@ capabilities:
   - social-listening
   - knowledge-persistence
 optional_peer_skills:
-  - competitor_analysis
   - web-access
   - summarize
   - juejin-search
@@ -68,5 +67,9 @@ fallback_inputs:
 
 - 不把营销话术当事实。
 - 区分已验证信息、推断和建议。
-- 不因安装了 `competitor_analysis` 就声称已执行竞品分析工具。
+- 不因存在某个旧竞品分析脚本或工具，就绕过 think-tank 的 policy route、recipe、capability 和 quality gates。
 - 如果没有外部来源，必须标注证据不足。
+
+## Legacy Note
+
+旧竞品分析编排职责已由 routing policy 取代。竞品方法论和报告结构应沉淀到本 recipe、templates 或 domain-packs，不再作为独立 provider。

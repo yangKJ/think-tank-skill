@@ -103,7 +103,7 @@ routes:
 | 旧组合 | 新归属 |
 |--------|--------|
 | `web-access + summarize` | `source-acquisition` 的轻量实现候选 |
-| `omni-research + juejin-search + competitor_analysis + obsidian` | `competitive-intelligence` 或深度研究 recipe 的候选组合 |
+| `omni-research + juejin-search + summarize + optional knowledge provider` | `competitive-intelligence` 或深度研究 recipe 的候选组合 |
 | `xiaohongshu + social-media-analyzer + summarize` | `social-listening` 的舆情候选组合 |
 | `pdf-extraction + knowledge-graph-builder + web-access` | `source-acquisition + knowledge-persistence` 的行业研究候选组合 |
 | `yt-dlp + whisper + summarize` | `media-processing` 的视频/播客候选组合 |

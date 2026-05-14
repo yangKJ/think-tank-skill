@@ -42,7 +42,6 @@ domain_pack: image-editing
 | `awakening/运维发布流程分析.md` | 发布流程 | out-of-core project reference |
 | `awakening/配置与扩展模块深度报告.md` | 配置/扩展 | domain-specific reference |
 | `awakening_missing_ai_models.md` | AI 模型缺口 | technology-radar 素材 |
-| `competitor_analysis_method.md` | 竞品方法论 | report-templates 素材 |
 | `ios_automation_research_report_2026-05-04.md` | iOS 自动化 | out-of-core technical reference |
 | `ios_automation_xcodebuildmcp_integration.md` | iOS 自动化 | out-of-core technical reference |
 | `ios_memory_optimization_report.md` | iOS 性能 | technology-radar 素材 |
@@ -65,4 +64,3 @@ domain_pack: image-editing
 - 不作为通用 think-tank 协议依赖。
 - 不默认打包旧项目私有知识全文。
 - 需要复用时应按具体任务挑选，而不是全量塞进上下文。
-

@@ -28,7 +28,6 @@ REQUIRED_TRIGGERS = [
 
 REQUIRED_SKILLS = [
     "research-workflow",
-    "competitor_analysis",
     "omni-research",
     "web-access",
     "summarize",
@@ -76,6 +75,9 @@ def main() -> None:
     for skill in REQUIRED_SKILLS:
         if skill not in (policy + "\n" + migration + "\n" + routing):
             fail(f"缺少组合 skill 映射或 policy 示例: {skill}")
+
+    if "legacy_competitive_orchestrator: replaced_by_yaml_provider_policy" not in migration:
+        fail("迁移文档必须声明旧竞品编排能力已被 policy route 替代")
 
     for boundary in REQUIRED_BOUNDARIES:
         if boundary not in routing:

@@ -17,7 +17,7 @@ recipes/
 
 1. 身份规则：研究员负责外部资料、竞品、行业、市场、新技术调研。
 2. 触发词：快速了解、研究一下、深度研究、竞品分析、舆情分析、持续监控、开会讨论。
-3. 组合技能：`web-access`、`summarize`、`omni-research`、`competitor_analysis`、`xiaohongshu`、`yt-dlp`、`whisper`、`obsidian` 等组合。
+3. 组合技能：`web-access`、`summarize`、`omni-research`、`xiaohongshu`、`yt-dlp`、`whisper`、`obsidian` 等组合。
 4. 专业 subagent：source collector、trend analyst、social listener、feedback synthesizer、report architect、skeptic 等角色。
 
 迁移后的归属：
@@ -28,6 +28,7 @@ trigger_words: platforms/codex/trigger-routing.md
 generic_intents: protocol/intent-routing.md
 task_recipes: recipes/
 tool_combinations: peer_skills_under_.codex/skills
+legacy_competitive_orchestrator: replaced_by_yaml_provider_policy
 specialist_roles: think-tank/profiles
 subagent_runtime_contract: think-tank/protocol/subagent-runtime-contract.md
 domain_knowledge: think-tank/domain-packs/image-editing
@@ -103,6 +104,7 @@ boundaries:
 ```yaml
 old_trigger_words_migrated: documented
 old_skill_combinations_migrated: mapped_to_peer_skills
+legacy_competitive_orchestrator: replaced_by_policy_route
 old_research_agent_required: false
 external_peer_skills_are_optional: true
 think_tank_core_depends_on_peer_skills: false

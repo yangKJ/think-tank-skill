@@ -89,6 +89,13 @@ def main() -> None:
     if not general["matched"] or general["selected_intent"] != "general_research":
         fail("研究一下 未命中 general_research policy route")
 
+    competitive = module.resolve_request("竞品分析 Cursor 和 Windsurf", loaded_policy, provider_registry["providers"])
+    if not competitive["matched"] or competitive["selected_intent"] != "competitive_intelligence":
+        fail("竞品分析 未命中 competitive_intelligence policy route")
+    competitive_route = competitive["skill_route"]
+    if not competitive_route["selected_provider"]:
+        fail("默认竞品分析路由应能选择一个通用 provider 或降级")
+
     council = module.resolve_request("开会讨论 routing policy 是否应该进入 adapter", loaded_policy, provider_registry["providers"])
     if not council["matched"] or council["selected_mode"] != "council":
         fail("开会讨论 未命中 council policy route")

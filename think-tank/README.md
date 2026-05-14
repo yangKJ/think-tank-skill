@@ -68,7 +68,7 @@ think-tank-skill/
 
 ### routing
 
-技能路由中间层定义 capability 如何连接到当前平台可用的能力提供者。它取代旧 `competitor_analysis` 那种“任务配方、工具连接、报告输出混在一起”的模式，把连接逻辑拆成 `policy_route`、`skill_route`、`dispatch_decision` 和 `result_recovery`。通用 router 不维护具体 skill 名单，具体名称只能来自平台 adapter、本地 registry、routing policy 或用户显式指定。
+技能路由中间层定义 capability 如何连接到当前平台可用的能力提供者。它取代旧任务编排技能那种“任务配方、工具连接、报告输出混在一起”的模式，把连接逻辑拆成 `policy_route`、`skill_route`、`dispatch_decision` 和 `result_recovery`。通用 router 不维护具体 skill 名单，具体名称只能来自平台 adapter、本地 registry、routing policy 或用户显式指定。
 
 ### policy
 

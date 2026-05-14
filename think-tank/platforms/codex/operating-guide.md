@@ -38,7 +38,7 @@ Codex 默认不声称真实多 agent。除非用户明确要求并授权使用 s
 platforms/codex/trigger-routing.md
 ```
 
-因此用户继续说“研究一下”“深度研究”“竞品分析”“舆情分析”“开会讨论”时，Codex 应先路由到 think-tank，再按 capability slots 选择 `.codex/skills/` 下的同级工具 skill。不能因为旧触发词命中了 `research-workflow` 或 `competitor_analysis`，就绕过 think-tank 主协议。
+因此用户继续说“研究一下”“深度研究”“竞品分析”“舆情分析”“开会讨论”时，Codex 应先路由到 think-tank，再按 capability slots 选择 `.codex/skills/` 下的同级工具 skill。不能因为旧触发词命中某个旧工作流 skill，就绕过 think-tank 主协议。
 
 ## 执行步骤
 

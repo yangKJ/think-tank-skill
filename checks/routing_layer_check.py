@@ -22,7 +22,7 @@ REQUIRED_ROUTING_TERMS = {
     "README.md": [
         "connect_capabilities_to_optional_peer_skills",
         "think_tank_core_depends_on_peer_skills: false",
-        "optional peer skill",
+        "旧任务编排技能",
         "recipes/competitive-intelligence.md",
         "routing/skill-router.md",
         "platforms/<platform>/",
