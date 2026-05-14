@@ -54,6 +54,10 @@
 - 增加 `domain-packs/image-editing/legacy-knowledge-index.md`，将旧 knowledge 作为领域包素材索引而非 core 依赖。
 - 增加 `templates/monitoring-brief.md` 和 `templates/evidence-table.md`，迁移旧 daily briefing、shared results 和证据表输出形态。
 - 增加 `checks/research_agent_full_migration_check.py`，确保旧 research agent 资产没有未处置项。
+- 完成 v0.4 旧 agent-council 全量迁移处置：references、scripts、history、状态机、安全机制和研究子系统全部归类。
+- 增加 `runtime/council.py`，迁移旧 collect/discuss/conclude/complete 状态 helper 和 L1/L2/L3 触发判断。
+- 增加 `docs/agent-council-full-inventory.md`、`docs/agent-council-runtime-migration.md`、`docs/agent-council-history-index.md`、`docs/v0.4-agent-council-migration.md`。
+- 增加 `templates/council-state.md` 和 v0.4 检查脚本：`agent_council_full_migration_check.py`、`council_runtime_check.py`。
 - 增加 MIT License。
 
 ### Notes

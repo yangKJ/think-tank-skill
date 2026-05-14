@@ -97,6 +97,25 @@
 - 旧 history 作为规范来源
 - 旧脚本里的实现细节作为平台无关协议
 
+v0.4 已完成完整处置：
+
+```yaml
+agent_council_migration: complete
+references_disposed: 5
+scripts_disposed: true
+history_items_disposed: true
+status: complete
+```
+
+完整核对记录见：
+
+```text
+docs/v0.4-agent-council-migration.md
+docs/agent-council-full-inventory.md
+docs/agent-council-runtime-migration.md
+docs/agent-council-history-index.md
+```
+
 ## 统一归并原则
 
 | 旧概念 | 新位置 |

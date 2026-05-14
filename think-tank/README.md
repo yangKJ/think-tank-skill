@@ -130,6 +130,8 @@ python3 checks/runtime_safety_check.py
 python3 checks/template_check.py
 python3 checks/legacy_think_tank_migration_check.py
 python3 checks/research_agent_full_migration_check.py
+python3 checks/agent_council_full_migration_check.py
+python3 checks/council_runtime_check.py
 ```
 
 旧 Claude Code 版 think-tank 已完成迁移处置：
@@ -145,6 +147,13 @@ python3 checks/research_agent_full_migration_check.py
 - 25 个旧 skills 映射到 capabilities、adapter、domain pack 或 out-of-core
 - 35 个旧 knowledge 文件索引到 `domain-packs/image-editing/legacy-knowledge-index.md`
 - logs、memory、run artifacts 和平台私有配置均有明确处置边界
+
+旧 agent-council 已完成 v0.4 全量迁移处置：
+
+- references、scripts、history 全部逐项归位
+- 状态机经验进入 `runtime/council.py`
+- HMAC、manifest、原子写入、熔断等工程经验进入 adapter/runtime 迁移文档
+- ios-automation-mcp 私有上下文不进入 core
 
 仍未声明完成：
 

@@ -112,6 +112,8 @@ python3 checks/runtime_safety_check.py
 python3 checks/template_check.py
 python3 checks/legacy_think_tank_migration_check.py
 python3 checks/research_agent_full_migration_check.py
+python3 checks/agent_council_full_migration_check.py
+python3 checks/council_runtime_check.py
 ```
 
 Codex foundation status:
@@ -129,6 +131,7 @@ Codex foundation status:
 - v0.2 Codex runtime pipeline and platform-neutral runtime result schema are checked.
 - Legacy Claude Code think-tank assets have been migrated by abstraction into protocol, runtime, templates, and Claude Code adapter documentation.
 - Legacy research agent assets have been fully classified and migrated by disposition in v0.3.
+- Legacy agent-council assets have been fully classified and migrated by disposition in v0.4.
 
 ## Design Boundary
 

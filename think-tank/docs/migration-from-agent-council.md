@@ -87,3 +87,20 @@ collect -> discuss -> conclude -> complete
 5. 将讨论文档格式转成 `examples/council-request.md` 或新的 council 输出模板。
 6. 将状态机脚本暂列为 Claude Code 适配候选实现，不直接进入主协议。
 
+## v0.4 状态
+
+```yaml
+agent_council_migration: complete
+agent_council_parallel_brand_status: removed
+legacy_assets_without_disposition: 0
+core_protocol_dependency_on_ios_automation_mcp: none
+```
+
+完整迁移记录见：
+
+```text
+docs/v0.4-agent-council-migration.md
+docs/agent-council-full-inventory.md
+docs/agent-council-runtime-migration.md
+docs/agent-council-history-index.md
+```

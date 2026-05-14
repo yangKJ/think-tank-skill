@@ -16,6 +16,7 @@ REQUIRED_FILES = [
     TEMPLATES / "task-kickoff.md",
     TEMPLATES / "monitoring-brief.md",
     TEMPLATES / "evidence-table.md",
+    TEMPLATES / "council-state.md",
 ]
 
 REQUIRED_TERMS = [

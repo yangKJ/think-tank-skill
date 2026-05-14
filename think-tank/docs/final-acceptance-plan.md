@@ -47,6 +47,14 @@ v0_3_research_agent_full_migration:
   interop: docs/external-skill-interoperability.md
   knowledge_index: domain-packs/image-editing/legacy-knowledge-index.md
   check: checks/research_agent_full_migration_check.py
+
+v0_4_agent_council_full_migration:
+  status: complete
+  inventory: docs/agent-council-full-inventory.md
+  runtime_migration: docs/agent-council-runtime-migration.md
+  history_index: docs/agent-council-history-index.md
+  runtime_helper: runtime/council.py
+  check: checks/agent_council_full_migration_check.py
 ```
 
 ## 验收命令
@@ -76,6 +84,8 @@ python3 checks/runtime_safety_check.py
 python3 checks/template_check.py
 python3 checks/legacy_think_tank_migration_check.py
 python3 checks/research_agent_full_migration_check.py
+python3 checks/agent_council_full_migration_check.py
+python3 checks/council_runtime_check.py
 ```
 
 ## 不能声称

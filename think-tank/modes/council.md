@@ -78,3 +78,17 @@ position:
 旧 agent-council 的 collect、discuss、conclude、complete 应分别映射为 think-tank 主协议的 collection、deliberation、synthesis、quality_check。
 
 旧状态机、HMAC、manifest 和文件权限设计属于 Claude Code 平台实现经验，不属于 council mode 的平台无关要求。
+
+## v0.4 Agent Council Full Migration
+
+v0.4 已完成旧 agent-council 全量迁移处置：
+
+```yaml
+agent_council_migration: complete
+runtime_helper: runtime/council.py
+inventory: docs/agent-council-full-inventory.md
+runtime_migration: docs/agent-council-runtime-migration.md
+history_index: docs/agent-council-history-index.md
+```
+
+旧 `agent-council` 不再作为平行技能演进。它的可复用能力已经进入 council mode、runtime helper、consensus contract、state-result contract 和 Claude Code adapter 历史文档。
