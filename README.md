@@ -88,6 +88,7 @@ Readiness status:
 - [`think-tank/protocol/capability-evidence-state-machine.md`](think-tank/protocol/capability-evidence-state-machine.md)
 - [`think-tank/protocol/memory-promotion-policy.md`](think-tank/protocol/memory-promotion-policy.md)
 - [`think-tank/protocol/runtime-provenance.md`](think-tank/protocol/runtime-provenance.md)
+- [`think-tank/protocol/natural-language-runtime-orchestration.md`](think-tank/protocol/natural-language-runtime-orchestration.md)
 
 ## Validation
 
@@ -136,6 +137,7 @@ python3 checks/memory_curation_check.py
 python3 checks/capability_evidence_state_check.py
 python3 checks/memory_promotion_policy_check.py
 python3 checks/runtime_provenance_check.py
+python3 checks/codex_orchestrator_check.py
 python3 checks/release_privacy_check.py
 ```
 
@@ -165,6 +167,7 @@ Codex foundation status:
 - v2.1 capability evidence states distinguish installed, discovered, selected, dispatched, invoked, recovered, verified_partial, and verified.
 - v2.1 memory promotion policy controls whether memory stays local, moves to AGENTS.md, becomes project docs, or is generalized into public protocol.
 - v2.2 runtime provenance gate requires every think-tank-style output to disclose runtime, provider invocation, data collection, result recovery, and multi-agent truthfulness.
+- v2.3 Codex natural-language orchestrator routes a user request through policy, minimal dispatch, source recovery, final output, and optional `.think-tank/runs/` run record.
 
 ## Design Boundary
 

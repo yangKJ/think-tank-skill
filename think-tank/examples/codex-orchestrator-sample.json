@@ -1,0 +1,76 @@
+{
+  "runtime": "codex-natural-language-orchestrator",
+  "runtime_provenance": {
+    "think_tank_runtime_used": true,
+    "provider_policy_checked": true,
+    "dispatch_decision_emitted": true,
+    "provider_invoked": true,
+    "result_recovered": true,
+    "true_multi_agent_runtime": false,
+    "execution_method": "adapter_runtime",
+    "data_collection": "local_files",
+    "evidence_state": "verified_partial",
+    "result_recovery": "automatic",
+    "boundaries": [
+      "Codex natural-language orchestrator is a minimal adapter runtime.",
+      "It does not claim true independent multi-agent execution.",
+      "Policy provider selection is distinct from the minimal runtime provider actually invoked."
+    ]
+  },
+  "request": "竞品分析 Cursor 和 Codex",
+  "mode": "research",
+  "run_record": {
+    "run_id": "nlrt-example",
+    "created_at": "2026-05-14T00:00:00+00:00",
+    "artifact_requested": false,
+    "artifact_written": false,
+    "artifact_path": ".think-tank/runs/nlrt-example.json"
+  },
+  "policy_route": {
+    "matched": true,
+    "route_id": "competitive-intelligence",
+    "selected_recipe": "competitive-intelligence",
+    "selected_capabilities": ["source-acquisition", "social-listening"],
+    "skill_route": {
+      "selected_provider": "web-access"
+    }
+  },
+  "dispatch_record": {
+    "dispatch_decision_emitted": true,
+    "policy_selected_provider": "web-access",
+    "runtime_selected_provider": "local_static_reader",
+    "status": "dispatched",
+    "boundary": "Policy-selected provider is not automatically invoked by the minimal orchestrator."
+  },
+  "source_result": {
+    "runtime": "codex-minimal",
+    "sources": [
+      {
+        "title": "think-tank browser automation fixture",
+        "url": "think-tank/examples/browser-automation-fixture.html"
+      }
+    ],
+    "evidence": ["local_static_reader returned readable static content."]
+  },
+  "final_output": {
+    "request": "竞品分析 Cursor 和 Codex",
+    "conclusion": "Request routed to competitive-intelligence and completed minimal source recovery.",
+    "evidence": ["local_static_reader returned readable static content."],
+    "recommendations": [
+      "Use recovered sources as input for role analysis.",
+      "Do not mark external peer providers verified until they are invoked and recovered."
+    ]
+  },
+  "quality_check": {
+    "protocol_complete": true,
+    "runtime_provenance_present": true,
+    "provider_invocation_truthful": true,
+    "evidence_boundary_clear": true,
+    "actionable": true
+  },
+  "boundaries": [
+    "Policy route selection does not invoke any provider.",
+    "Policy-selected provider is distinct from runtime-selected provider."
+  ]
+}
+

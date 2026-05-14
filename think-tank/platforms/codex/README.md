@@ -31,6 +31,7 @@ Codex 适配可以先以单 agent 协议执行为主：
 - `operating-guide.md`：Codex 日常运行手册
 - `runtime/source_acquisition_minimal.py`：source-acquisition 最小参考 runner
 - `runtime/pipeline.py`：Codex runtime pipeline，串联 planner、slot resolver、state model、source acquisition 和 consensus
+- `runtime/orchestrator.py`：Codex natural-language runtime orchestrator，串联 policy route、dispatch、minimal invocation、recovery 和 run record
 - `smoke-test.md`：Codex 平台 smoke test 定义
 - `task-templates.md`：Codex 用户任务模板
 
@@ -52,3 +53,21 @@ Codex 项目本地配置应放在：
 
 本地 provider policy 默认作为 overlay 合并到公开 example policy 上。项目只需要写自己的
 触发词、优先级和 provider 偏好，不需要复制整份默认路由。
+
+## Natural-Language Orchestrator
+
+Codex 最小自然语言 runtime 入口：
+
+```bash
+python3 think-tank/platforms/codex/runtime/orchestrator.py "竞品分析 Cursor 和 Codex"
+```
+
+它会输出 `runtime_provenance`、`policy_route`、`dispatch_record`、`source_result`、
+`final_output` 和 `run_record`。默认不写文件；需要保存运行记录时使用：
+
+```bash
+python3 think-tank/platforms/codex/runtime/orchestrator.py "竞品分析 Cursor 和 Codex" --write-run
+```
+
+最小 runtime 只调用 `local_static_reader`。如果 policy 选择了 `web-access` 等外部
+peer provider，orchestrator 必须说明 policy provider 和 runtime provider 不同，不能声称外部 provider 已验证。

@@ -17,6 +17,7 @@
 - 增加 v2.1 capability evidence state machine，细分 installed、discovered、selected、dispatched、invoked、recovered、verified_partial 和 verified。
 - 增加 v2.1 memory promotion policy，控制候选记忆从 `.think-tank/memory/` 提升到 AGENTS、项目文档或公开协议的条件。
 - 增加 v2.2 Runtime Provenance Gate，强制 think-tank 风格输出声明 runtime、provider 调用、数据来源、结果回收和真实多 agent 状态。
+- 增加 v2.3 Codex natural-language orchestrator，把用户请求串联到 policy route、minimal dispatch、source recovery、final output 和 run record。
 
 ### Changed
 

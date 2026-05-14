@@ -12,6 +12,7 @@
 - `claude-runtime.schema.json`：Claude Code minimal runtime 输出结构，用于检查成功与失败路径样例
 - `runtime-provenance.schema.json`：think-tank 风格输出的运行来源披露结构
 - `runtime-result.schema.json`：平台无关 runtime pipeline 输出结构
+- `codex-orchestrator-result.schema.json`：Codex 自然语言 orchestrator 输出结构
 - `capability-evidence.schema.json`：capability 证据状态结构
 - `memory-item.schema.json`、`memory-capture.schema.json`、`memory-promotion.schema.json`：项目记忆候选、捕获和提升决策结构
 

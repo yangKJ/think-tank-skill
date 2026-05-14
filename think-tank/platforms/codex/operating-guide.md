@@ -63,6 +63,30 @@ platforms/codex/trigger-routing.md
 
 因此用户继续说“研究一下”“深度研究”“竞品分析”“舆情分析”“开会讨论”时，Codex 应先路由到 think-tank，再按 capability slots 选择 `.codex/skills/` 下的同级工具 skill。不能因为旧触发词命中某个旧工作流 skill，就绕过 think-tank 主协议。
 
+## Natural-Language Runtime
+
+当前 Codex 最小自然语言 runtime：
+
+```bash
+python3 think-tank/platforms/codex/runtime/orchestrator.py "竞品分析 Cursor 和 Codex"
+```
+
+该路径已验证：
+
+```text
+user_request
+  -> provider_policy route
+  -> runtime_provenance
+  -> dispatch_record
+  -> local_static_reader invocation
+  -> sources[] / evidence[] recovery
+  -> final_output
+  -> run_record
+```
+
+它仍是最小闭环，不等于完整外部 provider runtime。`web-access`、`xiaohongshu`
+等外部 provider 只有在真实 wrapper 调用并回收结果后才能提升状态。
+
 ## 执行步骤
 
 Codex 执行 think-tank 时应按以下顺序：

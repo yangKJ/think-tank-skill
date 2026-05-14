@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://think-tank.local/schemas/codex-orchestrator-result.schema.json",
+  "title": "Codex natural-language think-tank orchestrator result",
+  "type": "object",
+  "required": [
+    "runtime",
+    "runtime_provenance",
+    "request",
+    "mode",
+    "run_record",
+    "policy_route",
+    "dispatch_record",
+    "source_result",
+    "final_output",
+    "quality_check",
+    "boundaries"
+  ],
+  "properties": {
+    "runtime": {"type": "string", "const": "codex-natural-language-orchestrator"},
+    "runtime_provenance": {"$ref": "runtime-provenance.schema.json"},
+    "request": {"type": "string", "minLength": 1},
+    "mode": {"type": "string", "enum": ["research", "council", "review", "strategy"]},
+    "run_record": {
+      "type": "object",
+      "required": ["run_id", "created_at", "artifact_requested", "artifact_written", "artifact_path"],
+      "properties": {
+        "run_id": {"type": "string", "minLength": 1},
+        "created_at": {"type": "string", "minLength": 1},
+        "artifact_requested": {"type": "boolean"},
+        "artifact_written": {"type": "boolean"},
+        "artifact_path": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
+    "policy_route": {"type": "object"},
+    "dispatch_record": {
+      "type": "object",
+      "required": [
+        "dispatch_decision_emitted",
+        "policy_selected_provider",
+        "runtime_selected_provider",
+        "status",
+        "boundary"
+      ],
+      "properties": {
+        "dispatch_decision_emitted": {"type": "boolean"},
+        "policy_selected_provider": {"type": ["string", "null"]},
+        "runtime_selected_provider": {"type": ["string", "null"]},
+        "status": {"type": "string", "enum": ["dispatched", "not_dispatched"]},
+        "boundary": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
+    "source_result": {"type": ["object", "null"]},
+    "final_output": {
+      "type": "object",
+      "required": ["request", "conclusion", "evidence", "recommendations"],
+      "properties": {
+        "request": {"type": "string"},
+        "conclusion": {"type": "string"},
+        "evidence": {"type": "array", "items": {"type": "string"}},
+        "recommendations": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": true
+    },
+    "quality_check": {
+      "type": "object",
+      "required": [
+        "protocol_complete",
+        "runtime_provenance_present",
+        "provider_invocation_truthful",
+        "evidence_boundary_clear",
+        "actionable"
+      ],
+      "properties": {
+        "protocol_complete": {"type": "boolean"},
+        "runtime_provenance_present": {"type": "boolean"},
+        "provider_invocation_truthful": {"type": "boolean"},
+        "evidence_boundary_clear": {"type": "boolean"},
+        "actionable": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    },
+    "boundaries": {"type": "array", "items": {"type": "string"}, "minItems": 1}
+  },
+  "additionalProperties": false
+}
+
