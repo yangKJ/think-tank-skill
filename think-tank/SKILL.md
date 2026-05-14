@@ -89,11 +89,24 @@ platforms/claude-code/dispatch-contract.md
 
 根据当前平台执行：
 
-- Codex：默认单 agent 多 profile 模拟执行，使用本地文件、shell、浏览器或可用工具。
-- Claude Code：可映射到 `.claude/agents`、`.claude/skills`、Agent Team 或 subagent；涉及 capability 到 skill/tool 的调用时，必须输出 `dispatch_request`、`dispatch_decision`、`dispatch_log`，否则只能标记为 `verified_partial` 或 `mock`。
+- Codex：优先遵守 `platforms/codex/specialist-subagent-runtime.md`。如果当前环境没有已验证的独立 subagent runtime，必须标记为 `single_agent_multi_profile_fallback`，不能声称独立专家执行。
+- Claude Code：可映射到 `.claude/agents`、`.claude/skills`、Agent Team 或 subagent；涉及 capability 到 skill/tool 的调用时，必须输出 `dispatch_request`、`dispatch_decision`、`dispatch_log`；涉及专业 subagent 时，必须遵守 `platforms/claude-code/specialist-subagent-runtime.md` 并回收 `role-result`。
 - 其他平台：遵守协议，按自身能力实现。
 
 平台差异必须标注，不得改变主协议。
+
+专业 subagent 输出必须符合：
+
+```text
+schemas/role-result.schema.json
+```
+
+如果只是在同一上下文里扮演多个 profile，最终输出必须说明：
+
+```yaml
+execution_method: single_agent_multi_profile_fallback
+authority_level: lower_fallback_single_context
+```
 
 ### 6. 汇总输出
 
@@ -121,6 +134,7 @@ platforms/claude-code/dispatch-contract.md
 - 是否给出可执行下一步
 - 是否说明未验证或受限部分
 - 是否没有把 mock/tracking/planned 说成 verified
+- 是否没有把 single-agent fallback 说成 specialist subagent runtime
 
 ## 外部 skills 共存规则
 
@@ -156,5 +170,6 @@ think-tank 可以编排外部 skills，但不拥有它们。
 - 核心协议：`protocol/think-tank-protocol.md`
 - mode 选择：`protocol/mode-selection.md`
 - profiles：`profiles/`
+- profile prompt pack：`profiles/prompt-pack.md`
 - capabilities：`capabilities/`
 - 平台适配：`platforms/`

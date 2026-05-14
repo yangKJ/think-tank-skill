@@ -58,6 +58,9 @@
 - 增加 `runtime/council.py`，迁移旧 collect/discuss/conclude/complete 状态 helper 和 L1/L2/L3 触发判断。
 - 增加 `docs/agent-council-full-inventory.md`、`docs/agent-council-runtime-migration.md`、`docs/agent-council-history-index.md`、`docs/v0.4-agent-council-migration.md`。
 - 增加 `templates/council-state.md` 和 v0.4 检查脚本：`agent_council_full_migration_check.py`、`council_runtime_check.py`。
+- 增加 v0.5 专业 subagent runtime 契约、runtime helper、role-result schema、profile prompt pack 和平台适配说明。
+- 增加 `runtime/subagent.py`，支持生成专业 profile task、profile prompt、role result 聚合和 fallback 标签。
+- 增加 `schemas/role-result.schema.json`、`examples/specialist-runtime-fixture.json` 和 v0.5 检查脚本。
 - 增加 MIT License。
 
 ### Notes

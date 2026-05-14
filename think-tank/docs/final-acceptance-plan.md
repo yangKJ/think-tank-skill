@@ -55,6 +55,14 @@ v0_4_agent_council_full_migration:
   history_index: docs/agent-council-history-index.md
   runtime_helper: runtime/council.py
   check: checks/agent_council_full_migration_check.py
+
+v0_5_specialist_subagent_runtime:
+  status: implemented_contract_and_runtime_primitives
+  contract: protocol/subagent-runtime-contract.md
+  runtime_helper: runtime/subagent.py
+  schema: schemas/role-result.schema.json
+  prompt_pack: profiles/prompt-pack.md
+  caveat: true_parallel_runtime_not_verified
 ```
 
 ## 验收命令
@@ -86,6 +94,9 @@ python3 checks/legacy_think_tank_migration_check.py
 python3 checks/research_agent_full_migration_check.py
 python3 checks/agent_council_full_migration_check.py
 python3 checks/council_runtime_check.py
+python3 checks/subagent_runtime_check.py
+python3 checks/role_result_schema_check.py
+python3 checks/specialist_runtime_contract_check.py
 ```
 
 ## 不能声称

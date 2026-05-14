@@ -132,6 +132,9 @@ python3 checks/legacy_think_tank_migration_check.py
 python3 checks/research_agent_full_migration_check.py
 python3 checks/agent_council_full_migration_check.py
 python3 checks/council_runtime_check.py
+python3 checks/subagent_runtime_check.py
+python3 checks/role_result_schema_check.py
+python3 checks/specialist_runtime_contract_check.py
 ```
 
 旧 Claude Code 版 think-tank 已完成迁移处置：
@@ -154,6 +157,14 @@ python3 checks/council_runtime_check.py
 - 状态机经验进入 `runtime/council.py`
 - HMAC、manifest、原子写入、熔断等工程经验进入 adapter/runtime 迁移文档
 - ios-automation-mcp 私有上下文不进入 core
+
+v0.5 已补齐专业 subagent runtime 契约：
+
+- `runtime/subagent.py` 生成专业 subagent 任务包、profile prompt 和 role-result 聚合
+- `schemas/role-result.schema.json` 固化专业角色输出结构
+- `profiles/prompt-pack.md` 将 profiles 转换为可派发 prompt
+- Codex 和 Claude Code 均有 specialist runtime 适配说明
+- 如果平台没有独立 subagent，必须显式降级为 `single_agent_multi_profile_fallback`
 
 仍未声明完成：
 

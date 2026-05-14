@@ -114,6 +114,9 @@ python3 checks/legacy_think_tank_migration_check.py
 python3 checks/research_agent_full_migration_check.py
 python3 checks/agent_council_full_migration_check.py
 python3 checks/council_runtime_check.py
+python3 checks/subagent_runtime_check.py
+python3 checks/role_result_schema_check.py
+python3 checks/specialist_runtime_contract_check.py
 ```
 
 Codex foundation status:
@@ -132,6 +135,7 @@ Codex foundation status:
 - Legacy Claude Code think-tank assets have been migrated by abstraction into protocol, runtime, templates, and Claude Code adapter documentation.
 - Legacy research agent assets have been fully classified and migrated by disposition in v0.3.
 - Legacy agent-council assets have been fully classified and migrated by disposition in v0.4.
+- Specialist subagent runtime contracts and runtime primitives are implemented in v0.5, with fallback labeling when true independent subagents are unavailable.
 
 ## Design Boundary
 

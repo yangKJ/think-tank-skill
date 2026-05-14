@@ -19,12 +19,25 @@ from .council import (
     next_phase,
     should_trigger_l3,
 )
+from .subagent import (
+    RoleResult,
+    SubagentRuntimePlan,
+    SubagentTask,
+    aggregate_role_results,
+    build_profile_prompt,
+    plan_subagent_runtime,
+)
 
 __all__ = [
     "CouncilPhase",
     "CouncilState",
+    "RoleResult",
     "SafetyFinding",
+    "SubagentRuntimePlan",
+    "SubagentTask",
     "all_agents_completed",
+    "aggregate_role_results",
+    "build_profile_prompt",
     "build_synthesis_payload",
     "classify_consensus",
     "create_council_state",
@@ -35,5 +48,6 @@ __all__ = [
     "sanitize_safe_name",
     "sanitize_text",
     "should_trigger_l3",
+    "plan_subagent_runtime",
     "validate_safe_name",
 ]
