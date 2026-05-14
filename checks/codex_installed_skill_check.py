@@ -20,8 +20,10 @@ def main() -> None:
         fail(f"安装目标不存在: {TARGET}")
     if not (TARGET / "SKILL.md").exists():
         fail("安装目标缺少 SKILL.md")
-    if TARGET.is_symlink():
-        fail("项目内 think-tank skill 必须是复制目录，不允许软链接")
+    if not TARGET.is_symlink():
+        fail("项目内 .codex/skills/think-tank 必须是仓库内软链接，指向主仓 think-tank/")
+    if TARGET.resolve() != SOURCE.resolve():
+        fail(f"think-tank 软链接目标错误: {TARGET.resolve()} != {SOURCE.resolve()}")
 
     required = [
         TARGET / "protocol" / "subagent-runtime-contract.md",
@@ -43,7 +45,7 @@ def main() -> None:
     if skill != source_skill:
         fail("项目内 .codex/skills/think-tank/SKILL.md 与主仓 think-tank/SKILL.md 不一致")
 
-    print("Codex installed skill 检查通过")
+    print("Codex installed skill 软链接检查通过")
 
 
 if __name__ == "__main__":

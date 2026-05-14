@@ -5,24 +5,27 @@
 ## 安装方式
 
 ```yaml
-install_method: copy
+install_method: repository_relative_symlink
 source: /Users/condy/Desktop/think-tank-skill/think-tank
 target: /Users/condy/Desktop/think-tank-skill/.codex/skills/think-tank
+symlink_target: ../../think-tank
 status: installed
 ```
 
-使用项目内复制目录的原因：
+使用仓库内软链接的原因：
 
-- 后续旧 research agent 目录可以删除，不会断链。
-- 当前项目可以自包含地提供 Codex skills。
-- `think-tank/` 仍是主 Skill 源，`.codex/skills/think-tank` 是项目内安装副本。
+- `think-tank/` 是唯一主 Skill 源。
+- Codex 实际读取 `.codex/skills/think-tank` 时，读到的就是同一份主 Skill。
+- 不需要 rsync 同步，避免双真相源。
+- 软链接目标在当前仓库内，不依赖旧 research agent 目录。
 
 ## 已验证
 
 ```yaml
 skill_entrypoint_readable: true
 entrypoint: /Users/condy/Desktop/think-tank-skill/.codex/skills/think-tank/SKILL.md
-project_local_copy: true
+repository_relative_symlink: true
+symlink_resolves_to_source: true
 subagent_runtime_check: passing
 role_result_schema_check: passing
 ```

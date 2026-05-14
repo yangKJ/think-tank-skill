@@ -24,7 +24,15 @@ think_tank_core_depends_on_peer_skills: false
 └── ...
 ```
 
-这些目录是复制后的项目内副本，不是软链接。后续旧 research agent 目录删除后，当前项目仍然可用。
+除 `think-tank` 外，这些 peer skills 是复制后的项目内副本，不是软链接。后续旧 research agent 目录删除后，当前项目仍然可用。
+
+`think-tank` 本身使用仓库内软链接：
+
+```text
+.codex/skills/think-tank -> ../../think-tank
+```
+
+这保证 Codex 实际加载入口和主仓 `think-tank/` 是同一份内容，不产生双真相源。
 
 旧 skill 的可执行入口必须指向当前项目本地路径，不能继续依赖 `~/.claude/skills` 或旧 `img-company/agents/research` 路径。历史 README 中若保留 Claude Code 安装说明，只能作为来源记录，不能作为 Codex 执行入口。
 
