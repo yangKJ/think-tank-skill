@@ -39,6 +39,8 @@
 - 记录 Claude Code final low-flow validation，状态为 `verified_partial_with_success_pre_invocation_and_failure_degradation`。
 - 增加 v0.2 runtime hardening 契约：runtime、state/result、slot、consensus 和 research hardening。
 - 增加 v0.2 四个检查脚本：`runtime_contract_check.py`、`slot_contract_check.py`、`consensus_contract_check.py`、`research_protocol_check.py`。
+- 增加 v0.2 平台无关 minimal runtime library：planner、slot resolver、state model、consensus evaluator。
+- 增加 v0.2 runtime 实现检查脚本：`runtime_planner_check.py`、`slot_resolver_check.py`、`state_model_check.py`、`consensus_runtime_check.py`。
 - 增加 optional capability 后续验证路线图。
 - 增加 MIT License。
 

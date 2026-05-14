@@ -116,6 +116,10 @@ python3 checks/runtime_contract_check.py
 python3 checks/slot_contract_check.py
 python3 checks/consensus_contract_check.py
 python3 checks/research_protocol_check.py
+python3 checks/runtime_planner_check.py
+python3 checks/slot_resolver_check.py
+python3 checks/state_model_check.py
+python3 checks/consensus_runtime_check.py
 ```
 
 仍未声明完成：

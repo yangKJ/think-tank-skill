@@ -96,6 +96,10 @@ python3 checks/runtime_contract_check.py
 python3 checks/slot_contract_check.py
 python3 checks/consensus_contract_check.py
 python3 checks/research_protocol_check.py
+python3 checks/runtime_planner_check.py
+python3 checks/slot_resolver_check.py
+python3 checks/state_model_check.py
+python3 checks/consensus_runtime_check.py
 ```
 
 Codex foundation status:
@@ -109,6 +113,7 @@ Codex foundation status:
 - JSON input/output samples are checked.
 - Claude Code runtime and true multi-agent execution remain planned.
 - v0.2 runtime hardening contracts are specified and checked.
+- v0.2 platform-neutral minimal runtime library is implemented and checked.
 
 ## Design Boundary
 
