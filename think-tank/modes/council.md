@@ -47,6 +47,24 @@ council mode 中，主 Agent 默认扮演主持人：
 
 L3 裁决不是抹平分歧。最终输出必须记录被裁决掉的关键反对意见。
 
+## v0.2 显式投票
+
+council mode 不再只要求“讨论过”，还要求显式记录：
+
+```yaml
+position:
+  profile: ""
+  proposal: ""
+  objections: []
+  vote:
+    main: agree | disagree | abstain
+  confidence: low | medium | high
+```
+
+如果 `skeptic` 或其他角色给出 blocking objection，不能标记 L1 共识。必须继续一轮针对性讨论，或者进入 L3 裁决并记录少数意见。
+
+完整规则见 `protocol/consensus-contract.md`。
+
 ## 输出重点
 
 - 共识结论

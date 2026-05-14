@@ -112,6 +112,10 @@ python3 checks/claude_runtime_sample_check.py
 python3 checks/minimal_runtime_execution_check.py
 python3 checks/capability_queue_check.py
 python3 checks/schema_sample_check.py
+python3 checks/runtime_contract_check.py
+python3 checks/slot_contract_check.py
+python3 checks/consensus_contract_check.py
+python3 checks/research_protocol_check.py
 ```
 
 仍未声明完成：

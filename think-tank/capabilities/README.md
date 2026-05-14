@@ -26,6 +26,7 @@ think-tank
 - `social-listening.md`：社媒内容、评论、互动和舆情
 - `knowledge-persistence.md`：报告、brief、笔记和知识库沉淀
 - `browser-automation.md`：需要真实浏览器或交互环境的网页任务
+- `slot-contract.md`：required / optional capability slot、可用性检查、缺失降级和状态声明规则
 
 ## 设计边界
 
@@ -37,4 +38,3 @@ think-tank
 - 选择最合适的 skill
 - 处理权限和失败
 - 将结果转换回 think-tank 输出契约
-

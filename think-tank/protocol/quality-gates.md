@@ -29,3 +29,15 @@ think-tank 每次输出前必须通过质量门禁。
 - `tracking`：只记录状态，不代表真实执行完成
 - `planned`：设计目标，尚未实现
 
+## v0.2 共识门禁
+
+当 mode 包含 deliberation 或 council 行为时，必须追加：
+
+- 是否记录各角色 `position`
+- 是否记录 `agree`、`disagree` 或 `abstain`
+- 是否存在 blocking objection
+- 是否说明继续讨论或停止讨论的条件
+- 是否保留少数意见
+- 是否说明为什么现在可以进入结论
+
+完整规则见 `protocol/consensus-contract.md`。

@@ -19,8 +19,12 @@ REQUIRED_FILES = [
     THINK_TANK / "protocol" / "agent-selection.md",
     THINK_TANK / "protocol" / "mode-selection.md",
     THINK_TANK / "protocol" / "quality-gates.md",
+    THINK_TANK / "protocol" / "runtime-contract.md",
+    THINK_TANK / "protocol" / "state-result-contract.md",
+    THINK_TANK / "protocol" / "consensus-contract.md",
     THINK_TANK / "protocol" / "versioning.md",
     THINK_TANK / "capabilities" / "README.md",
+    THINK_TANK / "capabilities" / "slot-contract.md",
     THINK_TANK / "profiles" / "README.md",
     THINK_TANK / "platforms" / "claude-code" / "adapter.md",
     THINK_TANK / "platforms" / "claude-code" / "dispatch-contract.md",
@@ -87,6 +91,7 @@ REQUIRED_FILES = [
     THINK_TANK / "docs" / "runtime-mirror-report.md",
     THINK_TANK / "docs" / "final-acceptance-plan.md",
     THINK_TANK / "docs" / "research-migration-audit.md",
+    THINK_TANK / "docs" / "v0.2-runtime-hardening.md",
     THINK_TANK / "schemas" / "input.schema.json",
     THINK_TANK / "schemas" / "output.schema.json",
     THINK_TANK / "schemas" / "claude-dispatch.schema.json",
@@ -150,7 +155,7 @@ def check_profiles() -> None:
 
 def check_capabilities() -> None:
     for capability_file in sorted((THINK_TANK / "capabilities").glob("*.md")):
-        if capability_file.name == "README.md":
+        if capability_file.name in {"README.md", "slot-contract.md"}:
             continue
         content = capability_file.read_text(encoding="utf-8")
         missing = [section for section in CAPABILITY_REQUIRED_SECTIONS if section not in content]

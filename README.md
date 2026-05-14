@@ -92,6 +92,10 @@ python3 checks/claude_runtime_sample_check.py
 python3 checks/minimal_runtime_execution_check.py
 python3 checks/capability_queue_check.py
 python3 checks/schema_sample_check.py
+python3 checks/runtime_contract_check.py
+python3 checks/slot_contract_check.py
+python3 checks/consensus_contract_check.py
+python3 checks/research_protocol_check.py
 ```
 
 Codex foundation status:
@@ -104,6 +108,7 @@ Codex foundation status:
 - Browser external DOM recovery is blocked in the current environment and is not claimed as verified.
 - JSON input/output samples are checked.
 - Claude Code runtime and true multi-agent execution remain planned.
+- v0.2 runtime hardening contracts are specified and checked.
 
 ## Design Boundary
 

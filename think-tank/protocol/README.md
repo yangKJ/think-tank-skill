@@ -34,4 +34,7 @@
 - `agent-selection.md`：场景驱动的角色和平台 agent 选择规则
 - `mode-selection.md`：场景模式选择规则
 - `quality-gates.md`：质量门禁和验收标准
+- `runtime-contract.md`：平台无关 runtime pipeline
+- `state-result-contract.md`：run、state、result、recovery 最小结构
+- `consensus-contract.md`：显式投票、blocking objection、停止条件
 - `versioning.md`：协议版本演进和能力状态标注规则
