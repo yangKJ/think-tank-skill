@@ -9,7 +9,7 @@ protocol/intent-routing.md
 recipes/
 ```
 
-本文件只描述 Codex adapter 如何把这些通用路由落到当前项目的可选 peer skills。具体 peer skill 名称来自 Codex 本地 provider registry，不代表其他用户或其他项目默认拥有这些技能。
+本文件只描述 Codex adapter 如何把 routing policy 命中的 intent/recipe/capability 落到当前项目的可选 peer skills。具体触发词和 peer skill 名称来自 Codex 本地 provider policy 与 provider registry，不代表其他用户或其他项目默认拥有这些配置。
 
 ## 核心原则
 
@@ -27,11 +27,8 @@ Codex 中的正确路径是：
 
 ```text
 用户自然语言触发
-  -> think-tank intent detection
-  -> recipe selection
-  -> mode selection
-  -> profiles selection
-  -> capability slots
+  -> platforms/codex/provider-policy.example.yaml or .codex/think-tank.provider-policy.yaml
+  -> selected intent / recipe / mode / profiles / capability slots
   -> routing/skill-router.md
   -> platforms/codex/provider-registry.md
   -> optional providers when available and needed
@@ -49,25 +46,49 @@ routing/dispatch-policy.md
 routing/result-recovery.md
 ```
 
-## Codex 触发路由表
+## Codex Policy
 
-下表中的候选同级 skills 是当前 Codex adapter 可识别的本地 provider 示例，不是 think-tank core 依赖。
+Codex 默认示例配置位于：
 
-| 用户说法 | intent | recipe | mode | 候选同级 skills | 默认边界 |
-|----------|---------|----------|--------------|-----------------|----------|
-| `快速了解一下`、`简单看看`、`先了解一下`、`概况` | `general_research` | `evidence-synthesis` | `research` | `web-access`, `summarize` | 优先本地/用户材料；需要联网时先标注 |
-| `研究一下`、`帮我了解一下`、`行业分析` | `general_research` 或 `market_research` | `market-research` 或 `technical-research` | `research` | `research-workflow`, `omni-research`, `juejin-search`, `google-ai-mode-skill` | 不默认写 Obsidian |
-| `深度研究`、`全面研究`、`系统分析`、`好好研究一下` | `deep_research` | 按主题选择 recipe | `research` | `omni-research`, `research-workflow`, `juejin-search`, `xiaohongshu`, `obsidian` | 需要真实联网/私有写入时单独标注 |
-| `竞品分析`、`竞争分析`、`竞品动态` | `competitive_intelligence` | `competitive-intelligence` | `research` | `competitor_analysis`, `web-access`, `juejin-search`, `xiaohongshu`, `social-media-analyzer`, `obsidian` | 竞品分析核心是可迁移洞察，不只是功能对比 |
-| `市场调研`、`用户需求`、`目标用户` | `market_research` | `market-research` | `research` | `web-access`, `summarize`, `36kr-hotlist`, `social-media-analyzer` | 市场数据需要来源或边界 |
-| `技术调研`、`方案调研`、`可行性分析` | `technical_research` | `technical-research` | `research` | `web-access`, `summarize`, `juejin-search`, `pdf-extraction` | 区分事实、推断和实现建议 |
-| `小红书用户评价`、`舆情分析`、`用户反馈` | `user_feedback_analysis` | `user-feedback-analysis` | `research` | `xiaohongshu`, `social-media-analyzer`, `summarize` | 不默认登录、不抓评论、不绕反爬 |
-| `这个视频讲了什么`、`提取播客内容`、`转录` | `media_research` | `media-research` | `research` | `yt-dlp`, `openai-whisper`, `xiaoyuzhou-transcribe`, `summarize` | 默认先用用户提供 transcript/summary |
-| `解读 PDF`、`白皮书分析`、`报告解读` | `technical_research` 或 `synthesis` | `technical-research` 或 `evidence-synthesis` | `research` | `pdf-extraction`, `summarize` | 本地文件优先，外部链接需标注来源 |
-| `构建知识图谱`、`沉淀知识` | `synthesis` | `evidence-synthesis` | `research` | `knowledge-graph-builder`, `obsidian`, `notebooklm` | 不默认写私有库 |
-| `持续监控`、`定期追踪`、`关注一下`、`监控` | `monitoring_plan` | `monitoring-plan` | `strategy` | `taskflow`, `web-access`, `obsidian` | 在 Codex 中优先输出监控方案；自动化需用户明确授权 |
-| `开会讨论`、`讨论一下`、`帮我判断` | `decision_council` | `decision-council` | `council` | `think-tank` core first | Codex 默认 `single_agent_multi_profile_fallback`，除非显式使用 subagent runtime |
-| `审查`、`验收`、`看看有没有问题` | `review_acceptance` | `review-acceptance` | `review` | `think-tank` core first | 先给问题和风险，不做泛泛总结 |
+```text
+platforms/codex/provider-policy.example.yaml
+```
+
+项目本地可复制为：
+
+```text
+.codex/think-tank.provider-policy.yaml
+```
+
+本地 policy 不上传 GitHub。用户可以在该文件中定义触发词、intent、recipe、capability 和 provider 偏好。
+
+例如用户希望“上网研究”只允许小红书 provider，可以在本地 policy 中配置：
+
+```yaml
+routes:
+  - id: xiaohongshu-only-research
+    priority: 100
+    enabled: true
+    triggers:
+      match: regex
+      patterns:
+        - "(上网研究|研究一下)"
+    intent: user_feedback_analysis
+    mode: research
+    recipe: user-feedback-analysis
+    capabilities:
+      - social-listening
+      - source-acquisition
+    providers:
+      prefer:
+        - xiaohongshu
+      allow:
+        - xiaohongshu
+      deny:
+        - web-access
+        - google-ai-mode-skill
+    fallback: ask_user
+```
 
 ## 组合技能迁移
 

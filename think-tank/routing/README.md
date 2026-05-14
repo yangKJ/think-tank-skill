@@ -5,7 +5,7 @@
 它解决的问题是：
 
 ```text
-intent / recipe / capability 已经确定后，
+用户请求进入 policy / intent / recipe / capability 后，
 如何选择、调用、降级和回收外部 peer skill？
 ```
 
@@ -31,6 +31,9 @@ think_tank_core_depends_on_peer_skills: false
 新 think-tank 拆成三层：
 
 ```text
+routing/policy-schema.md
+  -> 定义触发词、intent、recipe、capability 和 provider 偏好如何配置
+
 recipes/competitive-intelligence.md
   -> 定义竞品分析任务应该怎么做
 
@@ -45,6 +48,7 @@ platforms/<platform>/
 
 ## 文件
 
+- `policy-schema.md`：定义触发词、intent、recipe、capability 和 provider 偏好的 YAML 配置结构。
 - `skill-router.md`：从 intent/recipe/capability 到 peer skill candidates 的选择规则。
 - `dispatch-policy.md`：什么时候允许调用 peer skill、什么时候降级、如何声明状态。
 - `result-recovery.md`：peer skill 输出如何回收到 sources、evidence、role-result 和 final output。
@@ -53,6 +57,7 @@ platforms/<platform>/
 
 ```text
 user request
+  -> routing/policy-schema.md
   -> protocol/intent-routing.md
   -> recipes/<recipe>.md
   -> capabilities/<capability>.md

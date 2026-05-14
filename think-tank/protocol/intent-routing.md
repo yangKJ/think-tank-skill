@@ -18,24 +18,47 @@ user request
   -> routing/result-recovery.md
 ```
 
-## 通用触发词
+## 触发词配置
 
-这些触发词适用于任何项目：
+think-tank core 不内置固定触发词。
 
-| 触发词 | intent | 默认 mode | 默认 recipe |
-|--------|--------|-----------|-------------|
-| `研究一下`、`帮我了解一下`、`查一下`、`调研一下` | `general_research` | `research` | `market-research` 或 `technical-research` |
-| `深度研究`、`全面分析`、`系统分析`、`好好研究一下` | `deep_research` | `research` | 按主题选择 |
-| `竞品分析`、`竞争分析`、`对比一下对手` | `competitive_intelligence` | `research` | `competitive-intelligence` |
-| `市场调研`、`行业分析`、`用户需求` | `market_research` | `research` | `market-research` |
-| `技术调研`、`方案调研`、`可行性分析` | `technical_research` | `research` | `technical-research` |
-| `用户反馈`、`舆情分析`、`评论分析`、`社媒反馈` | `user_feedback_analysis` | `research` | `user-feedback-analysis` |
-| `这个视频讲了什么`、`播客总结`、`转录后分析` | `media_research` | `research` | `media-research` |
-| `开会讨论`、`讨论一下`、`帮我判断`、`是否应该` | `decision_council` | `council` | `decision-council` |
-| `审查`、`review`、`验收`、`找问题` | `review_acceptance` | `review` | `review-acceptance` |
-| `制定策略`、`路线图`、`优先级`、`行动方案` | `strategy_planning` | `strategy` | `strategy-planning` |
-| `持续关注`、`监控方案`、`定期追踪` | `monitoring_plan` | `strategy` | `monitoring-plan` |
-| `总结这些资料`、`汇总一下`、`提炼结论` | `synthesis` | `research` 或 `review` | `evidence-synthesis` |
+触发词属于 routing policy，由平台 adapter、项目本地配置或用户全局配置提供。协议层只定义 intent 语义，不规定用户必须说什么词。
+
+```text
+user request
+  -> routing policy trigger matching
+  -> intent
+  -> mode
+  -> recipe
+  -> capabilities
+```
+
+policy 格式见：
+
+```text
+routing/policy-schema.md
+```
+
+平台可以提供 example policy 帮助用户快速开始，但 example policy 不是 core protocol。
+
+## Intent Catalog
+
+这些 intent 是平台无关语义，不是触发词：
+
+| intent | 默认 mode | 默认 recipe |
+|--------|-----------|-------------|
+| `general_research` | `research` | `market-research` 或 `technical-research` |
+| `deep_research` | `research` | 按主题选择 |
+| `competitive_intelligence` | `research` | `competitive-intelligence` |
+| `market_research` | `research` | `market-research` |
+| `technical_research` | `research` | `technical-research` |
+| `user_feedback_analysis` | `research` | `user-feedback-analysis` |
+| `media_research` | `research` | `media-research` |
+| `decision_council` | `council` | `decision-council` |
+| `review_acceptance` | `review` | `review-acceptance` |
+| `strategy_planning` | `strategy` | `strategy-planning` |
+| `monitoring_plan` | `strategy` | `monitoring-plan` |
+| `synthesis` | `research` 或 `review` | `evidence-synthesis` |
 
 ## intent 与 mode 的关系
 
@@ -59,15 +82,15 @@ recipe:
 
 ## recipe 选择规则
 
-1. 用户显式说出任务类型时，优先选择对应 recipe。
-2. 用户只说“研究一下”时，根据主题判断：
+1. 用户显式指定 intent、mode 或 recipe 时，优先选择用户指定值。
+2. routing policy 命中 route 时，使用 route 指定的 intent、mode、recipe、profiles 和 capabilities。
+3. 用户只给宽泛研究请求时，根据主题判断：
    - 产品、市场、用户、商业：`market-research`
    - 技术、架构、实现、库、模型：`technical-research`
    - 对手、替代品、竞品：`competitive-intelligence`
    - 评论、反馈、社媒：`user-feedback-analysis`
-3. 用户请求包含“讨论/判断/是否应该”时，可选择 `decision-council`，并把原始主题作为 council 议题。
-4. 用户请求包含“审查/验收/找问题”时，选择 `review-acceptance`。
-5. 用户请求包含“长期/持续/监控/每周/定期”时，选择 `monitoring-plan`。
+4. 没有 policy 或 policy 未命中时，平台 adapter 可使用保守默认策略。
+5. 仍不能判断时，降级为 `general_research` 或询问用户。
 
 ## peer skills 规则
 

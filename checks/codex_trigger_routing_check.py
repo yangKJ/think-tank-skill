@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""检查旧 research agent 触发词是否迁移到 Codex trigger routing。"""
+"""检查旧 research agent 触发词是否迁移到 Codex provider policy。"""
 
 from __future__ import annotations
 
@@ -8,6 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 ROUTING = ROOT / "think-tank" / "platforms" / "codex" / "trigger-routing.md"
+POLICY = ROOT / "think-tank" / "platforms" / "codex" / "provider-policy.example.yaml"
 MIGRATION = ROOT / "think-tank" / "docs" / "research-trigger-migration.md"
 
 REQUIRED_TRIGGERS = [
@@ -58,20 +59,23 @@ def fail(message: str) -> None:
 def main() -> None:
     if not ROUTING.exists():
         fail(f"缺少路由文档: {ROUTING}")
+    if not POLICY.exists():
+        fail(f"缺少 provider policy 示例: {POLICY}")
     if not MIGRATION.exists():
         fail(f"缺少迁移文档: {MIGRATION}")
 
     routing = ROUTING.read_text(encoding="utf-8")
+    policy = POLICY.read_text(encoding="utf-8")
     migration = MIGRATION.read_text(encoding="utf-8")
-    combined = routing + "\n" + migration
+    combined = policy + "\n" + migration
 
     for trigger in REQUIRED_TRIGGERS:
         if trigger not in combined:
-            fail(f"缺少旧触发词迁移: {trigger}")
+            fail(f"缺少旧触发词 policy 迁移: {trigger}")
 
     for skill in REQUIRED_SKILLS:
-        if skill not in combined:
-            fail(f"缺少组合 skill 映射: {skill}")
+        if skill not in (policy + "\n" + migration + "\n" + routing):
+            fail(f"缺少组合 skill 映射或 policy 示例: {skill}")
 
     for boundary in REQUIRED_BOUNDARIES:
         if boundary not in routing:
@@ -79,11 +83,13 @@ def main() -> None:
 
     if "router_owner: think-tank" not in routing:
         fail("trigger routing 必须声明 think-tank 是路由主语")
+    if "provider-policy.example.yaml" not in routing or ".codex/think-tank.provider-policy.yaml" not in routing:
+        fail("Codex trigger routing 必须指向 provider policy YAML")
     if "protocol/intent-routing.md" not in routing or "recipes/" not in routing:
         fail("Codex trigger routing 必须引用平台无关 intent/recipe 真相源")
-    for term in ["selected_intent:", "selected_recipe:"]:
-        if term not in routing:
-            fail(f"Codex trigger routing 测试说法缺少字段: {term}")
+    for term in ["intent:", "recipe:", "providers:", "triggers:"]:
+        if term not in policy:
+            fail(f"provider policy 示例缺少字段: {term}")
     if "research_agent_identity: replaced_by_think_tank_research_mode" not in migration:
         fail("迁移文档必须声明旧 research agent 身份被 research mode 接管")
 

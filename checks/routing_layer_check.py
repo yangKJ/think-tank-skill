@@ -12,6 +12,7 @@ ROUTING = THINK_TANK / "routing"
 
 REQUIRED_FILES = [
     ROUTING / "README.md",
+    ROUTING / "policy-schema.md",
     ROUTING / "skill-router.md",
     ROUTING / "dispatch-policy.md",
     ROUTING / "result-recovery.md",
@@ -36,6 +37,13 @@ REQUIRED_ROUTING_TERMS = {
         "Capability Provider Requirements",
         "provider_requirements:",
         "Anti-Patterns",
+    ],
+    "policy-schema.md": [
+        "routing policy",
+        "routes:",
+        "triggers:",
+        "providers:",
+        "missing_policy_behavior: use_adapter_defaults_or_core_protocol",
     ],
     "dispatch-policy.md": [
         "dispatch_request:",
@@ -83,6 +91,7 @@ def main() -> None:
         "protocol/intent-routing.md",
         "platforms/codex/trigger-routing.md",
         "platforms/codex/capability-mapping.md",
+        "platforms/codex/provider-registry.md",
     ]:
         content = (THINK_TANK / rel).read_text(encoding="utf-8")
         for term in ENTRYPOINT_TERMS:

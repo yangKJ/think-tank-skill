@@ -11,6 +11,7 @@ PROTOCOL = ROOT / "think-tank" / "protocol" / "intent-routing.md"
 RECIPES = ROOT / "think-tank" / "recipes"
 SKILL = ROOT / "think-tank" / "SKILL.md"
 CODEX_ROUTING = ROOT / "think-tank" / "platforms" / "codex" / "trigger-routing.md"
+POLICY_SCHEMA = ROOT / "think-tank" / "routing" / "policy-schema.md"
 
 RECIPE_FILES = [
     "competitive-intelligence.md",
@@ -40,21 +41,6 @@ REQUIRED_INTENTS = [
     "synthesis",
 ]
 
-REQUIRED_TRIGGER_TERMS = [
-    "研究一下",
-    "深度研究",
-    "竞品分析",
-    "竞争分析",
-    "市场调研",
-    "技术调研",
-    "舆情分析",
-    "开会讨论",
-    "审查",
-    "制定策略",
-    "持续关注",
-    "总结这些资料",
-]
-
 
 def fail(message: str) -> None:
     raise SystemExit(f"intent/recipe 检查失败: {message}")
@@ -74,7 +60,16 @@ def main() -> None:
 
     protocol = PROTOCOL.read_text(encoding="utf-8")
     require_terms(protocol, REQUIRED_INTENTS, "protocol/intent-routing.md")
-    require_terms(protocol, REQUIRED_TRIGGER_TERMS, "protocol/intent-routing.md")
+    require_terms(
+        protocol,
+        [
+            "think-tank core 不内置固定触发词",
+            "触发词属于 routing policy",
+            "routing/policy-schema.md",
+            "## Intent Catalog",
+        ],
+        "protocol/intent-routing.md",
+    )
     require_terms(
         protocol,
         [
@@ -117,13 +112,28 @@ def main() -> None:
     )
 
     skill = SKILL.read_text(encoding="utf-8")
-    require_terms(skill, ["protocol/intent-routing.md", "recipes/", "optional_peer_skills_are_dependencies: false"], "SKILL.md")
+    require_terms(skill, ["protocol/intent-routing.md", "recipes/", "routing/policy-schema.md", "optional_peer_skills_are_dependencies: false"], "SKILL.md")
+
+    policy_schema = POLICY_SCHEMA.read_text(encoding="utf-8")
+    require_terms(
+        policy_schema,
+        [
+            "purpose: configure_triggers_intents_recipes_capabilities_and_provider_preferences",
+            "user_explicit_instruction",
+            "project_local_policy",
+            "routes:",
+            "providers:",
+            "missing_policy_behavior: use_adapter_defaults_or_core_protocol",
+        ],
+        "routing/policy-schema.md",
+    )
 
     codex = CODEX_ROUTING.read_text(encoding="utf-8")
     require_terms(
         codex,
         [
             "protocol/intent-routing.md",
+            "provider-policy.example.yaml",
             "recipes/",
             "routing/skill-router.md",
             "routing/result-recovery.md",

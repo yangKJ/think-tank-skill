@@ -52,7 +52,7 @@ think-tank-skill/
 
 ### protocol
 
-协议层是 think-tank 的唯一真相源，必须平台无关。它定义触发条件、输入格式、角色选择、流程阶段、终止条件、输出结构和质量标准。
+协议层是 think-tank 的唯一真相源，必须平台无关。它定义输入格式、intent 语义、角色选择、流程阶段、终止条件、输出结构和质量标准。具体触发词不属于 core，应由 routing policy 配置。
 
 ### platforms
 
@@ -68,7 +68,11 @@ think-tank-skill/
 
 ### routing
 
-技能路由中间层定义 capability 如何连接到当前平台可用的能力提供者。它取代旧 `competitor_analysis` 那种“任务配方、工具连接、报告输出混在一起”的模式，把连接逻辑拆成 `skill_route`、`dispatch_decision` 和 `result_recovery`。通用 router 不维护具体 skill 名单，具体名称只能来自平台 adapter、本地 registry 或用户显式指定。
+技能路由中间层定义 capability 如何连接到当前平台可用的能力提供者。它取代旧 `competitor_analysis` 那种“任务配方、工具连接、报告输出混在一起”的模式，把连接逻辑拆成 `policy_route`、`skill_route`、`dispatch_decision` 和 `result_recovery`。通用 router 不维护具体 skill 名单，具体名称只能来自平台 adapter、本地 registry、routing policy 或用户显式指定。
+
+### policy
+
+routing policy 定义触发词、intent、recipe、capability 和 provider 偏好。用户可以通过平台示例 YAML 创建项目本地策略，例如 Codex 的 `.codex/think-tank.provider-policy.yaml`。policy 缺失时 think-tank 仍按 core protocol 降级运行。
 
 ### profiles
 

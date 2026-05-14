@@ -1,0 +1,210 @@
+version: 1
+
+metadata:
+  name: codex-think-tank-provider-policy-example
+  description: >
+    Copy this file to .codex/think-tank.provider-policy.yaml and edit it for
+    your project. This policy is local preference, not think-tank core protocol.
+
+defaults:
+  fallback: core_protocol
+  missing_provider_behavior: degrade_to_core_protocol
+  require_permission_for:
+    - private_write
+    - social_scraping
+    - media_download
+
+routes:
+  - id: general-research-default
+    priority: 50
+    enabled: true
+    triggers:
+      match: regex
+      patterns:
+        - "(快速了解一下|研究一下|调研一下|帮我了解一下|查一下|深度研究|市场调研|技术调研)"
+    intent: general_research
+    mode: research
+    recipe: evidence-synthesis
+    profiles:
+      - source-collector
+      - report-architect
+    capabilities:
+      - source-acquisition
+    providers:
+      prefer:
+        - web-access
+        - summarize
+      allow: []
+      deny: []
+    fallback: core_protocol
+
+  - id: xiaohongshu-first-research
+    priority: 90
+    enabled: false
+    triggers:
+      match: regex
+      patterns:
+        - "(上网研究|研究一下|用户反馈|舆情分析|小红书用户评价)"
+    intent: user_feedback_analysis
+    mode: research
+    recipe: user-feedback-analysis
+    profiles:
+      - source-collector
+      - skeptic
+      - report-architect
+    capabilities:
+      - social-listening
+      - source-acquisition
+    providers:
+      prefer:
+        - xiaohongshu
+      allow:
+        - xiaohongshu
+      deny:
+        - web-access
+        - google-ai-mode-skill
+        - juejin-search
+    fallback: ask_user
+
+  - id: competitive-intelligence
+    priority: 80
+    enabled: true
+    triggers:
+      match: regex
+      patterns:
+        - "(竞品分析|竞争分析|对比一下对手)"
+    intent: competitive_intelligence
+    mode: research
+    recipe: competitive-intelligence
+    profiles:
+      - source-collector
+      - trend-analyst
+      - skeptic
+      - report-architect
+    capabilities:
+      - source-acquisition
+      - social-listening
+    providers:
+      prefer:
+        - competitor_analysis
+        - web-access
+      allow: []
+      deny: []
+    fallback: core_protocol
+
+  - id: council-discussion
+    priority: 70
+    enabled: true
+    triggers:
+      match: regex
+      patterns:
+        - "(开会讨论|讨论一下|帮我判断|是否应该)"
+    intent: decision_council
+    mode: council
+    recipe: decision-council
+    profiles:
+      - facilitator
+      - architect
+      - skeptic
+      - product-strategist
+    capabilities: []
+    providers:
+      prefer: []
+      allow: []
+      deny: []
+    fallback: core_protocol
+
+  - id: review-acceptance
+    priority: 70
+    enabled: true
+    triggers:
+      match: regex
+      patterns:
+        - "(审查|验收|看看有没有问题|review)"
+    intent: review_acceptance
+    mode: review
+    recipe: review-acceptance
+    profiles:
+      - skeptic
+      - report-architect
+    capabilities:
+      - source-acquisition
+    providers:
+      prefer: []
+      allow: []
+      deny: []
+    fallback: local_files
+
+  - id: media-research
+    priority: 65
+    enabled: true
+    triggers:
+      match: regex
+      patterns:
+        - "(视频分析|播客总结|转录|音频分析|这个视频讲了什么)"
+    intent: media_research
+    mode: research
+    recipe: media-research
+    profiles:
+      - source-collector
+      - report-architect
+    capabilities:
+      - media-processing
+      - source-acquisition
+    providers:
+      prefer:
+        - openai-whisper
+        - yt-dlp
+        - summarize
+      allow: []
+      deny: []
+    fallback: user_materials
+
+  - id: document-research
+    priority: 65
+    enabled: true
+    triggers:
+      match: regex
+      patterns:
+        - "(PDF|白皮书|报告解读|解读文档)"
+    intent: technical_research
+    mode: research
+    recipe: evidence-synthesis
+    profiles:
+      - source-collector
+      - report-architect
+    capabilities:
+      - source-acquisition
+    providers:
+      prefer:
+        - pdf-extraction
+        - summarize
+      allow: []
+      deny: []
+    fallback: local_files
+
+  - id: monitoring-plan
+    priority: 60
+    enabled: true
+    triggers:
+      match: regex
+      patterns:
+        - "(持续监控|持续关注|定期追踪|关注一下|监控方案)"
+    intent: monitoring_plan
+    mode: strategy
+    recipe: monitoring-plan
+    profiles:
+      - source-collector
+      - product-strategist
+      - report-architect
+    capabilities:
+      - source-acquisition
+      - knowledge-persistence
+    providers:
+      prefer:
+        - taskflow
+        - obsidian
+        - web-access
+      allow: []
+      deny: []
+    fallback: core_protocol

@@ -70,6 +70,15 @@ platforms/codex/trigger-routing.md
 
 按 `protocol/intent-routing.md` 识别通用任务意图，并在 `recipes/` 中选择任务配方。
 
+think-tank core 不内置固定触发词。自然语言触发、项目偏好和 provider 选择应由 routing policy 配置：
+
+```text
+routing/policy-schema.md
+platforms/<platform>/provider-policy.example.yaml
+```
+
+如果平台或项目没有配置 policy，按协议默认路径保守降级，不得伪造某个触发词已经绑定外部 skill。
+
 常用 intent：
 
 - `general_research`
@@ -252,6 +261,7 @@ execution_claim: only_verified_per_run
 - mode 选择：`protocol/mode-selection.md`
 - 通用 recipes：`recipes/`
 - 技能路由中间层：`routing/`
+- routing policy schema：`routing/policy-schema.md`
 - profiles：`profiles/`
 - profile prompt pack：`profiles/prompt-pack.md`
 - capabilities：`capabilities/`
