@@ -9,7 +9,7 @@ protocol/intent-routing.md
 recipes/
 ```
 
-本文件只描述 Codex adapter 如何把这些通用路由落到当前项目的可选 peer skills。
+本文件只描述 Codex adapter 如何把这些通用路由落到当前项目的可选 peer skills。具体 peer skill 名称来自 Codex 本地 provider registry，不代表其他用户或其他项目默认拥有这些技能。
 
 ## 核心原则
 
@@ -33,7 +33,8 @@ Codex 中的正确路径是：
   -> profiles selection
   -> capability slots
   -> routing/skill-router.md
-  -> optional peer skills when available and needed
+  -> platforms/codex/provider-registry.md
+  -> optional providers when available and needed
   -> routing/result-recovery.md
   -> structured output
 ```
@@ -49,6 +50,8 @@ routing/result-recovery.md
 ```
 
 ## Codex 触发路由表
+
+下表中的候选同级 skills 是当前 Codex adapter 可识别的本地 provider 示例，不是 think-tank core 依赖。
 
 | 用户说法 | intent | recipe | mode | 候选同级 skills | 默认边界 |
 |----------|---------|----------|--------------|-----------------|----------|
