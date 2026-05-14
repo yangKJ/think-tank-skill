@@ -28,6 +28,44 @@ def load_policy(path: Path) -> dict[str, Any]:
     return data
 
 
+def merge_policies(base: dict[str, Any], overlay: dict[str, Any]) -> dict[str, Any]:
+    """Merge project-local policy over the public default policy."""
+    if not base:
+        return overlay
+    if not overlay:
+        return base
+
+    merged = dict(base)
+    merged["defaults"] = {**(base.get("defaults", {}) or {}), **(overlay.get("defaults", {}) or {})}
+    merged["metadata"] = {**(base.get("metadata", {}) or {}), **(overlay.get("metadata", {}) or {})}
+
+    base_routes = list(base.get("routes", []) or [])
+    overlay_routes = list(overlay.get("routes", []) or [])
+    routes_by_id = {route.get("id"): route for route in base_routes if route.get("id")}
+    ordered_routes = [route for route in base_routes if route.get("id")]
+    for route in overlay_routes:
+        route_id = route.get("id")
+        if route_id in routes_by_id:
+            index = next(index for index, existing in enumerate(ordered_routes) if existing.get("id") == route_id)
+            ordered_routes[index] = route
+        else:
+            ordered_routes.append(route)
+        if route_id:
+            routes_by_id[route_id] = route
+    merged["routes"] = ordered_routes
+    return merged
+
+
+def load_effective_policy(explicit: Path | None = None) -> tuple[dict[str, Any], list[Path]]:
+    if explicit is not None:
+        return load_policy(explicit), [explicit]
+    default_policy = load_policy(DEFAULT_POLICY)
+    if LOCAL_WORKSPACE_POLICY.exists():
+        local_policy = load_policy(LOCAL_WORKSPACE_POLICY)
+        return merge_policies(default_policy, local_policy), [DEFAULT_POLICY, LOCAL_WORKSPACE_POLICY]
+    return default_policy, [DEFAULT_POLICY]
+
+
 def policy_path(explicit: Path | None = None) -> Path:
     if explicit is not None:
         return explicit
@@ -169,10 +207,14 @@ def main() -> int:
     args = parser.parse_args()
 
     selected_policy_path = policy_path(args.policy)
-    policy = load_policy(selected_policy_path)
+    policy, policy_sources = load_effective_policy(args.policy)
     provider_registry = registry(args.skills_dir)
     result = resolve_request(args.request, policy, provider_registry["providers"])
     result["policy_path"] = str(selected_policy_path.relative_to(ROOT)) if selected_policy_path.exists() else str(selected_policy_path)
+    result["policy_sources"] = [
+        str(source.relative_to(ROOT)) if source.exists() else str(source)
+        for source in policy_sources
+    ]
     result["provider_count"] = provider_registry["provider_count"]
     print(json.dumps(result, ensure_ascii=False, indent=2))
     return 0

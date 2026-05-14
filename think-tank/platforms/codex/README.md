@@ -49,3 +49,6 @@ Codex 项目本地配置应放在：
 ```
 
 `.codex/skills/think-tank` 可以是指向公开 `think-tank/` 的安装入口，但项目实例配置不应写入 Skill 源目录。
+
+本地 provider policy 默认作为 overlay 合并到公开 example policy 上。项目只需要写自己的
+触发词、优先级和 provider 偏好，不需要复制整份默认路由。

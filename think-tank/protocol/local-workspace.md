@@ -69,17 +69,22 @@ memory:
 
 ## Provider Policy Contract
 
-`provider-policy.yaml` is the preferred local YAML policy path. It overrides
-the bundled example policy without modifying the public Skill source.
+`provider-policy.yaml` is the preferred local YAML policy path. It overlays the
+bundled example policy without modifying the public Skill source. Local policy
+must not erase the default research, council, review, and strategy routes unless
+the user explicitly supplies a full replacement policy with `--policy`.
 
 Recommended Codex load order:
 
 ```yaml
 policy_load_order:
   - explicit --policy
-  - .think-tank/provider-policy.yaml
   - think-tank/platforms/codex/provider-policy.example.yaml
+  - .think-tank/provider-policy.yaml
 ```
+
+Default behavior: load the bundled example first, then merge `.think-tank`
+routes and defaults as project-local overrides.
 
 No legacy project-local policy path is supported in 2.0. The local instance
 policy belongs in `.think-tank/provider-policy.yaml`.

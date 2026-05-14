@@ -102,6 +102,16 @@ def main() -> None:
     for attr in OLD_RUNTIME_ATTRS:
         if hasattr(module, attr):
             fail(f"provider_policy.py 不应保留旧属性: {attr}")
+    effective_policy, sources = module.load_effective_policy()
+    if module.DEFAULT_POLICY not in sources:
+        fail("effective policy 必须包含默认 Codex policy")
+    if module.LOCAL_WORKSPACE_POLICY.exists() and module.LOCAL_WORKSPACE_POLICY not in sources:
+        fail("effective policy 必须包含 .think-tank provider policy")
+    route_ids = {route["id"] for route in effective_policy.get("routes", [])}
+    if "strategy-planning" not in route_ids:
+        fail("本地 policy overlay 不应覆盖掉默认 strategy-planning route")
+    if "local-project-memory-capture" not in route_ids:
+        fail("effective policy 必须包含本地 project memory capture route")
 
     print("local workspace 检查通过")
 

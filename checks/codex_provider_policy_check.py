@@ -83,6 +83,11 @@ def main() -> None:
         fail("provider_policy.py 的 local workspace policy 路径不正确")
 
     loaded_policy = module.load_policy(POLICY_EXAMPLE)
+    effective_policy, policy_sources = module.load_effective_policy()
+    if module.DEFAULT_POLICY not in policy_sources:
+        fail("effective policy 必须包含默认 policy")
+    if module.LOCAL_WORKSPACE_POLICY.exists() and module.LOCAL_WORKSPACE_POLICY not in policy_sources:
+        fail("effective policy 必须包含 .think-tank 本地 policy")
     provider_registry = module.registry(PROJECT_SKILLS)
 
     general = module.resolve_request("研究一下跨平台 Skill", loaded_policy, provider_registry["providers"])
@@ -111,6 +116,9 @@ def main() -> None:
         fail("制定策略 未选择 strategy-planning recipe")
     if strategy["skill_route"]["selected_provider"] is not None:
         fail("无 capability 的 strategy route 不应默认选择 provider")
+    effective_strategy = module.resolve_request("制定策略：think-tank 从 Codex 扩展到 Claude Code", effective_policy, provider_registry["providers"])
+    if not effective_strategy["matched"] or effective_strategy["selected_recipe"] != "strategy-planning":
+        fail("本地 policy overlay 后仍必须保留 strategy-planning route")
 
     memory = module.resolve_request("记下来：provider selection 不能当作 invocation", loaded_policy, provider_registry["providers"])
     if not memory["matched"] or memory["selected_intent"] != "project_memory_capture":
