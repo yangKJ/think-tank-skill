@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""检查 think-tank 是否安装到当前 Codex skills 目录。"""
+"""检查 think-tank 是否安装到当前项目的 Codex skills 目录。"""
 
 from __future__ import annotations
 
@@ -8,7 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "think-tank"
-TARGET = Path.home() / ".codex" / "skills" / "think-tank"
+TARGET = ROOT / ".codex" / "skills" / "think-tank"
 
 
 def fail(message: str) -> None:
@@ -20,8 +20,8 @@ def main() -> None:
         fail(f"安装目标不存在: {TARGET}")
     if not (TARGET / "SKILL.md").exists():
         fail("安装目标缺少 SKILL.md")
-    if TARGET.resolve() != SOURCE.resolve():
-        fail(f"安装目标不是当前主仓 think-tank: {TARGET.resolve()} != {SOURCE.resolve()}")
+    if TARGET.is_symlink():
+        fail("项目内 think-tank skill 必须是复制目录，不允许软链接")
 
     required = [
         TARGET / "protocol" / "subagent-runtime-contract.md",
@@ -38,6 +38,10 @@ def main() -> None:
     for term in ["think-tank", "single_agent_multi_profile_fallback", "schemas/role-result.schema.json"]:
         if term not in skill:
             fail(f"SKILL.md 缺少关键入口规则: {term}")
+
+    source_skill = (SOURCE / "SKILL.md").read_text(encoding="utf-8")
+    if skill != source_skill:
+        fail("项目内 .codex/skills/think-tank/SKILL.md 与主仓 think-tank/SKILL.md 不一致")
 
     print("Codex installed skill 检查通过")
 

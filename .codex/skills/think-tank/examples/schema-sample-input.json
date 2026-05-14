@@ -1,0 +1,21 @@
+{
+  "task": "使用 think-tank research mode，分析用户提供的材料并输出结论、风险和行动建议。",
+  "mode": "research",
+  "context": [
+    "用户只安装 think-tank，没有外部浏览器、社媒抓取或媒体处理技能。"
+  ],
+  "constraints": [
+    "不得声称已调用外部工具。",
+    "必须声明能力边界。"
+  ],
+  "success_criteria": [
+    "输出包含结论、依据、风险和行动建议。",
+    "明确区分 available capability 与 unavailable capability。"
+  ],
+  "evidence_policy": {
+    "network": "disallowed",
+    "local_sources": "allowed",
+    "citations": "optional"
+  },
+  "output_preference": "report"
+}

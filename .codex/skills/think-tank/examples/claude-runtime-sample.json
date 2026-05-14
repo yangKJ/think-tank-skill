@@ -1,0 +1,49 @@
+{
+  "runtime": "claude-code-minimal",
+  "mode": "research",
+  "profile": "source-collector",
+  "capability": "source-acquisition",
+  "dispatch_request": {
+    "target": "https://httpbin.org/html",
+    "constraints": ["readonly", "no_login", "no_download"]
+  },
+  "dispatch_decision": {
+    "selected_skill": "WebFetch",
+    "status": "dispatched",
+    "risk_level": "low"
+  },
+  "invocation": {
+    "invoked": true,
+    "method": "WebFetch",
+    "target": "https://httpbin.org/html",
+    "result_status": "success"
+  },
+  "recovery": {
+    "result_recovered": true,
+    "recovered_as": ["sources[]", "evidence[]"]
+  },
+  "sources": [
+    {
+      "title": "Herman Melville - Moby-Dick",
+      "url": "https://httpbin.org/html",
+      "source_type": "static-html",
+      "summary": "HTTPBIN static HTML sample page.",
+      "reliability": "medium",
+      "freshness": "2026-05-14",
+      "extracted_at": "2026-05-14T20:38:02+08:00"
+    }
+  ],
+  "evidence": [
+    "dispatch_decision was produced before invocation.",
+    "WebFetch returned HTTP 200 content."
+  ],
+  "boundaries": [
+    "Sample only; full runtime is not verified by this sample.",
+    "Fallback and subagent runtime are not tested."
+  ],
+  "quality_check": {
+    "protocol_complete": true,
+    "evidence_boundary_clear": true,
+    "actionable": true
+  }
+}

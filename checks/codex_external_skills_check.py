@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""检查旧 research tools 是否作为 Codex 同级 skills 安装。"""
+"""检查旧 research tools 是否作为项目内 Codex 同级 skills 安装。"""
 
 from __future__ import annotations
 
@@ -7,8 +7,16 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-CODEX_SKILLS = Path.home() / ".codex" / "skills"
-OLD_SKILLS = Path("/Users/condy/Desktop/img-company/agents/research/.claude/skills")
+PROJECT_CODEX_SKILLS = ROOT / ".codex" / "skills"
+FORBIDDEN_DIR_NAMES = {
+    ".git",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".ruff_cache",
+    ".venv",
+    "__pycache__",
+    "node_modules",
+}
 
 EXPECTED_EXTERNAL = [
     "36kr-hotlist",
@@ -51,25 +59,47 @@ def fail(message: str) -> None:
 
 
 def main() -> None:
-    if not (CODEX_SKILLS / "think-tank" / "SKILL.md").exists():
-        fail("think-tank 未安装到 Codex skills")
+    if not (PROJECT_CODEX_SKILLS / "think-tank" / "SKILL.md").exists():
+        fail("think-tank 未安装到项目内 Codex skills")
 
     for name in EXPECTED_EXTERNAL:
-        target = CODEX_SKILLS / name
-        source = OLD_SKILLS / name
+        target = PROJECT_CODEX_SKILLS / name
         if not target.exists():
             fail(f"缺少同级 skill: {name}")
         if not (target / "SKILL.md").exists():
             fail(f"{name} 缺少 SKILL.md")
-        if target.resolve() != source.resolve():
-            fail(f"{name} 未链接到旧 research skill 来源: {target.resolve()} != {source.resolve()}")
+        if target.is_symlink():
+            fail(f"{name} 必须是项目内复制目录，不允许软链接")
+        skill_text = (target / "SKILL.md").read_text(encoding="utf-8")
+        for forbidden in ["~/.claude/skills", "/Users/condy/Desktop/img-company/agents/research"]:
+            if forbidden in skill_text:
+                fail(f"{name}/SKILL.md 仍依赖旧平台路径: {forbidden}")
+
+    forbidden_dirs = [
+        path
+        for path in PROJECT_CODEX_SKILLS.rglob("*")
+        if path.is_dir() and path.name in FORBIDDEN_DIR_NAMES
+    ]
+    if forbidden_dirs:
+        sample = ", ".join(str(path.relative_to(ROOT)) for path in forbidden_dirs[:5])
+        fail(f"项目内 skills 不应包含运行时依赖或缓存目录: {sample}")
+
+    global_symlinks = [
+        path
+        for path in (Path.home() / ".codex" / "skills").glob("*")
+        if path.is_symlink()
+        and path.name in [*EXPECTED_EXTERNAL, "think-tank"]
+    ]
+    if global_symlinks:
+        sample = ", ".join(path.name for path in global_symlinks)
+        fail(f"仍存在旧的全局软链接安装: {sample}")
 
     for name in ["README.md", "think-tank.zip"]:
-        if (CODEX_SKILLS / name).exists() or (CODEX_SKILLS / name).is_symlink():
+        if (PROJECT_CODEX_SKILLS / name).exists() or (PROJECT_CODEX_SKILLS / name).is_symlink():
             fail(f"非 skill 文件不应安装: {name}")
 
     for capability, skills in CAPABILITY_GROUPS.items():
-        missing = [name for name in skills if not (CODEX_SKILLS / name / "SKILL.md").exists()]
+        missing = [name for name in skills if not (PROJECT_CODEX_SKILLS / name / "SKILL.md").exists()]
         if missing:
             fail(f"{capability} 缺少候选 skills: {', '.join(missing)}")
 

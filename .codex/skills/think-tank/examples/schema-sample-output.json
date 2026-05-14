@@ -1,0 +1,49 @@
+{
+  "mode": "research",
+  "roles": [
+    "source-collector",
+    "skeptic",
+    "report-architect"
+  ],
+  "conclusion": "think-tank 在最小安装下可以执行协议、模拟角色并基于用户提供材料输出结构化建议，但不能自动获得外部浏览器、媒体处理或社媒抓取能力。",
+  "evidence": [
+    "think-tank/docs/minimal-install-behavior.md",
+    "think-tank/platforms/codex/capability-mapping.md"
+  ],
+  "role_views": [
+    {
+      "role": "source-collector",
+      "claim": "可用资料来源限于用户提供材料和当前可访问的本地文件。",
+      "confidence": "high"
+    },
+    {
+      "role": "skeptic",
+      "claim": "不能把 capability 文件存在等同于外部工具已安装或已执行。",
+      "confidence": "high"
+    }
+  ],
+  "disagreements": [
+    "Browser 是否应默认视为 Codex 可用能力。结论是不应默认，必须以真实调用和结果回收为准。"
+  ],
+  "risks": [
+    "用户可能误以为 think-tank 内置了所有旧 research skills。"
+  ],
+  "recommendations": [
+    "默认按 minimal install 路径执行。",
+    "外部 capability 不可用时要求用户提供材料或启用对应工具。",
+    "每次 optional capability 验证都记录到 examples 和 docs。"
+  ],
+  "boundaries": [
+    "本样例没有调用外部 skill。",
+    "本样例没有验证 Claude Code Agent Team。",
+    "本样例没有执行真实多 agent 并行。"
+  ],
+  "next_steps": [
+    "继续在 Codex 验证一个低风险 optional capability，或切换到 Claude Code 做 preflight。"
+  ],
+  "quality_check": {
+    "protocol_complete": true,
+    "evidence_boundary_clear": true,
+    "actionable": true
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://think-tank.dev/schemas/role-result.schema.json",
+  "title": "Think Tank Role Result",
+  "type": "object",
+  "required": [
+    "profile",
+    "execution_method",
+    "claim",
+    "evidence",
+    "sources",
+    "risks",
+    "objections",
+    "recommendations",
+    "confidence",
+    "boundaries",
+    "status"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "profile": {"type": "string"},
+    "execution_method": {
+      "type": "string",
+      "enum": ["specialist_subagent", "single_agent_multi_profile_fallback", "external_platform_adapter"]
+    },
+    "claim": {"type": "string"},
+    "evidence": {"type": "array", "items": {"type": "string"}},
+    "sources": {"type": "array", "items": {"type": "object"}},
+    "risks": {"type": "array", "items": {"type": "string"}},
+    "objections": {"type": "array", "items": {"type": "string"}},
+    "recommendations": {"type": "array", "items": {"type": "string"}},
+    "confidence": {"type": "string", "enum": ["low", "medium", "high"]},
+    "boundaries": {"type": "array", "items": {"type": "string"}},
+    "status": {"type": "string", "enum": ["completed", "partial", "failed", "blocked"]}
+  }
+}
