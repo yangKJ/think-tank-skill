@@ -16,6 +16,9 @@ def fail(message: str) -> None:
 
 
 def main() -> None:
+    if not (ROOT / ".codex").exists():
+        print("Codex installed skill 检查跳过: .codex/ 是本地运行目录，未纳入 Git")
+        return
     if not TARGET.exists():
         fail(f"安装目标不存在: {TARGET}")
     if not (TARGET / "SKILL.md").exists():

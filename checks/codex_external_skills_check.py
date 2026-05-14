@@ -59,6 +59,9 @@ def fail(message: str) -> None:
 
 
 def main() -> None:
+    if not PROJECT_CODEX_SKILLS.exists():
+        print("Codex optional peer skills 检查跳过: .codex/ 是本地运行目录，未纳入 Git")
+        return
     if not (PROJECT_CODEX_SKILLS / "think-tank" / "SKILL.md").exists():
         fail("think-tank 未安装到项目内 Codex skills")
 
