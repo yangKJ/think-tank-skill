@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://think-tank.local/schemas/memory-promotion.schema.json",
+  "title": "think-tank memory promotion decision",
+  "type": "object",
+  "required": [
+    "candidate_id",
+    "from",
+    "to",
+    "decision",
+    "reason",
+    "privacy_review",
+    "staleness_review",
+    "evidence",
+    "quality_check"
+  ],
+  "properties": {
+    "candidate_id": {"type": "string", "minLength": 1},
+    "from": {"type": "string", "minLength": 1},
+    "to": {
+      "type": "string",
+      "enum": [".think-tank/memory/", "AGENTS.md", "project_docs", "think-tank_public_protocol"]
+    },
+    "decision": {
+      "type": "string",
+      "enum": ["keep_local", "promote", "merge", "reject"]
+    },
+    "reason": {"type": "string", "minLength": 1},
+    "privacy_review": {
+      "type": "object",
+      "required": ["no_secret", "public_safe"],
+      "properties": {
+        "no_secret": {"type": "boolean"},
+        "public_safe": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    },
+    "staleness_review": {
+      "type": "object",
+      "required": ["has_expiry_rule", "review_after"],
+      "properties": {
+        "has_expiry_rule": {"type": "boolean"},
+        "review_after": {"type": ["string", "null"]}
+      },
+      "additionalProperties": false
+    },
+    "evidence": {
+      "type": "object",
+      "required": ["files", "commands"],
+      "properties": {
+        "files": {"type": "array", "items": {"type": "string"}},
+        "commands": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    },
+    "quality_check": {
+      "type": "object",
+      "required": [
+        "target_allowed",
+        "user_confirmed_if_write",
+        "no_private_core_leak"
+      ],
+      "properties": {
+        "target_allowed": {"type": "boolean"},
+        "user_confirmed_if_write": {"type": "boolean"},
+        "no_private_core_leak": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
+

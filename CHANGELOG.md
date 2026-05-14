@@ -14,6 +14,8 @@
 - 增加 local workspace 模板、schema、示例布局和检查脚本。
 - Codex provider policy runtime 支持 `providers.auto_select: false`，用于只产出候选记忆、不自动选择外部 persistence provider 的场景。
 - Project memory item 增加 `status`、`expires_when`、`review_after` 和 `refresh_trigger`，将记忆过期性纳入正式质量门禁。
+- 增加 v2.1 capability evidence state machine，细分 installed、discovered、selected、dispatched、invoked、recovered、verified_partial 和 verified。
+- 增加 v2.1 memory promotion policy，控制候选记忆从 `.think-tank/memory/` 提升到 AGENTS、项目文档或公开协议的条件。
 
 ### Changed
 

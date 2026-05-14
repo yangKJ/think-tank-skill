@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://think-tank.local/schemas/capability-evidence.schema.json",
+  "title": "think-tank capability evidence state",
+  "type": "object",
+  "required": [
+    "capability",
+    "provider",
+    "state",
+    "evidence",
+    "observed_at",
+    "scope",
+    "boundaries",
+    "next_required_evidence",
+    "quality_check"
+  ],
+  "properties": {
+    "capability": {"type": "string", "minLength": 1},
+    "provider": {"type": ["string", "null"]},
+    "state": {
+      "type": "string",
+      "enum": [
+        "planned",
+        "mock",
+        "installed",
+        "discovered",
+        "selected",
+        "dispatched",
+        "invoked",
+        "recovered",
+        "verified_partial",
+        "verified",
+        "blocked",
+        "failed",
+        "tracking"
+      ]
+    },
+    "evidence": {
+      "type": "object",
+      "required": ["files", "commands", "runtime_logs"],
+      "properties": {
+        "files": {"type": "array", "items": {"type": "string"}},
+        "commands": {"type": "array", "items": {"type": "string"}},
+        "runtime_logs": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    },
+    "observed_at": {"type": "string", "minLength": 1},
+    "scope": {"type": "string", "minLength": 1},
+    "boundaries": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "next_required_evidence": {"type": "string", "minLength": 1},
+    "quality_check": {
+      "type": "object",
+      "required": [
+        "no_state_inflation",
+        "evidence_matches_state",
+        "boundaries_present"
+      ],
+      "properties": {
+        "no_state_inflation": {"type": "boolean"},
+        "evidence_matches_state": {"type": "boolean"},
+        "boundaries_present": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
+

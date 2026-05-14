@@ -1,0 +1,30 @@
+{
+  "candidate_id": "provider-selection-not-invocation",
+  "from": ".think-tank/memory/candidates.md",
+  "to": "think-tank_public_protocol",
+  "decision": "promote",
+  "reason": "The rule is platform-neutral, public-safe, and prevents capability state inflation across projects.",
+  "privacy_review": {
+    "no_secret": true,
+    "public_safe": true
+  },
+  "staleness_review": {
+    "has_expiry_rule": true,
+    "review_after": null
+  },
+  "evidence": {
+    "files": [
+      "think-tank/protocol/capability-evidence-state-machine.md",
+      "think-tank/schemas/capability-evidence.schema.json"
+    ],
+    "commands": [
+      "python3 checks/capability_evidence_state_check.py"
+    ]
+  },
+  "quality_check": {
+    "target_allowed": true,
+    "user_confirmed_if_write": true,
+    "no_private_core_leak": true
+  }
+}
+

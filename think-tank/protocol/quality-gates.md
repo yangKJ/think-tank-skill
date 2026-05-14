@@ -24,10 +24,22 @@ think-tank 每次输出前必须通过质量门禁。
 
 平台适配必须区分：
 
-- `verified`：真实执行并验证过
-- `mock`：只在模拟路径中验证
-- `tracking`：只记录状态，不代表真实执行完成
 - `planned`：设计目标，尚未实现
+- `mock`：只在模拟路径中验证
+- `installed`：provider 文件或工具入口存在
+- `discovered`：平台 adapter 已发现 provider 并读取元数据
+- `selected`：policy 或 planner 为本次请求选择了 provider
+- `dispatched`：调用前已形成 dispatch decision
+- `invoked`：真实调用了 provider 或工具
+- `recovered`：provider 输出已回收到 think-tank 输出契约
+- `verified_partial`：真实路径可用，但范围有限或仍有人工步骤
+- `verified`：有可复验流程、结果回收和质量门禁证据
+- `blocked`：当前环境或约束下无法继续
+- `failed`：真实调用发生但失败
+- `tracking`：只记录状态，不代表真实执行完成
+
+不得把 `installed`、`selected`、`mock` 或 `tracking` 写成 `verified`。
+完整状态机见 `protocol/capability-evidence-state-machine.md`。
 
 ## v0.2 共识门禁
 

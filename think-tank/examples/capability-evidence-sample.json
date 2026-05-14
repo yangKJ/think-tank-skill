@@ -1,0 +1,28 @@
+{
+  "capability": "knowledge-persistence",
+  "provider": "taskflow",
+  "state": "selected",
+  "evidence": {
+    "files": [
+      "think-tank/platforms/codex/provider-registry.md",
+      "think-tank/platforms/codex/provider-policy.example.yaml"
+    ],
+    "commands": [
+      "python3 think-tank/platforms/codex/runtime/provider_policy.py \"持续关注这个主题\""
+    ],
+    "runtime_logs": []
+  },
+  "observed_at": "2026-05-15",
+  "scope": "codex provider policy route",
+  "boundaries": [
+    "Provider selection does not prove provider invocation.",
+    "No persistence provider output was recovered in this sample."
+  ],
+  "next_required_evidence": "Run an actual dispatch and recover provider output before promoting beyond selected.",
+  "quality_check": {
+    "no_state_inflation": true,
+    "evidence_matches_state": true,
+    "boundaries_present": true
+  }
+}
+

@@ -116,6 +116,13 @@ forbidden_targets:
   - closed-source implementation details
 ```
 
+## Memory Promotion
+
+候选记忆默认先留在 `.think-tank/memory/` 或 report 中。是否提升到
+`AGENTS.md`、项目文档或公开 think-tank protocol，必须经过 promotion policy。
+
+完整规则见 `protocol/memory-promotion-policy.md`。
+
 ## Quality Gates
 
 ```yaml
