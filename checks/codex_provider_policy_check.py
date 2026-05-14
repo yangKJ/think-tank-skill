@@ -99,6 +99,18 @@ def main() -> None:
     council = module.resolve_request("开会讨论 routing policy 是否应该进入 adapter", loaded_policy, provider_registry["providers"])
     if not council["matched"] or council["selected_mode"] != "council":
         fail("开会讨论 未命中 council policy route")
+    if council["skill_route"]["selected_provider"] is not None:
+        fail("无 capability 的 council route 不应默认选择 provider")
+    if council["skill_route"]["candidate_providers"]:
+        fail("无 capability 的 council route 不应产生 provider 候选列表")
+
+    strategy = module.resolve_request("制定策略：think-tank 从 Codex 扩展到 Claude Code", loaded_policy, provider_registry["providers"])
+    if not strategy["matched"] or strategy["selected_mode"] != "strategy":
+        fail("制定策略 未命中 strategy policy route")
+    if strategy["selected_recipe"] != "strategy-planning":
+        fail("制定策略 未选择 strategy-planning recipe")
+    if strategy["skill_route"]["selected_provider"] is not None:
+        fail("无 capability 的 strategy route 不应默认选择 provider")
 
     local_override = {
         "version": 1,

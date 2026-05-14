@@ -68,6 +68,18 @@ def select_providers(route: dict[str, Any], available_providers: list[dict[str, 
     deny = set(provider_policy.get("deny", []) or [])
     capabilities = set(route.get("capabilities", []) or [])
 
+    if not capabilities and not prefer and not allow:
+        return {
+            "candidate_providers": [],
+            "selected_provider": None,
+            "provider_policy": {
+                "prefer": prefer,
+                "allow": sorted(allow),
+                "deny": sorted(deny),
+            },
+            "selection_reason": "No capability or explicit provider preference requires provider selection.",
+        }
+
     candidates = []
     for provider in available_providers:
         provider_id = provider.get("id", "")

@@ -130,7 +130,8 @@ Codex foundation status:
 - Codex minimal runtime mirror is verified with a local static fixture.
 - Browser external DOM recovery is blocked in the current environment and is not claimed as verified.
 - JSON input/output samples are checked.
-- Claude Code runtime and true multi-agent execution remain planned.
+- Codex true multi-agent council is verified_partial for readonly subagent role-result recovery.
+- Claude Code runtime remains deferred.
 - v0.2 runtime hardening contracts are specified and checked.
 - v0.2 platform-neutral minimal runtime library is implemented and checked.
 - v0.2 Codex runtime pipeline and platform-neutral runtime result schema are checked.
@@ -140,6 +141,7 @@ Codex foundation status:
 - Specialist subagent runtime contracts and runtime primitives are implemented in v0.5, with fallback labeling when true independent subagents are unavailable.
 - Current local Codex installation is validated via `checks/codex_installed_skill_check.py`.
 - Legacy research external skills are installed as peer Codex skills and checked via `checks/codex_external_skills_check.py`.
+- Codex provider invocation matrix is established; selected peer skills still require per-provider invocation validation before they can be called verified.
 
 ## Design Boundary
 

@@ -211,3 +211,24 @@ routes:
       allow: []
       deny: []
     fallback: core_protocol
+
+  - id: strategy-planning
+    priority: 60
+    enabled: true
+    triggers:
+      match: regex
+      patterns:
+        - "(制定策略|策略规划|路线规划|战略规划|下一步怎么做)"
+    intent: strategy_planning
+    mode: strategy
+    recipe: strategy-planning
+    profiles:
+      - product-strategist
+      - skeptic
+      - report-architect
+    capabilities: []
+    providers:
+      prefer: []
+      allow: []
+      deny: []
+    fallback: core_protocol

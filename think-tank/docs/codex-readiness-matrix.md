@@ -7,8 +7,8 @@
 ```yaml
 platform: codex
 status: ready_before_claude_code_preflight
-execution_model: single_agent_multi_profile
-last_updated: 2026-05-14
+execution_model: single_agent_multi_profile_with_verified_partial_subagent_council
+last_updated: 2026-05-15
 ```
 
 Codex 当前已经足够作为 think-tank 的主工作平台继续使用。
@@ -23,11 +23,12 @@ Codex 当前已经足够作为 think-tank 的主工作平台继续使用。
 - Markdown artifact 可以作为最小 knowledge-persistence 实现。
 - 公开静态网页可以通过 Codex source-acquisition 只读回收。
 - Browser localhost fixture 可以作为 optional browser-automation 验证。
+- Codex subagents 可以执行只读 council 分析并回收 role_result，状态为 verified_partial。
 
 它不证明：
 
 - Claude Code Agent Team 可用。
-- 真实多 agent 并行执行可用。
+- 真实多 agent 覆盖所有任务、外部 provider 和长期生命周期可用。
 - Browser 外部网页 DOM 回收可用。
 - Playwright CLI、yt-dlp、Obsidian、小红书等外部 skills 已集成。
 
@@ -49,6 +50,8 @@ Codex 当前已经足够作为 think-tank 的主工作平台继续使用。
 | external readonly source acquisition | verified | `examples/codex-external-source-validation.md` |
 | browser localhost fixture | verified_optional | `examples/browser-automation-integration.md` |
 | browser external readonly | blocked | `examples/codex-browser-external-blocked.md` |
+| Codex true council subagents | verified_partial | `examples/codex-true-council-runtime.md` |
+| Codex provider invocation matrix | established | `examples/codex-provider-invocation-matrix.json` |
 | media-processing unavailable | verified_degradation | `examples/capability-degradation-media.md` |
 | social-listening unavailable | verified_degradation | `examples/capability-degradation-social.md` |
 | knowledge-persistence local fallback | verified | `examples/capability-degradation-knowledge.md` |

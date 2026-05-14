@@ -8,9 +8,10 @@
 platform: codex
 foundation_status: verified
 default_execution: single_agent_multi_profile
-last_updated: 2026-05-14
+true_multi_agent_council: verified_partial
+last_updated: 2026-05-15
 external_research_skills_installed: verified
-external_research_skills_executable: not_verified
+external_research_skills_executable: per_provider_validation_required
 ```
 
 | capability | Codex 状态 | 默认实现 | 边界 |
@@ -41,7 +42,7 @@ external_research_skills_executable: not_verified
 source_acquisition:
   local_repository_collection: verified
   user_provided_material_analysis: verified
-  external_readonly_web_source: verified
+  external_readonly_web_source: verified_partial
 
 knowledge_persistence:
   repository_markdown_artifact: verified
@@ -49,6 +50,7 @@ knowledge_persistence:
 
 browser_automation:
   localhost_fixture: verified_optional
+  playwright_localhost_readonly: verified_partial
   external_web_readonly: blocked
 
 degradation:
@@ -64,11 +66,11 @@ degradation:
 
 ```yaml
 browser_automation_external_web: blocked
-playwright_cli_integration: planned
+playwright_cli_integration: verified_partial_localhost_readonly
+codex_parallel_subagent_council: verified_partial
 yt_dlp_integration: planned
 obsidian_integration: planned
 xiaohongshu_integration: planned
-true_multi_agent_execution: planned
 claude_code_runtime: planned
 ```
 

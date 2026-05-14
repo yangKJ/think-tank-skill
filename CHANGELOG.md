@@ -62,11 +62,16 @@
 - 增加 `schemas/role-result.schema.json`、`examples/specialist-runtime-fixture.json` 和 v0.5 检查脚本。
 - 增加 Codex 本机安装验证文档和 `codex_installed_skill_check.py`。
 - 将旧 research agent 工具型 skills 作为 Codex 同级 skills 安装，并增加安装清单和 `codex_external_skills_check.py`。
+- 验证 Codex true multi-agent council 只读路径，状态为 `verified_partial`。
+- 建立 Codex provider invocation matrix，记录 local static reader、public HTTP static reader 和 playwright localhost readonly DOM snapshot。
+- 修复无 capability 的 council/strategy route 误选 provider 的问题。
+- 增加 `strategy-planning` YAML route，支持 `制定策略`、`策略规划`、`路线规划` 等通用触发词。
+- 增加 Codex runtime verification matrix 文档和检查脚本。
 - 增加 MIT License。
 
 ### Notes
 
 - 当前版本是主仓基础版本，重点是统一抽象和协议边界。
 - 旧 research think-tank 和 agent-council 都被视为 Claude Code 平台旧资产来源。
-- 当前不声明真实多 agent runtime 已完成；平台能力必须继续区分 `verified`、`mock`、`tracking`、`planned`。
+- 当前只声明 Codex readonly council subagent runtime 为 `verified_partial`；其他平台和 full runtime 仍需独立验证。
 - 当前不声明 Browser 外部网页 DOM 回收能力；该路径在当前 Codex 环境标记为 `blocked`。

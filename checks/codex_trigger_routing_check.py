@@ -24,6 +24,7 @@ REQUIRED_TRIGGERS = [
     "持续监控",
     "开会讨论",
     "审查",
+    "制定策略",
 ]
 
 REQUIRED_SKILLS = [

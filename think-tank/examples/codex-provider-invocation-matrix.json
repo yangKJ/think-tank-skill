@@ -1,0 +1,142 @@
+{
+  "platform": "codex",
+  "executed_at": "2026-05-15",
+  "status": "established",
+  "providers": [
+    {
+      "provider": "local_static_reader",
+      "capability": "source-acquisition",
+      "selected_by_policy": false,
+      "dispatch_decision_before_invocation": true,
+      "invoked": true,
+      "target": "think-tank/examples/browser-automation-fixture.html",
+      "result_status": "success",
+      "recovery_targets": ["sources[]", "evidence[]"],
+      "status": "verified",
+      "boundaries": [
+        "Repository-local static file only.",
+        "No network, browser DOM, login state, or private write was attempted."
+      ]
+    },
+    {
+      "provider": "public_http_static_reader",
+      "capability": "source-acquisition",
+      "selected_by_policy": false,
+      "dispatch_decision_before_invocation": true,
+      "invoked": true,
+      "target": "http://httpbin.org/html",
+      "result_status": "success",
+      "recovery_targets": ["sources[]", "evidence[]"],
+      "status": "verified_partial",
+      "boundaries": [
+        "HTTP public static page succeeded after network permission.",
+        "HTTPS variant failed certificate verification in this local runtime.",
+        "No fallback was executed."
+      ]
+    },
+    {
+      "provider": "playwright-cli",
+      "capability": "browser-automation",
+      "selected_by_policy": false,
+      "dispatch_decision_before_invocation": true,
+      "invoked": true,
+      "target": "http://127.0.0.1:8765/think-tank/examples/browser-automation-fixture.html",
+      "result_status": "success",
+      "recovery_targets": ["snapshot", "evidence[]"],
+      "status": "verified_partial",
+      "boundaries": [
+        "Localhost read-only DOM snapshot only.",
+        "file:// access was blocked by playwright-cli and not treated as success.",
+        "No external page, login, click workflow, form submit, or social media scraping was attempted."
+      ]
+    },
+    {
+      "provider": "web-access",
+      "capability": "source-acquisition",
+      "selected_by_policy": true,
+      "dispatch_decision_before_invocation": true,
+      "invoked": false,
+      "target": "policy route selection only",
+      "result_status": "not_invoked",
+      "recovery_targets": [],
+      "status": "available_not_verified",
+      "boundaries": [
+        "Provider policy selected web-access for research and competitive-intelligence routes.",
+        "Selection does not invoke the peer skill.",
+        "Must pass a separate invocation and recovery test before verified."
+      ]
+    },
+    {
+      "provider": "taskflow",
+      "capability": "knowledge-persistence",
+      "selected_by_policy": true,
+      "dispatch_decision_before_invocation": true,
+      "invoked": false,
+      "target": "monitoring-plan route selection only",
+      "result_status": "not_invoked",
+      "recovery_targets": [],
+      "status": "available_not_verified",
+      "boundaries": [
+        "Provider policy selected taskflow for monitoring-plan.",
+        "No private write or external state mutation was attempted."
+      ]
+    }
+  ],
+  "policy_loop_samples": [
+    {
+      "trigger": "研究一下",
+      "route_id": "general-research-default",
+      "selected_mode": "research",
+      "selected_recipe": "evidence-synthesis",
+      "selected_provider": "web-access",
+      "provider_invoked": false
+    },
+    {
+      "trigger": "竞品分析",
+      "route_id": "competitive-intelligence",
+      "selected_mode": "research",
+      "selected_recipe": "competitive-intelligence",
+      "selected_provider": "web-access",
+      "provider_invoked": false
+    },
+    {
+      "trigger": "开会讨论",
+      "route_id": "council-discussion",
+      "selected_mode": "council",
+      "selected_recipe": "decision-council",
+      "selected_provider": null,
+      "provider_invoked": false
+    },
+    {
+      "trigger": "审查",
+      "route_id": "review-acceptance",
+      "selected_mode": "review",
+      "selected_recipe": "review-acceptance",
+      "selected_provider": "web-access",
+      "provider_invoked": false
+    },
+    {
+      "trigger": "制定策略",
+      "route_id": "strategy-planning",
+      "selected_mode": "strategy",
+      "selected_recipe": "strategy-planning",
+      "selected_provider": null,
+      "provider_invoked": false
+    },
+    {
+      "trigger": "持续关注",
+      "route_id": "monitoring-plan",
+      "selected_mode": "strategy",
+      "selected_recipe": "monitoring-plan",
+      "selected_provider": "taskflow",
+      "provider_invoked": false
+    }
+  ],
+  "not_claimed": [
+    "No claim that all peer skills are executable.",
+    "No claim that web-access, xiaohongshu, yt-dlp, obsidian, or taskflow were invoked.",
+    "No claim that external browser automation is verified.",
+    "No claim that Claude Code runtime is verified."
+  ]
+}
+
