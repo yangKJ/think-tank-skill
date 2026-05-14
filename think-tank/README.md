@@ -72,7 +72,7 @@ think-tank-skill/
 
 ### policy
 
-routing policy 定义触发词、intent、recipe、capability 和 provider 偏好。用户可以通过平台示例 YAML 创建项目本地策略，例如 Codex 的 `.codex/think-tank.provider-policy.yaml`。policy 缺失时 think-tank 仍按 core protocol 降级运行。
+routing policy 定义触发词、intent、recipe、capability 和 provider 偏好。用户可以通过平台示例 YAML 创建项目本地策略，例如 Codex 的 `.codex/think-tank.provider-policy.yaml`。如果当前项目用软链接把 Codex skill 指向仓库内 `think-tank/`，也可以使用被 Git 忽略的 `think-tank/think-tank.provider-policy.yaml` 做本地测试配置。policy 缺失时 think-tank 仍按 core protocol 降级运行。
 
 ### profiles
 

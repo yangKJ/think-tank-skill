@@ -17,6 +17,7 @@ from provider_registry import PROJECT_SKILLS, registry
 ROOT = Path(__file__).resolve().parents[4]
 DEFAULT_POLICY = ROOT / "think-tank" / "platforms" / "codex" / "provider-policy.example.yaml"
 PROJECT_POLICY = ROOT / ".codex" / "think-tank.provider-policy.yaml"
+SKILL_LOCAL_POLICY = ROOT / "think-tank" / "think-tank.provider-policy.yaml"
 
 
 def load_policy(path: Path) -> dict[str, Any]:
@@ -33,6 +34,8 @@ def policy_path(explicit: Path | None = None) -> Path:
         return explicit
     if PROJECT_POLICY.exists():
         return PROJECT_POLICY
+    if SKILL_LOCAL_POLICY.exists():
+        return SKILL_LOCAL_POLICY
     return DEFAULT_POLICY
 
 

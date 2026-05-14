@@ -60,7 +60,13 @@ platforms/codex/provider-policy.example.yaml
 .codex/think-tank.provider-policy.yaml
 ```
 
-本地 policy 不上传 GitHub。用户可以在该文件中定义触发词、intent、recipe、capability 和 provider 偏好。
+如果当前项目通过软链接把 `.codex/skills/think-tank` 指向仓库内 `think-tank/`，也可以复制为：
+
+```text
+think-tank/think-tank.provider-policy.yaml
+```
+
+这两个本地 policy 都不上传 GitHub。用户可以在这些文件中定义触发词、intent、recipe、capability 和 provider 偏好。
 
 例如用户希望“上网研究”只允许小红书 provider，可以在本地 policy 中配置：
 

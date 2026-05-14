@@ -3,8 +3,9 @@ version: 1
 metadata:
   name: codex-think-tank-provider-policy-example
   description: >
-    Copy this file to .codex/think-tank.provider-policy.yaml and edit it for
-    your project. This policy is local preference, not think-tank core protocol.
+    Copy this file to .codex/think-tank.provider-policy.yaml or
+    think-tank/think-tank.provider-policy.yaml and edit it for your project.
+    These local policy files are user preference, not think-tank core protocol.
 
 defaults:
   fallback: core_protocol

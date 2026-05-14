@@ -16,6 +16,7 @@ POLICY_RUNTIME = RUNTIME_DIR / "provider_policy.py"
 POLICY_EXAMPLE = ROOT / "think-tank" / "platforms" / "codex" / "provider-policy.example.yaml"
 POLICY_SCHEMA = ROOT / "think-tank" / "routing" / "policy-schema.md"
 PROJECT_SKILLS = ROOT / ".codex" / "skills"
+SKILL_LOCAL_POLICY = ROOT / "think-tank" / "think-tank.provider-policy.yaml"
 
 
 def fail(message: str) -> None:
@@ -78,6 +79,9 @@ def main() -> None:
             fail(f"route 缺少字段: {route.get('id')} -> {sorted(missing)}")
 
     module = load_module()
+    if module.SKILL_LOCAL_POLICY != SKILL_LOCAL_POLICY:
+        fail("provider_policy.py 的 skill-local policy 路径不正确")
+
     loaded_policy = module.load_policy(POLICY_EXAMPLE)
     provider_registry = module.registry(PROJECT_SKILLS)
 
