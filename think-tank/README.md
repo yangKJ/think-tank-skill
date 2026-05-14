@@ -41,6 +41,8 @@ think-tank-skill/
 ├── profiles/
 ├── platforms/
 ├── modes/
+├── runtime/
+├── templates/
 ├── domain-packs/
 ├── docs/
 └── examples/
@@ -124,7 +126,17 @@ python3 checks/runtime_result_schema_check.py
 python3 checks/codex_runtime_pipeline_check.py
 python3 checks/claude_runtime_pipeline_spec_check.py
 python3 checks/runtime_e2e_fixture_check.py
+python3 checks/runtime_safety_check.py
+python3 checks/template_check.py
+python3 checks/legacy_think_tank_migration_check.py
 ```
+
+旧 Claude Code 版 think-tank 已完成迁移处置：
+
+- 可复用 runtime 安全能力进入 `runtime/safety.py`
+- 旧输出模板进入 `templates/`
+- Claude Code Agent Team 历史运行经验进入 `platforms/claude-code/legacy-team-runtime.md`
+- 文件级迁移记录进入 `docs/legacy-think-tank-full-migration.md`
 
 仍未声明完成：
 

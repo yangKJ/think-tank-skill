@@ -33,6 +33,13 @@ phase_5_claude_code_low_flow_validation:
   prompt: platforms/claude-code/final-validation-prompt.md
   record: examples/claude-code-final-validation.md
   caveat: failure_path_pre_invocation_decision_not_confirmed_from_transcript
+
+legacy_think_tank_full_migration:
+  status: complete
+  migration_record: docs/legacy-think-tank-full-migration.md
+  safety_runtime: runtime/safety.py
+  templates: templates/
+  claude_legacy_runtime: platforms/claude-code/legacy-team-runtime.md
 ```
 
 ## 验收命令
@@ -58,6 +65,9 @@ python3 checks/runtime_result_schema_check.py
 python3 checks/codex_runtime_pipeline_check.py
 python3 checks/claude_runtime_pipeline_spec_check.py
 python3 checks/runtime_e2e_fixture_check.py
+python3 checks/runtime_safety_check.py
+python3 checks/template_check.py
+python3 checks/legacy_think_tank_migration_check.py
 ```
 
 ## 不能声称

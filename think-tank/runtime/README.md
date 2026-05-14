@@ -10,6 +10,7 @@
 - `slot_resolver.py`：解析 required / optional capability slot
 - `state_model.py`：生成 run/state/result/recovery 数据结构
 - `consensus.py`：评估 L1/L2/L3、blocking objection、continue/stop decision
+- `safety.py`：迁移旧 think-tank 的安全文件名、危险命令、密钥清理、prompt injection 和循环检测 helper
 
 ## Boundary
 
@@ -19,3 +20,5 @@
 - 完整 adapter dispatch runtime 能力
 - automatic result recovery 能力
 - 外部 tools fallback 能力
+
+`safety.py` 只提供检测和清理原语，不执行 shell 命令，不写私有目录，也不创建 Claude Code Team。

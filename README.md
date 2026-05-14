@@ -37,6 +37,8 @@ think-tank-skill/
     ├── profiles/
     ├── platforms/
     ├── modes/
+    ├── templates/
+    ├── runtime/
     ├── domain-packs/
     ├── docs/
     └── examples/
@@ -50,6 +52,8 @@ think-tank-skill/
 - [`think-tank/profiles/`](think-tank/profiles/): Cross-platform role profiles.
 - [`think-tank/platforms/`](think-tank/platforms/): Claude Code, Codex, and future platform adapters.
 - [`think-tank/modes/`](think-tank/modes/): Research, council, review, and strategy modes.
+- [`think-tank/runtime/`](think-tank/runtime/): Platform-neutral minimal runtime primitives.
+- [`think-tank/templates/`](think-tank/templates/): Cross-platform report and kickoff templates.
 - [`think-tank/domain-packs/`](think-tank/domain-packs/): Optional domain packs.
 - [`think-tank/schemas/`](think-tank/schemas/): Machine-readable input and output schemas.
 - [`think-tank/examples/`](think-tank/examples/): Reusable examples that demonstrate the protocol.
@@ -104,6 +108,9 @@ python3 checks/runtime_result_schema_check.py
 python3 checks/codex_runtime_pipeline_check.py
 python3 checks/claude_runtime_pipeline_spec_check.py
 python3 checks/runtime_e2e_fixture_check.py
+python3 checks/runtime_safety_check.py
+python3 checks/template_check.py
+python3 checks/legacy_think_tank_migration_check.py
 ```
 
 Codex foundation status:
@@ -119,6 +126,7 @@ Codex foundation status:
 - v0.2 runtime hardening contracts are specified and checked.
 - v0.2 platform-neutral minimal runtime library is implemented and checked.
 - v0.2 Codex runtime pipeline and platform-neutral runtime result schema are checked.
+- Legacy Claude Code think-tank assets have been migrated by abstraction into protocol, runtime, templates, and Claude Code adapter documentation.
 
 ## Design Boundary
 

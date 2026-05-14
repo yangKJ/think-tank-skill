@@ -12,8 +12,9 @@
 
 ```yaml
 migration_status: core_capabilities_migrated
-not_status: full_archive_migrated
-judgement: sufficient_for_think_tank_v0_1
+legacy_think_tank_status: fully_migrated_by_abstraction
+not_status: full_archive_copied
+judgement: sufficient_for_think_tank_v0_2
 ```
 
 旧 research agent 的通用能力已经迁移到 think-tank 的抽象层：
@@ -23,8 +24,16 @@ judgement: sufficient_for_think_tank_v0_1
 - `capabilities`
 - `platforms/claude-code`
 - `domain-packs/image-editing`
+- `runtime/safety.py`
+- `templates/`
 
 但旧 research 目录里的历史知识库、运行记录、日志、agent memory 和项目报告没有全部迁入，也不应全部进入 core。
+
+旧 `.claude/skills/think-tank` 的完整迁移处置见：
+
+```text
+docs/legacy-think-tank-full-migration.md
+```
 
 ## 已迁移到位
 
@@ -176,8 +185,9 @@ optional_backlog:
 ## 最终判断
 
 ```yaml
-research_core_migration: complete_for_v0_1
-research_archive_migration: intentionally_not_complete
+research_core_migration: complete_for_v0_2
+legacy_think_tank_migration: complete
+research_archive_migration: intentionally_not_copied
 core_protocol_dependency_on_old_research: none
 old_research_parent_status: removed
 next_action: optional_example_curation_only

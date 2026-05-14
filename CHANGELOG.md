@@ -44,6 +44,11 @@
 - 增加 v0.2 adapter integration：平台无关 `runtime-result.schema.json`、Codex runtime pipeline、Claude Code runtime pipeline spec 和 E2E fixture。
 - 增加 adapter integration 检查脚本：`runtime_result_schema_check.py`、`codex_runtime_pipeline_check.py`、`claude_runtime_pipeline_spec_check.py`、`runtime_e2e_fixture_check.py`。
 - 增加 optional capability 后续验证路线图。
+- 完成旧 Claude Code 版 think-tank 全量迁移处置文档，明确每类旧文件的新位置和不原样复制原因。
+- 增加 `runtime/safety.py`，迁移旧安全文件名、危险命令、敏感信息清理、prompt injection 和循环检测能力。
+- 增加 `templates/`，迁移并重写旧 deep research、expert meeting、task kickoff 模板为跨平台协议模板。
+- 增加 Claude Code legacy Team runtime 文档，保留旧 TeamCreate/TeamDelete/checkpoint/heartbeat 经验但不把它们写进 core protocol。
+- 增加旧 think-tank 迁移、安全 runtime 和模板检查脚本。
 - 增加 MIT License。
 
 ### Notes
