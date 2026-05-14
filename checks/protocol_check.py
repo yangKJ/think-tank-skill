@@ -104,6 +104,8 @@ REQUIRED_FILES = [
     THINK_TANK / "docs" / "v0.1-readiness.md",
     THINK_TANK / "docs" / "v0.1-foundation-final.md",
     THINK_TANK / "docs" / "codex-validation-report.md",
+    THINK_TANK / "docs" / "codex-external-skills-installation.md",
+    THINK_TANK / "docs" / "codex-research-agent-takeover-test-plan.md",
     THINK_TANK / "docs" / "codex-acceptance.md",
     THINK_TANK / "docs" / "codex-readiness-matrix.md",
     THINK_TANK / "docs" / "capability-degradation-report.md",

@@ -16,6 +16,7 @@ status:
   browser_or_web_access: environment_dependent
   external_skill_invocation: planned
   true_multi_agent_execution: planned
+  external_research_skills_installed: verified
 ```
 
 ## 映射表
@@ -27,6 +28,8 @@ status:
 | `media-processing` | 当前为 planned；可在有工具时调用本地 CLI |
 | `social-listening` | 当前为 planned；可用 web 或用户提供样本降级 |
 | `knowledge-persistence` | 写入仓库文档、Markdown artifact；不默认写用户私有知识库 |
+
+旧 research agent 的工具型 skills 已按同级关系安装到 Codex skills 目录。think-tank 可以把它们视为候选实现，但必须逐个验证执行能力。
 
 ## 执行方式
 
@@ -46,4 +49,3 @@ Codex 执行 think-tank 时：
 - 不能联网时，标注信息边界。
 - 不能真实并行 subagent 时，使用单 agent 分段模拟，并明确声明。
 - 不写用户私有知识库，除非用户明确要求。
-

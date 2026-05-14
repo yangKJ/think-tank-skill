@@ -136,6 +136,7 @@ python3 checks/subagent_runtime_check.py
 python3 checks/role_result_schema_check.py
 python3 checks/specialist_runtime_contract_check.py
 python3 checks/codex_installed_skill_check.py
+python3 checks/codex_external_skills_check.py
 ```
 
 旧 Claude Code 版 think-tank 已完成迁移处置：
@@ -170,6 +171,7 @@ v0.5 已补齐专业 subagent runtime 契约：
 当前本机 Codex 安装验证见：
 
 - `docs/codex-installed-skill-validation.md`
+- `docs/codex-external-skills-installation.md`
 
 仍未声明完成：
 

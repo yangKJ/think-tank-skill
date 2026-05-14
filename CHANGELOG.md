@@ -62,6 +62,7 @@
 - 增加 `runtime/subagent.py`，支持生成专业 profile task、profile prompt、role result 聚合和 fallback 标签。
 - 增加 `schemas/role-result.schema.json`、`examples/specialist-runtime-fixture.json` 和 v0.5 检查脚本。
 - 增加 Codex 本机安装验证文档和 `codex_installed_skill_check.py`。
+- 将旧 research agent 工具型 skills 作为 Codex 同级 skills 安装，并增加安装清单和 `codex_external_skills_check.py`。
 - 增加 MIT License。
 
 ### Notes

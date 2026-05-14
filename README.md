@@ -118,6 +118,7 @@ python3 checks/subagent_runtime_check.py
 python3 checks/role_result_schema_check.py
 python3 checks/specialist_runtime_contract_check.py
 python3 checks/codex_installed_skill_check.py
+python3 checks/codex_external_skills_check.py
 ```
 
 Codex foundation status:
@@ -138,6 +139,7 @@ Codex foundation status:
 - Legacy agent-council assets have been fully classified and migrated by disposition in v0.4.
 - Specialist subagent runtime contracts and runtime primitives are implemented in v0.5, with fallback labeling when true independent subagents are unavailable.
 - Current local Codex installation is validated via `checks/codex_installed_skill_check.py`.
+- Legacy research external skills are installed as peer Codex skills and checked via `checks/codex_external_skills_check.py`.
 
 ## Design Boundary
 

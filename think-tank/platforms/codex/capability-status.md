@@ -9,6 +9,8 @@ platform: codex
 foundation_status: verified
 default_execution: single_agent_multi_profile
 last_updated: 2026-05-14
+external_research_skills_installed: verified
+external_research_skills_executable: not_verified
 ```
 
 | capability | Codex 状态 | 默认实现 | 边界 |
@@ -68,6 +70,22 @@ obsidian_integration: planned
 xiaohongshu_integration: planned
 true_multi_agent_execution: planned
 claude_code_runtime: planned
+```
+
+## 同级 external skills
+
+旧 research agent 的工具型 skills 已作为 Codex 同级 skills 安装。安装记录见：
+
+```text
+docs/codex-external-skills-installation.md
+```
+
+这会提升 think-tank 的可调度候选能力，但不改变状态边界：
+
+```yaml
+installed_not_equal_executable: true
+capability_mapping_available: true
+end_to_end_tool_invocation: per_skill_validation_required
 ```
 
 ## Codex 主平台策略
