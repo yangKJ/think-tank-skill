@@ -120,12 +120,14 @@
 
 ## Research 迁移审计
 
-旧 research agent 的核心能力已经迁移完成，但不是全量归档迁移。
+旧 research agent 已在 v0.3 完成全仓迁移处置，但不是全量复制归档。
 
 完整核对记录见：
 
 ```text
 docs/research-migration-audit.md
+docs/research-agent-full-inventory.md
+docs/v0.3-research-agent-migration.md
 ```
 
 保留边界：
@@ -134,3 +136,12 @@ docs/research-migration-audit.md
 - 旧 `.think-tank/runs/` 不作为协议真相源。
 - 旧 `.claude/agent-memory/` 只吸收经验，不迁移原文。
 - 旧 `.claude/settings*.json`、`.playwright-cli/`、`logs/` 不迁移。
+
+v0.3 已逐项处置：
+
+```yaml
+research_agents: 7
+research_skills: 25
+knowledge_files: 35
+status: complete
+```

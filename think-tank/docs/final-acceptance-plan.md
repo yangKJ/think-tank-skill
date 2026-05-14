@@ -40,6 +40,13 @@ legacy_think_tank_full_migration:
   safety_runtime: runtime/safety.py
   templates: templates/
   claude_legacy_runtime: platforms/claude-code/legacy-team-runtime.md
+
+v0_3_research_agent_full_migration:
+  status: complete
+  inventory: docs/research-agent-full-inventory.md
+  interop: docs/external-skill-interoperability.md
+  knowledge_index: domain-packs/image-editing/legacy-knowledge-index.md
+  check: checks/research_agent_full_migration_check.py
 ```
 
 ## 验收命令
@@ -68,6 +75,7 @@ python3 checks/runtime_e2e_fixture_check.py
 python3 checks/runtime_safety_check.py
 python3 checks/template_check.py
 python3 checks/legacy_think_tank_migration_check.py
+python3 checks/research_agent_full_migration_check.py
 ```
 
 ## 不能声称

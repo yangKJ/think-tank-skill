@@ -8,6 +8,19 @@
 /Users/condy/Desktop/img-company/agents/research/.claude/skills/think-tank
 ```
 
+完整 research agent 全仓来源另见：
+
+```text
+/Users/condy/Desktop/img-company/agents/research
+```
+
+v0.3 完整处置记录：
+
+```text
+docs/research-agent-full-inventory.md
+docs/v0.3-research-agent-migration.md
+```
+
 ## 应保留的设计
 
 ### 触发边界
@@ -111,3 +124,12 @@ research = think-tank 的 mode
 4. 将 Claude Code Agent Team 环境变量、subagent 映射、结果回收写入 `platforms/claude-code/`。
 5. 将旧结论样例筛选后放入 `examples/`，但不带项目私有上下文。
 
+## v0.3 状态
+
+```yaml
+research_agent_migration: complete
+agents_disposed: 7
+skills_disposed: 25
+knowledge_files_disposed: 35
+core_protocol_dependency_on_old_research: none
+```

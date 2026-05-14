@@ -37,4 +37,4 @@ image-editing domain pack:
 - `technology-radar.md`：默认技术雷达
 - `source-map.md`：默认信息源
 - `report-templates.md`：领域报告模板
-
+- `legacy-knowledge-index.md`：旧 research agent `knowledge/` 的 35 个文件处置索引

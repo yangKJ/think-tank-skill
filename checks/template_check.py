@@ -14,6 +14,8 @@ REQUIRED_FILES = [
     TEMPLATES / "deep-research.md",
     TEMPLATES / "expert-meeting.md",
     TEMPLATES / "task-kickoff.md",
+    TEMPLATES / "monitoring-brief.md",
+    TEMPLATES / "evidence-table.md",
 ]
 
 REQUIRED_TERMS = [
@@ -52,4 +54,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

@@ -129,6 +129,7 @@ python3 checks/runtime_e2e_fixture_check.py
 python3 checks/runtime_safety_check.py
 python3 checks/template_check.py
 python3 checks/legacy_think_tank_migration_check.py
+python3 checks/research_agent_full_migration_check.py
 ```
 
 旧 Claude Code 版 think-tank 已完成迁移处置：
@@ -137,6 +138,13 @@ python3 checks/legacy_think_tank_migration_check.py
 - 旧输出模板进入 `templates/`
 - Claude Code Agent Team 历史运行经验进入 `platforms/claude-code/legacy-team-runtime.md`
 - 文件级迁移记录进入 `docs/legacy-think-tank-full-migration.md`
+
+旧 research agent 已完成 v0.3 全仓迁移处置：
+
+- 7 个旧 agents 映射到 `profiles/`
+- 25 个旧 skills 映射到 capabilities、adapter、domain pack 或 out-of-core
+- 35 个旧 knowledge 文件索引到 `domain-packs/image-editing/legacy-knowledge-index.md`
+- logs、memory、run artifacts 和平台私有配置均有明确处置边界
 
 仍未声明完成：
 
