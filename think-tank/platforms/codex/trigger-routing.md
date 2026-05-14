@@ -32,11 +32,21 @@ Codex 中的正确路径是：
   -> mode selection
   -> profiles selection
   -> capability slots
+  -> routing/skill-router.md
   -> optional peer skills when available and needed
+  -> routing/result-recovery.md
   -> structured output
 ```
 
 这里的 peer skills 只是候选实现，不是 think-tank 的组成部分。think-tank 的协议、mode、profiles、输出结构和质量门禁必须在没有任何外部 peer skill 时仍然可用。
+
+Codex 适配层不得直接把触发词绑定到 peer skill。必须先通过：
+
+```text
+routing/skill-router.md
+routing/dispatch-policy.md
+routing/result-recovery.md
+```
 
 ## Codex 触发路由表
 

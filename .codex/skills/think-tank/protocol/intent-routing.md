@@ -13,7 +13,9 @@ user request
   -> recipe selection
   -> profile selection
   -> capability selection
+  -> routing/skill-router.md
   -> platform adapter execution
+  -> routing/result-recovery.md
 ```
 
 ## 通用触发词
@@ -83,6 +85,16 @@ execution_claim: only_verified_per_run
 - 把某个 recipe 写成必须依赖某个外部 skill。
 - 把 `competitor_analysis`、`xiaohongshu`、`yt-dlp` 等工具写入 think-tank core 行为。
 - 把 peer skill 文件存在说成已真实执行。
+
+peer skill 的连接规则不写在 recipe 中，而写在：
+
+```text
+routing/skill-router.md
+routing/dispatch-policy.md
+routing/result-recovery.md
+```
+
+recipe 只声明“可能用哪些候选 skill”，routing 层才决定“本次是否选择、是否允许调用、如何降级和如何回收结果”。
 
 ## 输出要求
 

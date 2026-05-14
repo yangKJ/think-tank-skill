@@ -39,3 +39,5 @@
 - `state-result-contract.md`：run、state、result、recovery 最小结构
 - `consensus-contract.md`：显式投票、blocking objection、停止条件
 - `versioning.md`：协议版本演进和能力状态标注规则
+
+与外部 peer skills 的连接规则放在 `routing/`。它不是协议真相源，但负责把协议层的 capability slots 转成可执行的 skill route、dispatch decision 和 result recovery。

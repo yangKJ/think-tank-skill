@@ -39,6 +39,8 @@ think-tank-skill/
 ├── protocol/
 ├── capabilities/
 ├── profiles/
+├── recipes/
+├── routing/
 ├── platforms/
 ├── modes/
 ├── runtime/
@@ -59,6 +61,14 @@ think-tank-skill/
 ### capabilities
 
 能力槽层定义 think-tank 如何与工具型 skills 共存。`yt-dlp`、`obsidian`、`playwright-cli`、`xiaohongshu` 等不应被复制进 core，而应通过能力槽由平台适配层调用。
+
+### recipes
+
+任务配方层定义跨项目可复用的任务类型，例如竞争分析、市场调研、技术调研、舆情分析、会议审议、验收审查和持续监控。recipe 只声明角色、能力槽和 optional peer skills，不拥有工具。
+
+### routing
+
+技能路由中间层定义 capability 如何连接到 optional peer skills。它取代旧 `competitor_analysis` 那种“任务配方、工具连接、报告输出混在一起”的模式，把连接逻辑拆成 `skill_route`、`dispatch_decision` 和 `result_recovery`。
 
 ### profiles
 

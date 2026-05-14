@@ -124,6 +124,30 @@ recipe 可以建议 profiles、capabilities 和 optional peer skills，但不能
 
 capability 不是具体工具。平台 adapter 负责把 capability 映射成当前可用的 skills、工具或执行步骤。
 
+### 5. 路由到 optional peer skills
+
+当 recipe 或 capability 需要外部能力时，按 `routing/` 形成中间连接决策：
+
+```text
+recipe.optional_peer_skills
+  + capability candidate skills
+  + platform available skills
+  + task constraints
+  -> skill_route
+  -> dispatch_decision
+  -> result_recovery
+```
+
+必须遵守：
+
+```text
+routing/skill-router.md
+routing/dispatch-policy.md
+routing/result-recovery.md
+```
+
+routing 层只选择和连接 optional peer skills，不改变 think-tank core。peer skill 缺失、未授权或失败时，必须降级到 core protocol、用户材料或本地材料，并在边界中说明。
+
 如果当前平台是 Claude Code，并且任务需要调用外部 skill/tool，必须遵守：
 
 ```text
@@ -132,7 +156,7 @@ platforms/claude-code/dispatch-contract.md
 
 也就是说，在调用外部 skill/tool 前必须形成 `dispatch_decision`，调用后必须形成 `dispatch_log`，并将结果回收到 `sources[]`、`evidence[]` 或对应输出结构。
 
-### 5. 平台执行
+### 6. 平台执行
 
 根据当前平台执行：
 
@@ -155,7 +179,7 @@ execution_method: single_agent_multi_profile_fallback
 authority_level: lower_fallback_single_context
 ```
 
-### 6. 汇总输出
+### 7. 汇总输出
 
 最终输出必须回到 think-tank 结构：
 
@@ -170,7 +194,7 @@ authority_level: lower_fallback_single_context
 
 轻量任务可以合并栏目，但不能丢失结论、风险和行动建议。
 
-### 7. 质量检查
+### 8. 质量检查
 
 输出前检查：
 
@@ -226,6 +250,7 @@ execution_claim: only_verified_per_run
 - intent 路由：`protocol/intent-routing.md`
 - mode 选择：`protocol/mode-selection.md`
 - 通用 recipes：`recipes/`
+- 技能路由中间层：`routing/`
 - profiles：`profiles/`
 - profile prompt pack：`profiles/prompt-pack.md`
 - capabilities：`capabilities/`

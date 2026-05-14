@@ -29,19 +29,21 @@ status:
 | `social-listening` | 当前为 planned；可用 web 或用户提供样本降级 |
 | `knowledge-persistence` | 写入仓库文档、Markdown artifact；不默认写用户私有知识库 |
 
-旧 research agent 的工具型 skills 已按同级关系安装到 Codex skills 目录。think-tank 可以把它们视为候选实现，但必须逐个验证执行能力。
+旧 research agent 的工具型 skills 已按同级关系安装到 Codex skills 目录。think-tank 可以把它们视为 optional peer skill 候选实现，但必须通过 `routing/skill-router.md` 和 `routing/dispatch-policy.md` 逐次选择和验证执行能力。
 
 ## 执行方式
 
 Codex 执行 think-tank 时：
 
 1. 读取 `SKILL.md` 和相关协议文件。
-2. 根据用户任务选择 mode。
-3. 用 profiles 模拟不同角色视角。
-4. 用 Codex 工具收集本地或外部证据。
-5. 汇总角色观点、分歧、风险和行动建议。
-6. 运行必要检查。
-7. 明确哪些能力是 verified，哪些只是 planned。
+2. 根据用户任务选择 intent、recipe 和 mode。
+3. 选择 profiles 和 capabilities。
+4. 用 routing 层形成 skill_route 和 dispatch_decision。
+5. 用 Codex 工具或 optional peer skills 收集本地或外部证据。
+6. 按 result-recovery 回收到 sources、evidence、artifacts 或 boundaries。
+7. 汇总角色观点、分歧、风险和行动建议。
+8. 运行必要检查。
+9. 明确哪些能力是 verified，哪些只是 planned。
 
 ## 降级规则
 

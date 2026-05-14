@@ -125,6 +125,8 @@ def main() -> None:
         [
             "protocol/intent-routing.md",
             "recipes/",
+            "routing/skill-router.md",
+            "routing/result-recovery.md",
             "selected_intent:",
             "selected_recipe:",
             "think_tank_core_depends_on_peer_skills: false",
