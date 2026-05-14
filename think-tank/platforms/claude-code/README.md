@@ -21,6 +21,7 @@
 - `adapter.md`：Claude Code 适配协议
 - `dispatch-contract.md`：capability 到 skill/tool 的最小 dispatch 契约
 - `dispatch-prompt.md`：Claude Code dispatch 验证标准提示词
+- `final-validation-prompt.md`：Claude Code 最终低流量验证提示词
 - `minimal-runtime.md`：Claude Code 最小 adapter runtime 约定
 - `runtime-contract.md`：真实执行、结果回收和失败恢复约定
 - `skill-mapping.md`：Claude Code skills 到 think-tank capabilities 的映射

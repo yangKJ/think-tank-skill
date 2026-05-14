@@ -17,6 +17,7 @@ REQUIRED_FILES = [
     THINK_TANK / "platforms" / "claude-code" / "skill-mapping.md",
     THINK_TANK / "platforms" / "claude-code" / "dispatch-contract.md",
     THINK_TANK / "platforms" / "claude-code" / "dispatch-prompt.md",
+    THINK_TANK / "platforms" / "claude-code" / "final-validation-prompt.md",
     THINK_TANK / "platforms" / "claude-code" / "minimal-runtime.md",
     THINK_TANK / "examples" / "claude-code-research-validation.md",
     THINK_TANK / "examples" / "claude-code-council-validation.md",
@@ -72,6 +73,14 @@ MINIMAL_RUNTIME_REQUIRED_SNIPPETS = [
     "runtime_verified",
 ]
 
+FINAL_VALIDATION_PROMPT_REQUIRED_SNIPPETS = [
+    "成功路径",
+    "失败路径",
+    "dispatch_decision_before_invocation",
+    "No fallback was executed",
+    "不得声明 adapter_dispatch_runtime: verified",
+]
+
 FORBIDDEN_SNIPPETS = [
     "capability_auto_mapping: verified\n",
     "adapter_dispatch: verified",
@@ -120,6 +129,10 @@ def check_minimal_runtime() -> None:
     require_snippets(THINK_TANK / "platforms" / "claude-code" / "minimal-runtime.md", MINIMAL_RUNTIME_REQUIRED_SNIPPETS)
 
 
+def check_final_validation_prompt() -> None:
+    require_snippets(THINK_TANK / "platforms" / "claude-code" / "final-validation-prompt.md", FINAL_VALIDATION_PROMPT_REQUIRED_SNIPPETS)
+
+
 def check_forbidden_status() -> None:
     files = [
         THINK_TANK / "docs" / "claude-code-validation-report.md",
@@ -140,6 +153,7 @@ def main() -> None:
     check_dispatch_contract()
     check_dispatch_prompt()
     check_minimal_runtime()
+    check_final_validation_prompt()
     check_forbidden_status()
     print("Claude Code 验证检查通过")
 

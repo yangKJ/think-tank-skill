@@ -89,6 +89,8 @@ python3 checks/codex_validation_check.py
 python3 checks/claude_code_validation_check.py
 python3 checks/claude_dispatch_sample_check.py
 python3 checks/claude_runtime_sample_check.py
+python3 checks/minimal_runtime_execution_check.py
+python3 checks/capability_queue_check.py
 python3 checks/schema_sample_check.py
 ```
 
@@ -98,6 +100,7 @@ Codex foundation status:
 - Capability degradation is verified.
 - Browser automation is verified as an optional localhost fixture integration.
 - External readonly source acquisition is verified through Codex source acquisition.
+- Codex minimal runtime mirror is verified with a local static fixture.
 - Browser external DOM recovery is blocked in the current environment and is not claimed as verified.
 - JSON input/output samples are checked.
 - Claude Code runtime and true multi-agent execution remain planned.

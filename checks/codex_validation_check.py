@@ -20,6 +20,8 @@ REQUIRED_VALIDATION_FILES = [
     THINK_TANK / "platforms" / "codex" / "operating-guide.md",
     THINK_TANK / "platforms" / "codex" / "task-templates.md",
     THINK_TANK / "platforms" / "codex" / "capability-status.md",
+    THINK_TANK / "platforms" / "codex" / "minimal-runtime.md",
+    THINK_TANK / "platforms" / "codex" / "runtime" / "source_acquisition_minimal.py",
     THINK_TANK / "examples" / "codex-smoke-research.md",
     THINK_TANK / "examples" / "codex-council-validation.md",
     THINK_TANK / "examples" / "codex-review-validation.md",
@@ -34,6 +36,9 @@ REQUIRED_VALIDATION_FILES = [
     THINK_TANK / "examples" / "codex-local-source-validation.md",
     THINK_TANK / "examples" / "codex-external-source-validation.md",
     THINK_TANK / "examples" / "codex-browser-external-blocked.md",
+    THINK_TANK / "examples" / "codex-runtime-sample.json",
+    THINK_TANK / "examples" / "codex-runtime-failure-sample.json",
+    THINK_TANK / "docs" / "runtime-mirror-report.md",
 ]
 
 CODEX_REPORT_REQUIRED_SNIPPETS = [
@@ -44,6 +49,7 @@ CODEX_REPORT_REQUIRED_SNIPPETS = [
     "browser_automation_localhost: verified_optional",
     "local_source_markdown_artifact: verified",
     "external_source_readonly: verified",
+    "codex_runtime_mirror: verified_with_local_fixture",
     "browser_automation_external_web: blocked",
     "true_multi_agent_execution: planned",
 ]
@@ -78,6 +84,14 @@ OPERATING_GUIDE_REQUIRED_SNIPPETS = [
     "最小安装默认行为",
     "能力状态规则",
     "验收命令",
+]
+
+MINIMAL_RUNTIME_REQUIRED_SNIPPETS = [
+    "runtime: codex-minimal",
+    "source-acquisition",
+    "verified_with_local_fixture",
+    "local_static_reader",
+    "不得把本地 fixture 读取说成外部网页 DOM 读取",
 ]
 
 
@@ -120,6 +134,10 @@ def check_operating_guide() -> None:
     require_snippets(THINK_TANK / "platforms" / "codex" / "operating-guide.md", OPERATING_GUIDE_REQUIRED_SNIPPETS)
 
 
+def check_minimal_runtime() -> None:
+    require_snippets(THINK_TANK / "platforms" / "codex" / "minimal-runtime.md", MINIMAL_RUNTIME_REQUIRED_SNIPPETS)
+
+
 def check_readiness_matrix() -> None:
     require_snippets(THINK_TANK / "docs" / "codex-readiness-matrix.md", READINESS_MATRIX_REQUIRED_SNIPPETS)
 
@@ -150,6 +168,7 @@ def main() -> None:
     check_minimal_install()
     check_acceptance_doc()
     check_operating_guide()
+    check_minimal_runtime()
     check_readiness_matrix()
     check_example_boundaries()
     print("Codex 验证检查通过")

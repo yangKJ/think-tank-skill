@@ -34,6 +34,8 @@
 - 记录 Claude Code pre-invocation dispatch decision 验证，`capability_auto_mapping` 提升为 `verified_partial_pre_invocation_decision`。
 - 增加 v0.1 foundation final 收口文档。
 - 增加 Claude Code minimal runtime 约定、schema、成功/失败样例和检查脚本。
+- 增加 Codex minimal runtime mirror、参考 runner、成功/失败样例和执行检查脚本。
+- 增加 capability 验证队列检查脚本和最终验收计划。
 - 增加 optional capability 后续验证路线图。
 - 增加 MIT License。
 

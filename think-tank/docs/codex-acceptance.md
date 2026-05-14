@@ -66,10 +66,12 @@ python3 checks/codex_validation_check.py
 python3 checks/claude_code_validation_check.py
 python3 checks/claude_dispatch_sample_check.py
 python3 checks/claude_runtime_sample_check.py
+python3 checks/minimal_runtime_execution_check.py
+python3 checks/capability_queue_check.py
 python3 checks/schema_sample_check.py
 ```
 
-前三个命令都通过，才可以说 Codex foundation 和 Claude Code 状态边界没有冲突；六个命令都通过，才可以说当前仓库验证产物完整。
+前三个命令都通过，才可以说 Codex foundation 和 Claude Code 状态边界没有冲突；八个命令都通过，才可以说当前仓库验证产物完整。
 
 ## 通过标准
 

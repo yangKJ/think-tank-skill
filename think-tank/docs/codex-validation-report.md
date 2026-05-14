@@ -28,8 +28,11 @@ codex:
   codex_operational_usage: verified
   local_source_markdown_artifact: verified
   external_source_readonly: verified
+  codex_runtime_mirror: verified_with_local_fixture
   protocol_check: verified
   codex_validation_check: verified
+  minimal_runtime_execution_check: verified
+  capability_queue_check: verified
   schema_sample_check: verified
   browser_automation_localhost: verified_optional
   browser_automation_external_web: blocked
@@ -177,10 +180,12 @@ python3 checks/codex_validation_check.py
 python3 checks/claude_code_validation_check.py
 python3 checks/claude_dispatch_sample_check.py
 python3 checks/claude_runtime_sample_check.py
+python3 checks/minimal_runtime_execution_check.py
+python3 checks/capability_queue_check.py
 python3 checks/schema_sample_check.py
 ```
 
-六个命令都通过，才可以说当前仓库验证产物完整。Codex foundation 仍以 `protocol_check`、`codex_validation_check` 和 `schema_sample_check` 为核心。
+八个命令都通过，才可以说当前仓库验证产物完整。Codex foundation 仍以 `protocol_check`、`codex_validation_check`、`minimal_runtime_execution_check` 和 `schema_sample_check` 为核心。
 
 ## 是否可以安装其他技能
 

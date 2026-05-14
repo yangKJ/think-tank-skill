@@ -52,7 +52,8 @@ Codex 当前已经足够作为 think-tank 的主工作平台继续使用。
 | media-processing unavailable | verified_degradation | `examples/capability-degradation-media.md` |
 | social-listening unavailable | verified_degradation | `examples/capability-degradation-social.md` |
 | knowledge-persistence local fallback | verified | `examples/capability-degradation-knowledge.md` |
-| Claude Code runtime | planned | `docs/claude-code-preflight.md` |
+| Claude Code runtime | implemented_as_repeatable_contract | `platforms/claude-code/minimal-runtime.md` |
+| Codex minimal runtime mirror | verified | `checks/minimal_runtime_execution_check.py` |
 
 ## Codex 验收命令
 
@@ -62,6 +63,8 @@ python3 checks/codex_validation_check.py
 python3 checks/claude_code_validation_check.py
 python3 checks/claude_dispatch_sample_check.py
 python3 checks/claude_runtime_sample_check.py
+python3 checks/minimal_runtime_execution_check.py
+python3 checks/capability_queue_check.py
 python3 checks/schema_sample_check.py
 ```
 

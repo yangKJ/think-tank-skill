@@ -27,6 +27,8 @@ Codex 适配可以先以单 agent 协议执行为主：
 - `adapter.md`：Codex 适配协议
 - `capability-mapping.md`：Codex 工具到 think-tank capabilities 的映射
 - `capability-status.md`：Codex 主平台 capability 当前状态
+- `minimal-runtime.md`：Codex minimal runtime mirror 说明
 - `operating-guide.md`：Codex 日常运行手册
+- `runtime/source_acquisition_minimal.py`：source-acquisition 最小参考 runner
 - `smoke-test.md`：Codex 平台 smoke test 定义
 - `task-templates.md`：Codex 用户任务模板

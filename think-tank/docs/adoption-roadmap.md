@@ -58,6 +58,8 @@
 codex_foundation:
   protocol_check: pass
   codex_validation_check: pass
+  minimal_runtime_execution_check: pass
+  capability_queue_check: pass
   schema_sample_check: pass
   core_modes: verified
   capability_degradation: verified

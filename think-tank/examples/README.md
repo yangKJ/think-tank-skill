@@ -20,6 +20,8 @@
 - `codex-local-source-validation.md`：Codex 本地 source-acquisition 与 artifact 验证
 - `codex-external-source-validation.md`：Codex 外部只读 source-acquisition 验证
 - `codex-browser-external-blocked.md`：Codex Browser 外部只读验证阻塞记录
+- `codex-runtime-sample.json`：Codex minimal runtime 成功路径样例
+- `codex-runtime-failure-sample.json`：Codex minimal runtime 失败路径样例
 - `claude-code-research-validation.md`：Claude Code research mode preflight 验证记录
 - `claude-code-council-validation.md`：Claude Code council mode preflight 验证记录
 - `claude-code-capability-discovery.md`：Claude Code capability 到 skill 发现和映射验证记录
