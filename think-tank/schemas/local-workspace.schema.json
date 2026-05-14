@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://think-tank.local/schemas/local-workspace.schema.json",
+  "title": "think-tank local workspace config",
+  "type": "object",
+  "required": ["version", "workspace", "policy", "memory"],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "const": 1
+    },
+    "workspace": {
+      "type": "object",
+      "required": ["default_privacy", "default_memory_target", "write_requires_confirmation"],
+      "properties": {
+        "default_privacy": {
+          "type": "string",
+          "enum": ["public", "project_local", "private"]
+        },
+        "default_memory_target": {
+          "type": "string"
+        },
+        "write_requires_confirmation": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "policy": {
+      "type": "object",
+      "required": ["provider_policy"],
+      "properties": {
+        "provider_policy": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "memory": {
+      "type": "object",
+      "required": ["enabled", "propose_only_by_default", "allowed_targets"],
+      "properties": {
+        "enabled": {"type": "boolean"},
+        "propose_only_by_default": {"type": "boolean"},
+        "allowed_targets": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "forbidden_targets": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      },
+      "additionalProperties": false
+    },
+    "runs": {
+      "type": "object",
+      "properties": {
+        "enabled": {"type": "boolean"},
+        "directory": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "artifacts": {
+      "type": "object",
+      "properties": {
+        "enabled": {"type": "boolean"},
+        "directory": {"type": "string"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

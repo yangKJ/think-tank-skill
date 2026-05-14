@@ -16,7 +16,7 @@ POLICY_RUNTIME = RUNTIME_DIR / "provider_policy.py"
 POLICY_EXAMPLE = ROOT / "think-tank" / "platforms" / "codex" / "provider-policy.example.yaml"
 POLICY_SCHEMA = ROOT / "think-tank" / "routing" / "policy-schema.md"
 PROJECT_SKILLS = ROOT / ".codex" / "skills"
-SKILL_LOCAL_POLICY = ROOT / "think-tank" / "think-tank.provider-policy.yaml"
+LOCAL_WORKSPACE_POLICY = ROOT / ".think-tank" / "provider-policy.yaml"
 
 
 def fail(message: str) -> None:
@@ -79,8 +79,8 @@ def main() -> None:
             fail(f"route 缺少字段: {route.get('id')} -> {sorted(missing)}")
 
     module = load_module()
-    if module.SKILL_LOCAL_POLICY != SKILL_LOCAL_POLICY:
-        fail("provider_policy.py 的 skill-local policy 路径不正确")
+    if module.LOCAL_WORKSPACE_POLICY != LOCAL_WORKSPACE_POLICY:
+        fail("provider_policy.py 的 local workspace policy 路径不正确")
 
     loaded_policy = module.load_policy(POLICY_EXAMPLE)
     provider_registry = module.registry(PROJECT_SKILLS)
@@ -111,6 +111,24 @@ def main() -> None:
         fail("制定策略 未选择 strategy-planning recipe")
     if strategy["skill_route"]["selected_provider"] is not None:
         fail("无 capability 的 strategy route 不应默认选择 provider")
+
+    memory = module.resolve_request("记下来：provider selection 不能当作 invocation", loaded_policy, provider_registry["providers"])
+    if not memory["matched"] or memory["selected_intent"] != "project_memory_capture":
+        fail("记下来 未命中 project_memory_capture policy route")
+    if memory["selected_recipe"] != "project-memory-capture":
+        fail("记下来 未选择 project-memory-capture recipe")
+    if memory["fallback"] != "propose_only":
+        fail("project memory capture 默认必须 propose_only")
+    if memory["skill_route"]["selected_provider"] is not None:
+        fail("project memory capture 默认不应自动选择 knowledge-persistence provider")
+    if memory["skill_route"]["candidate_providers"]:
+        fail("project memory capture 默认不应产生 provider 候选")
+
+    no_auto_policy_route = next(route for route in loaded_policy["routes"] if route["id"] == "project-memory-capture")
+    no_auto_policy_route = {**no_auto_policy_route, "providers": {"auto_select": False, "prefer": ["taskflow"], "allow": [], "deny": []}}
+    no_auto_selection = module.select_providers(no_auto_policy_route, provider_registry["providers"])
+    if no_auto_selection["selected_provider"] is not None or no_auto_selection["candidate_providers"]:
+        fail("auto_select=false 时即使配置 prefer 也不应自动选择 provider")
 
     local_override = {
         "version": 1,

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://think-tank.local/schemas/memory-capture.schema.json",
+  "title": "think-tank memory capture result",
+  "type": "object",
+  "required": ["selected_recipe", "memory_candidates", "written", "skipped", "boundaries"],
+  "properties": {
+    "selected_recipe": {
+      "type": "string",
+      "const": "project-memory-capture"
+    },
+    "memory_candidates": {
+      "type": "array",
+      "items": {"$ref": "memory-item.schema.json"}
+    },
+    "written": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "skipped": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "reason"],
+        "properties": {
+          "id": {"type": "string"},
+          "reason": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "boundaries": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  },
+  "additionalProperties": false
+}
+

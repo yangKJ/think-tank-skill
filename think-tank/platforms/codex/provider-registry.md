@@ -82,6 +82,16 @@ forbidden_output: claim_external_skill_verified
 
 这正是 think-tank 的最小可用路径。
 
+## Local Policy
+
+本地 provider 偏好不属于 provider registry。项目应把本地 routing policy 放在：
+
+```text
+.think-tank/provider-policy.yaml
+```
+
+registry 只发现 `.codex/skills/` 中有哪些 provider；policy 决定哪些 provider 可被优先、允许或拒绝。
+
 ## Where Concrete Names Live
 
 具体 skill 名称只允许出现在 Codex adapter 层：

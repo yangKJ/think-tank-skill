@@ -16,8 +16,7 @@ from provider_registry import PROJECT_SKILLS, registry
 
 ROOT = Path(__file__).resolve().parents[4]
 DEFAULT_POLICY = ROOT / "think-tank" / "platforms" / "codex" / "provider-policy.example.yaml"
-PROJECT_POLICY = ROOT / ".codex" / "think-tank.provider-policy.yaml"
-SKILL_LOCAL_POLICY = ROOT / "think-tank" / "think-tank.provider-policy.yaml"
+LOCAL_WORKSPACE_POLICY = ROOT / ".think-tank" / "provider-policy.yaml"
 
 
 def load_policy(path: Path) -> dict[str, Any]:
@@ -32,10 +31,8 @@ def load_policy(path: Path) -> dict[str, Any]:
 def policy_path(explicit: Path | None = None) -> Path:
     if explicit is not None:
         return explicit
-    if PROJECT_POLICY.exists():
-        return PROJECT_POLICY
-    if SKILL_LOCAL_POLICY.exists():
-        return SKILL_LOCAL_POLICY
+    if LOCAL_WORKSPACE_POLICY.exists():
+        return LOCAL_WORKSPACE_POLICY
     return DEFAULT_POLICY
 
 
@@ -66,7 +63,21 @@ def select_providers(route: dict[str, Any], available_providers: list[dict[str, 
     prefer = list(provider_policy.get("prefer", []) or [])
     allow = set(provider_policy.get("allow", []) or [])
     deny = set(provider_policy.get("deny", []) or [])
+    auto_select = bool(provider_policy.get("auto_select", True))
     capabilities = set(route.get("capabilities", []) or [])
+
+    if not auto_select:
+        return {
+            "candidate_providers": [],
+            "selected_provider": None,
+            "provider_policy": {
+                "prefer": prefer,
+                "allow": sorted(allow),
+                "deny": sorted(deny),
+                "auto_select": auto_select,
+            },
+            "selection_reason": "Provider auto-selection is disabled for this route.",
+        }
 
     if not capabilities and not prefer and not allow:
         return {
@@ -76,6 +87,7 @@ def select_providers(route: dict[str, Any], available_providers: list[dict[str, 
                 "prefer": prefer,
                 "allow": sorted(allow),
                 "deny": sorted(deny),
+                "auto_select": auto_select,
             },
             "selection_reason": "No capability or explicit provider preference requires provider selection.",
         }
@@ -109,6 +121,7 @@ def select_providers(route: dict[str, Any], available_providers: list[dict[str, 
             "prefer": prefer,
             "allow": sorted(allow),
             "deny": sorted(deny),
+            "auto_select": auto_select,
         },
         "selection_reason": (
             "Selected by routing policy preference and capability match."

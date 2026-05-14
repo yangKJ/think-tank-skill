@@ -4,6 +4,21 @@
 
 格式参考 Keep a Changelog，版本遵循语义化版本。
 
+## [Unreleased]
+
+### Added
+
+- 增加 `.think-tank/` 本地工作区协议，用于项目本地 provider policy、memory candidates、runs 和 artifacts。
+- 增加 `.think-tank/provider-policy.yaml` 作为唯一支持的项目本地 policy 路径；公开 Skill 源只保留 Codex example policy。
+- 增加 project memory capture 协议、recipe、模板、schema、样例报告和检查脚本。
+- 增加 local workspace 模板、schema、示例布局和检查脚本。
+- Codex provider policy runtime 支持 `providers.auto_select: false`，用于只产出候选记忆、不自动选择外部 persistence provider 的场景。
+
+### Changed
+
+- 移除旧本地 policy 路径兼容思路，避免多个项目本地入口形成多套逻辑。
+- 更新 Codex routing 文档，明确触发词和 provider 偏好应由 `.think-tank/provider-policy.yaml` 项目实例配置承载。
+
 ## [0.1.0] - 2026-05-14
 
 ### Added

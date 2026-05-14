@@ -25,6 +25,8 @@ REQUIRED_TRIGGERS = [
     "开会讨论",
     "审查",
     "制定策略",
+    "记下来",
+    "沉淀到项目记忆",
 ]
 
 REQUIRED_SKILLS = [
@@ -86,7 +88,7 @@ def main() -> None:
 
     if "router_owner: think-tank" not in routing:
         fail("trigger routing 必须声明 think-tank 是路由主语")
-    if "provider-policy.example.yaml" not in routing or ".codex/think-tank.provider-policy.yaml" not in routing:
+    if "provider-policy.example.yaml" not in routing or ".think-tank/provider-policy.yaml" not in routing:
         fail("Codex trigger routing 必须指向 provider policy YAML")
     if "protocol/intent-routing.md" not in routing or "recipes/" not in routing:
         fail("Codex trigger routing 必须引用平台无关 intent/recipe 真相源")

@@ -29,6 +29,7 @@ think-tank-skill/
 ├── README.md
 ├── LICENSE
 ├── .gitignore
+├── .think-tank/              # local, ignored project instance workspace
 └── think-tank/
     ├── SKILL.md
     ├── README.md
@@ -69,9 +70,9 @@ think-tank-skill/
 
 ## Current Status
 
-This repository is in the early foundation stage.
+This repository has completed the foundation, legacy migration, Codex runtime hardening, peer-skill routing, and local workspace design stages.
 
-The first goal is to stabilize the structure and protocol before migrating older research think-tank or agent-council assets into the new system.
+The current public Skill source is `think-tank/`. Project-specific policy, run logs, artifacts, and memory candidates belong in `.think-tank/`, which is ignored by Git.
 
 Readiness status:
 
@@ -82,6 +83,8 @@ Readiness status:
 - [`think-tank/platforms/codex/operating-guide.md`](think-tank/platforms/codex/operating-guide.md)
 - [`think-tank/platforms/codex/capability-status.md`](think-tank/platforms/codex/capability-status.md)
 - [`think-tank/examples/codex-smoke-research.md`](think-tank/examples/codex-smoke-research.md)
+- [`think-tank/protocol/local-workspace.md`](think-tank/protocol/local-workspace.md)
+- [`think-tank/protocol/memory-curation.md`](think-tank/protocol/memory-curation.md)
 
 ## Validation
 
@@ -119,6 +122,15 @@ python3 checks/role_result_schema_check.py
 python3 checks/specialist_runtime_contract_check.py
 python3 checks/codex_installed_skill_check.py
 python3 checks/codex_external_skills_check.py
+python3 checks/codex_provider_registry_check.py
+python3 checks/codex_provider_policy_check.py
+python3 checks/codex_trigger_routing_check.py
+python3 checks/codex_runtime_verification_matrix_check.py
+python3 checks/routing_layer_check.py
+python3 checks/intent_recipe_check.py
+python3 checks/local_workspace_check.py
+python3 checks/memory_curation_check.py
+python3 checks/release_privacy_check.py
 ```
 
 Codex foundation status:
@@ -142,6 +154,8 @@ Codex foundation status:
 - Current local Codex installation is validated via `checks/codex_installed_skill_check.py`.
 - Legacy research external skills are installed as peer Codex skills and checked via `checks/codex_external_skills_check.py`.
 - Codex provider invocation matrix is established; selected peer skills still require per-provider invocation validation before they can be called verified.
+- `.think-tank/` is the only supported project-local workspace for local provider policy, memory candidates, run logs, and artifacts.
+- Project memory capture is implemented as propose-then-review; it does not auto-select persistence providers or auto-write private knowledge stores.
 
 ## Design Boundary
 

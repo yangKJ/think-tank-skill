@@ -3,8 +3,7 @@ version: 1
 metadata:
   name: codex-think-tank-provider-policy-example
   description: >
-    Copy this file to .codex/think-tank.provider-policy.yaml or
-    think-tank/think-tank.provider-policy.yaml and edit it for your project.
+    Copy this file to .think-tank/provider-policy.yaml and edit it for your project.
     These local policy files are user preference, not think-tank core protocol.
 
 defaults:
@@ -112,6 +111,7 @@ routes:
       - product-strategist
     capabilities: []
     providers:
+      auto_select: false
       prefer: []
       allow: []
       deny: []
@@ -232,3 +232,25 @@ routes:
       allow: []
       deny: []
     fallback: core_protocol
+
+  - id: project-memory-capture
+    priority: 75
+    enabled: true
+    triggers:
+      match: regex
+      patterns:
+        - "(记下来|沉淀到项目记忆|写进项目技能|保存这次经验|把这次分析变成项目规则)"
+    intent: project_memory_capture
+    mode: review
+    recipe: project-memory-capture
+    profiles:
+      - skeptic
+      - report-architect
+    capabilities:
+      - knowledge-persistence
+    providers:
+      auto_select: false
+      prefer: []
+      allow: []
+      deny: []
+    fallback: propose_only

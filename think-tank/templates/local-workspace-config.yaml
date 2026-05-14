@@ -1,0 +1,26 @@
+version: 1
+
+workspace:
+  default_privacy: project_local
+  default_memory_target: .think-tank/memory/
+  write_requires_confirmation: true
+
+policy:
+  provider_policy: .think-tank/provider-policy.yaml
+
+memory:
+  enabled: true
+  propose_only_by_default: true
+  allowed_targets:
+    - AGENTS.md
+    - .think-tank/memory/
+  forbidden_targets:
+    - think-tank/
+
+runs:
+  enabled: true
+  directory: .think-tank/runs/
+
+artifacts:
+  enabled: true
+  directory: .think-tank/artifacts/

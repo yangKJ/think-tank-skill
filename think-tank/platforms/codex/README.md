@@ -33,3 +33,19 @@ Codex 适配可以先以单 agent 协议执行为主：
 - `runtime/pipeline.py`：Codex runtime pipeline，串联 planner、slot resolver、state model、source acquisition 和 consensus
 - `smoke-test.md`：Codex 平台 smoke test 定义
 - `task-templates.md`：Codex 用户任务模板
+
+## Local Workspace
+
+Codex 项目本地配置应放在：
+
+```text
+.think-tank/
+```
+
+推荐本地 provider policy 路径：
+
+```text
+.think-tank/provider-policy.yaml
+```
+
+`.codex/skills/think-tank` 可以是指向公开 `think-tank/` 的安装入口，但项目实例配置不应写入 Skill 源目录。

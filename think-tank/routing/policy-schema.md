@@ -75,6 +75,7 @@ routes:
     profiles: []
     capabilities: []
     providers:
+      auto_select: true
       prefer: []
       allow: []
       deny: []
@@ -90,14 +91,17 @@ routes:
 
 通用 policy 可以使用 provider tag；项目本地 policy 可以使用具体 provider id。
 
+`providers.auto_select: false` 表示 route 可以声明 capability，但不自动选择
+provider。适合 `project-memory-capture` 这类默认只生成候选、不应自动写入或调用
+私有 provider 的场景。若需要调用具体 provider，应在后续 dispatch 阶段由用户显式确认。
+
 示例：
 
 ```yaml
 providers:
-  prefer:
-    - provider_with_social_context
-  allow:
-    - xiaohongshu
+  auto_select: false
+  prefer: []
+  allow: []
   deny:
     - generic_web_search
 ```

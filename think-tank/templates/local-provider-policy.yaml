@@ -1,0 +1,62 @@
+version: 1
+
+metadata:
+  name: project-local-think-tank-provider-policy
+  description: >
+    Project-local provider policy. Copy this file to
+    .think-tank/provider-policy.yaml and customize it for the current project.
+    Do not commit private provider preferences unless the project explicitly
+    chooses to share them.
+
+defaults:
+  fallback: core_protocol
+  missing_provider_behavior: degrade_to_core_protocol
+  require_permission_for:
+    - private_write
+    - social_scraping
+    - media_download
+
+routes:
+  - id: local-general-research
+    priority: 100
+    enabled: true
+    triggers:
+      match: regex
+      patterns:
+        - "(研究一下|调研一下|市场调研|技术调研)"
+    intent: general_research
+    mode: research
+    recipe: evidence-synthesis
+    profiles:
+      - source-collector
+      - report-architect
+    capabilities:
+      - source-acquisition
+    providers:
+      auto_select: false
+      prefer: []
+      allow: []
+      deny: []
+    fallback: core_protocol
+
+  - id: local-project-memory-capture
+    priority: 100
+    enabled: true
+    triggers:
+      match: regex
+      patterns:
+        - "(记下来|沉淀到项目记忆|写进项目技能|保存这次经验)"
+    intent: project_memory_capture
+    mode: review
+    recipe: project-memory-capture
+    profiles:
+      - skeptic
+      - report-architect
+    capabilities:
+      - knowledge-persistence
+    providers:
+      auto_select: false
+      prefer: []
+      allow: []
+      deny: []
+    fallback: propose_only

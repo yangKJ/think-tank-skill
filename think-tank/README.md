@@ -72,7 +72,15 @@ think-tank-skill/
 
 ### policy
 
-routing policy 定义触发词、intent、recipe、capability 和 provider 偏好。用户可以通过平台示例 YAML 创建项目本地策略，例如 Codex 的 `.codex/think-tank.provider-policy.yaml`。如果当前项目用软链接把 Codex skill 指向仓库内 `think-tank/`，也可以使用被 Git 忽略的 `think-tank/think-tank.provider-policy.yaml` 做本地测试配置。policy 缺失时 think-tank 仍按 core protocol 降级运行。
+routing policy 定义触发词、intent、recipe、capability 和 provider 偏好。用户可以通过平台示例 YAML 创建项目本地策略，例如 `.think-tank/provider-policy.yaml`。本地 policy 属于项目实例配置，不属于公开 Skill 源。policy 缺失时 think-tank 仍按 core protocol 降级运行。
+
+### local workspace
+
+`.think-tank/` 是项目本地实例工作区，用于放置本项目自己的 provider policy、memory candidates、run logs 和 artifacts。它默认应被 Git 忽略，不能作为公开 Skill 源发布。公开仓库只提供 `templates/`、`schemas/`、`examples/` 和 `protocol/` 中的通用说明。
+
+### memory curation
+
+项目记忆沉淀是 think-tank 的 2.0 能力方向：把一次讨论、验收或调研中的稳定经验整理成候选记忆，再由用户或项目维护者决定是否下沉到本地 `.think-tank/memory/`、项目规则或公开文档。默认行为是 `propose_then_review`，不自动写入外部知识库。
 
 ### profiles
 
@@ -151,6 +159,15 @@ python3 checks/role_result_schema_check.py
 python3 checks/specialist_runtime_contract_check.py
 python3 checks/codex_installed_skill_check.py
 python3 checks/codex_external_skills_check.py
+python3 checks/codex_provider_registry_check.py
+python3 checks/codex_provider_policy_check.py
+python3 checks/codex_trigger_routing_check.py
+python3 checks/codex_runtime_verification_matrix_check.py
+python3 checks/routing_layer_check.py
+python3 checks/intent_recipe_check.py
+python3 checks/local_workspace_check.py
+python3 checks/memory_curation_check.py
+python3 checks/release_privacy_check.py
 ```
 
 旧 Claude Code 版 think-tank 已完成迁移处置：

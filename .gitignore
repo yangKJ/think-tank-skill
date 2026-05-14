@@ -1,6 +1,6 @@
 AGENTS.md
+.think-tank/
 .codex/
-think-tank/think-tank.provider-policy.yaml
 think-tank/*.local.yaml
 .DS_Store
 __pycache__/

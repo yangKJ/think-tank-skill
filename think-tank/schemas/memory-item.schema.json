@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://think-tank.local/schemas/memory-item.schema.json",
+  "title": "think-tank memory item",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "title",
+    "summary",
+    "source",
+    "verified_at",
+    "scope",
+    "privacy",
+    "staleness_risk",
+    "confidence",
+    "target",
+    "action",
+    "quality_check"
+  ],
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "type": {
+      "type": "string",
+      "enum": ["architecture", "workflow", "convention", "pitfall", "decision"]
+    },
+    "title": {"type": "string", "minLength": 1},
+    "summary": {"type": "string", "minLength": 1},
+    "source": {
+      "type": "object",
+      "properties": {
+        "files": {"type": "array", "items": {"type": "string"}},
+        "commands": {"type": "array", "items": {"type": "string"}},
+        "discussions": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    },
+    "verified_at": {"type": "string"},
+    "scope": {
+      "type": "string",
+      "enum": ["repo", "module", "platform", "user_local"]
+    },
+    "privacy": {
+      "type": "string",
+      "enum": ["public", "project_local", "private"]
+    },
+    "staleness_risk": {
+      "type": "string",
+      "enum": ["low", "medium", "high"]
+    },
+    "confidence": {
+      "type": "string",
+      "enum": ["low", "medium", "high"]
+    },
+    "target": {"type": "string", "minLength": 1},
+    "action": {
+      "type": "string",
+      "enum": ["append", "merge", "skip", "propose_only"]
+    },
+    "quality_check": {
+      "type": "object",
+      "required": [
+        "has_source",
+        "has_scope",
+        "has_privacy_label",
+        "has_staleness_risk",
+        "no_secret",
+        "no_unverified_claim_as_fact",
+        "no_duplicate"
+      ],
+      "properties": {
+        "has_source": {"type": "boolean"},
+        "has_scope": {"type": "boolean"},
+        "has_privacy_label": {"type": "boolean"},
+        "has_staleness_risk": {"type": "boolean"},
+        "no_secret": {"type": "boolean"},
+        "no_unverified_claim_as_fact": {"type": "boolean"},
+        "no_duplicate": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
+

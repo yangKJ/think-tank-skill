@@ -16,6 +16,25 @@ status: verified_foundation
 
 Codex 默认不声称真实多 agent。除非用户明确要求并授权使用 subagent，否则 think-tank 在 Codex 中按“单 agent 多 profile 分段执行”处理。
 
+## 本地工作区
+
+Codex 项目本地 think-tank 数据统一放在：
+
+```text
+.think-tank/
+```
+
+其中：
+
+```text
+.think-tank/provider-policy.yaml  # 项目触发词和 provider 偏好
+.think-tank/memory/               # 项目本地记忆
+.think-tank/runs/                 # 运行记录
+.think-tank/artifacts/            # 产物
+```
+
+`.think-tank/` 默认应被 Git 忽略。公开 Skill 源 `think-tank/` 不存放项目实例配置。
+
 ## 触发方式
 
 用户可以直接用自然语言触发 think-tank，不需要写完整协议字段。
