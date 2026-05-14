@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://think-tank.dev/schemas/claude-dispatch.schema.json",
+  "title": "Think Tank Claude Code Dispatch",
+  "type": "object",
+  "required": ["dispatch_request", "dispatch_decision", "dispatch_log", "sources", "evidence", "boundaries", "quality_check"],
+  "additionalProperties": false,
+  "properties": {
+    "dispatch_request": {
+      "type": "object",
+      "required": ["mode", "profile", "capability", "task", "target", "constraints", "evidence_policy"],
+      "additionalProperties": true,
+      "properties": {
+        "mode": {"type": "string", "enum": ["research", "council", "review", "strategy"]},
+        "profile": {"type": "string"},
+        "capability": {"type": "string"},
+        "task": {"type": "string"},
+        "target": {"type": "string"},
+        "constraints": {"type": "array", "items": {"type": "string"}},
+        "evidence_policy": {"type": "object"}
+      }
+    },
+    "dispatch_decision": {
+      "type": "object",
+      "required": ["selected_capability", "candidate_skills", "selected_skill", "selection_reason", "invocation_method", "fallback_skills", "risk_level", "status"],
+      "additionalProperties": true,
+      "properties": {
+        "selected_capability": {"type": "string"},
+        "candidate_skills": {"type": "array", "items": {"type": "string"}},
+        "selected_skill": {"type": "string"},
+        "selection_reason": {"type": "string"},
+        "invocation_method": {"type": "string"},
+        "fallback_skills": {"type": "array", "items": {"type": "string"}},
+        "risk_level": {"type": "string", "enum": ["low", "medium", "high"]},
+        "status": {"type": "string", "enum": ["planned", "dispatched", "degraded", "blocked"]}
+      }
+    },
+    "dispatch_log": {
+      "type": "object",
+      "required": ["started_at", "invocation", "recovery", "boundaries"],
+      "additionalProperties": true,
+      "properties": {
+        "started_at": {"type": "string"},
+        "invocation": {
+          "type": "object",
+          "required": ["invoked", "method", "target", "result_status"],
+          "additionalProperties": true,
+          "properties": {
+            "invoked": {"type": "boolean"},
+            "method": {"type": "string"},
+            "target": {"type": "string"},
+            "result_status": {"type": "string", "enum": ["success", "failed", "skipped"]}
+          }
+        },
+        "recovery": {
+          "type": "object",
+          "required": ["result_recovered", "recovered_as"],
+          "additionalProperties": true,
+          "properties": {
+            "result_recovered": {"type": "boolean"},
+            "recovered_as": {"type": "array", "items": {"type": "string"}}
+          }
+        },
+        "boundaries": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["title", "url", "source_type", "summary", "reliability", "freshness", "extracted_at"],
+        "additionalProperties": true,
+        "properties": {
+          "title": {"type": "string"},
+          "url": {"type": "string"},
+          "source_type": {"type": "string"},
+          "summary": {"type": "string"},
+          "reliability": {"type": "string", "enum": ["low", "medium", "high"]},
+          "freshness": {"type": "string"},
+          "extracted_at": {"type": "string"}
+        }
+      }
+    },
+    "evidence": {"type": "array", "items": {"type": "string"}},
+    "boundaries": {"type": "array", "items": {"type": "string"}},
+    "quality_check": {
+      "type": "object",
+      "required": ["protocol_complete", "evidence_boundary_clear", "actionable"],
+      "additionalProperties": false,
+      "properties": {
+        "protocol_complete": {"type": "boolean"},
+        "evidence_boundary_clear": {"type": "boolean"},
+        "actionable": {"type": "boolean"}
+      }
+    }
+  }
+}

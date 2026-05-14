@@ -1,0 +1,173 @@
+#!/usr/bin/env python3
+"""检查 think-tank 协议文档的最低完整性。"""
+
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[1]
+THINK_TANK = ROOT / "think-tank"
+
+
+REQUIRED_FILES = [
+    THINK_TANK / "SKILL.md",
+    THINK_TANK / "README.md",
+    THINK_TANK / "protocol" / "think-tank-protocol.md",
+    THINK_TANK / "protocol" / "roles.md",
+    THINK_TANK / "protocol" / "agent-selection.md",
+    THINK_TANK / "protocol" / "mode-selection.md",
+    THINK_TANK / "protocol" / "quality-gates.md",
+    THINK_TANK / "protocol" / "versioning.md",
+    THINK_TANK / "capabilities" / "README.md",
+    THINK_TANK / "profiles" / "README.md",
+    THINK_TANK / "platforms" / "claude-code" / "adapter.md",
+    THINK_TANK / "platforms" / "claude-code" / "dispatch-contract.md",
+    THINK_TANK / "platforms" / "claude-code" / "dispatch-prompt.md",
+    THINK_TANK / "platforms" / "claude-code" / "minimal-runtime.md",
+    THINK_TANK / "platforms" / "claude-code" / "runtime-contract.md",
+    THINK_TANK / "platforms" / "claude-code" / "skill-mapping.md",
+    THINK_TANK / "platforms" / "claude-code" / "agent-mapping.md",
+    THINK_TANK / "platforms" / "codex" / "adapter.md",
+    THINK_TANK / "platforms" / "codex" / "capability-mapping.md",
+    THINK_TANK / "platforms" / "codex" / "capability-status.md",
+    THINK_TANK / "platforms" / "codex" / "operating-guide.md",
+    THINK_TANK / "platforms" / "codex" / "smoke-test.md",
+    THINK_TANK / "platforms" / "codex" / "task-templates.md",
+    THINK_TANK / "domain-packs" / "README.md",
+    THINK_TANK / "examples" / "codex-smoke-research.md",
+    THINK_TANK / "examples" / "codex-council-validation.md",
+    THINK_TANK / "examples" / "codex-review-validation.md",
+    THINK_TANK / "examples" / "codex-strategy-validation.md",
+    THINK_TANK / "examples" / "codex-minimal-install-validation.md",
+    THINK_TANK / "examples" / "codex-operational-request.md",
+    THINK_TANK / "examples" / "codex-operational-validation.md",
+    THINK_TANK / "examples" / "codex-local-source-artifact.md",
+    THINK_TANK / "examples" / "codex-local-source-validation.md",
+    THINK_TANK / "examples" / "codex-external-source-validation.md",
+    THINK_TANK / "examples" / "codex-browser-external-blocked.md",
+    THINK_TANK / "examples" / "claude-code-research-validation.md",
+    THINK_TANK / "examples" / "claude-code-council-validation.md",
+    THINK_TANK / "examples" / "claude-code-capability-discovery.md",
+    THINK_TANK / "examples" / "claude-code-external-source-readonly.md",
+    THINK_TANK / "examples" / "claude-code-adapter-dispatch-attempt.md",
+    THINK_TANK / "examples" / "claude-code-dispatch-contract-sample.md",
+    THINK_TANK / "examples" / "claude-code-dispatch-contract-validation.md",
+    THINK_TANK / "examples" / "claude-code-dispatch-pre-invocation-validation.md",
+    THINK_TANK / "examples" / "capability-degradation-media.md",
+    THINK_TANK / "examples" / "capability-degradation-social.md",
+    THINK_TANK / "examples" / "capability-degradation-knowledge.md",
+    THINK_TANK / "examples" / "capability-degradation-browser.md",
+    THINK_TANK / "examples" / "browser-automation-fixture.html",
+    THINK_TANK / "examples" / "browser-automation-integration.md",
+    THINK_TANK / "examples" / "schema-sample-input.json",
+    THINK_TANK / "examples" / "schema-sample-output.json",
+    THINK_TANK / "examples" / "claude-dispatch-sample.json",
+    THINK_TANK / "examples" / "claude-runtime-sample.json",
+    THINK_TANK / "examples" / "claude-runtime-failure-sample.json",
+    THINK_TANK / "docs" / "v0.1-readiness.md",
+    THINK_TANK / "docs" / "v0.1-foundation-final.md",
+    THINK_TANK / "docs" / "codex-validation-report.md",
+    THINK_TANK / "docs" / "codex-acceptance.md",
+    THINK_TANK / "docs" / "codex-readiness-matrix.md",
+    THINK_TANK / "docs" / "capability-degradation-report.md",
+    THINK_TANK / "docs" / "browser-automation-integration-report.md",
+    THINK_TANK / "docs" / "claude-code-preflight.md",
+    THINK_TANK / "docs" / "claude-code-validation-report.md",
+    THINK_TANK / "docs" / "minimal-install-behavior.md",
+    THINK_TANK / "docs" / "external-capability-testing-strategy.md",
+    THINK_TANK / "docs" / "capability-validation-roadmap.md",
+    THINK_TANK / "schemas" / "input.schema.json",
+    THINK_TANK / "schemas" / "output.schema.json",
+    THINK_TANK / "schemas" / "claude-dispatch.schema.json",
+    THINK_TANK / "schemas" / "claude-runtime.schema.json",
+]
+
+MODE_REQUIRED_SECTIONS = [
+    "## 定位",
+    "## 适用场景",
+    "## 默认角色",
+    "## 流程重点",
+    "## 输出重点",
+]
+
+PROFILE_REQUIRED_SECTIONS = [
+    "## 使命",
+    "## 适用场景",
+    "## 输入",
+    "## 输出",
+]
+
+CAPABILITY_REQUIRED_SECTIONS = [
+    "## 目的",
+    "## 适用场景",
+    "## 输入",
+    "## 输出",
+    "## 候选 skills",
+    "## 降级策略",
+]
+
+
+def fail(message: str) -> None:
+    raise SystemExit(f"协议检查失败: {message}")
+
+
+def check_required_files() -> None:
+    missing = [path for path in REQUIRED_FILES if not path.exists()]
+    if missing:
+        fail("缺少文件: " + ", ".join(str(path.relative_to(ROOT)) for path in missing))
+
+
+def check_modes() -> None:
+    for mode_file in sorted((THINK_TANK / "modes").glob("*.md")):
+        if mode_file.name == "README.md":
+            continue
+        content = mode_file.read_text(encoding="utf-8")
+        missing = [section for section in MODE_REQUIRED_SECTIONS if section not in content]
+        if missing:
+            fail(f"{mode_file.relative_to(ROOT)} 缺少章节: {', '.join(missing)}")
+
+
+def check_profiles() -> None:
+    for profile_file in sorted((THINK_TANK / "profiles").glob("*.md")):
+        if profile_file.name == "README.md":
+            continue
+        content = profile_file.read_text(encoding="utf-8")
+        missing = [section for section in PROFILE_REQUIRED_SECTIONS if section not in content]
+        if missing:
+            fail(f"{profile_file.relative_to(ROOT)} 缺少章节: {', '.join(missing)}")
+
+
+def check_capabilities() -> None:
+    for capability_file in sorted((THINK_TANK / "capabilities").glob("*.md")):
+        if capability_file.name == "README.md":
+            continue
+        content = capability_file.read_text(encoding="utf-8")
+        missing = [section for section in CAPABILITY_REQUIRED_SECTIONS if section not in content]
+        if missing:
+            fail(f"{capability_file.relative_to(ROOT)} 缺少章节: {', '.join(missing)}")
+
+
+def check_json_schemas() -> None:
+    for schema_file in sorted((THINK_TANK / "schemas").glob("*.json")):
+        try:
+            data = json.loads(schema_file.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as exc:
+            fail(f"{schema_file.relative_to(ROOT)} 不是合法 JSON: {exc}")
+        for key in ["$schema", "title", "type"]:
+            if key not in data:
+                fail(f"{schema_file.relative_to(ROOT)} 缺少 {key}")
+
+
+def main() -> None:
+    check_required_files()
+    check_modes()
+    check_profiles()
+    check_capabilities()
+    check_json_schemas()
+    print("协议检查通过")
+
+
+if __name__ == "__main__":
+    main()

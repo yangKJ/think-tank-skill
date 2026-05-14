@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://think-tank.dev/schemas/output.schema.json",
+  "title": "Think Tank Output",
+  "type": "object",
+  "required": ["mode", "roles", "conclusion", "recommendations", "quality_check"],
+  "additionalProperties": false,
+  "properties": {
+    "mode": {
+      "type": "string",
+      "enum": ["research", "council", "review", "strategy"]
+    },
+    "roles": {
+      "type": "array",
+      "items": {"type": "string"},
+      "minItems": 1
+    },
+    "conclusion": {
+      "type": "string"
+    },
+    "evidence": {
+      "type": "array",
+      "items": {"type": "string"},
+      "default": []
+    },
+    "role_views": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["role", "claim"],
+        "additionalProperties": true,
+        "properties": {
+          "role": {"type": "string"},
+          "claim": {"type": "string"},
+          "confidence": {
+            "type": "string",
+            "enum": ["low", "medium", "high"]
+          }
+        }
+      },
+      "default": []
+    },
+    "disagreements": {
+      "type": "array",
+      "items": {"type": "string"},
+      "default": []
+    },
+    "risks": {
+      "type": "array",
+      "items": {"type": "string"},
+      "default": []
+    },
+    "recommendations": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "boundaries": {
+      "type": "array",
+      "items": {"type": "string"},
+      "default": []
+    },
+    "next_steps": {
+      "type": "array",
+      "items": {"type": "string"},
+      "default": []
+    },
+    "quality_check": {
+      "type": "object",
+      "required": ["protocol_complete", "evidence_boundary_clear", "actionable"],
+      "additionalProperties": false,
+      "properties": {
+        "protocol_complete": {"type": "boolean"},
+        "evidence_boundary_clear": {"type": "boolean"},
+        "actionable": {"type": "boolean"}
+      }
+    }
+  }
+}
