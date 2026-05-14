@@ -9,9 +9,10 @@ think_tank_position: peer_skill
 external_skills_position: peer_skills
 install_method: copy
 core_rule: external_skills_are_not_inside_think_tank
+think_tank_core_depends_on_peer_skills: false
 ```
 
-`think-tank` 是高阶编排 Skill。旧 research agent 的其他 skills 是工具型能力，必须和 `think-tank` 同级安装。
+`think-tank` 是高阶编排 Skill。旧 research agent 的其他 skills 是工具型能力，只能作为可选同级候选实现存在，不能成为 think-tank core 的依赖。
 
 ## 当前安装路径
 
@@ -27,10 +28,10 @@ core_rule: external_skills_are_not_inside_think_tank
 
 旧 skill 的可执行入口必须指向当前项目本地路径，不能继续依赖 `~/.claude/skills` 或旧 `img-company/agents/research` 路径。历史 README 中若保留 Claude Code 安装说明，只能作为来源记录，不能作为 Codex 执行入口。
 
-## 已安装旧 research skills
+## 当前项目本地 peer skill 快照
 
 ```yaml
-installed_external_skills:
+installed_optional_peer_skills:
   - 36kr-hotlist
   - apple-reminders
   - competitor_analysis
@@ -74,12 +75,14 @@ installed_external_skills:
 ## 状态边界
 
 ```yaml
-external_skills_installed: verified
+external_peer_skills_are_optional: true
+external_skills_snapshot_installed: verified
 project_local_copy: true
 codex_loader_refresh_required: true
 external_skills_executable: not_verified
 think_tank_can_reference_capability_mapping: verified
 old_research_agent_shell_required: false
+think_tank_core_depends_on_peer_skills: false
 ```
 
 安装完成只证明：
@@ -87,6 +90,7 @@ old_research_agent_shell_required: false
 - 当前项目 `.codex/skills/` 目录存在这些同级 skills。
 - 每个已安装 skill 有 `SKILL.md`。
 - think-tank 可以按 capability mapping 识别候选实现。
+- think-tank 即使没有这些外部 peer skills，也必须能按核心协议降级运行。
 
 安装完成不证明：
 

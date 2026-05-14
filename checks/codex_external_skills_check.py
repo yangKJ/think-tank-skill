@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""检查旧 research tools 是否作为项目内 Codex 同级 skills 安装。"""
+"""检查项目内可选 Codex peer skills 是否保持解耦和干净。"""
 
 from __future__ import annotations
 
@@ -18,7 +18,7 @@ FORBIDDEN_DIR_NAMES = {
     "node_modules",
 }
 
-EXPECTED_EXTERNAL = [
+OPTIONAL_PEER_SKILLS = [
     "36kr-hotlist",
     "apple-reminders",
     "competitor_analysis",
@@ -62,10 +62,12 @@ def main() -> None:
     if not (PROJECT_CODEX_SKILLS / "think-tank" / "SKILL.md").exists():
         fail("think-tank 未安装到项目内 Codex skills")
 
-    for name in EXPECTED_EXTERNAL:
+    present_peer_skills: list[str] = []
+    for name in OPTIONAL_PEER_SKILLS:
         target = PROJECT_CODEX_SKILLS / name
         if not target.exists():
-            fail(f"缺少同级 skill: {name}")
+            continue
+        present_peer_skills.append(name)
         if not (target / "SKILL.md").exists():
             fail(f"{name} 缺少 SKILL.md")
         if target.is_symlink():
@@ -88,7 +90,7 @@ def main() -> None:
         path
         for path in (Path.home() / ".codex" / "skills").glob("*")
         if path.is_symlink()
-        and path.name in [*EXPECTED_EXTERNAL, "think-tank"]
+        and path.name in [*OPTIONAL_PEER_SKILLS, "think-tank"]
     ]
     if global_symlinks:
         sample = ", ".join(path.name for path in global_symlinks)
@@ -99,17 +101,22 @@ def main() -> None:
             fail(f"非 skill 文件不应安装: {name}")
 
     for capability, skills in CAPABILITY_GROUPS.items():
-        missing = [name for name in skills if not (PROJECT_CODEX_SKILLS / name / "SKILL.md").exists()]
-        if missing:
-            fail(f"{capability} 缺少候选 skills: {', '.join(missing)}")
+        available = [name for name in skills if (PROJECT_CODEX_SKILLS / name / "SKILL.md").exists()]
+        if not available:
+            continue
 
     doc = ROOT / "think-tank" / "docs" / "codex-external-skills-installation.md"
     content = doc.read_text(encoding="utf-8")
-    for term in ["external_skills_installed: verified", "external_skills_executable: not_verified", "old_research_agent_shell_required: false"]:
+    for term in [
+        "external_peer_skills_are_optional: true",
+        "external_skills_executable: not_verified",
+        "old_research_agent_shell_required: false",
+        "think_tank_core_depends_on_peer_skills: false",
+    ]:
         if term not in content:
             fail(f"安装文档缺少边界声明: {term}")
 
-    print("Codex external skills 检查通过")
+    print(f"Codex optional peer skills 检查通过: present={len(present_peer_skills)}")
 
 
 if __name__ == "__main__":
