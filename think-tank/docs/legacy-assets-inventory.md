@@ -118,3 +118,19 @@
 4. 将 L1/L2/L3 裁决机制抽象进 council mode。
 5. 将旧平台约束写入 Claude Code adapter，避免误称为跨平台协议。
 
+## Research 迁移审计
+
+旧 research agent 的核心能力已经迁移完成，但不是全量归档迁移。
+
+完整核对记录见：
+
+```text
+docs/research-migration-audit.md
+```
+
+保留边界：
+
+- 旧 `knowledge/` 不进入 core。
+- 旧 `.think-tank/runs/` 不作为协议真相源。
+- 旧 `.claude/agent-memory/` 只吸收经验，不迁移原文。
+- 旧 `.claude/settings*.json`、`.playwright-cli/`、`logs/` 不迁移。

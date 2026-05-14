@@ -86,6 +86,7 @@ REQUIRED_FILES = [
     THINK_TANK / "docs" / "capability-validation-roadmap.md",
     THINK_TANK / "docs" / "runtime-mirror-report.md",
     THINK_TANK / "docs" / "final-acceptance-plan.md",
+    THINK_TANK / "docs" / "research-migration-audit.md",
     THINK_TANK / "schemas" / "input.schema.json",
     THINK_TANK / "schemas" / "output.schema.json",
     THINK_TANK / "schemas" / "claude-dispatch.schema.json",
