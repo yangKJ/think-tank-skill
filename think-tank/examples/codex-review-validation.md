@@ -84,7 +84,7 @@ not_verified:
 建议：
 
 - 在 readiness 中保持 `domain_packs: experimental`。
-- 以后新增第二个非图像领域包再提升成熟度。
+- 以后新增多个公开、通用的领域包再提升成熟度。
 
 ### P3: 自动检查仍偏结构检查
 
