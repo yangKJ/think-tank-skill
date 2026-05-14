@@ -135,6 +135,7 @@ python3 checks/council_runtime_check.py
 python3 checks/subagent_runtime_check.py
 python3 checks/role_result_schema_check.py
 python3 checks/specialist_runtime_contract_check.py
+python3 checks/codex_installed_skill_check.py
 ```
 
 旧 Claude Code 版 think-tank 已完成迁移处置：
@@ -165,6 +166,10 @@ v0.5 已补齐专业 subagent runtime 契约：
 - `profiles/prompt-pack.md` 将 profiles 转换为可派发 prompt
 - Codex 和 Claude Code 均有 specialist runtime 适配说明
 - 如果平台没有独立 subagent，必须显式降级为 `single_agent_multi_profile_fallback`
+
+当前本机 Codex 安装验证见：
+
+- `docs/codex-installed-skill-validation.md`
 
 仍未声明完成：
 
