@@ -29,8 +29,10 @@ phase_4_capability_queue:
   roadmap: docs/capability-validation-roadmap.md
 
 phase_5_claude_code_low_flow_validation:
-  status: ready_for_manual_claude_code_run
+  status: verified_partial_with_success_pre_invocation_and_failure_degradation
   prompt: platforms/claude-code/final-validation-prompt.md
+  record: examples/claude-code-final-validation.md
+  caveat: failure_path_pre_invocation_decision_not_confirmed_from_transcript
 ```
 
 ## 验收命令

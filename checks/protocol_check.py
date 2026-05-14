@@ -60,6 +60,7 @@ REQUIRED_FILES = [
     THINK_TANK / "examples" / "claude-code-dispatch-contract-sample.md",
     THINK_TANK / "examples" / "claude-code-dispatch-contract-validation.md",
     THINK_TANK / "examples" / "claude-code-dispatch-pre-invocation-validation.md",
+    THINK_TANK / "examples" / "claude-code-final-validation.md",
     THINK_TANK / "examples" / "capability-degradation-media.md",
     THINK_TANK / "examples" / "capability-degradation-social.md",
     THINK_TANK / "examples" / "capability-degradation-knowledge.md",

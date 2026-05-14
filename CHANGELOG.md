@@ -36,6 +36,7 @@
 - 增加 Claude Code minimal runtime 约定、schema、成功/失败样例和检查脚本。
 - 增加 Codex minimal runtime mirror、参考 runner、成功/失败样例和执行检查脚本。
 - 增加 capability 验证队列检查脚本和最终验收计划。
+- 记录 Claude Code final low-flow validation，状态为 `verified_partial_with_success_pre_invocation_and_failure_degradation`。
 - 增加 optional capability 后续验证路线图。
 - 增加 MIT License。
 

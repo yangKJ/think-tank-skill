@@ -27,6 +27,7 @@ REQUIRED_FILES = [
     THINK_TANK / "examples" / "claude-code-dispatch-contract-sample.md",
     THINK_TANK / "examples" / "claude-code-dispatch-contract-validation.md",
     THINK_TANK / "examples" / "claude-code-dispatch-pre-invocation-validation.md",
+    THINK_TANK / "examples" / "claude-code-final-validation.md",
     THINK_TANK / "examples" / "claude-dispatch-sample.json",
     THINK_TANK / "examples" / "claude-runtime-sample.json",
     THINK_TANK / "examples" / "claude-runtime-failure-sample.json",
@@ -43,7 +44,17 @@ REPORT_REQUIRED_SNIPPETS = [
     "adapter_dispatch_attempt: adapter_dispatch_not_executed_verified_partial",
     "dispatch_contract_validation: verified_partial_with_order_gap",
     "dispatch_pre_invocation_decision: verified_partial",
-    "result_recovery_contract: partial_manual_mapping",
+    "final_low_flow_validation: verified_partial_with_success_pre_invocation_and_failure_degradation",
+    "result_recovery_contract: partial_structured_recovery",
+]
+
+FINAL_VALIDATION_REQUIRED_SNIPPETS = [
+    "success_path_pre_invocation_decision: verified",
+    "failure_path_degraded_recovery: verified",
+    "failure_path_pre_invocation_decision: not_confirmed_from_transcript",
+    "minimal_runtime_contract: verified_partial_with_success_pre_invocation_and_failure_degradation",
+    "adapter_dispatch_runtime: not_full_verified",
+    "result_recovery_contract: partial_structured_recovery",
 ]
 
 DISPATCH_CONTRACT_REQUIRED_SNIPPETS = [
@@ -133,6 +144,10 @@ def check_final_validation_prompt() -> None:
     require_snippets(THINK_TANK / "platforms" / "claude-code" / "final-validation-prompt.md", FINAL_VALIDATION_PROMPT_REQUIRED_SNIPPETS)
 
 
+def check_final_validation_record() -> None:
+    require_snippets(THINK_TANK / "examples" / "claude-code-final-validation.md", FINAL_VALIDATION_REQUIRED_SNIPPETS)
+
+
 def check_forbidden_status() -> None:
     files = [
         THINK_TANK / "docs" / "claude-code-validation-report.md",
@@ -154,6 +169,7 @@ def main() -> None:
     check_dispatch_prompt()
     check_minimal_runtime()
     check_final_validation_prompt()
+    check_final_validation_record()
     check_forbidden_status()
     print("Claude Code 验证检查通过")
 

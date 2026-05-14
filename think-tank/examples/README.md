@@ -30,6 +30,7 @@
 - `claude-code-dispatch-contract-sample.md`：Claude Code adapter dispatch 目标输出样例
 - `claude-code-dispatch-contract-validation.md`：Claude Code dispatch contract 验证记录，当前为 order gap partial
 - `claude-code-dispatch-pre-invocation-validation.md`：Claude Code dispatch decision 调用前形成的验证记录
+- `claude-code-final-validation.md`：Claude Code final low-flow validation 记录，当前为 partial
 - `claude-dispatch-sample.json`：Claude Code dispatch 机器可检查样例
 - `claude-runtime-sample.json`：Claude Code minimal runtime 成功路径机器可检查样例
 - `claude-runtime-failure-sample.json`：Claude Code minimal runtime 失败/降级路径机器可检查样例

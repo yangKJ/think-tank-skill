@@ -12,10 +12,11 @@ codex_minimal_runtime:
   runner: platforms/codex/runtime/source_acquisition_minimal.py
 
 claude_code_minimal_runtime:
-  status: implemented_as_repeatable_contract
+  status: verified_partial_with_success_pre_invocation_and_failure_degradation
   success_sample: examples/claude-runtime-sample.json
   failure_sample: examples/claude-runtime-failure-sample.json
   final_validation_prompt: platforms/claude-code/final-validation-prompt.md
+  final_validation_record: examples/claude-code-final-validation.md
 
 cross_platform_contract:
   protocol_shape: aligned
@@ -49,7 +50,8 @@ codex:
 
 claude_code:
   invocation.method: WebFetch
-  verified_by: low-flow Claude Code validation prompt
+  verified_by: low-flow Claude Code validation record
+  caveat: failure path pre-invocation ordering is not confirmed from transcript
 ```
 
 ## 边界

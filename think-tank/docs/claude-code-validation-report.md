@@ -20,6 +20,7 @@ subagent_dispatch: planned
 result_recovery: planned
 external_skill_invocation: verified_partial_for_webfetch
 minimal_runtime_contract: implemented_as_repeatable_contract
+final_low_flow_validation: verified_partial_with_success_pre_invocation_and_failure_degradation
 ```
 
 ## 已完成验证
@@ -33,6 +34,7 @@ minimal_runtime_contract: implemented_as_repeatable_contract
 | adapter dispatch attempt | `examples/claude-code-adapter-dispatch-attempt.md` | adapter_dispatch_not_executed_verified_partial |
 | dispatch contract validation | `examples/claude-code-dispatch-contract-validation.md` | verified_partial_with_order_gap |
 | dispatch pre-invocation decision | `examples/claude-code-dispatch-pre-invocation-validation.md` | verified_partial_pre_invocation_decision |
+| final low-flow validation | `examples/claude-code-final-validation.md` | verified_partial_with_success_pre_invocation_and_failure_degradation |
 
 ## Research Mode Preflight
 
@@ -112,8 +114,9 @@ claude_code_preflight:
   adapter_dispatch_attempt: verified_partial_direct_invocation
   dispatch_contract_validation: verified_partial_with_order_gap
   dispatch_pre_invocation_decision: verified_partial
+  final_low_flow_validation: verified_partial_with_success_pre_invocation_and_failure_degradation
   external_skill_invocation: verified_partial_for_webfetch
-  result_recovery_contract: partial_manual_mapping
+  result_recovery_contract: partial_structured_recovery
   true_multi_agent_runtime: planned
 ```
 
@@ -141,5 +144,5 @@ check: checks/claude_runtime_sample_check.py
 目标输出样例见：
 
 ```text
-think-tank/examples/claude-code-dispatch-contract-sample.md
+think-tank/examples/claude-code-final-validation.md
 ```
