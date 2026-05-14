@@ -15,8 +15,14 @@ type: workflow
 target: .think-tank/memory/workflows.md
 privacy: project_local
 action: append
+status: active
 confidence: high
 staleness_risk: low
+expires_when: User changes the project policy model or provider invocation contract.
+review_after: null
+refresh_trigger:
+  - Before changing provider policy runtime semantics.
+  - When provider invocation matrix or routing checks change.
 ```
 
 ## Decision
@@ -28,4 +34,3 @@ scope, privacy label, and no secret-bearing content.
 
 No public `think-tank/` file is modified by default. A write requires explicit
 confirmation.
-

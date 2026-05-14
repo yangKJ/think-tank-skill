@@ -43,6 +43,8 @@ def main() -> None:
             "convention",
             "pitfall",
             "decision",
+            "expires_when",
+            "refresh_trigger",
             "think-tank/",
             "Quality Gates",
         ],
@@ -62,8 +64,12 @@ def main() -> None:
         [
             "Project Memory Candidate",
             "privacy",
+            "status",
             "staleness_risk",
+            "expires_when",
+            "refresh_trigger",
             "quality_check",
+            "has_expiry_rule",
             "no_unverified_claim_as_fact",
         ],
     )
@@ -86,7 +92,11 @@ def main() -> None:
         "verified_at",
         "scope",
         "privacy",
+        "status",
         "staleness_risk",
+        "expires_when",
+        "review_after",
+        "refresh_trigger",
         "confidence",
         "target",
         "action",
@@ -96,6 +106,11 @@ def main() -> None:
             fail(f"memory-item schema 缺少 required 字段: {field}")
     if "project_local" not in item_schema["properties"]["privacy"]["enum"]:
         fail("memory-item schema privacy 必须支持 project_local")
+    if "needs_review" not in item_schema["properties"]["status"]["enum"]:
+        fail("memory-item schema status 必须支持 needs_review")
+    quality_required = item_schema["properties"]["quality_check"]["required"]
+    if "has_expiry_rule" not in quality_required:
+        fail("memory-item schema quality_check 必须要求 has_expiry_rule")
 
     capture_schema = json.loads(CAPTURE_SCHEMA.read_text(encoding="utf-8"))
     if capture_schema["properties"]["selected_recipe"]["const"] != "project-memory-capture":
@@ -109,10 +124,15 @@ def main() -> None:
         fail("memory capture sample 应为 project_local")
     if candidate["action"] not in {"append", "merge", "skip", "propose_only"}:
         fail("memory capture sample action 不合法")
+    if not candidate.get("expires_when"):
+        fail("memory capture sample 必须声明 expires_when")
+    if not candidate.get("refresh_trigger"):
+        fail("memory capture sample 必须声明 refresh_trigger")
+    if candidate["quality_check"].get("has_expiry_rule") is not True:
+        fail("memory capture sample 必须通过 has_expiry_rule")
 
     print("memory curation 检查通过")
 
 
 if __name__ == "__main__":
     main()
-

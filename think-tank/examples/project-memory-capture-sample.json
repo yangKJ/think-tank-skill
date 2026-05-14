@@ -19,7 +19,14 @@
       "verified_at": "2026-05-15",
       "scope": "repo",
       "privacy": "project_local",
+      "status": "active",
       "staleness_risk": "low",
+      "expires_when": "User changes the project policy model or provider invocation contract.",
+      "review_after": null,
+      "refresh_trigger": [
+        "Before changing provider policy runtime semantics.",
+        "When provider invocation matrix or routing checks change."
+      ],
       "confidence": "high",
       "target": ".think-tank/memory/workflows.md",
       "action": "append",
@@ -28,6 +35,7 @@
         "has_scope": true,
         "has_privacy_label": true,
         "has_staleness_risk": true,
+        "has_expiry_rule": true,
         "no_secret": true,
         "no_unverified_claim_as_fact": true,
         "no_duplicate": true
@@ -41,4 +49,3 @@
     "It does not write to public think-tank core files by default."
   ]
 }
-

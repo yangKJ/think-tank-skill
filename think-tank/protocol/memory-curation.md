@@ -58,10 +58,38 @@ source:
 verified_at:
 scope: repo | module | platform | user_local
 privacy: public | project_local | private
+status: active | needs_review | superseded | archived
 staleness_risk: low | medium | high
+expires_when:
+review_after:
+refresh_trigger: []
 confidence: low | medium | high
 target:
 action: append | merge | skip
+```
+
+## Staleness Contract
+
+Memory is an evidence-backed cache, not permanent truth. Every item must say
+when it becomes stale and what should trigger revalidation.
+
+```yaml
+status:
+  active: usable without special warning
+  needs_review: usable only after checking current evidence
+  superseded: replaced by a newer memory item
+  archived: historical context only
+expires_when:
+  stable_rule: "Only expires when user/project policy changes"
+  repo_state: "Expires when files, tests, routes, schemas, or runtime behavior change"
+  tool_state: "Expires when installed skills, providers, network access, or platform runtime changes"
+  time_bound: "Expires after the stated review date"
+review_after:
+  description: optional ISO date for scheduled review; null means event-triggered review
+refresh_trigger:
+  - "Before presenting this memory as current fact"
+  - "When related files or validation commands change"
+  - "When platform/provider availability changes"
 ```
 
 ## Target Rules
@@ -95,6 +123,7 @@ has_source: true
 has_scope: true
 has_privacy_label: true
 has_staleness_risk: true
+has_expiry_rule: true
 no_secret: true
 no_unverified_claim_as_fact: true
 no_duplicate: true
@@ -123,6 +152,10 @@ memory_candidates:
     title:
     summary:
     source:
+    status:
+    expires_when:
+    review_after:
+    refresh_trigger:
     target:
     action:
     quality_check:
@@ -134,4 +167,3 @@ skipped:
 boundaries:
   - ...
 ```
-

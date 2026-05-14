@@ -12,7 +12,11 @@
     "verified_at",
     "scope",
     "privacy",
+    "status",
     "staleness_risk",
+    "expires_when",
+    "review_after",
+    "refresh_trigger",
     "confidence",
     "target",
     "action",
@@ -44,9 +48,21 @@
       "type": "string",
       "enum": ["public", "project_local", "private"]
     },
+    "status": {
+      "type": "string",
+      "enum": ["active", "needs_review", "superseded", "archived"]
+    },
     "staleness_risk": {
       "type": "string",
       "enum": ["low", "medium", "high"]
+    },
+    "expires_when": {"type": "string", "minLength": 1},
+    "review_after": {
+      "type": ["string", "null"]
+    },
+    "refresh_trigger": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1}
     },
     "confidence": {
       "type": "string",
@@ -64,6 +80,7 @@
         "has_scope",
         "has_privacy_label",
         "has_staleness_risk",
+        "has_expiry_rule",
         "no_secret",
         "no_unverified_claim_as_fact",
         "no_duplicate"
@@ -73,6 +90,7 @@
         "has_scope": {"type": "boolean"},
         "has_privacy_label": {"type": "boolean"},
         "has_staleness_risk": {"type": "boolean"},
+        "has_expiry_rule": {"type": "boolean"},
         "no_secret": {"type": "boolean"},
         "no_unverified_claim_as_fact": {"type": "boolean"},
         "no_duplicate": {"type": "boolean"}
@@ -82,4 +100,3 @@
   },
   "additionalProperties": false
 }
-

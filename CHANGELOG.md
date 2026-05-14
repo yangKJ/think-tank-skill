@@ -13,6 +13,7 @@
 - 增加 project memory capture 协议、recipe、模板、schema、样例报告和检查脚本。
 - 增加 local workspace 模板、schema、示例布局和检查脚本。
 - Codex provider policy runtime 支持 `providers.auto_select: false`，用于只产出候选记忆、不自动选择外部 persistence provider 的场景。
+- Project memory item 增加 `status`、`expires_when`、`review_after` 和 `refresh_trigger`，将记忆过期性纳入正式质量门禁。
 
 ### Changed
 

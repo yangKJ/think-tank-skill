@@ -12,7 +12,11 @@ source:
 verified_at:
 scope:
 privacy:
+status:
 staleness_risk:
+expires_when:
+review_after:
+refresh_trigger: []
 confidence:
 target:
 action:
@@ -21,6 +25,7 @@ quality_check:
   has_scope:
   has_privacy_label:
   has_staleness_risk:
+  has_expiry_rule:
   no_secret:
   no_unverified_claim_as_fact:
   no_duplicate:
@@ -38,6 +43,10 @@ Source:
 
 Scope: ...
 Privacy: ...
+Status: ...
 Staleness risk: ...
+Expires when: ...
+Review after: ...
+Refresh trigger:
+- ...
 ```
-
