@@ -22,12 +22,14 @@ missing_registry_behavior: degrade_to_core_protocol
   -> platforms/codex/runtime/provider_registry.py
   -> available_providers[]
   -> routing/skill-router.md
+  -> platforms/codex/runtime/provider_preflight.py
   -> routing/dispatch-policy.md
   -> platform invocation
   -> routing/result-recovery.md
 ```
 
 `provider_registry.py` 只做发现和描述，不执行 skill。
+`provider_preflight.py` 只做执行前条件判断，不执行 skill。
 
 ## Provider Descriptor
 
@@ -92,6 +94,38 @@ forbidden_output: claim_external_skill_verified
 
 registry 只发现 `.codex/skills/` 中有哪些 provider；policy 决定哪些 provider 可被优先、允许或拒绝。
 
+## Local Preflight
+
+API Key、登录态、本地依赖、私有写入权限等执行前条件不属于主协议，也不属于 route 触发规则。
+
+项目应把本地 preflight decision tree 放在：
+
+```text
+.think-tank/provider-preflight.yaml
+```
+
+公开模板位于：
+
+```text
+think-tank/platforms/codex/provider-preflight.example.yaml
+```
+
+preflight 的职责是回答：
+
+```yaml
+provider_selected: true
+can_invoke_now: true | false
+status: ready | needs_install | needs_key_or_env | needs_login | available_unverified | unknown
+fallbacks: []
+```
+
+preflight 不允许做的事：
+
+- 不匹配用户 intent。
+- 不改变 route。
+- 不调用 provider。
+- 不把 ready 说成 verified。
+
 ## Where Concrete Names Live
 
 具体 skill 名称只允许出现在 Codex adapter 层：
@@ -117,3 +151,9 @@ python3 think-tank/platforms/codex/runtime/provider_registry.py
 ```
 
 输出可传给 `routing/skill-router.md` 的 `available_providers` 输入。
+
+检查某个 provider 的执行前状态：
+
+```bash
+python3 think-tank/platforms/codex/runtime/provider_preflight.py voxcpm-tts
+```

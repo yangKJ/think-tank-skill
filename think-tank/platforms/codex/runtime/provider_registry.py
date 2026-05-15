@@ -20,6 +20,12 @@ KNOWN_PROVIDER_RULES: dict[str, dict[str, Any]] = {
         "requires_permission": False,
         "recovery_targets": ["sources", "evidence"],
     },
+    "research-to-video-production": {
+        "capabilities": ["media-processing", "knowledge-persistence"],
+        "access_level": "write",
+        "requires_permission": True,
+        "recovery_targets": ["artifact", "role_result"],
+    },
     "apple-reminders": {
         "capabilities": ["knowledge-persistence"],
         "access_level": "private",
@@ -32,11 +38,29 @@ KNOWN_PROVIDER_RULES: dict[str, dict[str, Any]] = {
         "requires_permission": False,
         "recovery_targets": ["sources", "evidence"],
     },
+    "gpt-image-2": {
+        "capabilities": ["media-processing", "knowledge-persistence"],
+        "access_level": "write",
+        "requires_permission": True,
+        "recovery_targets": ["artifact", "role_result", "boundary_only"],
+    },
     "juejin-search": {
         "capabilities": ["source-acquisition"],
         "access_level": "network",
         "requires_permission": False,
         "recovery_targets": ["sources", "evidence"],
+    },
+    "jimeng-visual-prompt-pack": {
+        "capabilities": ["media-processing", "knowledge-persistence"],
+        "access_level": "readonly",
+        "requires_permission": False,
+        "recovery_targets": ["artifact", "role_result", "boundary_only"],
+    },
+    "kb-retriever": {
+        "capabilities": ["source-acquisition", "knowledge-persistence"],
+        "access_level": "readonly",
+        "requires_permission": False,
+        "recovery_targets": ["sources", "evidence", "role_result"],
     },
     "knowledge-graph-builder": {
         "capabilities": ["knowledge-persistence"],
@@ -74,6 +98,12 @@ KNOWN_PROVIDER_RULES: dict[str, dict[str, Any]] = {
         "requires_permission": False,
         "recovery_targets": ["artifact", "evidence"],
     },
+    "ollama-local-inference": {
+        "capabilities": ["knowledge-persistence"],
+        "access_level": "private",
+        "requires_permission": False,
+        "recovery_targets": ["role_result", "evidence", "boundary_only"],
+    },
     "pdf-extraction": {
         "capabilities": ["source-acquisition"],
         "access_level": "readonly",
@@ -92,11 +122,35 @@ KNOWN_PROVIDER_RULES: dict[str, dict[str, Any]] = {
         "requires_permission": False,
         "recovery_targets": ["sources", "evidence", "role_result"],
     },
+    "revieworg-audit-provider": {
+        "capabilities": ["knowledge-persistence"],
+        "access_level": "write",
+        "requires_permission": True,
+        "recovery_targets": ["artifact", "evidence", "role_result", "boundary_only"],
+    },
     "social-media-analyzer": {
         "capabilities": ["social-listening"],
         "access_level": "readonly",
         "requires_permission": False,
         "recovery_targets": ["evidence", "role_result"],
+    },
+    "product-intro-video": {
+        "capabilities": ["media-processing", "knowledge-persistence"],
+        "access_level": "write",
+        "requires_permission": True,
+        "recovery_targets": ["artifact", "role_result"],
+    },
+    "sketch-animation-video": {
+        "capabilities": ["media-processing", "knowledge-persistence"],
+        "access_level": "write",
+        "requires_permission": True,
+        "recovery_targets": ["artifact", "role_result"],
+    },
+    "sound-fx-for-video": {
+        "capabilities": ["media-processing"],
+        "access_level": "write",
+        "requires_permission": True,
+        "recovery_targets": ["artifact", "role_result"],
     },
     "stable-diffusion-image-generation": {
         "capabilities": ["media-processing"],
@@ -122,11 +176,29 @@ KNOWN_PROVIDER_RULES: dict[str, dict[str, Any]] = {
         "requires_permission": False,
         "recovery_targets": ["evidence", "role_result"],
     },
+    "voxcpm-tts": {
+        "capabilities": ["media-processing", "knowledge-persistence"],
+        "access_level": "write",
+        "requires_permission": True,
+        "recovery_targets": ["artifact", "evidence", "role_result"],
+    },
     "web-access": {
         "capabilities": ["source-acquisition", "browser-automation"],
         "access_level": "network",
         "requires_permission": False,
         "recovery_targets": ["sources", "evidence", "artifact"],
+    },
+    "web-design-engineer": {
+        "capabilities": ["media-processing", "knowledge-persistence"],
+        "access_level": "write",
+        "requires_permission": True,
+        "recovery_targets": ["artifact", "role_result"],
+    },
+    "web-video-presentation": {
+        "capabilities": ["media-processing", "knowledge-persistence"],
+        "access_level": "write",
+        "requires_permission": True,
+        "recovery_targets": ["artifact", "role_result"],
     },
     "xiaohongshu": {
         "capabilities": ["social-listening"],

@@ -1,0 +1,179 @@
+{
+  "runtime_provenance": {
+    "think_tank_runtime_used": true,
+    "provider_policy_checked": true,
+    "dispatch_decision_emitted": true,
+    "provider_invoked": true,
+    "result_recovered": true,
+    "true_multi_agent_runtime": false,
+    "execution_method": "single_agent_multi_profile",
+    "data_collection": "direct_assistant_tool",
+    "evidence_state": "verified_partial",
+    "result_recovery": "manual",
+    "boundaries": [
+      "Local project files and public web sources were read, but the run was not a verified full multi-agent runtime.",
+      "Competitor revenue, retention, and conversion were not independently verified."
+    ]
+  },
+  "project": {
+    "name": "LocalImageEditor",
+    "path": "<project-root>",
+    "positioning": "Local-first AI image diagnosis and editing app for creators."
+  },
+  "competitors": ["CommercialRetouchingTool", "CreatorPhotoEditor", "MassMarketPhotoEditor"],
+  "conclusion": "The project should avoid a direct feature-count fight and focus on local AI diagnosis, repair, controlled local editing, and creator-grade style recipes.",
+  "project_capabilities": [
+    {
+      "capability": "Non-destructive editing pipeline",
+      "evidence": [
+        "App/Models/Actions/ActionOperation.swift",
+        "App/Common/Edit/EditActionManager.swift"
+      ],
+      "strategic_value": "Supports controllable editing and rollback instead of one-shot filter application."
+    },
+    {
+      "capability": "Aesthetic scoring",
+      "evidence": [
+        "Packages/ImageCore/Sources/ImageCore/Managers/AestheticScorer.swift"
+      ],
+      "strategic_value": "Can become the core workflow: diagnose why a photo is weak before editing it."
+    }
+  ],
+  "competitive_matrix": [
+    {
+      "dimension": "core_market",
+      "commercial_retouching_tool": "commercial photography workflow",
+      "creator_photo_editor": "fast mobile creator editing",
+      "mass_market_photo_editor": "mass-market all-in-one editing",
+      "local_image_editor": "local AI diagnosis and controlled editing"
+    }
+  ],
+  "differentiation": [
+    "Lead with photo diagnosis before one-click edits.",
+    "Emphasize local processing, privacy, and creator control.",
+    "Build style recipes and batch-light workflows instead of copying template ecosystems."
+  ],
+  "market_entry_strategy": [
+    "P0: sharpen positioning around local AI diagnosis and rescue.",
+    "P1: connect scoring, recommendation, one-click repair, local adjustment, and export.",
+    "P2: add lightweight batch style synchronization for small creators."
+  ],
+  "evidence_sources": {
+    "local_code": [
+      {
+        "path": "App/Centre/Home/HomeView.swift",
+        "claim": "Home exposes repair, stitching, inspiration, and create entry points.",
+        "evidence_state": "verified_partial"
+      },
+      {
+        "path": "Packages/ImageCore/Sources/ImageCore/Managers/AestheticScorer.swift",
+        "claim": "The project has a multi-assessor aesthetic scoring engine.",
+        "evidence_state": "verified_partial"
+      }
+    ],
+    "local_docs": [
+      {
+        "path": "Docs/project-handoff.md",
+        "claim": "Project map identifies Work, Panel, Edit, Actions, storage, mask, renderer, and package boundaries.",
+        "evidence_state": "verified_partial"
+      }
+    ],
+    "web_sources": [
+      {
+        "url": "https://example.com/commercial-retouching-tool",
+        "title": "Commercial retouching tool public site",
+        "claim": "The competitor positions around commercial photography AI retouching and workflow.",
+        "evidence_state": "verified_partial"
+      },
+      {
+        "url": "https://example.com/creator-photo-editor",
+        "title": "Creator photo editor public site",
+        "claim": "The competitor positions around portrait retouching, editing, and creator workflows.",
+        "evidence_state": "verified_partial"
+      }
+    ],
+    "user_provided": [
+      {
+        "material": "User requested project analysis against mainstream image editing apps.",
+        "claim": "The report focus is project strategy and market entry.",
+        "evidence_state": "recovered"
+      }
+    ],
+    "inference": [
+      {
+        "claim": "The project should avoid direct feature-count competition.",
+        "based_on": [
+          "project local capability scan",
+          "competitor positioning scan"
+        ],
+        "confidence": "medium"
+      }
+    ],
+    "unavailable_data": [
+      {
+        "item": "Competitor revenue, retention, paid conversion, and cohort behavior",
+        "impact": "Limits confidence in market share and monetization claims.",
+        "required_for_full_verification": true
+      }
+    ]
+  },
+  "strategy_to_backlog": {
+    "backlog_candidates": [
+      {
+        "title": "Build AI diagnosis to recommendation workflow",
+        "priority": "P0",
+        "reason": "This is the clearest differentiation between generic editing and the project's local AI strategy.",
+        "affected_area": ["Home", "Aesthetic", "Repair", "Product positioning"],
+        "evidence": ["AestheticScorer.swift", "EnhancedRepairEngine.swift"],
+        "acceptance_criteria": [
+          "A selected photo can produce diagnosis categories.",
+          "At least three recommended edit actions are shown.",
+          "User can apply one recommendation and see before-after output."
+        ],
+        "non_goals": [
+          "Do not build a full social template marketplace.",
+          "Do not require cloud inference for the first version."
+        ],
+        "dependencies": ["stable sample image set"],
+        "risk": ["AI scoring may not correlate with user taste without sample validation."]
+      }
+    ],
+    "sequencing": [
+      "Define product positioning first.",
+      "Connect diagnosis to repair recommendation.",
+      "Add style recipes after the core loop works."
+    ],
+    "validation_plan": [
+      "Run a fixed before-after sample set.",
+      "Record score changes and visual results.",
+      "Review export quality and local processing boundaries."
+    ]
+  },
+  "risks": [
+    "Feature breadth may dilute positioning.",
+    "AI output quality still needs visual validation.",
+    "Public product naming must avoid visible competitor names."
+  ],
+  "boundaries": [
+    "This sample is a golden structure example, not a claim that the full runtime is verified.",
+    "No private project data should be copied into public think-tank assets."
+  ],
+  "artifact_plan": {
+    "write_requested_by_user": true,
+    "destination": "<project-root>/Docs/product-competitive-strategy-YYYYMMDD.md",
+    "artifact_type": "report",
+    "overwrite_existing": false,
+    "git_impact": "new_file",
+    "private_data_check": true,
+    "source_summary": [
+      "local project scan",
+      "public competitor pages",
+      "strategy synthesis"
+    ],
+    "excluded_materials": [
+      "closed commercial backend internals",
+      "account credentials",
+      "private user data"
+    ]
+  }
+}

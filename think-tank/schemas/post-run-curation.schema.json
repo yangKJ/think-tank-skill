@@ -1,0 +1,171 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://think-tank.dev/schemas/post-run-curation.schema.json",
+  "title": "Think Tank Post-run Curation",
+  "type": "object",
+  "required": [
+    "required",
+    "should_persist",
+    "source_candidates",
+    "trend_candidates",
+    "action_candidates",
+    "generated_artifacts",
+    "artifact_plan",
+    "persistence_decision",
+    "boundaries"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "required": {"type": "boolean"},
+    "should_persist": {"type": "boolean"},
+    "source_candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "title",
+          "url_or_path",
+          "source_type",
+          "reliability",
+          "freshness",
+          "used_for",
+          "verification_status",
+          "should_append_to_ledger"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "title": {"type": "string"},
+          "url_or_path": {"type": "string"},
+          "source_type": {
+            "type": "string",
+            "enum": ["web", "local_file", "user_provided", "social", "pdf", "video", "audio", "generated", "tool_output"]
+          },
+          "reliability": {"type": "string", "enum": ["high", "medium", "low", "unknown"]},
+          "freshness": {"type": "string", "enum": ["current", "stale", "unknown"]},
+          "used_for": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["claim", "confidence"],
+              "additionalProperties": false,
+              "properties": {
+                "claim": {"type": "string"},
+                "confidence": {"type": "string", "enum": ["low", "medium", "high"]}
+              }
+            }
+          },
+          "verification_status": {"type": "string", "enum": ["verified", "partial", "unverified", "contradicted"]},
+          "should_append_to_ledger": {"type": "boolean"}
+        }
+      }
+    },
+    "trend_candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "category", "summary", "source_refs", "confidence", "impact", "opportunities", "risks", "decision"],
+        "additionalProperties": false,
+        "properties": {
+          "name": {"type": "string"},
+          "category": {"type": "string", "enum": ["ai", "product", "market", "social", "technology", "platform", "policy", "monetization", "other"]},
+          "summary": {"type": "string"},
+          "source_refs": {"type": "array", "items": {"type": "string"}},
+          "confidence": {"type": "string", "enum": ["low", "medium", "high"]},
+          "impact": {
+            "type": "object",
+            "required": ["product", "marketing", "operations", "technology"],
+            "additionalProperties": false,
+            "properties": {
+              "product": {"type": "string", "enum": ["low", "medium", "high"]},
+              "marketing": {"type": "string", "enum": ["low", "medium", "high"]},
+              "operations": {"type": "string", "enum": ["low", "medium", "high"]},
+              "technology": {"type": "string", "enum": ["low", "medium", "high"]}
+            }
+          },
+          "opportunities": {"type": "array", "items": {"type": "string"}},
+          "risks": {"type": "array", "items": {"type": "string"}},
+          "decision": {"type": "string", "enum": ["act", "test", "watch", "ignore"]}
+        }
+      }
+    },
+    "action_candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "title", "rationale", "evidence_refs", "priority", "confidence", "next_step"],
+        "additionalProperties": false,
+        "properties": {
+          "type": {"type": "string", "enum": ["backlog", "experiment", "decision", "runbook", "promotion", "monitoring", "follow_up_research"]},
+          "title": {"type": "string"},
+          "rationale": {"type": "string"},
+          "evidence_refs": {"type": "array", "items": {"type": "string"}},
+          "priority": {"type": "string", "enum": ["P0", "P1", "P2", "P3"]},
+          "confidence": {"type": "string", "enum": ["low", "medium", "high"]},
+          "next_step": {"type": "string"}
+        }
+      }
+    },
+    "generated_artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "title",
+          "artifact_type",
+          "path",
+          "source_refs",
+          "verification_refs",
+          "known_gaps",
+          "rights_boundary",
+          "verification_status"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "title": {"type": "string"},
+          "artifact_type": {
+            "type": "string",
+            "enum": ["report", "brief", "video", "audio", "slide_deck", "spreadsheet", "demo", "run_record", "sample", "source_bundle", "other"]
+          },
+          "path": {"type": "string"},
+          "source_refs": {"type": "array", "items": {"type": "string"}},
+          "verification_refs": {"type": "array", "items": {"type": "string"}},
+          "known_gaps": {"type": "array", "items": {"type": "string"}},
+          "rights_boundary": {
+            "type": "string",
+            "enum": ["public_safe", "local_only", "internal_review", "publish_candidate", "commercial_release", "private_do_not_share", "unknown"]
+          },
+          "verification_status": {"type": "string", "enum": ["verified", "verified_partial", "partial", "unverified", "failed", "blocked"]}
+        }
+      }
+    },
+    "artifact_plan": {
+      "type": "object",
+      "required": ["should_write", "artifact_type", "suggested_destination", "title", "source_refs", "requires_confirmation", "privacy_boundary", "verification_status"],
+      "additionalProperties": false,
+      "properties": {
+        "should_write": {"type": "boolean"},
+        "artifact_type": {"type": "string", "enum": ["report", "brief", "trend_radar", "strategy", "review", "backlog", "run_record", "sample", "protocol_doc", "other"]},
+        "suggested_destination": {"type": "string"},
+        "title": {"type": "string"},
+        "source_refs": {"type": "array", "items": {"type": "string"}},
+        "requires_confirmation": {"type": "boolean"},
+        "privacy_boundary": {"type": "string", "enum": ["public_safe", "local_only", "private_do_not_share"]},
+        "verification_status": {"type": "string", "enum": ["verified", "partial", "unverified"]}
+      }
+    },
+    "persistence_decision": {
+      "type": "object",
+      "required": ["wrote_files", "write_requested_by_user", "write_permission_obtained", "destinations", "skipped_destinations", "reason"],
+      "additionalProperties": false,
+      "properties": {
+        "wrote_files": {"type": "boolean"},
+        "write_requested_by_user": {"type": "boolean"},
+        "write_permission_obtained": {"type": "boolean"},
+        "destinations": {"type": "array", "items": {"type": "string"}},
+        "skipped_destinations": {"type": "array", "items": {"type": "string"}},
+        "reason": {"type": "string"}
+      }
+    },
+    "boundaries": {"type": "array", "items": {"type": "string"}}
+  }
+}

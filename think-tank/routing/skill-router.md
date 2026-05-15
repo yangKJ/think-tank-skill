@@ -118,6 +118,26 @@ media-processing:
     - user_provided_summary
     - metadata_only
 
+media-production:
+  provider_requirements:
+    - can_create_or_update_media_artifact
+    - can_attach_source_manifest_or_asset_manifest
+    - can_report_render_or_export_probe_when_available
+    - can_report_quality_gate_status_and_known_gaps
+    - must_respect_asset_rights_and_publish_boundary
+  provider_types:
+    - source_provider
+    - asset_provider
+    - tts_provider
+    - subtitle_provider
+    - render_provider
+    - probe_provider
+  fallback:
+    - artifact_source_bundle
+    - script_and_asset_manifest_only
+    - ask_user_for_required_asset_or_bgm
+    - block_without_fake_completion
+
 knowledge-persistence:
   provider_requirements:
     - can_create_or_update_knowledge_artifact

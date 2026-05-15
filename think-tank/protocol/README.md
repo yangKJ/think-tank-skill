@@ -35,12 +35,17 @@
 - `agent-selection.md`：场景驱动的角色和平台 agent 选择规则
 - `mode-selection.md`：场景模式选择规则
 - `quality-gates.md`：质量门禁和验收标准
+- `artifact-quality-gates.md`：生成物、媒体成品、报告、样例和 run record 的成品验收门禁
 - `runtime-contract.md`：平台无关 runtime pipeline
 - `natural-language-runtime-orchestration.md`：自然语言请求到 policy、dispatch、invocation、recovery、run record 的最小闭环
 - `state-result-contract.md`：run、state、result、recovery 最小结构
 - `consensus-contract.md`：显式投票、blocking objection、停止条件
 - `runtime-provenance.md`：运行来源披露门禁，防止把直接工具调用或单 agent 模拟写成真实 runtime
 - `capability-evidence-state-machine.md`：capability 证据状态机
+- `evidence-sources.md`：统一证据来源表，区分本地代码、文档、网页、用户材料、推理和缺失数据
+- `artifact-write-policy.md`：报告、运行记录、backlog 和项目文档的写入策略
+- `strategy-to-backlog.md`：把策略建议转成可验收 backlog 候选的结构
+- `post-run-curation.md`：研究、趋势、策略、审查和内容规划任务结束后的来源候选、趋势候选、行动候选、artifact plan 和持久化决策协议
 - `memory-curation.md`：项目记忆候选生成协议
 - `memory-promotion-policy.md`：项目记忆提升到 AGENTS、项目文档或公开协议的规则
 - `versioning.md`：协议版本演进和能力状态标注规则

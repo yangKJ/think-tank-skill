@@ -1,0 +1,214 @@
+version: 1
+
+metadata:
+  name: codex-provider-preflight-example
+  description: >
+    Public example for checking provider execution prerequisites. Project-specific
+    API keys, login state, and local paths belong in .think-tank/provider-preflight.yaml.
+
+defaults:
+  missing_provider_behavior: unknown
+  fallbacks:
+    - core_protocol
+
+providers:
+  revieworg-audit-provider:
+    requires:
+      commands:
+        - revieworg
+      python_imports:
+        - revieworg
+    requires_permission: true
+    fallbacks:
+      - think_tank_review_mode
+      - codex_host_model
+      - core_protocol
+    risk: audit_write_guarded
+    notes:
+      - Project-local provider wrappers should block write-producing audit commands by default.
+      - A ready status does not prove audit execution, finding validity, or report quality.
+
+  ollama-local-inference:
+    requires:
+      commands:
+        - ollama
+      ollama_models:
+        - qwen3.6:35b
+    fallbacks:
+      - smaller_ollama_model
+      - codex_host_model
+      - core_protocol
+    risk: local_private_inference
+    notes:
+      - Local model names are project-specific; edit this rule in .think-tank/provider-preflight.yaml.
+      - A ready status does not prove end-to-end invocation or result recovery.
+
+  web-access:
+    requires:
+      commands:
+        - node
+    fallbacks:
+      - static_fetch
+      - user_materials
+    risk: network
+    notes:
+      - Browser/CDP availability may still require runtime verification.
+
+  summarize:
+    requires: {}
+    fallbacks:
+      - core_protocol
+    risk: low
+
+  pdf-extraction:
+    requires:
+      python_imports:
+        - pdfplumber
+    fallbacks:
+      - summarize
+      - user_text_excerpt
+    risk: readonly
+
+  openai-whisper:
+    requires:
+      commands:
+        - whisper
+    fallbacks:
+      - user_transcript
+      - summarize
+    risk: local_compute
+
+  yt-dlp:
+    requires:
+      commands:
+        - yt-dlp
+    fallbacks:
+      - user_transcript
+      - summarize
+    risk: network
+
+  obsidian:
+    requires:
+      manual:
+        - confirm_vault_path_before_private_write
+    requires_permission: true
+    fallbacks:
+      - markdown_artifact
+      - .think-tank/runs
+    risk: private_write
+
+  notebooklm:
+    requires:
+      commands:
+        - notebooklm
+      manual:
+        - google_oauth_login_required
+    fallbacks:
+      - kb-retriever
+      - summarize
+      - obsidian
+    risk: private_login
+
+  xiaohongshu:
+    requires:
+      manual:
+        - xiaohongshu_mcp_service_and_login_required
+    requires_permission: true
+    fallbacks:
+      - user_exported_samples
+      - web-access
+      - social-media-analyzer
+    risk: social_login
+
+  gpt-image-2:
+    requires:
+      manual:
+        - mode_a_needs_ENABLE_GARDEN_IMAGEGEN_and_OPENAI_API_KEY
+    fallbacks:
+      - imagegen
+      - prompt_only
+      - stable-diffusion-image-generation
+    risk: image_generation
+
+  stable-diffusion-image-generation:
+    requires:
+      python_imports:
+        - diffusers
+        - torch
+    fallbacks:
+      - gpt-image-2
+      - imagegen
+      - prompt_only
+    risk: local_compute
+
+  vision-analysis:
+    requires:
+      env:
+        - MINIMAX_API_KEY
+      manual:
+        - minimax_mcp_configured
+    fallbacks:
+      - host_vision
+      - user_description
+    risk: external_api
+
+  sound-fx-for-video:
+    requires: {}
+    fallbacks:
+      - web_audio_synthesis
+      - manual_sfx_list
+    risk: low
+    notes:
+      - Freesound automation needs FREESOUND_TOKEN, but Web Audio synthesis does not.
+
+  voxcpm-tts:
+    requires:
+      python_imports:
+        - voxcpm
+        - soundfile
+        - torch
+    requires_permission: true
+    fallbacks:
+      - edge-tts
+      - narration_manifest
+      - voice_direction_sheet
+    risk: voice_clone
+    notes:
+      - Voice cloning requires explicit authorization and AI-generated audio disclosure.
+
+  jimeng-visual-prompt-pack:
+    requires:
+      manual:
+        - jimeng_agent_or_seedance_access_required_for_generation
+    fallbacks:
+      - gpt-image-2
+      - imagegen
+      - product-intro-video
+      - web-video-presentation
+    risk: handoff_only
+
+  kb-retriever:
+    requires:
+      manual:
+        - knowledge_path_must_exist_or_be_specified
+    fallbacks:
+      - summarize
+      - pdf-extraction
+      - user_materials
+    risk: readonly
+
+  web-design-engineer:
+    requires: {}
+    fallbacks:
+      - design_spec_only
+    risk: artifact_write
+
+  web-video-presentation:
+    requires:
+      commands:
+        - node
+        - npm
+    fallbacks:
+      - script_and_outline_only
+      - web-design-engineer
+    risk: artifact_write

@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://think-tank.dev/schemas/project-competitive-strategy.schema.json",
+  "title": "Think Tank Project Competitive Strategy Result",
+  "type": "object",
+  "required": [
+    "runtime_provenance",
+    "project",
+    "competitors",
+    "conclusion",
+    "project_capabilities",
+    "competitive_matrix",
+    "differentiation",
+    "market_entry_strategy",
+    "evidence_sources",
+    "strategy_to_backlog",
+    "risks",
+    "boundaries",
+    "artifact_plan"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "runtime_provenance": {"$ref": "runtime-provenance.schema.json"},
+    "project": {
+      "type": "object",
+      "required": ["name", "path", "positioning"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {"type": "string"},
+        "path": {"type": "string"},
+        "positioning": {"type": "string"}
+      }
+    },
+    "competitors": {"type": "array", "items": {"type": "string"}},
+    "conclusion": {"type": "string"},
+    "project_capabilities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["capability", "evidence", "strategic_value"],
+        "additionalProperties": false,
+        "properties": {
+          "capability": {"type": "string"},
+          "evidence": {"type": "array", "items": {"type": "string"}},
+          "strategic_value": {"type": "string"}
+        }
+      }
+    },
+    "competitive_matrix": {"type": "array"},
+    "differentiation": {"type": "array", "items": {"type": "string"}},
+    "market_entry_strategy": {"type": "array", "items": {"type": "string"}},
+    "evidence_sources": {"$ref": "evidence-sources.schema.json"},
+    "strategy_to_backlog": {"$ref": "strategy-backlog.schema.json"},
+    "risks": {"type": "array", "items": {"type": "string"}},
+    "boundaries": {"type": "array", "items": {"type": "string"}},
+    "artifact_plan": {"$ref": "artifact-plan.schema.json"}
+  }
+}

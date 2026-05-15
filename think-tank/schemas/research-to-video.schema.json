@@ -1,0 +1,220 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Think Tank Research To Video Result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "runtime_provenance",
+    "request",
+    "topic_brief",
+    "source_manifest",
+    "evidence_table",
+    "editorial_plan",
+    "storyboard",
+    "asset_manifest",
+    "audio_plan",
+    "artifact_quality_gates",
+    "post_run_curation",
+    "known_gaps",
+    "upgrade_path",
+    "boundaries"
+  ],
+  "properties": {
+    "runtime_provenance": {
+      "$ref": "runtime-provenance.schema.json"
+    },
+    "request": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["topic", "target_audience", "output_type", "aspect_ratio", "duration_target_seconds"],
+      "properties": {
+        "topic": {"type": "string"},
+        "target_audience": {"type": "string"},
+        "output_type": {"type": "string"},
+        "aspect_ratio": {"type": "string"},
+        "duration_target_seconds": {"type": "integer", "minimum": 1},
+        "platform": {"type": "string"},
+        "language": {"type": "string"},
+        "tone": {"type": "string"}
+      }
+    },
+    "topic_brief": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["core_angle", "why_now", "audience_value", "selection_criteria"],
+      "properties": {
+        "core_angle": {"type": "string"},
+        "why_now": {"type": "string"},
+        "audience_value": {"type": "string"},
+        "selection_criteria": {"type": "array", "items": {"type": "string"}},
+        "rejected_topics": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "source_manifest": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "title", "url_or_path", "source_type", "reliability", "freshness", "used_for", "verification_status"],
+        "properties": {
+          "id": {"type": "string"},
+          "title": {"type": "string"},
+          "url_or_path": {"type": "string"},
+          "source_type": {"type": "string"},
+          "reliability": {"type": "string"},
+          "freshness": {"type": "string"},
+          "used_for": {"type": "string"},
+          "verification_status": {"type": "string"}
+        }
+      }
+    },
+    "evidence_table": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["claim", "source_refs", "confidence", "use_in_video"],
+        "properties": {
+          "claim": {"type": "string"},
+          "source_refs": {"type": "array", "items": {"type": "string"}},
+          "confidence": {"type": "string"},
+          "use_in_video": {"type": "string"},
+          "risk": {"type": "string"}
+        }
+      }
+    },
+    "editorial_plan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["hook", "central_claim", "story_order", "output_status"],
+      "properties": {
+        "hook": {"type": "string"},
+        "central_claim": {"type": "string"},
+        "story_order": {"type": "array", "items": {"type": "string"}},
+        "must_include": {"type": "array", "items": {"type": "string"}},
+        "must_avoid": {"type": "array", "items": {"type": "string"}},
+        "output_status": {
+          "type": "string",
+          "enum": [
+            "research_brief_only",
+            "script_ready",
+            "storyboard_ready",
+            "production_plan_ready",
+            "draft_without_bgm",
+            "review_candidate",
+            "final_with_bgm",
+            "blocked"
+          ]
+        }
+      }
+    },
+    "storyboard": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["scene_id", "duration_seconds", "claim", "source_refs", "asset_refs", "narration", "subtitle"],
+        "properties": {
+          "scene_id": {"type": "string"},
+          "title": {"type": "string"},
+          "duration_seconds": {"type": "number", "minimum": 0},
+          "claim": {"type": "string"},
+          "source_refs": {"type": "array", "items": {"type": "string"}},
+          "asset_refs": {"type": "array", "items": {"type": "string"}},
+          "narration": {"type": "string"},
+          "subtitle": {"type": "string"},
+          "motion_notes": {"type": "string"},
+          "audio_notes": {"type": "string"}
+        }
+      }
+    },
+    "asset_manifest": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["asset_id", "asset_type", "path_or_source", "rights_boundary", "verification_status", "appears_in_scenes"],
+        "properties": {
+          "asset_id": {"type": "string"},
+          "asset_type": {"type": "string"},
+          "path_or_source": {"type": "string"},
+          "rights_boundary": {"type": "string"},
+          "verification_status": {"type": "string"},
+          "appears_in_scenes": {"type": "array", "items": {"type": "string"}},
+          "fallback": {"type": "string"}
+        }
+      }
+    },
+    "audio_plan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["narration", "subtitles", "bgm"],
+      "properties": {
+        "narration": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "subtitles": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "bgm": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["requested_from_user", "provided", "effect_if_missing", "upgrade_path"],
+          "properties": {
+            "requested_from_user": {"type": "boolean"},
+            "provided": {"type": "boolean"},
+            "path": {"type": "string"},
+            "expected_position": {"type": "string"},
+            "mix_guidance": {"type": "string"},
+            "effect_if_missing": {"type": "string"},
+            "upgrade_path": {"type": "string"}
+          }
+        },
+        "sfx": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      }
+    },
+    "artifact_quality_gates": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "topic_fit",
+        "source_traceability",
+        "evidence_claim_alignment",
+        "asset_feasibility",
+        "optional_user_supplied_assets",
+        "narration_subtitle_alignment",
+        "render_probe",
+        "keyframe_review",
+        "post_run_curation"
+      ]
+    },
+    "post_run_curation": {
+      "$ref": "post-run-curation.schema.json"
+    },
+    "known_gaps": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "upgrade_path": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["next_action"],
+      "properties": {
+        "next_action": {"type": "string"},
+        "attach_bgm_and_rerender": {"type": "boolean"},
+        "replace_assets": {"type": "boolean"},
+        "rerender_required": {"type": "boolean"},
+        "publish_ready_after": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "boundaries": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  }
+}

@@ -17,6 +17,7 @@ CODEX_RUNTIME_DIR = ROOT / "think-tank" / "platforms" / "codex" / "runtime"
 sys.path.insert(0, str(CODEX_RUNTIME_DIR))
 
 from provider_policy import load_effective_policy, policy_path, registry, resolve_request  # noqa: E402
+from provider_preflight import load_effective_preflight, preflight_provider, selected_preflight_path  # noqa: E402
 from provider_registry import PROJECT_SKILLS  # noqa: E402
 from source_acquisition_minimal import runtime_result as source_runtime_result  # noqa: E402
 
@@ -135,6 +136,24 @@ def run_orchestrator(
     route_result["policy_path"] = rel(selected_policy_path)
     route_result["policy_sources"] = [rel(source) for source in policy_sources]
     route_result["provider_count"] = provider_registry["provider_count"]
+    preflight_policy, preflight_sources = load_effective_preflight()
+    selected_provider = route_result.get("skill_route", {}).get("selected_provider")
+    provider_preflight = (
+        preflight_provider(selected_provider, preflight_policy)
+        if selected_provider
+        else {
+            "provider": None,
+            "status": "not_required",
+            "can_invoke": False,
+            "missing": [],
+            "present": [],
+            "manual_checks": [],
+            "fallbacks": [],
+            "boundaries": ["No provider was selected, so preflight was not required."],
+        }
+    )
+    provider_preflight["preflight_path"] = rel(selected_preflight_path())
+    provider_preflight["preflight_sources"] = [rel(source) for source in preflight_sources]
 
     selected_target = target or str(DEFAULT_TARGET.relative_to(ROOT))
     invoke_source = should_invoke_source(route_result, selected_target)
@@ -168,6 +187,7 @@ def run_orchestrator(
         "mode": mode_from_route(route_result),
         "run_record": run_record,
         "policy_route": route_result,
+        "provider_preflight": provider_preflight,
         "dispatch_record": dispatch_record,
         "source_result": source_result,
         "final_output": build_final_output(request, route_result, source_result),

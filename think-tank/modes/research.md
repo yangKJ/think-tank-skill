@@ -86,6 +86,20 @@ continuous monitoring 输出必须额外包含：
 - 置信度
 - 后续验证路径
 
+## Post-run Curation
+
+research mode 如果使用外部来源、本地资料、用户材料或工具输出，必须在最终输出中判断是否需要 `post_run_curation`。
+
+至少应包含：
+
+- `source_candidates`：本次研究用到或值得沉淀的来源候选
+- `trend_candidates`：如果任务涉及趋势、行业变化、用户行为或平台变化
+- `action_candidates`：需要继续验证、监控、实验或转成 backlog 的动作
+- `artifact_plan`：是否建议形成报告、brief、run record 或资料卡
+- `persistence_decision`：是否已写入文件；如果没有写入，说明原因
+
+该能力属于 think-tank core，不依赖某个项目是否存在 `.think-tank/`。平台或项目 adapter 只决定实际落点。
+
 ## 触发边界
 
 单人调研、普通搜索、简单资料查询不应强制触发完整 think-tank。只有当任务需要多渠道、多角色、讨论或证据冲突处理时，才使用 research mode。

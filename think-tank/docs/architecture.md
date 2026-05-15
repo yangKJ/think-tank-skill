@@ -79,6 +79,7 @@ think-tank 不复制工具型 skill。它通过 capability 说明“需要什么
 
 - `source-acquisition`
 - `media-processing`
+- `media-production`
 - `social-listening`
 - `knowledge-persistence`
 - `browser-automation`

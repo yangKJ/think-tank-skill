@@ -43,3 +43,6 @@
 - `schema-sample-input.json`：输入 schema 样例
 - `schema-sample-output.json`：输出 schema 样例
 - `runtime-e2e-fixture.json`：平台无关 runtime pipeline 端到端 fixture
+- `project-competitive-strategy-local-image-editor.json`：项目竞品策略 golden sample，基于本地创意工具项目实战调研抽象而来，保留结构不保留私有实现。
+- `post-run-curation-example.json`：post-run curation 通用收尾沉淀样例，不包含私有项目知识。
+- `media-production-run-record.json`：媒体生产链路 run record 样例，覆盖来源、素材、口播、字幕、渲染、关键帧和 known gaps。

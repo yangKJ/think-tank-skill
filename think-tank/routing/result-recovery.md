@@ -58,6 +58,20 @@ maps_to:
   - boundaries[]
 ```
 
+### media-production
+
+```yaml
+maps_to:
+  - artifacts.media_output
+  - post_run_curation.generated_artifacts
+  - artifact_quality_gates
+  - sources[]
+  - evidence[]
+  - boundaries[]
+```
+
+Media production recovery must preserve partial status and known gaps. A rendered file can be recovered as an artifact, but it cannot be upgraded to `verified` unless required artifact quality gates pass.
+
 ### knowledge-persistence
 
 ```yaml

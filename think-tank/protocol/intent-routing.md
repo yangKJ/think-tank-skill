@@ -54,11 +54,13 @@ routing/policy-schema.md
 | `technical_research` | `research` | `technical-research` |
 | `user_feedback_analysis` | `research` | `user-feedback-analysis` |
 | `media_research` | `research` | `media-research` |
+| `research_to_video` | `research` | `research-to-video` |
 | `decision_council` | `council` | `decision-council` |
 | `review_acceptance` | `review` | `review-acceptance` |
 | `strategy_planning` | `strategy` | `strategy-planning` |
 | `monitoring_plan` | `strategy` | `monitoring-plan` |
 | `synthesis` | `research` 或 `review` | `evidence-synthesis` |
+| `project_competitive_strategy` | `strategy` | `project-competitive-strategy` |
 
 ## intent 与 mode 的关系
 
@@ -88,7 +90,9 @@ recipe:
    - 产品、市场、用户、商业：`market-research`
    - 技术、架构、实现、库、模型：`technical-research`
    - 对手、替代品、竞品：`competitive-intelligence`
+   - 项目能力、竞品对比、差异化和市场进入：`project-competitive-strategy`
    - 评论、反馈、社媒：`user-feedback-analysis`
+   - 选题研究、资料调研到视频成品：`research-to-video`
 4. 没有 policy 或 policy 未命中时，平台 adapter 可使用保守默认策略。
 5. 仍不能判断时，降级为 `general_research` 或询问用户。
 

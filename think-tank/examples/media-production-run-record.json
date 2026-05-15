@@ -1,0 +1,202 @@
+{
+  "selected_intent": "media_production",
+  "selected_mode": "research",
+  "selected_recipe": "media-production",
+  "selected_capabilities": [
+    "source-acquisition",
+    "browser-automation",
+    "media-production",
+    "knowledge-persistence"
+  ],
+  "runtime_provenance": {
+    "think_tank_runtime_used": true,
+    "provider_policy_checked": true,
+    "dispatch_decision_emitted": true,
+    "provider_invoked": true,
+    "result_recovered": true,
+    "true_multi_agent_runtime": false,
+    "execution_method": "adapter_runtime",
+    "data_collection": "direct_assistant_tool",
+    "evidence_state": "verified_partial",
+    "result_recovery": "manual",
+    "boundaries": [
+      "Browser automation provider was unavailable, so static source and asset fallback was used.",
+      "The produced video is a review candidate because background music was missing."
+    ]
+  },
+  "skill_routes": [
+    {
+      "capability": "source-acquisition",
+      "required": true,
+      "candidate_providers": ["public_web_fetch", "browser_provider"],
+      "selected_provider": "public_web_fetch",
+      "selection_reason": "Public sources were readable without private login.",
+      "dispatch_allowed": true,
+      "fallback": "local_files"
+    },
+    {
+      "capability": "media-production",
+      "required": true,
+      "candidate_providers": ["tts_provider", "render_provider", "probe_provider"],
+      "selected_provider": "render_provider",
+      "selection_reason": "Render provider could produce a local review artifact and expose probe evidence.",
+      "dispatch_allowed": true,
+      "fallback": "artifact_source_bundle"
+    }
+  ],
+  "media_production_result": {
+    "artifact_paths": ["outputs/example/renders/ai-news-review.mp4"],
+    "source_manifest_path": "outputs/example/assets/images/manifest.md",
+    "asset_manifest_path": "outputs/example/assets/images/manifest.md",
+    "script_path": "outputs/example/script.md",
+    "narration_paths": [
+      "outputs/example/assets/audio/intro.mp3",
+      "outputs/example/assets/audio/card1.mp3"
+    ],
+    "subtitle_tracks": ["embedded_html_timed_subtitles"],
+    "render_outputs": ["outputs/example/renders/ai-news-review.mp4"],
+    "verification": {
+      "commands_run": [
+        "hyperframes lint",
+        "hyperframes snapshot --at 1,4",
+        "hyperframes render -o outputs/example/renders/ai-news-review.mp4",
+        "ffprobe -show_entries format=duration,size"
+      ],
+      "keyframes_checked": [
+        "outputs/example/snapshots/frame-00-at-1.0s.png",
+        "outputs/example/snapshots/frame-01-at-4.0s.png"
+      ],
+      "audio_probe": {
+        "codec_name": "aac",
+        "channels": 2,
+        "duration_status": "present"
+      },
+      "video_probe": {
+        "width": 1920,
+        "height": 1080,
+        "frame_rate": "30/1",
+        "duration_status": "present"
+      },
+      "quality_gate_status": {
+        "source_manifest": "pass",
+        "asset_presence": "pass",
+        "narration_subtitle_alignment": "pass",
+        "render_probe": "pass",
+        "keyframe_review": "pass",
+        "rights_boundary": "partial"
+      }
+    },
+    "known_gaps": [
+      "No local background music was available.",
+      "Editorial asset rights were labeled for review, not commercial release."
+    ],
+    "upgrade_path": "attach_bgm_and_rerender: provide assets/audio/bgm.mp3 or another local BGM path, attach it on track 20, then rerender.",
+    "output_status": "draft_without_bgm",
+    "rights_boundary": "internal_review",
+    "verification_status": "verified_partial"
+  },
+  "artifact_quality_gates": {
+    "required": true,
+    "artifact_type": "video",
+    "artifact_paths": ["outputs/example/renders/ai-news-review.mp4"],
+    "gates": {
+      "source_traceability": {
+        "status": "pass",
+        "evidence": ["outputs/example/assets/images/manifest.md"],
+        "gaps": []
+      },
+      "asset_presence": {
+        "status": "pass",
+        "evidence": ["keyframe review confirmed visible assets"],
+        "gaps": []
+      },
+      "structure_validation": {
+        "status": "pass",
+        "evidence": ["hyperframes lint"],
+        "gaps": []
+      },
+      "render_or_export_probe": {
+        "status": "pass",
+        "evidence": ["ffprobe duration, size, video stream and audio stream"],
+        "gaps": []
+      },
+      "visual_or_layout_review": {
+        "status": "pass",
+        "evidence": ["snapshot keyframes"],
+        "gaps": []
+      },
+      "audio_or_timing_review": {
+        "status": "partial",
+        "evidence": ["narration audio exists and subtitles were visible in snapshots"],
+        "gaps": ["no word-level subtitle timing check"]
+      },
+      "rights_and_privacy_boundary": {
+        "status": "partial",
+        "evidence": ["source manifest labels editorial assets"],
+        "gaps": ["commercial publication rights not cleared"]
+      },
+      "optional_user_supplied_assets": {
+        "status": "partial",
+        "evidence": ["BGM is documented as optional for draft and required for final polish"],
+        "gaps": ["no user-supplied BGM file was available"]
+      }
+    },
+    "verification_status": "verified_partial",
+    "boundaries": [
+      "This run record represents a media review candidate, not a commercial-release artifact."
+    ]
+  },
+  "post_run_curation": {
+    "required": true,
+    "should_persist": true,
+    "source_candidates": [],
+    "trend_candidates": [],
+    "action_candidates": [
+      {
+        "type": "runbook",
+        "title": "Repeat media production with gate checks",
+        "rationale": "The run produced a reusable source-to-render workflow.",
+        "evidence_refs": ["artifact_quality_gates"],
+        "priority": "P2",
+        "confidence": "medium",
+        "next_step": "Extract the successful command sequence into a platform runbook."
+      }
+    ],
+    "generated_artifacts": [
+      {
+        "title": "AI news review video",
+        "artifact_type": "video",
+        "path": "outputs/example/renders/ai-news-review.mp4",
+        "source_refs": ["outputs/example/assets/images/manifest.md"],
+        "verification_refs": ["artifact_quality_gates"],
+        "known_gaps": [
+          "No local background music was available."
+        ],
+        "rights_boundary": "internal_review",
+        "verification_status": "verified_partial"
+      }
+    ],
+    "artifact_plan": {
+      "should_write": false,
+      "artifact_type": "run_record",
+      "suggested_destination": "local run records directory",
+      "title": "Media production run record",
+      "source_refs": ["artifact_quality_gates"],
+      "requires_confirmation": true,
+      "privacy_boundary": "local_only",
+      "verification_status": "partial"
+    },
+    "persistence_decision": {
+      "wrote_files": false,
+      "write_requested_by_user": false,
+      "write_permission_obtained": false,
+      "destinations": [],
+      "skipped_destinations": ["local run records directory"],
+      "reason": "The example demonstrates curation structure only; no project-local write occurred."
+    },
+    "boundaries": [
+      "Generated artifact candidates are not proof of persistence unless files were actually written.",
+      "A verified_partial media artifact must keep its known gaps attached."
+    ]
+  }
+}

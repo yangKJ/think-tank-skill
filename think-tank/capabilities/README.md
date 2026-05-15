@@ -23,6 +23,7 @@ think-tank
 
 - `source-acquisition.md`：网页、官方来源、社区、报告、数据源获取
 - `media-processing.md`：视频、音频、播客、字幕和转录
+- `media-production.md`：从来源、素材、口播、字幕、渲染和验收生成媒体成品
 - `social-listening.md`：社媒内容、评论、互动和舆情
 - `knowledge-persistence.md`：报告、brief、笔记和知识库沉淀
 - `browser-automation.md`：需要真实浏览器或交互环境的网页任务

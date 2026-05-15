@@ -29,8 +29,10 @@ think-tank 在没有任何外部 peer skill 的情况下，也必须能执行 re
 - `technical-research.md`：技术方案、架构、可行性研究。
 - `user-feedback-analysis.md`：用户反馈、评论、舆情分析。
 - `media-research.md`：视频、播客、音频、长内容研究。
+- `research-to-video.md`：`research_to_video` 选题研究、资料调研到视频 brief、分镜、媒体执行和质量验收。
 - `decision-council.md`：多角色会议、决策审议。
 - `review-acceptance.md`：审查、验收、质量判断。
 - `strategy-planning.md`：路线图、优先级、行动方案。
 - `monitoring-plan.md`：持续关注、监控指标、定期追踪方案。
 - `evidence-synthesis.md`：资料汇总、证据综合、结论提炼。
+- `project-competitive-strategy.md`：项目能力盘点、竞品对比、差异化策略和 backlog 转化。

@@ -40,6 +40,8 @@ protocol/intent-routing.md
 recipes/
 ```
 
+其中 `research-to-video` 覆盖选题研究、资料调研到视频 brief、分镜、媒体执行记录和质量门禁。
+
 Codex 平台只负责把这些 intent/recipe 映射到当前可用能力，见：
 
 ```text
@@ -87,6 +89,7 @@ platforms/<platform>/provider-policy.example.yaml
 - `technical_research`
 - `user_feedback_analysis`
 - `media_research`
+- `research_to_video`
 - `decision_council`
 - `review_acceptance`
 - `strategy_planning`
@@ -127,6 +130,7 @@ recipe 可以建议 profiles、capabilities 和 optional peer skills，但不能
 
 - `source-acquisition`
 - `media-processing`
+- `media-production`
 - `social-listening`
 - `knowledge-persistence`
 - `browser-automation`
@@ -215,6 +219,51 @@ runtime_provenance:
 边界
 ```
 
+项目分析、竞品策略、市场进入或需要沉淀到项目的任务，还必须使用：
+
+```text
+protocol/evidence-sources.md
+protocol/artifact-quality-gates.md
+protocol/artifact-write-policy.md
+protocol/strategy-to-backlog.md
+protocol/post-run-curation.md
+recipes/project-competitive-strategy.md
+```
+
+并按任务需要输出：
+
+```yaml
+evidence_sources:
+  local_code: []
+  local_docs: []
+  web_sources: []
+  user_provided: []
+  inference: []
+  unavailable_data: []
+strategy_to_backlog:
+  backlog_candidates: []
+artifact_plan:
+  write_requested_by_user: true | false
+  destination: ""
+  overwrite_existing: false
+  git_impact: none
+  private_data_check: true
+post_run_curation:
+  required: true | false
+  should_persist: true | false
+  source_candidates: []
+  trend_candidates: []
+  action_candidates: []
+  generated_artifacts: []
+  artifact_plan: {}
+  persistence_decision:
+    wrote_files: true | false
+    reason: ""
+  boundaries: []
+```
+
+`post_run_curation` 是 think-tank core 的通用收尾能力。研究、趋势、竞品、市场、用户反馈、策略、审查、监控、宣传或内容规划任务结束时，都应判断是否需要输出该块。`.think-tank/`、Obsidian、项目文档或其他知识系统只是可能的落点，不是这项能力的来源。
+
 轻量任务可以合并栏目，但不能丢失结论、风险和行动建议。
 
 如果只是按 think-tank 结构输出，但没有真实走 runtime 或 provider dispatch，
@@ -237,6 +286,8 @@ source-acquisition。单 agent 分角色分析必须写 `true_multi_agent_runtim
 - 是否包含 `runtime_provenance`
 - 是否没有把 direct assistant tool use 写成 provider invocation
 - 是否没有把 role labels 写成真实独立 subagents
+- 是否在 research、trend、competitive、strategy、review、monitoring、promotion 或 content planning 任务中给出 `post_run_curation`，并说明是否实际写入
+- 是否在生成媒体、报告、样例、演示或 run record 时执行 `protocol/artifact-quality-gates.md`，并保留 `generated_artifacts`、验证命令和 known gaps
 
 ## 外部 skills 共存规则
 
@@ -247,6 +298,7 @@ think-tank 可以编排外部 skills，但不拥有它们。
 示例关系应该这样表达：
 
 - 视频研究：`media-processing` -> 当前平台可用的媒体处理 provider
+- 媒体成品：`media-production` -> 当前平台可用的素材、口播、字幕、渲染和 probe provider
 - 社媒舆情：`social-listening` -> 当前平台可用且已授权的社媒样本 provider
 - 知识沉淀：`knowledge-persistence` -> 当前平台可用且已授权的知识 artifact provider
 - 浏览器任务：`browser-automation` -> 当前平台可用的只读浏览器或页面读取 provider

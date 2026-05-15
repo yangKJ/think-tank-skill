@@ -73,6 +73,18 @@ position:
 - 风险和缓解措施
 - 决策建议
 
+## Post-run Curation
+
+council mode 如果形成决策、少数意见、后续验证项、路线选择或行动建议，应判断 `post_run_curation`。
+
+重点字段：
+
+- `action_candidates`：需要执行、验证、监控或再次审议的事项
+- `artifact_plan`：是否建议形成 decision record、meeting brief、run record 或 backlog
+- `persistence_decision`：说明是否实际写入；没有写入时保留为候选，不得声称已沉淀
+
+如果只是轻量讨论且没有可复用结果，可以设置 `should_persist: false`，但必须说明边界。
+
 ## 旧 agent-council 映射
 
 旧 agent-council 的 collect、discuss、conclude、complete 应分别映射为 think-tank 主协议的 collection、deliberation、synthesis、quality_check。

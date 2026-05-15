@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://think-tank.dev/schemas/evidence-sources.schema.json",
+  "title": "Think Tank Evidence Sources",
+  "type": "object",
+  "required": ["local_code", "local_docs", "web_sources", "user_provided", "inference", "unavailable_data"],
+  "additionalProperties": false,
+  "properties": {
+    "local_code": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "claim", "evidence_state"],
+        "additionalProperties": false,
+        "properties": {
+          "path": {"type": "string"},
+          "claim": {"type": "string"},
+          "evidence_state": {"type": "string"}
+        }
+      }
+    },
+    "local_docs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "claim", "evidence_state"],
+        "additionalProperties": false,
+        "properties": {
+          "path": {"type": "string"},
+          "claim": {"type": "string"},
+          "evidence_state": {"type": "string"}
+        }
+      }
+    },
+    "web_sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["url", "title", "claim", "evidence_state"],
+        "additionalProperties": false,
+        "properties": {
+          "url": {"type": "string"},
+          "title": {"type": "string"},
+          "claim": {"type": "string"},
+          "evidence_state": {"type": "string"}
+        }
+      }
+    },
+    "user_provided": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["material", "claim", "evidence_state"],
+        "additionalProperties": false,
+        "properties": {
+          "material": {"type": "string"},
+          "claim": {"type": "string"},
+          "evidence_state": {"type": "string"}
+        }
+      }
+    },
+    "inference": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["claim", "based_on", "confidence"],
+        "additionalProperties": false,
+        "properties": {
+          "claim": {"type": "string"},
+          "based_on": {"type": "array", "items": {"type": "string"}},
+          "confidence": {"type": "string", "enum": ["low", "medium", "high"]}
+        }
+      }
+    },
+    "unavailable_data": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["item", "impact", "required_for_full_verification"],
+        "additionalProperties": false,
+        "properties": {
+          "item": {"type": "string"},
+          "impact": {"type": "string"},
+          "required_for_full_verification": {"type": "boolean"}
+        }
+      }
+    }
+  }
+}

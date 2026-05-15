@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://think-tank.dev/schemas/artifact-plan.schema.json",
+  "title": "Think Tank Artifact Plan",
+  "type": "object",
+  "required": [
+    "write_requested_by_user",
+    "destination",
+    "artifact_type",
+    "overwrite_existing",
+    "git_impact",
+    "private_data_check",
+    "source_summary",
+    "excluded_materials"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "write_requested_by_user": {"type": "boolean"},
+    "destination": {"type": "string"},
+    "artifact_type": {
+      "type": "string",
+      "enum": ["report", "backlog", "validation_plan", "run_record", "sample", "protocol_doc"]
+    },
+    "overwrite_existing": {"type": "boolean"},
+    "git_impact": {"type": "string", "enum": ["new_file", "modified_file", "none"]},
+    "private_data_check": {"type": "boolean"},
+    "source_summary": {"type": "array", "items": {"type": "string"}},
+    "excluded_materials": {"type": "array", "items": {"type": "string"}}
+  }
+}

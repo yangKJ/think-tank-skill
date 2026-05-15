@@ -29,7 +29,6 @@ think-tank-skill/
 ├── README.md
 ├── LICENSE
 ├── .gitignore
-├── .think-tank/              # local, ignored project instance workspace
 └── think-tank/
     ├── SKILL.md
     ├── README.md
@@ -66,13 +65,14 @@ think-tank-skill/
 - [`think-tank/protocol/agent-selection.md`](think-tank/protocol/agent-selection.md): Scenario-driven agent selection.
 - [`think-tank/protocol/mode-selection.md`](think-tank/protocol/mode-selection.md): Mode selection rules.
 - [`think-tank/protocol/quality-gates.md`](think-tank/protocol/quality-gates.md): Quality gates.
+- [`think-tank/protocol/artifact-quality-gates.md`](think-tank/protocol/artifact-quality-gates.md): Artifact and media production quality gates.
 - [`think-tank/protocol/versioning.md`](think-tank/protocol/versioning.md): Protocol versioning.
 
 ## Current Status
 
-This repository has completed the foundation, legacy migration, Codex runtime hardening, peer-skill routing, and local workspace design stages.
+This repository has completed the foundation, legacy migration, Codex runtime hardening, peer-skill routing, and workspace design stages.
 
-The current public Skill source is `think-tank/`. Project-specific policy, run logs, artifacts, and memory candidates belong in `.think-tank/`, which is ignored by Git.
+The current public Skill source is `think-tank/`. Project-specific policy, run logs, artifacts, and memory candidates should stay outside the public Skill core.
 
 Readiness status:
 
@@ -92,54 +92,7 @@ Readiness status:
 
 ## Validation
 
-Run:
-
-```bash
-python3 checks/protocol_check.py
-python3 checks/codex_validation_check.py
-python3 checks/claude_code_validation_check.py
-python3 checks/claude_dispatch_sample_check.py
-python3 checks/claude_runtime_sample_check.py
-python3 checks/minimal_runtime_execution_check.py
-python3 checks/capability_queue_check.py
-python3 checks/schema_sample_check.py
-python3 checks/runtime_contract_check.py
-python3 checks/slot_contract_check.py
-python3 checks/consensus_contract_check.py
-python3 checks/research_protocol_check.py
-python3 checks/runtime_planner_check.py
-python3 checks/slot_resolver_check.py
-python3 checks/state_model_check.py
-python3 checks/consensus_runtime_check.py
-python3 checks/runtime_result_schema_check.py
-python3 checks/codex_runtime_pipeline_check.py
-python3 checks/claude_runtime_pipeline_spec_check.py
-python3 checks/runtime_e2e_fixture_check.py
-python3 checks/runtime_safety_check.py
-python3 checks/template_check.py
-python3 checks/legacy_think_tank_migration_check.py
-python3 checks/research_agent_full_migration_check.py
-python3 checks/agent_council_full_migration_check.py
-python3 checks/council_runtime_check.py
-python3 checks/subagent_runtime_check.py
-python3 checks/role_result_schema_check.py
-python3 checks/specialist_runtime_contract_check.py
-python3 checks/codex_installed_skill_check.py
-python3 checks/codex_external_skills_check.py
-python3 checks/codex_provider_registry_check.py
-python3 checks/codex_provider_policy_check.py
-python3 checks/codex_trigger_routing_check.py
-python3 checks/codex_runtime_verification_matrix_check.py
-python3 checks/routing_layer_check.py
-python3 checks/intent_recipe_check.py
-python3 checks/local_workspace_check.py
-python3 checks/memory_curation_check.py
-python3 checks/capability_evidence_state_check.py
-python3 checks/memory_promotion_policy_check.py
-python3 checks/runtime_provenance_check.py
-python3 checks/codex_orchestrator_check.py
-python3 checks/release_privacy_check.py
-```
+Validation is performed locally. Public protocol changes should still be reviewed against the relevant protocol, schema, template, and README files before release.
 
 Codex foundation status:
 
@@ -159,15 +112,15 @@ Codex foundation status:
 - Legacy research agent assets have been fully classified and migrated by disposition in v0.3.
 - Legacy agent-council assets have been fully classified and migrated by disposition in v0.4.
 - Specialist subagent runtime contracts and runtime primitives are implemented in v0.5, with fallback labeling when true independent subagents are unavailable.
-- Current local Codex installation is validated via `checks/codex_installed_skill_check.py`.
-- Legacy research external skills are installed as peer Codex skills and checked via `checks/codex_external_skills_check.py`.
+- Current local Codex installation is validated by ignored local checks.
+- Legacy research external skills are installed as peer Codex skills and validated by ignored local checks.
 - Codex provider invocation matrix is established; selected peer skills still require per-provider invocation validation before they can be called verified.
-- `.think-tank/` is the only supported project-local workspace for local provider policy, memory candidates, run logs, and artifacts.
+- Project-local workspace data is separated from the public Skill core.
 - Project memory capture is implemented as propose-then-review; it does not auto-select persistence providers or auto-write private knowledge stores.
 - v2.1 capability evidence states distinguish installed, discovered, selected, dispatched, invoked, recovered, verified_partial, and verified.
 - v2.1 memory promotion policy controls whether memory stays local, moves to AGENTS.md, becomes project docs, or is generalized into public protocol.
 - v2.2 runtime provenance gate requires every think-tank-style output to disclose runtime, provider invocation, data collection, result recovery, and multi-agent truthfulness.
-- v2.3 Codex natural-language orchestrator routes a user request through policy, minimal dispatch, source recovery, final output, and optional `.think-tank/runs/` run record.
+- v2.3 Codex natural-language orchestrator routes a user request through policy, minimal dispatch, source recovery, final output, and optional local run records.
 
 ## Design Boundary
 

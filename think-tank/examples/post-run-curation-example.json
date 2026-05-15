@@ -1,0 +1,84 @@
+{
+  "required": true,
+  "should_persist": true,
+  "source_candidates": [
+    {
+      "title": "Example industry report",
+      "url_or_path": "https://example.com/report",
+      "source_type": "web",
+      "reliability": "medium",
+      "freshness": "current",
+      "used_for": [
+        {
+          "claim": "Supports the market trend summary.",
+          "confidence": "medium"
+        }
+      ],
+      "verification_status": "partial",
+      "should_append_to_ledger": true
+    }
+  ],
+  "trend_candidates": [
+    {
+      "name": "Example workflow adoption trend",
+      "category": "technology",
+      "summary": "A technology trend appears to be moving from novelty to workflow integration.",
+      "source_refs": ["Example industry report"],
+      "confidence": "medium",
+      "impact": {
+        "product": "medium",
+        "marketing": "medium",
+        "operations": "low",
+        "technology": "high"
+      },
+      "opportunities": ["Test a workflow-oriented product message."],
+      "risks": ["The evidence is based on a limited source set."],
+      "decision": "test"
+    }
+  ],
+  "action_candidates": [
+    {
+      "type": "experiment",
+      "title": "Test workflow-oriented messaging",
+      "rationale": "The trend suggests users may respond to outcome-driven workflow claims.",
+      "evidence_refs": ["Example industry report"],
+      "priority": "P1",
+      "confidence": "medium",
+      "next_step": "Create a small content experiment and review conversion metrics."
+    }
+  ],
+  "generated_artifacts": [
+    {
+      "title": "Example review artifact",
+      "artifact_type": "report",
+      "path": "local workspace artifact directory/example-review.md",
+      "source_refs": ["Example industry report"],
+      "verification_refs": ["manual structure review"],
+      "known_gaps": ["The example artifact path is illustrative and was not written in this sample."],
+      "rights_boundary": "local_only",
+      "verification_status": "partial"
+    }
+  ],
+  "artifact_plan": {
+    "should_write": true,
+    "artifact_type": "trend_radar",
+    "suggested_destination": "local workspace artifact directory",
+    "title": "Example trend radar",
+    "source_refs": ["Example industry report"],
+    "requires_confirmation": true,
+    "privacy_boundary": "local_only",
+    "verification_status": "partial"
+  },
+  "persistence_decision": {
+    "wrote_files": false,
+    "write_requested_by_user": false,
+    "write_permission_obtained": false,
+    "destinations": [],
+    "skipped_destinations": ["local workspace artifact directory"],
+    "reason": "The run produced curation candidates only; no write was requested."
+  },
+  "boundaries": [
+    "Curation candidates do not mean files were written.",
+    "The trend is partially verified and needs more sources before high confidence."
+  ]
+}

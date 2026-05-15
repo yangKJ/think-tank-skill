@@ -10,6 +10,7 @@
     "mode",
     "run_record",
     "policy_route",
+    "provider_preflight",
     "dispatch_record",
     "source_result",
     "final_output",
@@ -34,6 +35,26 @@
       "additionalProperties": false
     },
     "policy_route": {"type": "object"},
+    "provider_preflight": {
+      "type": "object",
+      "required": ["provider", "status", "can_invoke", "missing", "present", "manual_checks", "fallbacks", "boundaries"],
+      "properties": {
+        "provider": {"type": ["string", "null"]},
+        "status": {"type": "string"},
+        "can_invoke": {"type": "boolean"},
+        "missing": {"type": "array", "items": {"type": "string"}},
+        "present": {"type": "array", "items": {"type": "string"}},
+        "manual_checks": {"type": "array", "items": {"type": "string"}},
+        "fallbacks": {"type": "array", "items": {"type": "string"}},
+        "requires_permission": {"type": "boolean"},
+        "risk": {"type": "string"},
+        "notes": {"type": "array", "items": {"type": "string"}},
+        "preflight_path": {"type": "string"},
+        "preflight_sources": {"type": "array", "items": {"type": "string"}},
+        "boundaries": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    },
     "dispatch_record": {
       "type": "object",
       "required": [
@@ -86,4 +107,3 @@
   },
   "additionalProperties": false
 }
-
