@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://leader-runtime.local/schemas/candidate-selection-policy.schema.json",
+  "title": "Leader Runtime Candidate Selection Policy",
+  "type": "object",
+  "required": [
+    "policy_id",
+    "project_id",
+    "candidate_sources",
+    "include_domains",
+    "exclude_domains",
+    "include_authority_scopes",
+    "required_tools_any",
+    "keyword_any",
+    "exclude_keywords",
+    "max_candidates",
+    "promotion_target",
+    "boundaries"
+  ],
+  "properties": {
+    "policy_id": {"type": "string", "minLength": 1},
+    "project_id": {"type": "string", "minLength": 1},
+    "candidate_sources": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "include_domains": {"type": "array", "items": {"type": "string"}},
+    "exclude_domains": {"type": "array", "items": {"type": "string"}},
+    "include_authority_scopes": {
+      "type": "array",
+      "items": {"type": "string", "enum": ["analysis", "execution", "review", "strategy"]}
+    },
+    "required_tools_any": {"type": "array", "items": {"type": "string"}},
+    "keyword_any": {"type": "array", "items": {"type": "string"}},
+    "exclude_keywords": {"type": "array", "items": {"type": "string"}},
+    "max_candidates": {"type": "integer", "minimum": 1},
+    "promotion_target": {"type": "string", "enum": ["project_team_pack", "manual_review"]},
+    "boundaries": {"type": "array", "items": {"type": "string"}, "minItems": 1}
+  },
+  "additionalProperties": false
+}

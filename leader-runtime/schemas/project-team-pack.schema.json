@@ -18,6 +18,22 @@
     "project_id": {"type": "string", "minLength": 1},
     "inherits_from_registry": {"type": "string", "minLength": 1},
     "include_experts": {"type": "array", "items": {"type": "string"}},
+    "include_candidate_agents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["agent_id", "name", "source_platform", "source_path", "conversion_status"],
+        "properties": {
+          "agent_id": {"type": "string", "minLength": 1},
+          "name": {"type": "string", "minLength": 1},
+          "source_platform": {"type": "string", "enum": ["claude-code"]},
+          "source_path": {"type": "string", "minLength": 1},
+          "conversion_status": {"type": "string", "enum": ["candidate", "reviewed", "rejected", "promoted"]}
+        },
+        "additionalProperties": false
+      }
+    },
+    "candidate_source_policy": {"type": ["string", "null"]},
     "exclude_experts": {"type": "array", "items": {"type": "string"}},
     "project_tags": {"type": "array", "items": {"type": "string"}},
     "capability_overrides": {

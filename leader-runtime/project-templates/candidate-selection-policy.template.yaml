@@ -1,0 +1,27 @@
+policy_id: example-project-candidate-selection
+project_id: example-project
+candidate_sources:
+  - .claude/agents
+include_domains:
+  - product
+  - engineering
+  - testing
+exclude_domains: []
+include_authority_scopes:
+  - analysis
+  - review
+  - strategy
+required_tools_any:
+  - Read
+keyword_any:
+  - product
+  - frontend
+  - test
+exclude_keywords:
+  - deprecated
+max_candidates: 8
+promotion_target: project_team_pack
+boundaries:
+  - Selection policy only creates a project-specific candidate set.
+  - Selected candidates require leader review before promotion.
+  - Candidate selection does not invoke Claude Code or Codex subagents.

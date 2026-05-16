@@ -5,6 +5,8 @@ include_experts:
   - evidence_collector
   - domain_analyst
   - risk_skeptic
+include_candidate_agents: []
+candidate_source_policy: null
 exclude_experts:
   - strategy_lead
 project_tags:

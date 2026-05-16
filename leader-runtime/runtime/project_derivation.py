@@ -17,6 +17,8 @@ def default_project_team_pack(project_id: str, project_tags: list[str] | None = 
         "project_id": project_id,
         "inherits_from_registry": "think_tank_codex_global_registry",
         "include_experts": ["evidence_collector", "domain_analyst", "risk_skeptic"],
+        "include_candidate_agents": [],
+        "candidate_source_policy": None,
         "exclude_experts": [],
         "project_tags": project_tags or [project_id],
         "capability_overrides": {},

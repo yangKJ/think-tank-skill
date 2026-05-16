@@ -10,5 +10,8 @@
 
 ## Files
 
+- `candidate-selection-policy.template.yaml`
 - `project-leader.template.yaml`
 - `project-team-pack.template.yaml`
+
+`candidate-selection-policy.template.yaml` 用于从本地 source agent frontmatter 中筛选项目自己的候选 subagent 队伍。筛选结果只是 team pack draft，必须经过 leader review 后才能 promotion。

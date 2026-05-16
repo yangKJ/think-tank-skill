@@ -19,3 +19,5 @@ Claude Code agent frontmatter 可以通过 `../runtime/agent_frontmatter.py` 转
 - 已去除只适用于 Claude Code 的平台假设。
 - 已补齐 leader-runtime 需要的 authority、mode、intent、capability 和 boundary。
 - 不包含用户私有路径、私有业务知识或未授权 agent 内容。
+
+项目如果需要不同批次的专家，应优先使用 `../project-templates/candidate-selection-policy.template.yaml` 生成项目级候选队伍，而不是修改 `global-experts.yaml`。

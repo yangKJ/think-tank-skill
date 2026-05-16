@@ -90,6 +90,28 @@ runtime/agent_frontmatter.py
 
 它不会直接把 Claude agent 注册进 `global-experts.yaml`，也不会声明这些 agent 已在 Codex 中被真实调用。candidate 进入 registry 前必须经过 leader 审核、去私有化、去平台绑定和验收边界补齐。
 
+## Candidate Selection Policy
+
+不同项目可以使用不同的 subagent 队伍。`leader-runtime` 因此不把本地 `.claude/agents` 固化为全局专家池，而是提供项目级筛选策略：
+
+```text
+project-templates/candidate-selection-policy.template.yaml
+runtime/candidate_selection.py
+```
+
+基本流程：
+
+```text
+source agent frontmatter
+  -> candidate
+  -> candidate selection policy
+  -> selected project candidates
+  -> project team pack draft
+  -> leader review / promotion
+```
+
+这意味着 Awakening、Agent-team、think-tank 主仓或其他 Codex 项目都可以从同一个候选来源中挑不同专家，但不会互相污染队伍配置。
+
 ## Runtime Entry
 
 Codex leader runtime 的当前入口是：
