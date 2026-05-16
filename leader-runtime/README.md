@@ -63,6 +63,33 @@ registries/global-experts.yaml
 - `availability_status` 只表达该专家定义或局部验证状态，不代表所有任务端到端可用。
 - 项目级 team pack 可以裁剪专家池，但不能改写全局专家语义。
 
+## Frontmatter Sources
+
+Claude Code 的本地 subagent 文件通常用 frontmatter 表达基础身份：
+
+```yaml
+name:
+description:
+color:
+emoji:
+vibe:
+tools:
+```
+
+这些字段非常适合作为 `leader-runtime` 的专家候选输入源。当前桥接入口是：
+
+```text
+runtime/agent_frontmatter.py
+```
+
+它只做三件事：
+
+- 读取本地 `.claude/agents/**/*.md` 或样例文件的 frontmatter。
+- 生成 `source-agent-frontmatter` candidate。
+- 给出 domain、tools 和 authority scope 的初步 hint。
+
+它不会直接把 Claude agent 注册进 `global-experts.yaml`，也不会声明这些 agent 已在 Codex 中被真实调用。candidate 进入 registry 前必须经过 leader 审核、去私有化、去平台绑定和验收边界补齐。
+
 ## Runtime Entry
 
 Codex leader runtime 的当前入口是：
