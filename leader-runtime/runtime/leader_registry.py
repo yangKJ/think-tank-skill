@@ -1,12 +1,16 @@
-"""Leader orchestration helpers for Codex leader runtime."""
+"""Codex leader runtime 的专家注册表和派遣辅助函数。"""
 
 from __future__ import annotations
 
 from dataclasses import asdict, dataclass, field
+from pathlib import Path
 from typing import Any
 
+import yaml
 
 LEADER_ID = "think_tank_global_leader"
+RUNTIME_ROOT = Path(__file__).resolve().parents[1]
+GLOBAL_REGISTRY_PATH = RUNTIME_ROOT / "registries" / "global-experts.yaml"
 SCHEMA_CHECKS = [
     "schema_complete",
     "evidence_present",
@@ -36,101 +40,50 @@ class ExpertEntry:
         return asdict(self)
 
 
-GLOBAL_EXPERT_POOL = [
-    ExpertEntry(
-        expert_id="evidence_collector",
-        label="Evidence Collector",
-        owner_layer="global",
-        mapped_roles=["collector"],
-        specialties=["evidence gathering", "source reliability", "context collection"],
-        supported_modes=["research", "review"],
-        preferred_intents=["general_research", "competitive_intelligence", "technical_research", "review_acceptance"],
-        capability_affinity=["source-acquisition", "knowledge-persistence"],
-        dispatch_style="worker_prompt",
-        authority_scope="analysis",
-        availability_status="verified_partial",
-        boundaries=["Independent expert dispatch is still runtime-dependent on Codex subagent support."],
-    ),
-    ExpertEntry(
-        expert_id="domain_analyst",
-        label="Domain Analyst",
-        owner_layer="global",
-        mapped_roles=["domain_expert"],
-        specialties=["market interpretation", "technical implications", "domain judgment"],
-        supported_modes=["research", "council", "strategy"],
-        preferred_intents=["market_research", "competitive_intelligence", "technical_research", "strategy_planning"],
-        capability_affinity=["source-acquisition", "social-listening"],
-        dispatch_style="worker_prompt",
-        authority_scope="analysis",
-        availability_status="specified",
-        boundaries=["Requires leader synthesis before any final decision can be issued."],
-    ),
-    ExpertEntry(
-        expert_id="risk_skeptic",
-        label="Risk Skeptic",
-        owner_layer="global",
-        mapped_roles=["skeptic"],
-        specialties=["risk challenge", "boundary review", "anti-overclaim"],
-        supported_modes=["research", "council", "review", "strategy"],
-        preferred_intents=["review_acceptance", "decision_council", "strategy_planning"],
-        capability_affinity=[],
-        dispatch_style="worker_prompt",
-        authority_scope="review",
-        availability_status="verified_partial",
-        boundaries=["Should preserve disagreement instead of forcing consensus."],
-    ),
-    ExpertEntry(
-        expert_id="execution_builder",
-        label="Execution Builder",
-        owner_layer="global",
-        mapped_roles=["builder"],
-        specialties=["implementation planning", "execution sequencing", "delivery risk"],
-        supported_modes=["council", "review", "strategy"],
-        preferred_intents=["review_acceptance", "strategy_planning", "research_to_video"],
-        capability_affinity=["media-production", "knowledge-persistence"],
-        dispatch_style="worker_prompt",
-        authority_scope="execution",
-        availability_status="specified",
-        boundaries=["Provides executable next steps, not final approval."],
-    ),
-    ExpertEntry(
-        expert_id="report_synthesizer",
-        label="Report Synthesizer",
-        owner_layer="global",
-        mapped_roles=["synthesizer"],
-        specialties=["consensus summary", "disagreement preservation", "decision-ready output"],
-        supported_modes=["research", "council", "review", "strategy"],
-        preferred_intents=["synthesis", "review_acceptance", "decision_council"],
-        capability_affinity=[],
-        dispatch_style="fallback_only",
-        authority_scope="mixed",
-        availability_status="verified_partial",
-        boundaries=["Leader owns final synthesis even when synthesizer is selected as expert."],
-    ),
-    ExpertEntry(
-        expert_id="strategy_lead",
-        label="Strategy Lead",
-        owner_layer="global",
-        mapped_roles=["domain_expert", "builder"],
-        specialties=["product strategy", "priority tradeoffs", "go-forward framing"],
-        supported_modes=["council", "strategy"],
-        preferred_intents=["strategy_planning", "decision_council", "competitive_intelligence"],
-        capability_affinity=["source-acquisition"],
-        dispatch_style="worker_prompt",
-        authority_scope="strategy",
-        availability_status="specified",
-        boundaries=["Should not overwrite raw evidence with pure strategic preference."],
-    ),
-]
+def load_registry_source(path: Path = GLOBAL_REGISTRY_PATH) -> dict[str, Any]:
+    data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    if not isinstance(data, dict):
+        raise ValueError(f"registry must be a mapping: {path}")
+    return data
+
+
+def _expert_from_dict(data: dict[str, Any]) -> ExpertEntry:
+    return ExpertEntry(
+        expert_id=data["expert_id"],
+        label=data["label"],
+        owner_layer=data["owner_layer"],
+        mapped_roles=list(data.get("mapped_roles", [])),
+        specialties=list(data.get("specialties", [])),
+        supported_modes=list(data.get("supported_modes", [])),
+        preferred_intents=list(data.get("preferred_intents", [])),
+        capability_affinity=list(data.get("capability_affinity", [])),
+        dispatch_style=data["dispatch_style"],
+        authority_scope=data["authority_scope"],
+        availability_status=data["availability_status"],
+        project_tags=list(data.get("project_tags", [])),
+        boundaries=list(data.get("boundaries", [])),
+    )
+
+
+def load_expert_pool(path: Path = GLOBAL_REGISTRY_PATH) -> list[ExpertEntry]:
+    registry = load_registry_source(path)
+    experts = registry.get("experts", [])
+    if not isinstance(experts, list) or not experts:
+        raise ValueError(f"registry must contain a non-empty experts list: {path}")
+    return [_expert_from_dict(item) for item in experts]
+
+
+GLOBAL_REGISTRY_SOURCE = load_registry_source()
+GLOBAL_EXPERT_POOL = load_expert_pool()
 
 
 def registry_payload(scope: str = "global", inherits_from: str | None = None) -> dict[str, Any]:
     return {
-        "registry_id": "think_tank_codex_global_registry" if scope == "global" else "project_registry",
+        "registry_id": GLOBAL_REGISTRY_SOURCE["registry_id"] if scope == "global" else "project_registry",
         "owner": LEADER_ID,
         "scope": scope,
         "inherits_from": inherits_from,
-        "constraints": [],
+        "constraints": list(GLOBAL_REGISTRY_SOURCE.get("constraints", [])),
         "experts": [entry.to_dict() for entry in GLOBAL_EXPERT_POOL],
     }
 
@@ -146,7 +99,7 @@ def summarize_registry(mode: str, intent: str | None, capabilities: list[str]) -
         candidates.append(entry)
     selected = candidates or GLOBAL_EXPERT_POOL
     return {
-        "registry_id": "think_tank_codex_global_registry",
+        "registry_id": GLOBAL_REGISTRY_SOURCE["registry_id"],
         "leader_id": LEADER_ID,
         "scope": "global",
         "candidate_count": len(selected),

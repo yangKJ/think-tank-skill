@@ -8,10 +8,13 @@ import json
 import sys
 from pathlib import Path
 
+import yaml
+
 
 ROOT = Path(__file__).resolve().parents[1]
 THINK_TANK = ROOT / "think-tank"
 LEADER_RUNTIME = ROOT / "leader-runtime"
+GLOBAL_EXPERTS = LEADER_RUNTIME / "registries" / "global-experts.yaml"
 LEADER_REGISTRY = LEADER_RUNTIME / "runtime" / "leader_registry.py"
 LEADER_ORCHESTRATOR = LEADER_RUNTIME / "runtime" / "orchestrator.py"
 FIXTURE = "think-tank/examples/browser-automation-fixture.html"
@@ -41,9 +44,33 @@ def require_json(path: Path, required: list[str]) -> dict:
     return data
 
 
+def require_registry_source() -> dict:
+    data = yaml.safe_load(GLOBAL_EXPERTS.read_text(encoding="utf-8")) or {}
+    if not isinstance(data, dict):
+        fail("global-experts.yaml 必须是 object")
+    for field in ["registry_id", "owner", "scope", "experts"]:
+        if field not in data:
+            fail(f"global-experts.yaml 缺少字段: {field}")
+    if data["registry_id"] != "think_tank_codex_global_registry":
+        fail("global-experts.yaml registry_id 不正确")
+    if data["owner"] != "think_tank_global_leader":
+        fail("global-experts.yaml owner 不正确")
+    if data["scope"] != "global":
+        fail("global-experts.yaml scope 必须是 global")
+    experts = data["experts"]
+    if not isinstance(experts, list) or len(experts) < 3:
+        fail("global-experts.yaml experts 数量不足")
+    expert_ids = [item.get("expert_id") for item in experts if isinstance(item, dict)]
+    if len(expert_ids) != len(set(expert_ids)):
+        fail("global-experts.yaml expert_id 不得重复")
+    return data
+
+
 def main() -> None:
     required_files = [
         LEADER_RUNTIME / "docs" / "codex-leader-orchestration-blueprint.md",
+        LEADER_RUNTIME / "registries" / "README.md",
+        GLOBAL_EXPERTS,
         LEADER_ORCHESTRATOR,
         LEADER_RUNTIME / "schemas" / "expert-role-registry.schema.json",
         LEADER_RUNTIME / "schemas" / "dispatch-decision.schema.json",
@@ -69,10 +96,15 @@ def main() -> None:
             if field not in data["required"]:
                 fail(f"{name} required 缺少: {field}")
 
+    registry_source = require_registry_source()
     module = load_module(LEADER_REGISTRY, "think_tank_codex_leader_registry")
     registry = module.registry_payload()
+    if registry["registry_id"] != registry_source["registry_id"]:
+        fail("registry_payload 必须读取 global-experts.yaml 的 registry_id")
     if registry["scope"] != "global":
         fail("registry_payload().scope 必须是 global")
+    if len(registry["experts"]) != len(registry_source["experts"]):
+        fail("registry_payload experts 必须来自 global-experts.yaml")
     summary = module.summarize_registry("research", "competitive_intelligence", ["source-acquisition"])
     if not summary["candidate_experts"]:
         fail("summarize_registry 必须返回 candidate_experts")

@@ -7,7 +7,7 @@
 它负责定义：
 
 - 主 agent 的领导者身份
-- 全量专家池与项目裁剪专家池
+- 全量专家池 registry 与项目裁剪专家池
 - dispatch decision
 - expert task packet
 - acceptance governance
@@ -41,10 +41,27 @@ leader-runtime/
 ├── README.md
 ├── docs/
 ├── project-templates/
+├── registries/
 ├── runtime/
 ├── schemas/
 └── templates/
 ```
+
+## Expert Registry
+
+全局专家池的当前数据源是：
+
+```text
+registries/global-experts.yaml
+```
+
+`runtime/leader_registry.py` 读取这份 registry 后生成运行时 payload、候选专家摘要、dispatch decision 和 expert task packet。这样主 leader 的专家组织不再硬编码在 Python 里，后续可以按项目派生 team pack，也可以逐步把更多专家迁入统一 registry。
+
+硬边界：
+
+- registry 命中不等于 expert invocation。
+- `availability_status` 只表达该专家定义或局部验证状态，不代表所有任务端到端可用。
+- 项目级 team pack 可以裁剪专家池，但不能改写全局专家语义。
 
 ## Runtime Entry
 
@@ -74,4 +91,5 @@ codex_leader_blueprint: specified
 codex_leader_runtime_helpers: implemented_partial
 project_derived_leader_model: implemented_partial
 project_team_pack_templates: implemented
+global_expert_registry_data_source: implemented
 ```
