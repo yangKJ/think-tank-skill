@@ -18,23 +18,13 @@ from typing import Any
 SKILL_ROOT = Path(__file__).resolve().parents[3]
 CODEX_RUNTIME_DIR = SKILL_ROOT / "platforms" / "codex" / "runtime"
 RUNTIME_DIR = SKILL_ROOT / "runtime"
-LEADER_RUNTIME_DIR = SKILL_ROOT.parent / "leader-runtime" / "runtime"
 sys.path.insert(0, str(RUNTIME_DIR))
 sys.path.insert(0, str(CODEX_RUNTIME_DIR))
-sys.path.insert(0, str(LEADER_RUNTIME_DIR))
 
 from path_context import PROJECT_SKILLS, WORKSPACE_ROOT, display_path  # noqa: E402
 from provider_policy import load_effective_policy, policy_path, registry, resolve_request  # noqa: E402
 from provider_preflight import load_effective_preflight, preflight_provider, selected_preflight_path  # noqa: E402
 from source_acquisition_minimal import runtime_result as source_runtime_result  # noqa: E402
-from leader_registry import (  # noqa: E402
-    LEADER_ID,
-    SCHEMA_CHECKS,
-    build_acceptance_report,
-    build_dispatch_decision,
-    build_expert_task_packets,
-    summarize_registry,
-)
 
 
 DEFAULT_TARGET = SKILL_ROOT / "examples" / "browser-automation-fixture.html"
@@ -713,21 +703,6 @@ def run_orchestrator(
     selected_target = target
     invoke_source = should_invoke_source(route_result, selected_target)
     mode = mode_from_route(route_result)
-    selected_capabilities = route_result.get("selected_capabilities", []) or []
-    leader_registry = summarize_registry(mode, route_result.get("selected_intent"), selected_capabilities)
-    leader_dispatch_decision = build_dispatch_decision(
-        request,
-        mode,
-        route_result.get("selected_intent"),
-        selected_capabilities,
-        platform_supports_subagents=False,
-    )
-    expert_task_packets = build_expert_task_packets(
-        request,
-        mode,
-        selected_capabilities,
-        leader_dispatch_decision["selected_experts"],
-    )
 
     # 形成完整的 dispatch_decision（dispatch-policy.md 要求）
     skill_route = route_result.get("skill_route", {})
@@ -749,7 +724,6 @@ def run_orchestrator(
         "fallback": route_result.get("fallback", "core_protocol"),
         "risk_level": "low" if invoke_source else "medium",
         "dispatch_allowed": bool(selected_provider),
-        "leader_dispatch_alignment": leader_dispatch_decision["selected_path"],
     }
     dispatch_decision_formed = True
 
@@ -803,12 +777,6 @@ def run_orchestrator(
             )
         ],
     }
-    acceptance_report = build_acceptance_report(
-        checked_results=["runtime_provenance", "dispatch_decision"],
-        passed_checks=list(SCHEMA_CHECKS),
-        failed_checks=[],
-        delegation_needed=leader_dispatch_decision["delegation_needed"],
-    )
     runtime_provenance = build_runtime_provenance(
         route_result=route_result,
         source_result=source_result,
@@ -827,15 +795,6 @@ def run_orchestrator(
     result = {
         "runtime": "codex-natural-language-orchestrator",
         "runtime_provenance": runtime_provenance,
-        "leader_context": {
-            "leader_id": LEADER_ID,
-            "execution_decision": leader_dispatch_decision["selected_path"],
-            "selected_profiles": leader_dispatch_decision["selected_profiles"],
-        },
-        "expert_registry_summary": leader_registry,
-        "dispatch_decision": leader_dispatch_decision,
-        "expert_task_packets": expert_task_packets,
-        "acceptance_report": acceptance_report,
         "request": request,
         "mode": mode,
         "run_record": run_record,

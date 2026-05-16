@@ -46,6 +46,25 @@ leader-runtime/
 └── templates/
 ```
 
+## Runtime Entry
+
+Codex leader runtime 的当前入口是：
+
+```text
+runtime/orchestrator.py
+```
+
+它作为上层调用方运行：
+
+```text
+leader-runtime orchestrator
+  -> think-tank Codex Skill adapter
+  -> expert registry / dispatch decision / task packets
+  -> acceptance report
+```
+
+`think-tank/` 不应反向导入 `leader-runtime/`。
+
 ## 当前状态
 
 ```yaml

@@ -13,6 +13,8 @@ ROOT = Path(__file__).resolve().parents[1]
 THINK_TANK = ROOT / "think-tank"
 LEADER_RUNTIME = ROOT / "leader-runtime"
 LEADER_REGISTRY = LEADER_RUNTIME / "runtime" / "leader_registry.py"
+LEADER_ORCHESTRATOR = LEADER_RUNTIME / "runtime" / "orchestrator.py"
+FIXTURE = "think-tank/examples/browser-automation-fixture.html"
 
 
 def fail(message: str) -> None:
@@ -42,6 +44,7 @@ def require_json(path: Path, required: list[str]) -> dict:
 def main() -> None:
     required_files = [
         LEADER_RUNTIME / "docs" / "codex-leader-orchestration-blueprint.md",
+        LEADER_ORCHESTRATOR,
         LEADER_RUNTIME / "schemas" / "expert-role-registry.schema.json",
         LEADER_RUNTIME / "schemas" / "dispatch-decision.schema.json",
         LEADER_RUNTIME / "schemas" / "expert-task-packet.schema.json",
@@ -93,6 +96,17 @@ def main() -> None:
     report = module.build_acceptance_report(["dispatch_decision"], ["schema_complete"], [], delegation_needed=True)
     if report["status"] != "passed":
         fail("有 passed_checks 且无 failed_checks 时 acceptance status 必须是 passed")
+
+    orchestrator = load_module(LEADER_ORCHESTRATOR, "leader_runtime_orchestrator")
+    result = orchestrator.run_leader_orchestrator("竞品分析 Cursor 和 Codex", target=FIXTURE)
+    if result["runtime"] != "leader-runtime-codex-orchestrator":
+        fail("leader orchestrator runtime 不正确")
+    if result["leader_context"]["leader_id"] != "think_tank_global_leader":
+        fail("leader orchestrator leader_id 不正确")
+    if result["think_tank_skill_result"]["runtime"] != "codex-natural-language-orchestrator":
+        fail("leader orchestrator 必须包装 think-tank Skill 结果")
+    if "leader_context" in result["think_tank_skill_result"]:
+        fail("think-tank Skill 结果不应反向包含 leader_context")
 
     print("leader orchestration 检查通过")
 

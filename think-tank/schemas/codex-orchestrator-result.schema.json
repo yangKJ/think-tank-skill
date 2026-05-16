@@ -6,11 +6,6 @@
   "required": [
     "runtime",
     "runtime_provenance",
-    "leader_context",
-    "expert_registry_summary",
-    "dispatch_decision",
-    "expert_task_packets",
-    "acceptance_report",
     "request",
     "mode",
     "run_record",
@@ -25,46 +20,6 @@
   "properties": {
     "runtime": {"type": "string", "const": "codex-natural-language-orchestrator"},
     "runtime_provenance": {"$ref": "runtime-provenance.schema.json"},
-    "leader_context": {
-      "type": "object",
-      "required": ["leader_id", "execution_decision", "selected_profiles"],
-      "properties": {
-        "leader_id": {"type": "string", "minLength": 1},
-        "execution_decision": {"type": "string", "minLength": 1},
-        "selected_profiles": {"type": "array", "items": {"type": "string"}}
-      },
-      "additionalProperties": false
-    },
-    "expert_registry_summary": {
-      "type": "object",
-      "required": ["registry_id", "leader_id", "scope", "candidate_count", "candidate_experts", "role_coverage", "availability_summary"],
-      "properties": {
-        "registry_id": {"type": "string", "minLength": 1},
-        "leader_id": {"type": "string", "minLength": 1},
-        "scope": {"type": "string", "enum": ["global", "project"]},
-        "candidate_count": {"type": "integer", "minimum": 0},
-        "candidate_experts": {"type": "array", "items": {"type": "string"}},
-        "role_coverage": {"type": "array", "items": {"type": "string"}},
-        "availability_summary": {
-          "type": "object",
-          "required": ["verified_partial", "specified", "planned", "verified"],
-          "properties": {
-            "verified_partial": {"type": "integer", "minimum": 0},
-            "specified": {"type": "integer", "minimum": 0},
-            "planned": {"type": "integer", "minimum": 0},
-            "verified": {"type": "integer", "minimum": 0}
-          },
-          "additionalProperties": false
-        }
-      },
-      "additionalProperties": false
-    },
-    "dispatch_decision": {"$ref": "../../leader-runtime/schemas/dispatch-decision.schema.json"},
-    "expert_task_packets": {
-      "type": "array",
-      "items": {"$ref": "../../leader-runtime/schemas/expert-task-packet.schema.json"}
-    },
-    "acceptance_report": {"$ref": "../../leader-runtime/schemas/acceptance-report.schema.json"},
     "request": {"type": "string", "minLength": 1},
     "mode": {"type": "string", "enum": ["research", "council", "review", "strategy"]},
     "run_record": {
