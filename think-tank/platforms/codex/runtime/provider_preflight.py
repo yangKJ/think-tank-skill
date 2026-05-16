@@ -15,10 +15,10 @@ from typing import Any
 
 import yaml
 
+from path_context import SKILL_ROOT, WORKSPACE_ROOT, display_path
 
-ROOT = Path(__file__).resolve().parents[4]
-DEFAULT_PREFLIGHT = ROOT / "think-tank" / "platforms" / "codex" / "provider-preflight.example.yaml"
-LOCAL_WORKSPACE_PREFLIGHT = ROOT / ".think-tank" / "provider-preflight.yaml"
+DEFAULT_PREFLIGHT = SKILL_ROOT / "platforms" / "codex" / "provider-preflight.example.yaml"
+LOCAL_WORKSPACE_PREFLIGHT = WORKSPACE_ROOT / ".think-tank" / "provider-preflight.yaml"
 
 
 def load_yaml(path: Path) -> dict[str, Any]:
@@ -62,7 +62,7 @@ def selected_preflight_path(explicit: Path | None = None) -> Path:
 
 
 def rel(path: Path) -> str:
-    return str(path.relative_to(ROOT)) if path.exists() and path.is_relative_to(ROOT) else str(path)
+    return display_path(path)
 
 
 def command_available(command: str) -> bool:
@@ -86,7 +86,7 @@ def env_present(name: str) -> bool:
 def file_exists(path: str) -> bool:
     candidate = Path(path).expanduser()
     if not candidate.is_absolute():
-        candidate = ROOT / candidate
+        candidate = WORKSPACE_ROOT / candidate
     return candidate.exists()
 
 

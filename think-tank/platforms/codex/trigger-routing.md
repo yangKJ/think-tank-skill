@@ -92,7 +92,7 @@ routes:
 
 ## 组合技能迁移
 
-旧 `research-workflow` 的组合不迁入 think-tank core，而是变成 recipe 的候选实现：
+旧 `research-workflow` 技能已删除，路由迁移到 `provider-policy.yaml`：
 
 | 旧组合 | 新归属 |
 |--------|--------|

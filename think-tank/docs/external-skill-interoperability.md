@@ -32,7 +32,7 @@ think-tank 是高阶编排 Skill，不复制外部工具型 skill。
 
 | 旧 skill | 新抽象 |
 |----------|--------|
-| `research-workflow` | `research_depth: quick_scan | deep_research | continuous_monitoring` |
+| `research-workflow` | 旧 route wrapper 已删除；研究深度进入 `modes/research.md`，Codex 触发迁移到 provider policy |
 | `omni-research` | `research_depth: autonomous_research` |
 | `think-tank` | `council mode`、`research mode` 和 runtime contracts |
 

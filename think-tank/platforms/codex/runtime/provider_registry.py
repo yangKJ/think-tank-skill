@@ -5,12 +5,14 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from pathlib import Path
 from typing import Any
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-ROOT = Path(__file__).resolve().parents[4]
-PROJECT_SKILLS = ROOT / ".codex" / "skills"
+from path_context import PROJECT_SKILLS, display_path
+
 
 
 KNOWN_PROVIDER_RULES: dict[str, dict[str, Any]] = {
@@ -25,6 +27,12 @@ KNOWN_PROVIDER_RULES: dict[str, dict[str, Any]] = {
         "access_level": "write",
         "requires_permission": True,
         "recovery_targets": ["artifact", "role_result"],
+    },
+    "video-cover-production": {
+        "capabilities": ["media-processing", "knowledge-persistence"],
+        "access_level": "readonly",
+        "requires_permission": False,
+        "recovery_targets": ["artifact", "role_result", "boundary_only"],
     },
     "apple-reminders": {
         "capabilities": ["knowledge-persistence"],
@@ -243,7 +251,7 @@ def provider_for_skill(skill_file: Path) -> dict[str, Any]:
     return {
         "id": skill_name,
         "title": first_heading(skill_file),
-        "source": str(skill_file.relative_to(ROOT)),
+        "source": display_path(skill_file),
         "platform": "codex",
         "provider_type": "local_peer_skill",
         "capabilities": rule["capabilities"],
@@ -270,7 +278,7 @@ def registry(skills_dir: Path = PROJECT_SKILLS) -> dict[str, Any]:
     providers = discover_providers(skills_dir)
     return {
         "adapter": "codex",
-        "registry_source": str(skills_dir.relative_to(ROOT)) if skills_dir.exists() else str(skills_dir),
+        "registry_source": display_path(skills_dir),
         "provider_count": len(providers),
         "providers": providers,
         "boundaries": [

@@ -52,7 +52,6 @@ installed_optional_peer_skills:
   - openai-whisper
   - pdf-extraction
   - playwright-cli
-  - research-workflow
   - social-media-analyzer
   - stable-diffusion-image-generation
   - summarize
@@ -77,7 +76,7 @@ installed_optional_peer_skills:
 | `media-processing` | `yt-dlp`、`openai-whisper`、`xiaoyuzhou-transcribe`、`summarize`、`vision-analysis` |
 | `knowledge-persistence` | `obsidian`、`notebooklm`、`knowledge-graph-builder`、`taskflow` |
 | out-of-core optional | `apple-reminders`、`stable-diffusion-image-generation`、`using-tmux-for-interactive-commands` |
-| domain workflow | `omni-research`、`research-workflow` |
+| domain workflow | `omni-research` |
 
 ## 状态边界
 

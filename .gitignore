@@ -1,9 +1,14 @@
 AGENTS.md
 .think-tank/
 .codex/
+.agents/
 think-tank/*.local.yaml
 .DS_Store
 __pycache__/
 *.pyc
 outputs/
 checks/
+.claude/
+CLAUDE.md
+.playwright-cli/
+.learnings/

@@ -11,12 +11,12 @@ from typing import Any
 
 import yaml
 
-from provider_registry import PROJECT_SKILLS, registry
+from path_context import PROJECT_SKILLS, SKILL_ROOT, WORKSPACE_ROOT, display_path
+from provider_registry import registry
 
 
-ROOT = Path(__file__).resolve().parents[4]
-DEFAULT_POLICY = ROOT / "think-tank" / "platforms" / "codex" / "provider-policy.example.yaml"
-LOCAL_WORKSPACE_POLICY = ROOT / ".think-tank" / "provider-policy.yaml"
+DEFAULT_POLICY = SKILL_ROOT / "platforms" / "codex" / "provider-policy.example.yaml"
+LOCAL_WORKSPACE_POLICY = WORKSPACE_ROOT / ".think-tank" / "provider-policy.yaml"
 
 
 def load_policy(path: Path) -> dict[str, Any]:
@@ -210,11 +210,8 @@ def main() -> int:
     policy, policy_sources = load_effective_policy(args.policy)
     provider_registry = registry(args.skills_dir)
     result = resolve_request(args.request, policy, provider_registry["providers"])
-    result["policy_path"] = str(selected_policy_path.relative_to(ROOT)) if selected_policy_path.exists() else str(selected_policy_path)
-    result["policy_sources"] = [
-        str(source.relative_to(ROOT)) if source.exists() else str(source)
-        for source in policy_sources
-    ]
+    result["policy_path"] = display_path(selected_policy_path)
+    result["policy_sources"] = [display_path(source) for source in policy_sources]
     result["provider_count"] = provider_registry["provider_count"]
     print(json.dumps(result, ensure_ascii=False, indent=2))
     return 0

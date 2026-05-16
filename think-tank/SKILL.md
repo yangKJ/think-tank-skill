@@ -1,3 +1,8 @@
+---
+name: think-tank
+description: "跨平台高阶协作 Skill。用于自然语言 intent 路由、多角色研究/审议/验收、capability 编排、provider 边界声明和结论汇总。"
+---
+
 # think-tank Skill
 
 ## 定位
@@ -5,6 +10,14 @@
 think-tank 是一个跨平台、可复用的高阶 Skill，用于多角色信息收集、协作分析、讨论审议与结论汇总。
 
 它不是工具合集，不复制外部 skills；它负责任务理解、协议执行、角色组织、能力编排和最终汇总。
+
+## Skill 和运行目录边界
+
+think-tank 的 skill 本体只能是当前安装位置中的 `SKILL.md`、协议、profiles、recipes、routing、platform adapters 和 runtime 文件。
+
+`.think-tank/` 是运行配置、provider preflight、runs、memory 和 artifacts 存储目录，不是 skill 目录。不要把 `.think-tank/` 放进 `.codex/skills/` 或 `.claude/skills/`。
+
+provider 边界仍必须遵守：selection 不等于 invocation，真实 provider 调用前必须有明确 dispatch decision、权限确认和结果回收。
 
 ## 何时使用
 

@@ -55,7 +55,7 @@ legacy research workspace
 | `openai-whisper` | audio transcription | `media-processing` | mapped |
 | `pdf-extraction` | document extraction | `source-acquisition` | mapped |
 | `playwright-cli` | browser automation | `browser-automation` | mapped |
-| `research-workflow` | research depth routing | `modes/research.md` | migrated |
+| `research-workflow` | legacy research route wrapper | `modes/research.md` / `platforms/codex/trigger-routing.md` / provider policy | deleted_and_replaced |
 | `social-media-analyzer` | social metrics | `social-listening` | mapped |
 | `stable-diffusion-image-generation` | image generation tool | out-of-core, optional external skill | classified |
 | `summarize` | URL/file/media summary | `source-acquisition` / `media-processing` | mapped |

@@ -60,6 +60,40 @@ dispatch_decision:
 - 发布、评论、点赞、收藏、删除等外部可见行为。
 - 长时间后台监控或自动化任务。
 
+## External Provider And CLI Invocation Contract
+
+当 optional peer skill 需要转接外部 provider、第三方 CLI、登录态工具或付费额度时，必须先生成可审查的调用契约，而不是直接执行。
+
+```yaml
+external_provider_invocation_contract:
+  provider:
+  provider_family:
+  command_or_endpoint:
+  default_mode: dry_run | preview_only | manifest_only
+  execute_flag_required: true
+  confirmation_required:
+    - provider
+    - input_content
+    - provider_safe_input
+    - quota_or_cost
+    - output_directory
+    - overwrite_policy
+  secrets_policy:
+    read_from_env_or_local_config_only: true
+    stored_in_artifact: false
+    printed_to_logs: false
+  artifact_policy:
+    command_preview_allowed: true
+    sanitized_response_required: true
+    api_keys_stored_in_artifact: false
+  selection_is_invocation: false
+  provider_invoked: false
+```
+
+默认模式必须是 `dry_run`、`preview_only` 或 `manifest_only`。真实执行必须有显式执行开关，例如 `--execute`，并且必须额外确认成本、额度、输出路径和覆盖策略。
+
+如果 provider CLI 生态存在多种命令形态，主流程只能依赖统一队列或 adapter payload，不能把未经实测的命令名写成事实。命令模板中的变量必须显式列出，禁止把 `.env`、cookie、token、账号状态或绝对私有路径注入 prompt、queue 或命令行。
+
 ## Degrade Rules
 
 如果 peer skill 缺失、不可用、失败或未授权：
