@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://leader-runtime.local/schemas/acceptance-report.schema.json",
+  "title": "Leader Runtime Acceptance Report",
+  "type": "object",
+  "required": [
+    "acceptance_id",
+    "leader_id",
+    "status",
+    "retry_count",
+    "checked_results",
+    "passed_checks",
+    "failed_checks",
+    "next_action",
+    "boundaries"
+  ],
+  "properties": {
+    "acceptance_id": {"type": "string", "minLength": 1},
+    "leader_id": {"type": "string", "minLength": 1},
+    "status": {"type": "string", "enum": ["pending", "passed", "failed", "partial", "blocked"]},
+    "retry_count": {"type": "integer", "minimum": 0},
+    "checked_results": {"type": "array", "items": {"type": "string"}},
+    "passed_checks": {"type": "array", "items": {"type": "string"}},
+    "failed_checks": {"type": "array", "items": {"type": "string"}},
+    "next_action": {"type": "string", "enum": ["accept", "retry", "reroute", "downgrade", "manual_arbitration"]},
+    "notes": {"type": "array", "items": {"type": "string"}},
+    "boundaries": {"type": "array", "items": {"type": "string"}, "minItems": 1}
+  },
+  "additionalProperties": false
+}

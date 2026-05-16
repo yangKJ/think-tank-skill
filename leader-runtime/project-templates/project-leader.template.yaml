@@ -1,0 +1,29 @@
+project_id: example-project
+project_label: Example Project
+leader_id: example_project_leader
+inherits_from: think_tank_global_leader
+team_pack_id: example-project-core-pack
+supported_modes:
+  - research
+  - review
+  - strategy
+default_dispatch_path: single_agent_multi_profile_fallback
+acceptance_profile:
+  required_checks:
+    - schema_complete
+    - evidence_present
+    - boundary_declared
+    - claim_traceable
+    - no_over_authority
+  retry_limit: 2
+  escalation_path:
+    - retry
+    - reroute
+    - downgrade
+    - manual_arbitration
+enabled_capabilities:
+  - source-acquisition
+  - knowledge-persistence
+disabled_capabilities: []
+boundaries:
+  - Project leader inherits leader-runtime governance and only narrows scope.

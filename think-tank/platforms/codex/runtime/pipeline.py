@@ -10,23 +10,32 @@ from pathlib import Path
 from typing import Any
 
 
-ROOT = Path(__file__).resolve().parents[4]
-RUNTIME_DIR = ROOT / "think-tank" / "runtime"
-CODEX_RUNTIME_DIR = ROOT / "think-tank" / "platforms" / "codex" / "runtime"
+SKILL_ROOT = Path(__file__).resolve().parents[3]
+RUNTIME_DIR = SKILL_ROOT / "runtime"
+CODEX_RUNTIME_DIR = SKILL_ROOT / "platforms" / "codex" / "runtime"
+LEADER_RUNTIME_DIR = SKILL_ROOT.parent / "leader-runtime" / "runtime"
 sys.path.insert(0, str(RUNTIME_DIR))
 sys.path.insert(0, str(CODEX_RUNTIME_DIR))
+sys.path.insert(0, str(LEADER_RUNTIME_DIR))
 
 from consensus import Position, evaluate_consensus  # noqa: E402
 from planner import plan_runtime  # noqa: E402
 from slot_resolver import resolve_slots  # noqa: E402
 from source_acquisition_minimal import runtime_result as source_runtime_result  # noqa: E402
 from state_model import StageResult, make_run  # noqa: E402
+from leader_registry import (  # noqa: E402
+    build_acceptance_report,
+    build_dispatch_decision,
+    build_expert_task_packets,
+    summarize_registry,
+)
 
 
 CODEX_CAPABILITY_MAPPING = {
     "source-acquisition": ["local_static_reader", "user_provided_material"],
     "browser-automation": ["browser", "playwright"],
     "knowledge-persistence": ["repository_markdown"],
+    "media-production": ["research-to-video-production", "web-design-engineer"],
     "media-processing": ["user_provided_transcript"],
     "social-listening": ["user_provided_samples"],
 }
@@ -48,6 +57,21 @@ def collect_capabilities(runtime_plan: dict[str, Any]) -> tuple[list[str], list[
 def run_pipeline(task: str, target: str, strict: bool = False) -> dict[str, Any]:
     runtime_plan = plan_runtime(task, requested_mode="research", strict=strict).to_dict()
     required, optional = collect_capabilities(runtime_plan)
+    required_optional = required + optional
+    leader_registry = summarize_registry(runtime_plan["mode"], runtime_plan.get("selected_intent"), required_optional)
+    dispatch_decision = build_dispatch_decision(
+        task,
+        runtime_plan["mode"],
+        runtime_plan.get("selected_intent"),
+        required_optional,
+        platform_supports_subagents=False,
+    )
+    expert_task_packets = build_expert_task_packets(
+        task,
+        runtime_plan["mode"],
+        required_optional,
+        dispatch_decision["selected_experts"],
+    )
     slot_resolution = resolve_slots(
         required,
         optional,
@@ -117,6 +141,19 @@ def run_pipeline(task: str, target: str, strict: bool = False) -> dict[str, Any]
     return {
         "runtime": "codex-runtime-pipeline",
         "runtime_provenance": runtime_provenance,
+        "leader_context": {
+            "leader_id": "think_tank_global_leader",
+            "execution_decision": dispatch_decision["selected_path"],
+        },
+        "expert_registry_summary": leader_registry,
+        "dispatch_decision": dispatch_decision,
+        "expert_task_packets": expert_task_packets,
+        "acceptance_report": build_acceptance_report(
+            checked_results=[],
+            passed_checks=[],
+            failed_checks=[],
+            delegation_needed=dispatch_decision["delegation_needed"],
+        ),
         "mode": runtime_plan["mode"],
         "runtime_plan": runtime_plan,
         "slot_resolution": slot_resolution,

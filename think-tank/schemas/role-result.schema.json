@@ -19,6 +19,7 @@
   "additionalProperties": false,
   "properties": {
     "profile": {"type": "string"},
+    "expert_id": {"type": ["string", "null"]},
     "execution_method": {
       "type": "string",
       "enum": ["specialist_subagent", "single_agent_multi_profile_fallback", "external_platform_adapter"]
@@ -31,6 +32,15 @@
     "recommendations": {"type": "array", "items": {"type": "string"}},
     "confidence": {"type": "string", "enum": ["low", "medium", "high"]},
     "boundaries": {"type": "array", "items": {"type": "string"}},
-    "status": {"type": "string", "enum": ["completed", "partial", "failed", "blocked"]}
+    "status": {"type": "string", "enum": ["completed", "partial", "failed", "blocked"]},
+    "acceptance_self_check": {
+      "type": "object",
+      "required": ["passed", "failed_checks"],
+      "properties": {
+        "passed": {"type": "boolean"},
+        "failed_checks": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    }
   }
 }

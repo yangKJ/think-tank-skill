@@ -1,0 +1,25 @@
+pack_id: example-project-core-pack
+project_id: example-project
+inherits_from_registry: think_tank_codex_global_registry
+include_experts:
+  - evidence_collector
+  - domain_analyst
+  - risk_skeptic
+exclude_experts:
+  - strategy_lead
+project_tags:
+  - example
+  - codex
+capability_overrides:
+  source-acquisition:
+    - local_static_reader
+    - repository_markdown
+acceptance_overrides:
+  required_checks:
+    - schema_complete
+    - evidence_present
+    - boundary_declared
+    - claim_traceable
+  retry_limit: 1
+boundaries:
+  - Team pack may narrow the expert subset but must not rewrite global expert semantics.

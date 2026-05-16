@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://leader-runtime.local/schemas/project-leader.schema.json",
+  "title": "Leader Runtime Project Leader",
+  "type": "object",
+  "required": [
+    "project_id",
+    "project_label",
+    "leader_id",
+    "inherits_from",
+    "team_pack_id",
+    "supported_modes",
+    "default_dispatch_path",
+    "acceptance_profile",
+    "boundaries"
+  ],
+  "properties": {
+    "project_id": {"type": "string", "minLength": 1},
+    "project_label": {"type": "string", "minLength": 1},
+    "leader_id": {"type": "string", "minLength": 1},
+    "inherits_from": {"type": "string", "minLength": 1},
+    "team_pack_id": {"type": "string", "minLength": 1},
+    "supported_modes": {
+      "type": "array",
+      "items": {"type": "string", "enum": ["research", "council", "review", "strategy"]},
+      "minItems": 1
+    },
+    "default_dispatch_path": {
+      "type": "string",
+      "enum": ["leader_direct", "structured_council", "expert_dispatch", "mixed_orchestration", "single_agent_multi_profile_fallback"]
+    },
+    "acceptance_profile": {
+      "type": "object",
+      "required": ["required_checks", "retry_limit", "escalation_path"],
+      "properties": {
+        "required_checks": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+        "retry_limit": {"type": "integer", "minimum": 0},
+        "escalation_path": {"type": "array", "items": {"type": "string"}, "minItems": 1}
+      },
+      "additionalProperties": false
+    },
+    "enabled_capabilities": {"type": "array", "items": {"type": "string"}},
+    "disabled_capabilities": {"type": "array", "items": {"type": "string"}},
+    "boundaries": {"type": "array", "items": {"type": "string"}, "minItems": 1}
+  },
+  "additionalProperties": false
+}

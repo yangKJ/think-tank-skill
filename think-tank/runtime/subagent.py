@@ -41,10 +41,16 @@ class SubagentTask:
     profile: str
     mode: str
     objective: str
+    leader_id: str = "think_tank_global_leader"
+    expert_id: str | None = None
+    task_scope: str = "Complete the assigned profile slice only."
     input_context: list[str] = field(default_factory=list)
     required_capabilities: list[str] = field(default_factory=list)
+    deliverables: list[str] = field(default_factory=lambda: ["claim", "evidence", "risks", "recommendations", "boundaries"])
+    acceptance_checks: list[str] = field(default_factory=lambda: ["schema_complete", "evidence_present", "boundary_declared"])
     expected_output_schema: str = "role-result"
     independence_boundary: str = "Run in an isolated profile context when platform supports it."
+    fallback_rule: str = "Downgrade to single_agent_multi_profile_fallback when no verified specialist runtime exists."
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
@@ -55,6 +61,7 @@ class RoleResult:
     profile: str
     execution_method: str
     claim: str
+    expert_id: str | None = None
     evidence: list[str] = field(default_factory=list)
     sources: list[dict[str, Any]] = field(default_factory=list)
     risks: list[str] = field(default_factory=list)
@@ -63,6 +70,7 @@ class RoleResult:
     confidence: str = "medium"
     boundaries: list[str] = field(default_factory=list)
     status: str = "completed"
+    acceptance_self_check: dict[str, Any] = field(default_factory=lambda: {"passed": True, "failed_checks": []})
 
     def __post_init__(self) -> None:
         if self.execution_method not in VALID_EXECUTION_METHODS:
@@ -116,6 +124,7 @@ Input context:
 
 Return only a role-result object with:
 - profile
+- expert_id
 - claim
 - evidence[]
 - sources[]
@@ -125,6 +134,7 @@ Return only a role-result object with:
 - confidence
 - boundaries[]
 - status
+- acceptance_self_check
 """
 
 
@@ -151,6 +161,8 @@ def plan_subagent_runtime(
             profile=profile,
             mode=mode,
             objective=objective,
+            expert_id=profile,
+            task_scope=f"Handle the {profile} slice of the overall objective.",
             input_context=context,
             required_capabilities=PROFILE_CAPABILITY_HINTS.get(profile, []),
         )

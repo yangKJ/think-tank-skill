@@ -10,6 +10,7 @@
   "role_results": [
     {
       "profile": "product-strategist",
+      "expert_id": "product-strategist",
       "execution_method": "specialist_subagent",
       "claim": "Specialist subagents should be preferred for high-stakes decisions.",
       "evidence": ["Independent profile context reduces single-context anchoring."],
@@ -19,10 +20,15 @@
       "recommendations": ["Use specialist runtime when platform support is verified."],
       "confidence": "high",
       "boundaries": ["Fixture proves schema shape, not platform parallelism."],
-      "status": "completed"
+      "status": "completed",
+      "acceptance_self_check": {
+        "passed": true,
+        "failed_checks": []
+      }
     },
     {
       "profile": "skeptic",
+      "expert_id": "skeptic",
       "execution_method": "specialist_subagent",
       "claim": "Do not overclaim specialist runtime without result recovery evidence.",
       "evidence": ["Prior validation distinguished direct invocation from adapter runtime."],
@@ -32,7 +38,11 @@
       "recommendations": ["Require execution_method and authority_level labels."],
       "confidence": "high",
       "boundaries": ["No live Claude Code Agent Team run in this fixture."],
-      "status": "completed"
+      "status": "completed",
+      "acceptance_self_check": {
+        "passed": true,
+        "failed_checks": []
+      }
     }
   ],
   "aggregated_result": {

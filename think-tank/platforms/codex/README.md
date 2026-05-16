@@ -22,6 +22,25 @@ Codex 适配可以先以单 agent 协议执行为主：
 
 如果后续使用 Codex subagent 或并行代理能力，应在本目录单独记录能力边界。
 
+## 领导者模式主线
+
+Codex 平台的主 agent 领导者系统已经拆到仓库同级目录 `leader-runtime/`。
+
+相关总纲见：
+
+```text
+../../../leader-runtime/docs/codex-leader-orchestration-blueprint.md
+```
+
+该文档补充了：
+
+- `leader identity`
+- `global expert pool -> project subset` 组织模型
+- `dispatch_decision` 与 `expert_task_packet`
+- `acceptance governance` 与 authority levels
+
+本目录仍只负责：让 `think-tank` 这个 Skill 在 Codex 中运行，而不是定义整个主 agent 的领导者系统。
+
 ## 后续文件规划
 
 - `adapter.md`：Codex 适配协议

@@ -30,6 +30,25 @@ think-tank 是：
 - 汇总结论
 - 输出行动建议
 
+## 当前主线补充
+
+think-tank 当前仍然是高阶 Skill core，不再承担 Codex 主 agent 领导者系统的主语。
+
+主 agent 领导者编排主线已迁移到仓库同级目录：
+
+```text
+../leader-runtime/docs/codex-leader-orchestration-blueprint.md
+```
+
+该同级文档定义：
+
+- 主 agent 的领导者身份
+- 全量专家池与项目裁剪专家池的关系
+- Codex 平台中的派遣、回收、验收和降级边界
+- 其他 Codex 项目如何派生自己的领导者主 agent
+
+think-tank 在这里的角色，是被 `leader-runtime/` 编排和调用的高阶技能系统。
+
 ## 三层结构
 
 ```text

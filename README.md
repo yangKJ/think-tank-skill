@@ -2,7 +2,8 @@
 
 think-tank-skill is the main repository for **think-tank**, a cross-platform reusable Skill for multi-role information gathering, collaborative analysis, deliberation, synthesis, and actionable recommendations.
 
-The Skill itself lives in [`think-tank/`](think-tank/).
+The high-level Skill lives in [`think-tank/`](think-tank/).
+The leader orchestration layer lives in [`leader-runtime/`](leader-runtime/).
 
 ## What Is think-tank?
 
@@ -29,19 +30,25 @@ think-tank-skill/
 ├── README.md
 ├── LICENSE
 ├── .gitignore
-└── think-tank/
-    ├── SKILL.md
+├── think-tank/
+│   ├── SKILL.md
+│   ├── README.md
+│   ├── protocol/
+│   ├── capabilities/
+│   ├── profiles/
+│   ├── platforms/
+│   ├── modes/
+│   ├── templates/
+│   ├── runtime/
+│   ├── domain-packs/
+│   ├── docs/
+│   └── examples/
+└── leader-runtime/
     ├── README.md
-    ├── protocol/
-    ├── capabilities/
-    ├── profiles/
-    ├── platforms/
-    ├── modes/
-    ├── templates/
-    ├── runtime/
-    ├── domain-packs/
     ├── docs/
-    └── examples/
+    ├── runtime/
+    ├── schemas/
+    └── templates/
 ```
 
 ## Key Directories
@@ -57,6 +64,17 @@ think-tank-skill/
 - [`think-tank/domain-packs/`](think-tank/domain-packs/): Optional domain packs.
 - [`think-tank/schemas/`](think-tank/schemas/): Machine-readable input and output schemas.
 - [`think-tank/examples/`](think-tank/examples/): Reusable examples that demonstrate the protocol.
+- [`leader-runtime/`](leader-runtime/): Main-agent leader orchestration layer above the Skill core.
+
+## Moved Creator Media System
+
+Creator media, comic-drama, TTS, image-production, and video-production resources have moved to the closed production repository:
+
+```text
+/Users/condy/Desktop/dev-domic-drama
+```
+
+This repository now keeps only the public, reusable `think-tank/` core and non-project-specific governance. Do not add self-media, comic-drama episode assets, generated videos, local TTS runs, or creator production queues back into `think-tank-skill`.
 
 ## Protocol Core
 
@@ -127,3 +145,5 @@ Codex foundation status:
 The protocol layer defines what think-tank means. Platform adapters define how think-tank runs in a specific environment. Modes define scenario defaults.
 
 Platform-specific behavior must not redefine the core protocol.
+
+`leader-runtime/` is intentionally separate. It defines how a Codex-style main agent becomes a leader that can orchestrate expert pools and acceptance governance. `think-tank/` remains a reusable Skill core, not the entire leader operating layer.
