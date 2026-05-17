@@ -67,6 +67,13 @@ def main() -> None:
         fail("project candidate packet 必须保持 planned_uninvoked")
     if result["project_candidate_dispatch_summary"]["dispatch_status"] != "planned_uninvoked":
         fail("project candidate dispatch summary 必须保持 planned_uninvoked")
+    gate = result.get("project_candidate_invocation_gate")
+    if gate is None:
+        fail("project-aware leader 必须输出 project_candidate_invocation_gate")
+    if gate["decision_status"] != "blocked":
+        fail("默认 project candidate invocation gate 必须 blocked")
+    if any(item["invoked"] for item in gate["candidate_decisions"]):
+        fail("默认 project candidate invocation gate 不得 invoked")
     if result["think_tank_skill_result"]["runtime"] != "codex-natural-language-orchestrator":
         fail("project-aware leader 仍必须包装 think-tank Skill 结果")
     if "Project team activation loads roster entries only" not in " ".join(result["boundaries"]):

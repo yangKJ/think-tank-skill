@@ -36,6 +36,7 @@ from project_candidate_dispatch import (  # noqa: E402
     build_project_candidate_task_packets,
     summarize_project_candidate_dispatch,
 )
+from project_candidate_invocation_gate import evaluate_project_candidate_invocation_gate  # noqa: E402
 
 
 def _load_think_tank_orchestrator():
@@ -87,6 +88,8 @@ def run_leader_orchestrator(
     target: str | None = None,
     write_run: bool = False,
     team_pack_path: str | Path | None = None,
+    allow_candidate_invocation: bool = False,
+    candidate_runtime_support: str = "not_verified",
 ) -> dict[str, Any]:
     think_tank_orchestrator = _load_think_tank_orchestrator()
     skill_result = think_tank_orchestrator.run_orchestrator(
@@ -117,6 +120,11 @@ def run_leader_orchestrator(
         capabilities,
         project_team_activation,
     )
+    project_candidate_invocation_gate = evaluate_project_candidate_invocation_gate(
+        project_candidate_packets,
+        allow_invocation=allow_candidate_invocation,
+        runtime_support=candidate_runtime_support,
+    )
     acceptance_report = build_acceptance_report(
         checked_results=["think_tank_skill_result", "dispatch_decision"],
         passed_checks=list(SCHEMA_CHECKS),
@@ -131,6 +139,8 @@ def run_leader_orchestrator(
         boundaries.append("Project team activation loads roster entries only; candidate agents remain promoted_uninvoked.")
     if project_candidate_packets:
         boundaries.append("Project candidate task packets are planned_uninvoked and do not prove subagent invocation.")
+    if project_candidate_invocation_gate["decision_status"] != "not_applicable":
+        boundaries.append("Project candidate invocation gate does not invoke subagents; it only emits readiness decisions.")
     result = {
         "runtime": "leader-runtime-codex-orchestrator",
         "leader_context": _leader_context_from_dispatch(dispatch_decision, project_team_activation),
@@ -139,6 +149,7 @@ def run_leader_orchestrator(
         "expert_task_packets": packets,
         "project_candidate_task_packets": project_candidate_packets,
         "project_candidate_dispatch_summary": summarize_project_candidate_dispatch(project_candidate_packets),
+        "project_candidate_invocation_gate": project_candidate_invocation_gate,
         "acceptance_report": acceptance_report,
         "think_tank_skill_result": skill_result,
         "boundaries": boundaries,
@@ -154,10 +165,23 @@ def main() -> int:
     parser.add_argument("--target", default=None)
     parser.add_argument("--write-run", action="store_true")
     parser.add_argument("--team-pack", default=None, help="Optional promoted project team pack YAML.")
+    parser.add_argument("--allow-candidate-invocation", action="store_true", help="Only mark project candidate invocation as ready; does not invoke.")
+    parser.add_argument(
+        "--candidate-runtime-support",
+        default="not_verified",
+        choices=["not_verified", "specified", "verified_partial", "verified"],
+    )
     args = parser.parse_args()
     print(
         json.dumps(
-            run_leader_orchestrator(args.request, args.target, args.write_run, team_pack_path=args.team_pack),
+            run_leader_orchestrator(
+                args.request,
+                args.target,
+                args.write_run,
+                team_pack_path=args.team_pack,
+                allow_candidate_invocation=args.allow_candidate_invocation,
+                candidate_runtime_support=args.candidate_runtime_support,
+            ),
             ensure_ascii=False,
             indent=2,
         )

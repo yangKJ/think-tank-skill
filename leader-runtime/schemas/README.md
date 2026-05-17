@@ -16,6 +16,7 @@
 - candidate review report
 - project team activation
 - project candidate task packet
+- project candidate invocation gate
 
 这些 schema 服务于领导者运行层，不属于 `think-tank` 高阶 Skill core。
 
@@ -30,3 +31,5 @@
 `project-team-activation.schema.json` 描述项目 team pack 被加载成 dispatch roster 后的结构。它只表示 leader 可以看见哪些专家，不表示这些专家已被调用。
 
 `project-candidate-task-packet.schema.json` 描述 promoted project candidate 的任务计划。它的状态应保持 `planned_uninvoked`，直到平台 runtime 提供真实 invocation evidence。
+
+`project-candidate-invocation-gate.schema.json` 描述 candidate packet 进入真实调用前的安全门禁。默认必须 blocked；即使 ready，也只能是 `ready_uninvoked`，不能伪造调用证据。

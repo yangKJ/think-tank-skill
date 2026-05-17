@@ -157,6 +157,25 @@ schemas/project-candidate-task-packet.schema.json
 
 项目 candidate packet 会出现在 orchestrator 输出的 `project_candidate_task_packets` 中，状态固定为 `planned_uninvoked`。后续只有接入平台级 subagent invocation gate 后，才能从计划升级为真实调用证据。
 
+## Project Candidate Invocation Gate
+
+项目 candidate packet 进入真实调用前，必须先经过 invocation gate：
+
+```text
+runtime/project_candidate_invocation_gate.py
+schemas/project-candidate-invocation-gate.schema.json
+```
+
+默认行为是安全阻断：
+
+```yaml
+allow_invocation: false
+decision_status: blocked
+invoked: false
+```
+
+即使显式传入 `--allow-candidate-invocation --candidate-runtime-support verified_partial`，当前 gate 也只会输出 `ready_uninvoked`，不会真实调用 subagent。后续需要单独的平台 adapter 产生 `invoked: true` 的证据。
+
 ## Runtime Entry
 
 Codex leader runtime 的当前入口是：
@@ -191,4 +210,5 @@ candidate_review_gate: implemented
 project_team_activation: implemented
 project_aware_leader_orchestrator: implemented
 project_candidate_dispatch_plan: implemented
+project_candidate_invocation_gate: implemented
 ```
