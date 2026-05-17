@@ -14,6 +14,7 @@
 - candidate selection policy
 - candidate selection result
 - candidate review report
+- project team activation
 
 这些 schema 服务于领导者运行层，不属于 `think-tank` 高阶 Skill core。
 
@@ -24,3 +25,5 @@
 `candidate-selection-policy.schema.json` 和 `candidate-selection-result.schema.json` 描述项目如何从候选源中筛出自己的 subagent 队伍。它们服务项目级 team pack 草案，不改变全局专家池。
 
 `candidate-review-report.schema.json` 描述 leader 对候选队伍的晋升门禁。只有 review report 通过后，candidate 才能在项目 team pack 中从 `candidate` 变为 `promoted`。
+
+`project-team-activation.schema.json` 描述项目 team pack 被加载成 dispatch roster 后的结构。它只表示 leader 可以看见哪些专家，不表示这些专家已被调用。

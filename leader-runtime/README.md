@@ -122,6 +122,22 @@ templates/candidate-review-report.md
 
 晋升只改变项目级 team pack draft 中的 candidate 状态，不修改 `registries/global-experts.yaml`。
 
+## Project Team Activation
+
+项目 candidate 完成 review 后，还需要被激活成 leader 可见的 dispatch roster：
+
+```text
+runtime/project_team_activation.py
+schemas/project-team-activation.schema.json
+```
+
+Activation 会合并两类队伍：
+
+- `global_registry`：来自 `global-experts.yaml` 的基础专家。
+- `project_candidate`：项目 team pack 中已 `promoted` 的候选 subagent。
+
+未 review 的 candidate 不会进入 active roster。进入 roster 也仍然只是 `promoted_uninvoked`，不代表已经真实调用。
+
 ## Runtime Entry
 
 Codex leader runtime 的当前入口是：
@@ -153,4 +169,5 @@ project_team_pack_templates: implemented
 global_expert_registry_data_source: implemented
 candidate_selection_policy: implemented
 candidate_review_gate: implemented
+project_team_activation: implemented
 ```
