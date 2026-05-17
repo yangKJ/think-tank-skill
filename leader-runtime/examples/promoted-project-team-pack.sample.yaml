@@ -1,0 +1,32 @@
+pack_id: sample-product-candidate-pack
+project_id: sample-product
+inherits_from_registry: think_tank_codex_global_registry
+include_experts:
+  - evidence_collector
+  - risk_skeptic
+include_candidate_agents:
+  - agent_id: product_strategy_analyst
+    name: Product Strategy Analyst
+    source_platform: claude-code
+    source_path: leader-runtime/examples/claude-agent-frontmatter.sample.md
+    conversion_status: promoted
+candidate_source_policy: sample-product-strategy-selection
+exclude_experts: []
+project_tags:
+  - candidate-reviewed
+  - candidate-selected
+  - sample-product
+capability_overrides: {}
+acceptance_overrides:
+  required_checks:
+    - schema_complete
+    - evidence_present
+    - boundary_declared
+    - claim_traceable
+    - no_over_authority
+  retry_limit: 2
+boundaries:
+  - Candidate agents are project-scoped references, not global registry entries.
+  - Candidate agents require leader review before invocation or promotion.
+  - Promoted candidate agents are project-scoped and do not alter the global registry.
+  - Promotion does not prove runtime invocation.

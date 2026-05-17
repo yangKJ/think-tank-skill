@@ -59,6 +59,36 @@ global leader
   -> run project-specific dispatch and acceptance
 ```
 
+## Project-aware Orchestrator
+
+项目 team pack 通过 review 和 activation 后，可以传给 Codex leader orchestrator：
+
+```text
+leader-runtime/runtime/orchestrator.py \
+  "任务描述" \
+  --team-pack leader-runtime/examples/promoted-project-team-pack.sample.yaml
+```
+
+输出中会出现：
+
+```yaml
+leader_context:
+  project_team:
+    project_id:
+    pack_id:
+    active_count:
+project_team_activation:
+  dispatch_roster:
+    - source: global_registry
+    - source: project_candidate
+```
+
+边界：
+
+- project-aware orchestrator 只加载 roster，不调用 candidate subagent。
+- `promoted_uninvoked` 不是 `invoked`。
+- 项目队伍不修改 `global-experts.yaml`。
+
 ## 输出对象
 
 第二阶段最小派生实现应至少生成：

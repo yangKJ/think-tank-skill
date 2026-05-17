@@ -1,0 +1,70 @@
+#!/usr/bin/env python3
+"""检查 leader orchestrator 可选加载项目 team pack。"""
+
+from __future__ import annotations
+
+import importlib.util
+import sys
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[1]
+LEADER_RUNTIME = ROOT / "leader-runtime"
+ORCHESTRATOR = LEADER_RUNTIME / "runtime" / "orchestrator.py"
+TEAM_PACK = LEADER_RUNTIME / "examples" / "promoted-project-team-pack.sample.yaml"
+FIXTURE = "think-tank/examples/browser-automation-fixture.html"
+
+
+def fail(message: str) -> None:
+    raise SystemExit(f"project aware orchestrator 检查失败: {message}")
+
+
+def load_module(path: Path, name: str):
+    spec = importlib.util.spec_from_file_location(name, path)
+    if spec is None or spec.loader is None:
+        fail(f"无法加载模块: {path.relative_to(ROOT)}")
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[name] = module
+    spec.loader.exec_module(module)
+    return module
+
+
+def main() -> None:
+    for path in [ORCHESTRATOR, TEAM_PACK]:
+        if not path.exists():
+            fail(f"缺少文件: {path.relative_to(ROOT)}")
+
+    module = load_module(ORCHESTRATOR, "leader_runtime_project_aware_orchestrator")
+    baseline = module.run_leader_orchestrator("竞品分析 Cursor 和 Codex", target=FIXTURE)
+    if "project_team_activation" in baseline:
+        fail("未传 team_pack 时不应出现 project_team_activation")
+    if "project_team" in baseline["leader_context"]:
+        fail("未传 team_pack 时 leader_context 不应包含 project_team")
+
+    result = module.run_leader_orchestrator(
+        "竞品分析 Cursor 和 Codex",
+        target=FIXTURE,
+        team_pack_path=TEAM_PACK,
+    )
+    activation = result.get("project_team_activation")
+    if activation is None:
+        fail("传入 team_pack 后必须输出 project_team_activation")
+    if result["leader_context"]["project_team"]["project_id"] != "sample-product":
+        fail("leader_context.project_team.project_id 不正确")
+    if "product_strategy_analyst" not in activation["candidate_agents"]:
+        fail("project_team_activation 必须包含 promoted candidate")
+    candidate_rows = [item for item in activation["dispatch_roster"] if item["source"] == "project_candidate"]
+    if not candidate_rows:
+        fail("dispatch_roster 必须包含 project_candidate")
+    if candidate_rows[0]["dispatch_status"] != "promoted_uninvoked":
+        fail("project candidate 必须保持 promoted_uninvoked")
+    if result["think_tank_skill_result"]["runtime"] != "codex-natural-language-orchestrator":
+        fail("project-aware leader 仍必须包装 think-tank Skill 结果")
+    if "Project team activation loads roster entries only" not in " ".join(result["boundaries"]):
+        fail("result boundaries 必须声明 activation 只加载 roster")
+
+    print("project aware orchestrator 检查通过")
+
+
+if __name__ == "__main__":
+    main()

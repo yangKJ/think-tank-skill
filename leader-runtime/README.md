@@ -138,6 +138,14 @@ Activation 会合并两类队伍：
 
 未 review 的 candidate 不会进入 active roster。进入 roster 也仍然只是 `promoted_uninvoked`，不代表已经真实调用。
 
+Codex leader orchestrator 可以选择性加载 promoted team pack：
+
+```text
+runtime/orchestrator.py --team-pack leader-runtime/examples/promoted-project-team-pack.sample.yaml
+```
+
+不传 `--team-pack` 时，leader 仍按全局 registry 和 think-tank Skill 结果运行；传入后，结果会额外包含 `project_team_activation`，并在 `leader_context.project_team` 中暴露当前项目队伍摘要。
+
 ## Runtime Entry
 
 Codex leader runtime 的当前入口是：
@@ -170,4 +178,5 @@ global_expert_registry_data_source: implemented
 candidate_selection_policy: implemented
 candidate_review_gate: implemented
 project_team_activation: implemented
+project_aware_leader_orchestrator: implemented
 ```
