@@ -1,0 +1,13 @@
+pilot_id: sample-product-leader-pilot
+project_id: sample-product
+selection_policy: leader-runtime/examples/candidate-selection-policy.sample.yaml
+request: 竞品分析 Cursor 和 Codex 的主 agent 协作差异
+target: think-tank/examples/browser-automation-fixture.html
+reviewer_id: think_tank_global_leader
+approved_agent_ids:
+  - product_strategy_analyst
+rejected_agent_ids: []
+allow_candidate_invocation: true
+candidate_runtime_support: verified_partial
+candidate_host_results: leader-runtime/examples/project-candidate-host-results.sample.json
+write_run: false

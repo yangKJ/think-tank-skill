@@ -90,6 +90,30 @@ runtime/agent_frontmatter.py
 
 它不会直接把 Claude agent 注册进 `global-experts.yaml`，也不会声明这些 agent 已在 Codex 中被真实调用。candidate 进入 registry 前必须经过 leader 审核、去私有化、去平台绑定和验收边界补齐。
 
+## Project Leader Pilot
+
+仓库内现在提供一条可重复运行的项目试点闭环：
+
+```text
+runtime/project_leader_pilot.py
+examples/project-leader-pilot.sample.yaml
+project-templates/project-leader-pilot.template.yaml
+```
+
+这条试点链路会在一次运行中串起：
+
+```text
+selection policy
+  -> candidate review / promotion
+  -> project team activation
+  -> project-aware orchestrator
+  -> invocation gate
+  -> host-ready dispatch bundle
+  -> host invocation evidence ingest
+```
+
+它的意义不是声称任何外部 host 已被默认打通，而是给其他 Codex 项目提供一个最小可验收样板。后续项目只需要替换 selection policy、批准名单和 host result 文件，就能复用这套 leader 落地路径。
+
 ## Candidate Selection Policy
 
 不同项目可以使用不同的 subagent 队伍。`leader-runtime` 因此不把本地 `.claude/agents` 固化为全局专家池，而是提供项目级筛选策略：
@@ -233,4 +257,5 @@ project_aware_leader_orchestrator: implemented
 project_candidate_dispatch_plan: implemented
 project_candidate_invocation_gate: implemented
 project_candidate_host_adapter: implemented
+project_leader_pilot_flow: implemented
 ```

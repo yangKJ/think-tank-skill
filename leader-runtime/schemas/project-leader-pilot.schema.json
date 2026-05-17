@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://think-tank.dev/leader-runtime/schemas/project-leader-pilot.schema.json",
+  "title": "Project Leader Pilot",
+  "type": "object",
+  "required": [
+    "pilot_id",
+    "project_id",
+    "selection_policy",
+    "request"
+  ],
+  "properties": {
+    "pilot_id": {
+      "type": "string"
+    },
+    "project_id": {
+      "type": "string"
+    },
+    "selection_policy": {
+      "type": "string"
+    },
+    "request": {
+      "type": "string"
+    },
+    "target": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "reviewer_id": {
+      "type": "string"
+    },
+    "approved_agent_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "rejected_agent_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "allow_candidate_invocation": {
+      "type": "boolean"
+    },
+    "candidate_runtime_support": {
+      "type": "string",
+      "enum": [
+        "not_verified",
+        "specified",
+        "verified_partial",
+        "verified"
+      ]
+    },
+    "candidate_host_results": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "write_run": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

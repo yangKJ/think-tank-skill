@@ -120,4 +120,26 @@ project_derived_leader_model: implemented_partial
 project_team_pack_schema: specified
 derived_registry_runtime_helper: implemented
 project_acceptance_override: specified
+project_leader_pilot_flow: implemented
 ```
+
+## 项目试点闭环
+
+当前仓库已经内置一条最小试点闭环：
+
+```text
+leader-runtime/runtime/project_leader_pilot.py \
+  leader-runtime/examples/project-leader-pilot.sample.yaml
+```
+
+这条命令会把一次项目 leader 演练串成单个输出对象，覆盖：
+
+- candidate selection
+- candidate review / promotion
+- project team activation
+- orchestrator dispatch
+- invocation gate
+- host-ready dispatch bundle
+- host invocation evidence
+
+它适合作为其他 Codex 项目的第一轮验收底稿。边界仍然不变：样例里使用的 host evidence 是 repo 内样例文件，因此它证明的是控制面闭环，而不是所有外部 host 的长期真实可用性。

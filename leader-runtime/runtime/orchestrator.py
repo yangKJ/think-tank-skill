@@ -31,7 +31,7 @@ from leader_registry import (  # noqa: E402
     build_expert_task_packets,
     summarize_registry,
 )
-from project_team_activation import run_activation  # noqa: E402
+from project_team_activation import activate_project_team_pack, load_team_pack  # noqa: E402
 from project_candidate_dispatch import (  # noqa: E402
     build_project_candidate_task_packets,
     summarize_project_candidate_dispatch,
@@ -61,10 +61,15 @@ def _capabilities_from_skill_result(skill_result: dict[str, Any]) -> list[str]:
     return capabilities if isinstance(capabilities, list) else []
 
 
-def _load_project_team_activation(team_pack_path: str | Path | None) -> dict[str, Any] | None:
+def _load_project_team_activation(
+    team_pack_path: str | Path | None,
+    team_pack_data: dict[str, Any] | None = None,
+) -> dict[str, Any] | None:
+    if team_pack_data is not None:
+        return activate_project_team_pack(team_pack_data)
     if team_pack_path is None:
         return None
-    return run_activation(Path(team_pack_path))
+    return activate_project_team_pack(load_team_pack(Path(team_pack_path)))
 
 
 def _leader_context_from_dispatch(
@@ -93,6 +98,7 @@ def run_leader_orchestrator(
     target: str | None = None,
     write_run: bool = False,
     team_pack_path: str | Path | None = None,
+    team_pack_data: dict[str, Any] | None = None,
     allow_candidate_invocation: bool = False,
     candidate_runtime_support: str = "not_verified",
     candidate_host_results_path: str | Path | None = None,
@@ -113,7 +119,7 @@ def run_leader_orchestrator(
         capabilities,
         platform_supports_subagents=False,
     )
-    project_team_activation = _load_project_team_activation(team_pack_path)
+    project_team_activation = _load_project_team_activation(team_pack_path, team_pack_data=team_pack_data)
     packets = build_expert_task_packets(
         request,
         mode,

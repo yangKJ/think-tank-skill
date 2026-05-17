@@ -19,6 +19,7 @@
 - project candidate invocation gate
 - project candidate host dispatch bundle
 - project candidate invocation evidence
+- project leader pilot
 
 这些 schema 服务于领导者运行层，不属于 `think-tank` 高阶 Skill core。
 
@@ -39,3 +40,5 @@
 `project-candidate-host-dispatch-bundle.schema.json` 描述交给外部 host adapter 的调用包。它只能表示 ready_for_host_dispatch，不能表示已经执行。
 
 `project-candidate-invocation-evidence.schema.json` 描述 host adapter 返回的结果证据。只有这层出现 `invoked: true`，系统才可以说真实 project candidate invocation 已发生。
+
+`project-leader-pilot.schema.json` 描述项目试点 spec。它至少要求声明 project、selection policy 和 request，避免 pilot 退化成只看样例文件而没有完整领导化链路。
