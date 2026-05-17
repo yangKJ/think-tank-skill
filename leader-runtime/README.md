@@ -107,10 +107,20 @@ source agent frontmatter
   -> candidate selection policy
   -> selected project candidates
   -> project team pack draft
-  -> leader review / promotion
+  -> candidate review report
+  -> promoted project team pack
 ```
 
 这意味着 Awakening、Agent-team、think-tank 主仓或其他 Codex 项目都可以从同一个候选来源中挑不同专家，但不会互相污染队伍配置。
+
+晋升入口：
+
+```text
+runtime/candidate_review.py
+templates/candidate-review-report.md
+```
+
+晋升只改变项目级 team pack draft 中的 candidate 状态，不修改 `registries/global-experts.yaml`。
 
 ## Runtime Entry
 
@@ -141,4 +151,6 @@ codex_leader_runtime_helpers: implemented_partial
 project_derived_leader_model: implemented_partial
 project_team_pack_templates: implemented
 global_expert_registry_data_source: implemented
+candidate_selection_policy: implemented
+candidate_review_gate: implemented
 ```

@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://leader-runtime.local/schemas/candidate-review-report.schema.json",
+  "title": "Leader Runtime Candidate Review Report",
+  "type": "object",
+  "required": [
+    "review_id",
+    "reviewer_id",
+    "project_id",
+    "policy_id",
+    "status",
+    "reviewed_candidates",
+    "promoted_count",
+    "rejected_count",
+    "promoted_team_pack",
+    "boundaries"
+  ],
+  "properties": {
+    "review_id": {"type": "string", "minLength": 1},
+    "reviewer_id": {"type": "string", "minLength": 1},
+    "project_id": {"type": "string", "minLength": 1},
+    "policy_id": {"type": "string", "minLength": 1},
+    "status": {"type": "string", "enum": ["passed", "needs_revision", "rejected"]},
+    "reviewed_candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["agent_id", "name", "decision", "checks", "notes"],
+        "properties": {
+          "agent_id": {"type": "string", "minLength": 1},
+          "name": {"type": "string", "minLength": 1},
+          "decision": {"type": "string", "enum": ["promote", "reject"]},
+          "checks": {"type": "array", "items": {"type": "string"}},
+          "notes": {"type": "array", "items": {"type": "string"}}
+        },
+        "additionalProperties": false
+      }
+    },
+    "promoted_count": {"type": "integer", "minimum": 0},
+    "rejected_count": {"type": "integer", "minimum": 0},
+    "promoted_team_pack": {"type": ["object", "null"]},
+    "boundaries": {"type": "array", "items": {"type": "string"}, "minItems": 1}
+  },
+  "additionalProperties": false
+}
