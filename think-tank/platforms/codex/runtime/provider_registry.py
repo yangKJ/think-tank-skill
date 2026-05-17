@@ -202,6 +202,12 @@ KNOWN_PROVIDER_RULES: dict[str, dict[str, Any]] = {
         "requires_permission": True,
         "recovery_targets": ["artifact", "role_result"],
     },
+    "agent-reach": {
+        "capabilities": ["source-acquisition"],
+        "access_level": "network",
+        "requires_permission": False,
+        "recovery_targets": ["sources", "evidence", "boundary_only"],
+    },
     "web-video-presentation": {
         "capabilities": ["media-processing", "knowledge-persistence"],
         "access_level": "write",

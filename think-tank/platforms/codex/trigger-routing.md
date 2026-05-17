@@ -96,7 +96,7 @@ routes:
 
 | 旧组合 | 新归属 |
 |--------|--------|
-| `web-access + summarize` | `source-acquisition` 的轻量实现候选 |
+| `agent-reach + web-access + summarize` | `source-acquisition` 的统一入口与轻量实现候选 |
 | `omni-research + juejin-search + summarize + optional knowledge provider` | `competitive-intelligence` 或深度研究 recipe 的候选组合 |
 | `xiaohongshu + social-media-analyzer + summarize` | `social-listening` 的舆情候选组合 |
 | `pdf-extraction + knowledge-graph-builder + web-access` | `source-acquisition + knowledge-persistence` 的行业研究候选组合 |

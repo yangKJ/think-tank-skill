@@ -707,23 +707,25 @@ def run_orchestrator(
     # 形成完整的 dispatch_decision（dispatch-policy.md 要求）
     skill_route = route_result.get("skill_route", {})
     candidate_providers = skill_route.get("candidate_providers", [])
-    selected_provider = "local_static_reader" if invoke_source else None
+    policy_selected_provider = skill_route.get("selected_provider")
+    runtime_selected_provider = "local_static_reader" if invoke_source else None
     dispatch_decision = {
         "intent": route_result.get("selected_intent"),
         "recipe": route_result.get("selected_recipe"),
         "mode": mode_from_route(route_result),
-        "capability": "source-acquisition" if invoke_source else "media-production",
+        "capability": "source-acquisition" if "source-acquisition" in (route_result.get("selected_capabilities", []) or []) else "media-production",
         "task": request,
         "target": selected_target,
         "constraints": ["readonly", "no_login", "no_download", "no_private_write"],
         "evidence_policy": {"network": "allowed", "citations": "optional"},
         "candidate_peer_skills": candidate_providers,
-        "selected_peer_skill": selected_provider,
+        "selected_peer_skill": runtime_selected_provider,
+        "policy_selected_peer_skill": policy_selected_provider,
         "selection_reason": skill_route.get("selection_reason", ""),
-        "invocation_method": "web-access" if invoke_source else "research-to-video-production",
+        "invocation_method": "local_static_reader" if runtime_selected_provider else "not_invoked",
         "fallback": route_result.get("fallback", "core_protocol"),
         "risk_level": "low" if invoke_source else "medium",
-        "dispatch_allowed": bool(selected_provider),
+        "dispatch_allowed": bool(runtime_selected_provider),
     }
     dispatch_decision_formed = True
 
@@ -734,11 +736,12 @@ def run_orchestrator(
         provider_preflight,
         source_result,
     )
-    runtime_selected_provider = (
-        "research-to-video-production"
-        if handoff_result and handoff_result.get("status") == "success"
-        else selected_provider
-    )
+    if handoff_result and handoff_result.get("status") == "success":
+        runtime_selected_provider = "research-to-video-production"
+        dispatch_decision["selected_peer_skill"] = runtime_selected_provider
+        dispatch_decision["invocation_method"] = "research-to-video-production"
+        dispatch_decision["risk_level"] = "medium"
+        dispatch_decision["dispatch_allowed"] = True
     invoked = invoke_source or bool(handoff_result and handoff_result.get("status") == "success")
     recovered = bool(source_result and source_result.get("sources")) or bool(
         handoff_result and handoff_result.get("generated_artifacts")

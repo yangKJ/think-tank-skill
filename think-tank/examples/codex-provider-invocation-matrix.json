@@ -4,6 +4,22 @@
   "status": "established",
   "providers": [
     {
+      "provider": "agent-reach",
+      "capability": "source-acquisition",
+      "selected_by_policy": true,
+      "dispatch_decision_before_invocation": true,
+      "invoked": false,
+      "target": "policy route selection only",
+      "result_status": "not_invoked",
+      "recovery_targets": [],
+      "status": "available_not_verified",
+      "boundaries": [
+        "policy route now统一选择 agent-reach 作为 source-acquisition 统一入口",
+        "selection does not execute network skill or local readers",
+        "actual acquisition still depends on minimal runtime dispatch or explicit handoff"
+      ]
+    },
+    {
       "provider": "local_static_reader",
       "capability": "source-acquisition",
       "selected_by_policy": false,
@@ -53,17 +69,17 @@
     {
       "provider": "web-access",
       "capability": "source-acquisition",
-      "selected_by_policy": true,
+      "selected_by_policy": false,
       "dispatch_decision_before_invocation": true,
       "invoked": false,
-      "target": "policy route selection only",
+      "target": "web-access is now invoked through runtime path only",
       "result_status": "not_invoked",
       "recovery_targets": [],
       "status": "available_not_verified",
       "boundaries": [
-        "Provider policy selected web-access for research and competitive-intelligence routes.",
-        "Selection does not invoke the peer skill.",
-        "Must pass a separate invocation and recovery test before verified."
+        "web-access is no longer the first policy selection target for default source-acquisition routes.",
+        "Current default routes select agent-reach first.",
+        "Selection does not invoke the peer skill."
       ]
     },
     {
@@ -88,7 +104,7 @@
       "route_id": "general-research-default",
       "selected_mode": "research",
       "selected_recipe": "evidence-synthesis",
-      "selected_provider": "web-access",
+      "selected_provider": "agent-reach",
       "provider_invoked": false
     },
     {
@@ -96,7 +112,7 @@
       "route_id": "competitive-intelligence",
       "selected_mode": "research",
       "selected_recipe": "competitive-intelligence",
-      "selected_provider": "web-access",
+      "selected_provider": "agent-reach",
       "provider_invoked": false
     },
     {
@@ -112,7 +128,7 @@
       "route_id": "review-acceptance",
       "selected_mode": "review",
       "selected_recipe": "review-acceptance",
-      "selected_provider": "web-access",
+      "selected_provider": "agent-reach",
       "provider_invoked": false
     },
     {
@@ -139,4 +155,3 @@
     "No claim that Claude Code runtime is verified."
   ]
 }
-
