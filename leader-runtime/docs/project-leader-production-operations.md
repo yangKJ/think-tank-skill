@@ -44,15 +44,17 @@ python3 leader-runtime/runtime/project_leader_pilot.py \
 python3 leader-runtime/runtime/project_leader_pilot.py leader-runtime/examples/project-leader-pilot.sample.yaml
 ```
 
-2. 将 `project_candidate_host_dispatch_bundle` 发给真实 host。
+2. 将 `project_candidate_host_dispatch_bundle` 发给 host（若无真实 host，可先用本地 runner 仿真）：
 
 ```bash
-python3 your_host_adapter.py \
-  --dispatch-bundle /tmp/host_dispatch_bundle.json \
+python3 leader-runtime/runtime/project_candidate_host_runner.py \
+  --bundle-json /tmp/host_dispatch_bundle.json \
+  --output-json /tmp/host_results.json \
+  --host-provider ${HOST_PROVIDER:-codex-host-adapter} \
   --run-id ${RUN_ID}
 ```
 
-3. 接收 host results 后再回灌：
+3. 真实 host 场景可直接替换为你的 host adapter，接收 `host_results.json` 后回灌：
 
 ```bash
 python3 leader-runtime/runtime/project_leader_pilot.py \

@@ -222,6 +222,7 @@ invoked: false
 
 ```text
 runtime/project_candidate_host_adapter.py
+runtime/project_candidate_host_runner.py
 schemas/project-candidate-host-dispatch-bundle.schema.json
 schemas/project-candidate-invocation-evidence.schema.json
 ```
@@ -230,6 +231,7 @@ schemas/project-candidate-invocation-evidence.schema.json
 
 - 把 candidate packet 转成 `ready_for_host_dispatch` 的 host bundle。
 - 接收外部 host 返回的结果文件，并回灌为 `project_candidate_invocation_evidence`。
+- 本地 `project_candidate_host_runner.py` 可用于仿真 host 回执，适合预热和联调验证。
 
 关键边界：
 
