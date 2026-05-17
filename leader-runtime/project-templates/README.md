@@ -20,3 +20,5 @@
 promotion 后的 team pack 可以交给 `runtime/project_team_activation.py` 生成项目级 dispatch roster。未 promotion 的 candidate 不会被激活。
 
 `project-leader-pilot.template.yaml` 用于其他 Codex 项目跑第一轮领导化试点。它把 request、selection policy、审核名单、candidate invocation readiness 和 host result 文件放进一份 spec，便于把“主 agent 升级成领导者”的落地动作标准化。
+
+`project-leader-pilot` 的样例配置建议和试点观察记录模板请结合 `leader-runtime/docs/project-leader-production-operations.md` 使用。

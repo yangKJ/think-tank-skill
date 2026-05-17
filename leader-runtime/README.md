@@ -114,6 +114,22 @@ selection policy
 
 它的意义不是声称任何外部 host 已被默认打通，而是给其他 Codex 项目提供一个最小可验收样板。后续项目只需要替换 selection policy、批准名单和 host result 文件，就能复用这套 leader 落地路径。
 
+## 生产实战验证
+
+项目上线前建议先走生产验证手册中的三阶段：
+
+1. 预热验证（本地样本）
+2. Host 灰度（真实任务）
+3. 稳定性监控（连续运行）
+
+对应执行入口：
+
+```text
+leader-runtime/docs/project-leader-pilot-runbook.md
+leader-runtime/docs/project-leader-production-operations.md
+leader-runtime/docs/project-leader-production-runbook-lite.md
+```
+
 ## Candidate Selection Policy
 
 不同项目可以使用不同的 subagent 队伍。`leader-runtime` 因此不把本地 `.claude/agents` 固化为全局专家池，而是提供项目级筛选策略：
