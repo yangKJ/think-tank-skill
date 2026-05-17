@@ -82,11 +82,12 @@ def build_row(spec: Path, operator: str, notes: str, host_provider: str | None) 
     activated_candidates = len(activation.get("candidate_agents", [])) if activation else 0
     dispatch_status = bundle.get("dispatch_status", "not_applicable")
     boundary_violations = 0
-    if dispatch_status == "ready_for_host_dispatch" and not invocation_evidence and host_provider:
+    # 只有当请求明确指向主机派发但未返回任何 evidence 时，才记为边界违规。
+    if dispatch_status == "ready_for_host_dispatch" and host_provider and not invocation_evidence:
         boundary_violations += 1
 
     successful, failed = _safe_result_count(invocation_evidence)
-    if not spec_data.get("candidate_host_results"):
+    if dispatch_status == "ready_for_host_dispatch" and host_provider and not spec_data.get("candidate_host_results"):
         boundary_violations += 1
 
     return {
