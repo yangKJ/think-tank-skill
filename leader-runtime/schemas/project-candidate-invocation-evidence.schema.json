@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://leader-runtime.local/schemas/project-candidate-invocation-evidence.schema.json",
+  "title": "Leader Runtime Project Candidate Invocation Evidence",
+  "type": "object",
+  "required": [
+    "evidence_id",
+    "bundle_id",
+    "result_count",
+    "successful_invocations",
+    "results",
+    "boundaries"
+  ],
+  "properties": {
+    "evidence_id": {"type": "string", "minLength": 1},
+    "bundle_id": {"type": "string", "minLength": 1},
+    "result_count": {"type": "integer", "minimum": 0},
+    "successful_invocations": {"type": "integer", "minimum": 0},
+    "results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "task_id",
+          "candidate_agent_id",
+          "invocation_status",
+          "invoked",
+          "result_ref"
+        ],
+        "properties": {
+          "task_id": {"type": "string", "minLength": 1},
+          "candidate_agent_id": {"type": "string", "minLength": 1},
+          "invocation_status": {"type": "string", "enum": ["success", "failed", "skipped"]},
+          "invoked": {"type": "boolean"},
+          "result_ref": {"type": "string", "minLength": 1},
+          "summary": {"type": ["string", "null"]}
+        },
+        "additionalProperties": false
+      }
+    },
+    "boundaries": {"type": "array", "items": {"type": "string"}, "minItems": 1}
+  },
+  "additionalProperties": false
+}

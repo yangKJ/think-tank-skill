@@ -176,6 +176,27 @@ invoked: false
 
 即使显式传入 `--allow-candidate-invocation --candidate-runtime-support verified_partial`，当前 gate 也只会输出 `ready_uninvoked`，不会真实调用 subagent。后续需要单独的平台 adapter 产生 `invoked: true` 的证据。
 
+## Project Candidate Host Adapter
+
+当 invocation gate 进入 `ready_uninvoked` 后，可以继续生成 host-ready dispatch bundle：
+
+```text
+runtime/project_candidate_host_adapter.py
+schemas/project-candidate-host-dispatch-bundle.schema.json
+schemas/project-candidate-invocation-evidence.schema.json
+```
+
+这层做两件事：
+
+- 把 candidate packet 转成 `ready_for_host_dispatch` 的 host bundle。
+- 接收外部 host 返回的结果文件，并回灌为 `project_candidate_invocation_evidence`。
+
+关键边界：
+
+- host bundle 本身不执行 subagent。
+- `ready_for_host_dispatch` 仍不是调用证据。
+- 只有 host 返回 `invoked:true` 的结果后，系统才能在 evidence 层面承认真实调用发生。
+
 ## Runtime Entry
 
 Codex leader runtime 的当前入口是：
@@ -211,4 +232,5 @@ project_team_activation: implemented
 project_aware_leader_orchestrator: implemented
 project_candidate_dispatch_plan: implemented
 project_candidate_invocation_gate: implemented
+project_candidate_host_adapter: implemented
 ```

@@ -1,0 +1,10 @@
+[
+  {
+    "task_id": "research-project-candidate-1",
+    "candidate_agent_id": "product_strategy_analyst",
+    "invocation_status": "success",
+    "invoked": true,
+    "result_ref": "host://codex/subagent-runs/sample-product/product_strategy_analyst/run-001",
+    "summary": "Project candidate completed a strategy-focused claim and recommendation packet."
+  }
+]

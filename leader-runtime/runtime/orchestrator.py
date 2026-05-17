@@ -37,6 +37,11 @@ from project_candidate_dispatch import (  # noqa: E402
     summarize_project_candidate_dispatch,
 )
 from project_candidate_invocation_gate import evaluate_project_candidate_invocation_gate  # noqa: E402
+from project_candidate_host_adapter import (  # noqa: E402
+    build_host_dispatch_bundle,
+    ingest_host_results,
+    load_host_results,
+)
 
 
 def _load_think_tank_orchestrator():
@@ -90,6 +95,7 @@ def run_leader_orchestrator(
     team_pack_path: str | Path | None = None,
     allow_candidate_invocation: bool = False,
     candidate_runtime_support: str = "not_verified",
+    candidate_host_results_path: str | Path | None = None,
 ) -> dict[str, Any]:
     think_tank_orchestrator = _load_think_tank_orchestrator()
     skill_result = think_tank_orchestrator.run_orchestrator(
@@ -125,6 +131,16 @@ def run_leader_orchestrator(
         allow_invocation=allow_candidate_invocation,
         runtime_support=candidate_runtime_support,
     )
+    project_candidate_host_dispatch_bundle = build_host_dispatch_bundle(
+        project_candidate_packets,
+        project_candidate_invocation_gate,
+    )
+    project_candidate_invocation_evidence = None
+    if candidate_host_results_path is not None:
+        project_candidate_invocation_evidence = ingest_host_results(
+            project_candidate_host_dispatch_bundle,
+            load_host_results(Path(candidate_host_results_path)),
+        )
     acceptance_report = build_acceptance_report(
         checked_results=["think_tank_skill_result", "dispatch_decision"],
         passed_checks=list(SCHEMA_CHECKS),
@@ -141,6 +157,10 @@ def run_leader_orchestrator(
         boundaries.append("Project candidate task packets are planned_uninvoked and do not prove subagent invocation.")
     if project_candidate_invocation_gate["decision_status"] != "not_applicable":
         boundaries.append("Project candidate invocation gate does not invoke subagents; it only emits readiness decisions.")
+    if project_candidate_host_dispatch_bundle["dispatch_status"] != "not_applicable":
+        boundaries.append("Project candidate host dispatch bundle is adapter-ready only; it does not execute subagents.")
+    if project_candidate_invocation_evidence is not None:
+        boundaries.append("Project candidate invocation evidence comes from host-returned results, not from leader-runtime direct execution.")
     result = {
         "runtime": "leader-runtime-codex-orchestrator",
         "leader_context": _leader_context_from_dispatch(dispatch_decision, project_team_activation),
@@ -150,6 +170,8 @@ def run_leader_orchestrator(
         "project_candidate_task_packets": project_candidate_packets,
         "project_candidate_dispatch_summary": summarize_project_candidate_dispatch(project_candidate_packets),
         "project_candidate_invocation_gate": project_candidate_invocation_gate,
+        "project_candidate_host_dispatch_bundle": project_candidate_host_dispatch_bundle,
+        "project_candidate_invocation_evidence": project_candidate_invocation_evidence,
         "acceptance_report": acceptance_report,
         "think_tank_skill_result": skill_result,
         "boundaries": boundaries,
@@ -171,6 +193,7 @@ def main() -> int:
         default="not_verified",
         choices=["not_verified", "specified", "verified_partial", "verified"],
     )
+    parser.add_argument("--candidate-host-results", default=None, help="Optional host result evidence JSON for candidate subagents.")
     args = parser.parse_args()
     print(
         json.dumps(
@@ -181,6 +204,7 @@ def main() -> int:
                 team_pack_path=args.team_pack,
                 allow_candidate_invocation=args.allow_candidate_invocation,
                 candidate_runtime_support=args.candidate_runtime_support,
+                candidate_host_results_path=args.candidate_host_results,
             ),
             ensure_ascii=False,
             indent=2,

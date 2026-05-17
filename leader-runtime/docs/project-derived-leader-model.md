@@ -87,6 +87,11 @@ project_candidate_invocation_gate:
   decision_status: blocked | ready_uninvoked
   candidate_decisions:
     - invoked: false
+project_candidate_host_dispatch_bundle:
+  dispatch_status: blocked | ready_for_host_dispatch
+project_candidate_invocation_evidence:
+  results:
+    - invoked: true
 ```
 
 边界：
@@ -95,6 +100,8 @@ project_candidate_invocation_gate:
 - `promoted_uninvoked` 不是 `invoked`。
 - `planned_uninvoked` 只是派遣计划，不是执行证据。
 - `ready_uninvoked` 只是允许进入下一层 adapter，不是执行证据。
+- `ready_for_host_dispatch` 只是 adapter-ready，不是执行证据。
+- 只有 host 回灌的 `invoked: true` evidence 才能证明真实调用发生。
 - 项目队伍不修改 `global-experts.yaml`。
 
 ## 输出对象

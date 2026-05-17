@@ -17,6 +17,8 @@
 - project team activation
 - project candidate task packet
 - project candidate invocation gate
+- project candidate host dispatch bundle
+- project candidate invocation evidence
 
 这些 schema 服务于领导者运行层，不属于 `think-tank` 高阶 Skill core。
 
@@ -33,3 +35,7 @@
 `project-candidate-task-packet.schema.json` 描述 promoted project candidate 的任务计划。它的状态应保持 `planned_uninvoked`，直到平台 runtime 提供真实 invocation evidence。
 
 `project-candidate-invocation-gate.schema.json` 描述 candidate packet 进入真实调用前的安全门禁。默认必须 blocked；即使 ready，也只能是 `ready_uninvoked`，不能伪造调用证据。
+
+`project-candidate-host-dispatch-bundle.schema.json` 描述交给外部 host adapter 的调用包。它只能表示 ready_for_host_dispatch，不能表示已经执行。
+
+`project-candidate-invocation-evidence.schema.json` 描述 host adapter 返回的结果证据。只有这层出现 `invoked: true`，系统才可以说真实 project candidate invocation 已发生。
