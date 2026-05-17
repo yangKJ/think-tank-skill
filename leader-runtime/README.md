@@ -146,6 +146,17 @@ runtime/orchestrator.py --team-pack leader-runtime/examples/promoted-project-tea
 
 不传 `--team-pack` 时，leader 仍按全局 registry 和 think-tank Skill 结果运行；传入后，结果会额外包含 `project_team_activation`，并在 `leader_context.project_team` 中暴露当前项目队伍摘要。
 
+## Project Candidate Dispatch Plan
+
+激活后的 `project_candidate` 可以进入派遣计划，但仍不等于真实调用：
+
+```text
+runtime/project_candidate_dispatch.py
+schemas/project-candidate-task-packet.schema.json
+```
+
+项目 candidate packet 会出现在 orchestrator 输出的 `project_candidate_task_packets` 中，状态固定为 `planned_uninvoked`。后续只有接入平台级 subagent invocation gate 后，才能从计划升级为真实调用证据。
+
 ## Runtime Entry
 
 Codex leader runtime 的当前入口是：
@@ -179,4 +190,5 @@ candidate_selection_policy: implemented
 candidate_review_gate: implemented
 project_team_activation: implemented
 project_aware_leader_orchestrator: implemented
+project_candidate_dispatch_plan: implemented
 ```

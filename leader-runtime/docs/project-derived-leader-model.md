@@ -81,12 +81,15 @@ project_team_activation:
   dispatch_roster:
     - source: global_registry
     - source: project_candidate
+project_candidate_task_packets:
+  - dispatch_status: planned_uninvoked
 ```
 
 边界：
 
 - project-aware orchestrator 只加载 roster，不调用 candidate subagent。
 - `promoted_uninvoked` 不是 `invoked`。
+- `planned_uninvoked` 只是派遣计划，不是执行证据。
 - 项目队伍不修改 `global-experts.yaml`。
 
 ## 输出对象

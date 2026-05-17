@@ -58,6 +58,15 @@ def main() -> None:
         fail("dispatch_roster 必须包含 project_candidate")
     if candidate_rows[0]["dispatch_status"] != "promoted_uninvoked":
         fail("project candidate 必须保持 promoted_uninvoked")
+    candidate_packets = result.get("project_candidate_task_packets", [])
+    if len(candidate_packets) != 1:
+        fail("project-aware leader 必须为 promoted candidate 生成计划 packet")
+    if candidate_packets[0]["candidate_agent_id"] != "product_strategy_analyst":
+        fail("project candidate packet candidate_agent_id 不正确")
+    if candidate_packets[0]["dispatch_status"] != "planned_uninvoked":
+        fail("project candidate packet 必须保持 planned_uninvoked")
+    if result["project_candidate_dispatch_summary"]["dispatch_status"] != "planned_uninvoked":
+        fail("project candidate dispatch summary 必须保持 planned_uninvoked")
     if result["think_tank_skill_result"]["runtime"] != "codex-natural-language-orchestrator":
         fail("project-aware leader 仍必须包装 think-tank Skill 结果")
     if "Project team activation loads roster entries only" not in " ".join(result["boundaries"]):

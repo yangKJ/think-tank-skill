@@ -32,6 +32,10 @@ from leader_registry import (  # noqa: E402
     summarize_registry,
 )
 from project_team_activation import run_activation  # noqa: E402
+from project_candidate_dispatch import (  # noqa: E402
+    build_project_candidate_task_packets,
+    summarize_project_candidate_dispatch,
+)
 
 
 def _load_think_tank_orchestrator():
@@ -107,6 +111,12 @@ def run_leader_orchestrator(
         capabilities,
         dispatch_decision["selected_experts"],
     )
+    project_candidate_packets = build_project_candidate_task_packets(
+        request,
+        mode,
+        capabilities,
+        project_team_activation,
+    )
     acceptance_report = build_acceptance_report(
         checked_results=["think_tank_skill_result", "dispatch_decision"],
         passed_checks=list(SCHEMA_CHECKS),
@@ -119,12 +129,16 @@ def run_leader_orchestrator(
     ]
     if project_team_activation is not None:
         boundaries.append("Project team activation loads roster entries only; candidate agents remain promoted_uninvoked.")
+    if project_candidate_packets:
+        boundaries.append("Project candidate task packets are planned_uninvoked and do not prove subagent invocation.")
     result = {
         "runtime": "leader-runtime-codex-orchestrator",
         "leader_context": _leader_context_from_dispatch(dispatch_decision, project_team_activation),
         "expert_registry_summary": summarize_registry(mode, route.get("selected_intent"), capabilities),
         "dispatch_decision": dispatch_decision,
         "expert_task_packets": packets,
+        "project_candidate_task_packets": project_candidate_packets,
+        "project_candidate_dispatch_summary": summarize_project_candidate_dispatch(project_candidate_packets),
         "acceptance_report": acceptance_report,
         "think_tank_skill_result": skill_result,
         "boundaries": boundaries,
