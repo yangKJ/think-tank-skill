@@ -39,6 +39,7 @@ codex:
   external_skill_invocation: planned
   true_multi_agent_execution: verified_partial_for_readonly_council_only
   long_running_adapter_runtime: verified_partial
+  long_running_subagent_lifecycle: verified_partial
 ```
 
 ## 验证产物
@@ -55,6 +56,7 @@ codex:
 | external source readonly | `examples/codex-external-source-validation.md` | verified |
 | browser external readonly | `examples/codex-browser-external-readonly.md` | verified_partial |
 | long-running adapter runtime | `examples/codex-long-running-adapter-runtime.md` | verified_partial |
+| subagent write lifecycle | `examples/codex-subagent-lifecycle-validation.md` | verified_partial |
 
 ## Research Mode
 

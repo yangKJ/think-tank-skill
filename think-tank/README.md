@@ -33,23 +33,24 @@ think-tank 是：
 ## 公开发布姿态
 
 ```yaml
-release_posture: public_beta
+release_posture: stable_release
 default_platform: codex
-default_runtime: single_agent_multi_profile_with_explicit_boundaries
+default_runtime: codex_first_runtime_with_verified_partial_subagent_write_lifecycle
 supported_for_daily_use:
   - protocol-first research
   - review and strategy workflows
   - local file and user-provided material analysis
 not_yet_stable:
-  - arbitrary external provider invocation
   - full cross-platform multi-agent runtime
   - private knowledge-base writes
+  - arbitrary external provider invocation without per-provider evidence
 ```
 
 如果外部用户要直接使用，当前最准确的预期是：
 
 - core protocol 可以用
 - Codex 主路径可用
+- stable release 只承诺已证据化边界内的能力
 - optional capability 需要按 provider 单独验证
 - 未验证能力必须保留 `planned`、`blocked` 或 `verified_partial`
 

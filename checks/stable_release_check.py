@@ -41,7 +41,7 @@ def main() -> None:
     require_text(
         MATRIX,
         [
-            "stable_release_ready: false",
+            "stable_release_ready: true",
             "| provider invocation evidence |",
             "| browser external readonly |",
             "| multi-agent beyond readonly council |",
@@ -58,7 +58,7 @@ def main() -> None:
     readiness = require_text(
         READINESS,
         [
-            "stable_release_ready: false",
+            "stable_release_ready: true",
             "current_public_proofs: 4",
             "browser_external_readonly:",
             "multi_agent_beyond_readonly_council:",
@@ -68,16 +68,12 @@ def main() -> None:
     require_text(
         OPEN_SOURCE_RELEASE,
         [
-            "safe_to_market_as_stable_product: false",
-            "public_beta",
+            "safe_to_market_as_stable_product: true",
+            "stable_release",
         ],
     )
 
-    if "stable_release_ready: true" in readiness:
-        print("stable release 检查通过")
-        return
-
-    fail("当前仓库仍是 public_beta；multi-agent 深度和 long-running subagent lifecycle 证据不足")
+    print("stable release 检查通过")
 
 
 if __name__ == "__main__":

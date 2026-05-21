@@ -7,7 +7,7 @@
 ```yaml
 platform: codex
 status: ready_before_claude_code_preflight
-execution_model: single_agent_multi_profile_with_verified_partial_subagent_council
+execution_model: codex_first_runtime_with_verified_partial_subagent_write_lifecycle
 last_updated: 2026-05-21
 ```
 
@@ -24,6 +24,7 @@ Codex 当前已经足够作为 think-tank 的主工作平台继续使用。
 - 公开静态网页可以通过 Codex source-acquisition 只读回收。
 - Browser localhost fixture 可以作为 optional browser-automation 验证。
 - Codex subagents 可以执行只读 council 分析并回收 role_result，状态为 verified_partial。
+- Codex subagents 可以在独立 write scope 中完成公开 artifact 写入并在第二阶段续跑更新，状态为 verified_partial。
 
 它不证明：
 
@@ -51,6 +52,7 @@ Codex 当前已经足够作为 think-tank 的主工作平台继续使用。
 | browser localhost fixture | verified_optional | `examples/browser-automation-integration.md` |
 | browser external readonly | verified_partial | `examples/codex-browser-external-readonly.md` |
 | Codex true council subagents | verified_partial | `examples/codex-true-council-runtime.md` |
+| Codex subagent write lifecycle | verified_partial | `examples/codex-subagent-lifecycle-validation.md` |
 | Codex provider invocation matrix | established | `examples/codex-provider-invocation-matrix.json` |
 | media-processing unavailable | verified_degradation | `examples/capability-degradation-media.md` |
 | social-listening unavailable | verified_degradation | `examples/capability-degradation-social.md` |
@@ -98,6 +100,7 @@ codex_ready_for_handoff:
   markdown_artifacts: verified
   degradation: verified
   browser_external_dom: verified_partial_for_static_public_pages
+  subagent_write_lifecycle: verified_partial
   claude_code_preflight_doc: ready
 ```
 

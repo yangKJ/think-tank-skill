@@ -38,6 +38,8 @@ REQUIRED_VALIDATION_FILES = [
     THINK_TANK / "examples" / "codex-browser-external-readonly.md",
     THINK_TANK / "examples" / "codex-long-running-adapter-runtime.md",
     THINK_TANK / "examples" / "codex-long-running-adapter-runtime.json",
+    THINK_TANK / "examples" / "codex-subagent-lifecycle-validation.md",
+    THINK_TANK / "examples" / "codex-subagent-lifecycle-validation.json",
     THINK_TANK / "examples" / "codex-runtime-sample.json",
     THINK_TANK / "examples" / "codex-runtime-failure-sample.json",
     THINK_TANK / "docs" / "runtime-mirror-report.md",
@@ -55,6 +57,7 @@ CODEX_REPORT_REQUIRED_SNIPPETS = [
     "browser_automation_external_web: verified_partial",
     "true_multi_agent_execution: verified_partial_for_readonly_council_only",
     "long_running_adapter_runtime: verified_partial",
+    "long_running_subagent_lifecycle: verified_partial",
 ]
 
 MINIMAL_INSTALL_REQUIRED_SNIPPETS = [

@@ -6,7 +6,7 @@
 
 ```yaml
 codex_specialist_subagent_runtime: specified
-true_parallel_subagent_runtime: verified_partial_for_readonly_council
+true_parallel_subagent_runtime: verified_partial_with_scoped_write_lifecycle
 fallback_runtime: supported
 ```
 
@@ -17,6 +17,7 @@ fallback_runtime: supported
 - role-result schema validation
 - single-agent multi-profile fallback
 - independent Codex subagent dispatch for readonly council analysis
+- scoped Codex subagent writes with lifecycle continuation
 
 但不能把这次只读 council 验证扩写成所有外部 provider、长期任务生命周期或其他平台的 full runtime verified。
 
@@ -55,11 +56,13 @@ Codex specialist runtime 只有在满足以下条件时才能标记为 verified�
 
 ```yaml
 readonly_council_subagents: verified_partial
+scoped_write_subagent_lifecycle: verified_partial
 external_provider_invocation_inside_subagents: not_verified
-long_running_subagent_lifecycle: not_verified
+long_running_subagent_lifecycle: verified_partial
 ```
 
 证据：
 
 - `examples/codex-true-council-runtime.md`
 - `docs/codex-true-multi-agent-validation.md`
+- `examples/codex-subagent-lifecycle-validation.md`

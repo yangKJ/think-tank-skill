@@ -5,10 +5,10 @@
 ## Release Summary
 
 ```yaml
-release_posture: public_beta
+release_posture: stable_release
 default_platform: codex
-default_runtime: single_agent_multi_profile
-multi_agent_runtime: verified_partial_for_readonly_council_only
+default_runtime: codex_first_runtime_with_explicit_boundaries
+multi_agent_runtime: verified_partial_with_scoped_write_lifecycle
 external_provider_runtime: per_provider_validation_required
 current_default_release: skill_core_only_bundle
 ```
@@ -24,7 +24,7 @@ Packaging:
 |------|--------|-------|
 | protocol structure | verified | 公开协议和目录结构可检查 |
 | research mode | verified | Codex 主路径已验收 |
-| council mode | verified | 默认是单 agent 多 profile；只读 subagent council 是 `verified_partial` |
+| council mode | verified | 默认是 Codex-first runtime；readonly council 与 scoped write lifecycle 都有 `verified_partial` 证据 |
 | review mode | verified | 可用于结构化审查 |
 | strategy mode | verified | 可用于路线和决策分析 |
 | runtime provenance | verified | 输出必须披露 runtime 和证据边界 |

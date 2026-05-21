@@ -69,6 +69,7 @@ degradation:
 browser_automation_external_web: verified_partial_external_readonly
 playwright_cli_integration: verified_partial_external_readonly
 codex_parallel_subagent_council: verified_partial
+codex_parallel_subagent_write_lifecycle: verified_partial
 yt_dlp_integration: planned
 obsidian_integration: planned
 xiaohongshu_integration: planned
@@ -97,7 +98,7 @@ Codex 优先继续验证：
 
 1. `browser-automation` 的登录态和交互式网页边界。
 2. `source-acquisition` 的更广外部来源只读路径。
-3. 更严格的 artifact 索引和复用路径。
+3. 更严格的 external provider invocation inside subagents。
 
 暂缓验证：
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""检查公开发布文案、支持矩阵和 beta 边界是否完整。"""
+"""检查公开发布文案、支持矩阵和 stable 边界是否完整。"""
 
 from __future__ import annotations
 
@@ -36,7 +36,7 @@ def main() -> None:
     require_text(
         README,
         [
-            "release_posture: public_beta",
+            "release_posture: stable_release",
             "think-tank/docs/open-source-quickstart.md",
             "think-tank/docs/support-matrix.md",
             "think-tank/docs/open-source-release.md",
@@ -48,7 +48,7 @@ def main() -> None:
     require_text(
         THINK_TANK_README,
         [
-            "release_posture: public_beta",
+            "release_posture: stable_release",
             "docs/open-source-quickstart.md",
             "docs/support-matrix.md",
             "docs/open-source-release.md",
@@ -71,8 +71,8 @@ def main() -> None:
     require_text(
         SUPPORT_MATRIX,
         [
-            "release_posture: public_beta",
-            "multi_agent_runtime: verified_partial_for_readonly_council_only",
+            "release_posture: stable_release",
+            "multi_agent_runtime: verified_partial_with_scoped_write_lifecycle",
             "| Codex | verified_foundation |",
             "| Claude Code | deferred |",
             "| agent-reach | available_not_verified |",
@@ -83,8 +83,8 @@ def main() -> None:
         OPEN_SOURCE_RELEASE,
         [
             "safe_to_publish: true",
-            "safe_to_market_as_stable_product: false",
-            "versioning_hint: 0.x",
+            "safe_to_market_as_stable_product: true",
+            "versioning_hint: 1.0",
             "skill_core_only_bundle",
             "current default public release is `skill_core_only_bundle`",
             "python3 checks/open_source_release_suite.py",

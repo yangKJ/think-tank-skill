@@ -65,17 +65,17 @@ think-tank-skill/
 Public release posture:
 
 ```yaml
-release_posture: public_beta
+release_posture: stable_release
 target_users:
-  - Codex-first early adopters
-  - protocol-first contributors
+  - Codex-first teams with explicit capability boundaries
+  - protocol-first contributors and integrators
   - teams willing to work with explicit capability boundaries
 not_target_users:
   - users expecting every optional provider to work out of the box
   - users expecting full multi-agent runtime across platforms
 ```
 
-This repository is ready to be shared publicly as a protocol-first beta. It is not yet a "install once and every provider just works" product distribution.
+This repository is ready to be shared publicly as a stable protocol-first release with explicit capability boundaries. It is not an "install once and every provider just works" distribution.
 
 ## Moved Creator Media System
 
@@ -138,7 +138,7 @@ python3 checks/release_privacy_check.py
 python3 checks/open_source_release_check.py
 ```
 
-Stable gate is stricter and currently expected to fail until more runtime evidence exists:
+Stable gate:
 
 ```bash
 python3 checks/stable_release_check.py
@@ -151,9 +151,10 @@ Codex foundation status:
 - Browser automation is verified as an optional localhost fixture integration.
 - External readonly source acquisition is verified through Codex source acquisition.
 - Codex minimal runtime mirror is verified with a local static fixture.
-- Browser external DOM recovery is blocked in the current environment and is not claimed as verified.
+- Browser external readonly recovery is verified_partial for public static pages.
 - JSON input/output samples are checked.
 - Codex true multi-agent council is verified_partial for readonly subagent role-result recovery.
+- Codex subagent write lifecycle is verified_partial for scoped public artifact writes with lifecycle continuation.
 - Claude Code runtime remains deferred.
 - v0.2 runtime hardening contracts are specified and checked.
 - v0.2 platform-neutral minimal runtime library is implemented and checked.

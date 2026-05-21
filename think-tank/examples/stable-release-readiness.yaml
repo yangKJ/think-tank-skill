@@ -1,5 +1,5 @@
-release_posture: public_beta
-stable_release_ready: false
+release_posture: stable_release
+stable_release_ready: true
 
 core_contract:
   protocol_check: pass
@@ -23,12 +23,12 @@ stable_blockers:
     current_status: verified_partial
     minimum_required: verified_partial_or_verified
   multi_agent_beyond_readonly_council:
-    status: blocked
-    current_status: not_verified
+    status: pass
+    current_status: verified_partial
     minimum_required: verified_partial_or_verified
   long_running_subagent_lifecycle:
-    status: blocked
-    current_status: not_verified
+    status: pass
+    current_status: verified_partial
     minimum_required: specified_or_better
   long_running_adapter_lifecycle:
     status: verified_partial
@@ -36,5 +36,5 @@ stable_blockers:
     minimum_required: informational_only
 
 notes:
-  - Public beta is releaseable.
-  - Stable release remains blocked by multi-agent depth, long-running lifecycle, and stronger public release posture.
+  - Stable release is now supported by repo gate and public evidence.
+  - Explicit provider boundaries remain part of the stable product claim.

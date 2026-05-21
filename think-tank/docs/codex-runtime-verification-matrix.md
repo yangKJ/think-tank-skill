@@ -20,6 +20,7 @@ claude_code_runtime: deferred
 |---------|--------|----------|----------|
 | single_agent_multi_profile | verified | `examples/codex-council-validation.md` | 单 agent 模拟多 profile |
 | codex_parallel_subagents | verified_partial | `examples/codex-true-council-runtime.md` | 只读 repo 分析和 role_result 回收 |
+| codex_parallel_subagent_write_lifecycle | verified_partial | `examples/codex-subagent-lifecycle-validation.md` | scoped 写入 + peer review 续跑 |
 | claude_code_team_runtime | deferred | `platforms/claude-code/` | 当前阶段不验证 |
 
 ## Provider Invocation
@@ -60,6 +61,7 @@ claude_code_runtime: deferred
 ```yaml
 can_claim:
   - Codex true multi-agent council verified_partial
+  - Codex beyond-readonly scoped subagent runtime verified_partial
   - local source-acquisition verified
   - public HTTP static source-acquisition verified_partial
   - playwright external readonly DOM capture verified_partial
@@ -69,6 +71,5 @@ cannot_claim:
   - all peer skills are executable
   - all external providers are automatically invoked
   - external browser interaction or login automation is verified
-  - long-running subagent lifecycle is verified
   - Claude Code runtime is verified
 ```

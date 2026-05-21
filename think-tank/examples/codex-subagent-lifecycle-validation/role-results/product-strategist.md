@@ -78,3 +78,31 @@ phase: initial
 2. 本结论讨论的是 stable release 还缺什么，不是重新定义 `think-tank` core 或 `leader-runtime` 的架构归属。
 
 3. 本结果不能把 adapter 证据外推为 subagent 证据，也不能把 readonly council 外推为 full multi-agent runtime 证据。
+
+## Lifecycle Update
+
+```yaml
+phase: resumed_after_peer_results
+peer_results_reviewed: 2
+delta_recommendation: >
+  看过 skeptic 和 report-architect 两份 peer 结果后，我没有改变 stable release 的主优先级判断，
+  但我会把优先级表达收得更明确：最先要补的已经不是 browser external readonly，也不是重复证明
+  adapter long-running，而是按顺序补齐 beyond-readonly 的真实多 agent runtime 证据与
+  long-running specialist subagent lifecycle 证据；发布姿态升级仍然重要，但应跟随这两类
+  runtime blocker 的补齐同步推进，而不是单独前置成“先改文案就能接近 stable”。
+```
+
+peer 结果强化了我原来的判断，没有改变 stable release 仍被三项缺口卡住的结论。
+
+具体调整不在“换优先级”，而在“压实排序”：
+
+1. `skeptic.md` 强化了术语边界，进一步证明不能把 adapter long-running 样例拿来替代 subagent lifecycle。
+2. `report-architect.md` 强化了公开叙述结构，说明现在最需要的是把已验证层和 blocked 层并排讲清，而不是继续堆新的模糊表述。
+
+因此，我对 stable release 的优先级判断调整为：
+
+1. 第一优先级：补一条 beyond-readonly 的真实多 agent runtime 样例。
+2. 第二优先级：补一条真实 long-running specialist subagent lifecycle 样例。
+3. 第三优先级：在前两条证据到位后，再把 `public_beta` 升级到 `stable_candidate_or_stronger`。
+
+这意味着我比 initial 阶段更明确地认为：`stable release posture` 仍然是 blocker，但它不是当前最先应该单独处理的 blocker。当前真正决定 stable 能否成立的，是 runtime 证据缺口，而不是发布措辞缺口。

@@ -114,3 +114,21 @@ phase: initial
 - 本结果不声明任何新的 provider invocation，也不补造未发生的 runtime 事实。
 - 本结果不证明 Claude Code runtime、外部网页登录态、复杂 browser automation、文件写入型 council 协作或跨平台稳定性。
 - 本结果的目标是收紧承诺边界，而不是扩大 capability 描述。
+
+## Lifecycle Update
+
+```yaml
+phase: resumed_after_peer_results
+peer_results_reviewed: 2
+delta_objection: >
+  在看过 product-strategist 和 report-architect 两份 peer 结果后，我仍反对把
+  browser external readonly、long-running adapter runtime、readonly true council
+  三类 verified_partial 证据合并后，提前升格为 beyond-readonly multi-agent runtime verified、
+  long-running subagent lifecycle verified、full multi-agent runtime verified、
+  stable release ready，或 all-platform runtime verified。peer 结果已经把分层口径说得更清楚，
+  但这不会削弱我的核心反对意见：只要独立 specialist subagent 的长生命周期派发、
+  中间状态持续、失败恢复和最终 role_result 回收还没有单独成证，就不能把 adapter 长跑
+  叙述成 subagent lifecycle；只要 council 样例仍是 readonly repo analysis，就不能把它
+  叙述成 beyond-readonly 多 agent runtime；只要 browser 样例仍停留在公开网页 DOM 只读回收，
+  就不能把它叙述成通用 browser automation 已稳定。
+```

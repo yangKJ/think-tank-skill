@@ -65,4 +65,4 @@ public_beta
 
 1. 公开发布姿态仍停留在 `public_beta`
 2. 多 agent runtime 仍主要停留在 readonly council `verified_partial`
-3. 长生命周期 adapter run 已有样例，但长生命周期 subagent 仍未形成稳定证据
+3. 外部 provider 在 subagent 内部的更深调用覆盖仍可继续补强

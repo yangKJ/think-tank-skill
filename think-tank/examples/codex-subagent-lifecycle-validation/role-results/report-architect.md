@@ -23,7 +23,7 @@ phase: initial
 
 ### 1. stable gate 的官方结论已经明确不是 stable
 
-来自 [stable-readiness-matrix.md](/Users/condy/Desktop/think-tank-skill/think-tank/docs/stable-readiness-matrix.md) 的基线结论：
+来自 `stable-readiness-matrix.md` 的基线结论：
 
 - `release_posture: public_beta`
 - `stable_release_ready: false`
@@ -36,7 +36,7 @@ phase: initial
 
 ### 2. browser external readonly 已经不应再被叙述成 blocked
 
-来自 [codex-browser-external-readonly.md](/Users/condy/Desktop/think-tank-skill/think-tank/examples/codex-browser-external-readonly.md)：
+来自 `codex-browser-external-readonly.md`：
 
 - `capability: browser-automation`
 - `target: https://example.com`
@@ -51,7 +51,7 @@ phase: initial
 
 ### 3. long-running 证据已经存在，但类型必须说准
 
-来自 [codex-long-running-adapter-runtime.md](/Users/condy/Desktop/think-tank-skill/think-tank/examples/codex-long-running-adapter-runtime.md)：
+来自 `codex-long-running-adapter-runtime.md`：
 
 - `status: verified_partial`
 - `execution_method: adapter_runtime`
@@ -72,7 +72,7 @@ phase: initial
 
 ### 4. true council 已有真实 subagent 只读证据，但边界仍是 readonly
 
-来自 [codex-true-council-runtime.md](/Users/condy/Desktop/think-tank-skill/think-tank/examples/codex-true-council-runtime.md)：
+来自 `codex-true-council-runtime.md`：
 
 - `runtime: codex_parallel_subagent_runtime`
 - `status: verified_partial`
@@ -149,10 +149,10 @@ phase: initial
 1. 本结果只负责把现有证据整理成公开 stable readiness 叙述，不新增运行验证，不扩大任何能力状态。
 
 2. 本结果依据的证据仅来自以下四份材料：
-   - [stable-readiness-matrix.md](/Users/condy/Desktop/think-tank-skill/think-tank/docs/stable-readiness-matrix.md)
-   - [codex-browser-external-readonly.md](/Users/condy/Desktop/think-tank-skill/think-tank/examples/codex-browser-external-readonly.md)
-   - [codex-long-running-adapter-runtime.md](/Users/condy/Desktop/think-tank-skill/think-tank/examples/codex-long-running-adapter-runtime.md)
-   - [codex-true-council-runtime.md](/Users/condy/Desktop/think-tank-skill/think-tank/examples/codex-true-council-runtime.md)
+   - `stable-readiness-matrix.md`
+   - `codex-browser-external-readonly.md`
+   - `codex-long-running-adapter-runtime.md`
+   - `codex-true-council-runtime.md`
 
 3. 本结果不声明：
    - stable release ready
@@ -161,3 +161,29 @@ phase: initial
    - 所有平台共享同等验证状态
 
 4. 本结果是 `report-architect` 的初始阶段归纳稿，适合被主 agent 进一步合并到公开 stable readiness 文案，而不应被误读为新的 runtime 验证样例。
+
+## Lifecycle Update
+
+```yaml
+phase: resumed_after_peer_results
+peer_results_reviewed: 2
+delta_packaging:
+  tightenings:
+    - 不再只说“仍缺两类 runtime 证据”，而是明确收紧为三项 stable gate：`public_beta` 发布姿态、beyond-readonly multi-agent runtime、long-running subagent lifecycle。
+    - 不再把“三条真实证据”作为主叙事中心，而是把它们降级为 beta 级可验证事实，避免被听成 stable 候选已经成立。
+    - 明确区分三类已证据化路径：`browser external readonly`、`long-running adapter runtime`、`readonly council runtime`，禁止在公开文案里合并成单一的 “multi-agent ready”。
+    - 明确把 `adapter runtime` 与 `specialist_subagent lifecycle` 分开包装，后者仍应保持 `not_verified`。
+    - 明确把 Codex 平台结论限制为平台内叙述，不外推为跨平台 stable readiness。
+```
+
+看过 `product-strategist` 和 `skeptic` 结果后，公开 stable readiness 叙述需要进一步收紧成“beta 已达标，但 stable gate 仍明确未过”，而不是“离 stable 只差一点点”。更准确的包装方式应是：
+
+1. 先讲发布级别：当前仍是 `public_beta`，这本身就是 stable gate 之一，不能只把注意力放在技术样例数量上。
+2. 再讲已验证事实：Codex 平台已有三类 `verified_partial` 证据，但它们分别属于 browser readonly、adapter long-running、readonly council，不应合并宣传。
+3. 最后讲未解 blocker：`multi-agent beyond readonly council` 与 `long-running subagent lifecycle` 仍未验证，且这两个缺口不能由 adapter 样例或 readonly council 样例代填。
+
+因此，对外最稳妥的 stable readiness 文案应从“能力正在变强”收紧为“beta 证据更完整，但 stable 承诺仍受三项 gate 共同约束”。如果需要一句更安全的公开摘要，应该接近：
+
+> `think-tank` 当前已具备公开 beta 的协议与工程质量，Codex 平台也已有多条 `verified_partial` 运行证据；但 stable release 仍未成立，因为发布姿态、beyond-readonly 多 agent runtime、以及 long-running subagent lifecycle 还没有同时过 gate。
+
+这次 lifecycle update 的核心不是新增结论，而是防止公开包装把“局部真实证据”误抬升成“stable readiness 已接近完成”的暗示。

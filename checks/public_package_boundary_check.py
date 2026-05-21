@@ -43,7 +43,7 @@ def main() -> None:
     require_text(
         README,
         [
-            "release_posture: public_beta",
+            "release_posture: stable_release",
             "standalone sibling project",
             "checks/open_source_release_suite.py",
         ],

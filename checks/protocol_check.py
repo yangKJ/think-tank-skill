@@ -95,6 +95,8 @@ REQUIRED_FILES = [
     THINK_TANK / "examples" / "codex-browser-external-readonly.md",
     THINK_TANK / "examples" / "codex-long-running-adapter-runtime.md",
     THINK_TANK / "examples" / "codex-long-running-adapter-runtime.json",
+    THINK_TANK / "examples" / "codex-subagent-lifecycle-validation.md",
+    THINK_TANK / "examples" / "codex-subagent-lifecycle-validation.json",
     THINK_TANK / "examples" / "codex-runtime-sample.json",
     THINK_TANK / "examples" / "codex-runtime-failure-sample.json",
     THINK_TANK / "examples" / "claude-code-research-validation.md",

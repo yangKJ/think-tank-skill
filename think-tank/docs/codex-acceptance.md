@@ -41,6 +41,7 @@ verified:
   - Codex 有主平台运行手册、任务模板和 capability 状态矩阵
   - Codex 可以把本地资料研究沉淀为仓库内 Markdown artifact
   - Codex 可以把 research-to-video 任务交给本地长生命周期 adapter，并回收产物
+  - Codex 可以派发 specialist subagents 在独立 write scope 中写入并续跑更新结果
 ```
 
 ## 不能声称
@@ -49,7 +50,6 @@ verified:
 not_verified:
   - Claude Code Agent Team 已验证
   - 真实多 agent 并行执行已验证
-  - 长生命周期 subagent runtime 已验证
   - 外部网页通用浏览能力
   - yt-dlp 已集成
   - obsidian 已集成

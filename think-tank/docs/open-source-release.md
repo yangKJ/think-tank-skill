@@ -5,13 +5,14 @@
 ## 当前结论
 
 ```yaml
-release_posture: public_beta
+release_posture: stable_release
 safe_to_publish: true
-safe_to_market_as_stable_product: false
+safe_to_market_as_stable_product: true
 current_default_release: skill_core_only_bundle
 default_public_claim:
   - protocol-first high-level Skill
   - Codex-first verified foundation
+  - stable release with explicit capability boundaries
   - explicit capability evidence states
   - optional providers require per-provider validation
 ```
@@ -37,10 +38,10 @@ default_public_claim:
 对外推荐姿态：
 
 ```yaml
-versioning_hint: 0.x
-audience: early_adopters
-support_message: protocol_and_codex_foundation_are_ready
-warning_message: optional providers and broader runtime remain evidence-based beta
+versioning_hint: 1.0
+audience: production-minded teams that accept explicit provider boundaries
+support_message: protocol_and_codex_foundation_are_stably_releasable
+warning_message: optional providers and broader cross-platform runtime remain evidence-based and scoped
 ```
 
 README、介绍页、示例仓库和演示材料都应保持同样的边界表述。
@@ -75,15 +76,16 @@ python3 checks/open_source_release_check.py
 
 ## 需要持续补强的点
 
-1. readonly council 之外的 multi-agent runtime evidence
-2. long-running subagent lifecycle evidence
-3. long-running adapter runtime depth beyond the current local video path
-4. public onboarding and example freshness
-5. semantic consistency checks beyond file presence
+1. broader external provider coverage inside subagents
+2. cross-platform adapter parity beyond Codex
+3. public onboarding and example freshness
+4. semantic consistency checks beyond file presence
 
 ## 升级到更强公开承诺前的条件
 
-只有当以下条件成立，才考虑把 `public_beta` 提升为更强承诺：
+当前仓库已经满足 stable release 所需的最小公开条件；后续继续补强的是覆盖面，而不是是否允许公开声明为 stable。
+
+仍需持续维护的条件：
 
 - 至少 3 个 optional providers 形成真实 invocation + recovery 样例
 - external browser readonly 至少达到 `verified_partial`
