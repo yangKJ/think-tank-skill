@@ -111,6 +111,8 @@ Readiness status:
 - [`think-tank/docs/stable-release-criteria.md`](think-tank/docs/stable-release-criteria.md)
 - [`think-tank/docs/stable-readiness-matrix.md`](think-tank/docs/stable-readiness-matrix.md)
 - [`think-tank/docs/stable-release-checklist.md`](think-tank/docs/stable-release-checklist.md)
+- [`think-tank/docs/v1.0.0-release-notes.md`](think-tank/docs/v1.0.0-release-notes.md)
+- [`think-tank/docs/release-tagging.md`](think-tank/docs/release-tagging.md)
 - [`open-source-packages.yaml`](open-source-packages.yaml)
 - [`think-tank/platforms/codex/operating-guide.md`](think-tank/platforms/codex/operating-guide.md)
 - [`think-tank/platforms/codex/capability-status.md`](think-tank/platforms/codex/capability-status.md)
@@ -142,6 +144,13 @@ Stable gate:
 
 ```bash
 python3 checks/stable_release_check.py
+```
+
+Release packaging references:
+
+```text
+think-tank/docs/v1.0.0-release-notes.md
+think-tank/docs/release-tagging.md
 ```
 
 Codex foundation status:

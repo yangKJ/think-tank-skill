@@ -72,6 +72,11 @@ phase_2_fields_verified:
   - lifecycle delta field present
 ```
 
+说明：
+
+- `role-results/` 目录保存的是 subagent 在运行当时各自提交的中间立场与 lifecycle update。
+- 仓库最终的 stable 公开姿态应以 `stable-readiness-matrix.md`、`stable-release-readiness.yaml` 和 release gate 结果为准，而不是把任一单个 role-result 当作最终发布结论。
+
 ## 结果判断
 
 这条样例足以把 stable matrix 中的两条 blocker 提升到 `verified_partial`：
