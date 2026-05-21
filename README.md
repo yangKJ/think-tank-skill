@@ -52,11 +52,17 @@ If both pass, you are on the repository's current stable public path.
 
 ![runtime flow](think-tank/assets/diagrams/runtime-flow.svg)
 
+## Use Cases
+
+| Research | Council | Review |
+|---|---|---|
+| ![research scenario](think-tank/assets/brand/research-card-image2.png) | ![council scenario](think-tank/assets/brand/council-card-image2.png) | ![review scenario](think-tank/assets/brand/review-card-image2.png) |
+
 ## Provider Ecosystem Evidence
 
 `think-tank` does not bundle concrete tools. It routes capability slots to optional peer skills when the current platform exposes them and the task has permission to use them.
 
-![provider ecosystem](think-tank/assets/diagrams/provider-ecosystem.svg)
+![provider ecosystem](think-tank/assets/brand/provider-ecosystem-image2.png)
 
 Representative real-world peer skill examples:
 

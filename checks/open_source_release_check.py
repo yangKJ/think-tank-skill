@@ -24,6 +24,10 @@ PUBLIC_COUNCIL = ROOT / "think-tank" / "examples" / "public" / "council-decision
 PUBLIC_REVIEW = ROOT / "think-tank" / "examples" / "public" / "review-acceptance.md"
 VISUALS = [
     ROOT / "think-tank" / "assets" / "brand" / "think-tank-hero-image2.png",
+    ROOT / "think-tank" / "assets" / "brand" / "research-card-image2.png",
+    ROOT / "think-tank" / "assets" / "brand" / "council-card-image2.png",
+    ROOT / "think-tank" / "assets" / "brand" / "review-card-image2.png",
+    ROOT / "think-tank" / "assets" / "brand" / "provider-ecosystem-image2.png",
     ROOT / "think-tank" / "assets" / "diagrams" / "hero.svg",
     ROOT / "think-tank" / "assets" / "diagrams" / "runtime-flow.svg",
     ROOT / "think-tank" / "assets" / "diagrams" / "provider-ecosystem.svg",
@@ -59,6 +63,7 @@ def main() -> None:
             "think-tank/docs/open-source-release.md",
             "think-tank/examples/public/research-request.md",
             "think-tank/assets/brand/think-tank-hero-image2.png",
+            "think-tank/assets/brand/provider-ecosystem-image2.png",
             "open-source-packages.yaml",
             "python3 checks/open_source_release_suite.py",
             "python3 checks/open_source_release_check.py",
@@ -185,6 +190,7 @@ def main() -> None:
         RELEASE_SUITE,
         [
             "checks/release_privacy_check.py",
+            "checks/markdown_image_links_check.py",
             "checks/public_package_boundary_check.py",
             "checks/open_source_release_check.py",
             "open source release suite 通过",
