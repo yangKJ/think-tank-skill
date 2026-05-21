@@ -8,6 +8,11 @@
 
 ### Added
 
+- 增加 Skill Experience Layer：`skill-trigger-intelligence`、`skill-invocation-contract`、`progressive-disclosure`、agent compatibility matrix、skill composition guide、skill quality score、v3 examples、self-tests 和 `checks/skill_experience_check.py`。
+- Skill Experience Layer 详细规划与发布说明见 `think-tank/docs/v3.0-roadmap.md` 和 `think-tank/docs/v3.0-release-notes.md`。
+- 增加 Research OS + Memory Runtime：run record、project memory runtime、provider invocation ledger、handoff protocol、guardrails、research workspace contract 和 eval pack。
+- 增加开源可用性配套：贡献指南、社区治理文件、Research OS starter kit、eval fixtures、provider test matrix 和 docs site structure。
+- 增加 provider integration patterns、workflow pattern examples、Codex installation guide 和对应 release checks。
 - 增加 `.think-tank/` 本地工作区协议，用于项目本地 provider policy、memory candidates、runs 和 artifacts。
 - 增加 `.think-tank/provider-policy.yaml` 作为唯一支持的项目本地 policy 路径；公开 Skill 源只保留 Codex example policy。
 - 增加 project memory capture 协议、recipe、模板、schema、样例报告和检查脚本。
@@ -21,6 +26,11 @@
 
 ### Changed
 
+![think-tank 2.0 hero](think-tank/assets/brand/think-tank-hero-v2-image2.png)
+
+- README 和 `think-tank/README.md` 改为产品介绍、能力入口和导航，不再承载版本更新记录；版本演进统一收敛到 `CHANGELOG.md`。
+- README Hero 图片回退为 v1 Image2 主视觉。
+- 公开 core 明确不内置触发词；触发词、别名和 provider 偏好由用户自己的 YAML policy 或平台 adapter 管理。
 - 移除旧本地 policy 路径兼容思路，避免多个项目本地入口形成多套逻辑。
 - 更新 Codex routing 文档，明确触发词和 provider 偏好应由 `.think-tank/provider-policy.yaml` 项目实例配置承载。
 - Codex provider policy runtime 改为“默认 policy + `.think-tank` overlay”合并模式，避免本地配置启用后丢失基础 research、council、review 和 strategy 路由。

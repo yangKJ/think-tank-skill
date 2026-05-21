@@ -47,19 +47,17 @@ def main() -> None:
     require_text(
         ROOT / "README.md",
         [
-            "Provider Integration Patterns",
-            "Codex Installation",
-            "v1.1 Roadmap",
-            "v1.1 Release Notes",
+            "Provider Ecosystem Patterns",
+            "think-tank/docs/codex-installation.md",
+            "CHANGELOG.md",
         ],
     )
     require_text(
         ROOT / "README_CN.md",
         [
-            "Provider 接入模式",
-            "Codex 安装",
-            "v1.1 路线图",
-            "v1.1 发布说明",
+            "Provider 生态模式",
+            "think-tank/docs/codex-installation.md",
+            "CHANGELOG.md",
         ],
     )
     require_text(
@@ -67,7 +65,15 @@ def main() -> None:
         [
             "docs/provider-integration-patterns.md",
             "docs/codex-installation.md",
-            "docs/v1.1-roadmap.md",
+            "../CHANGELOG.md",
+        ],
+    )
+    require_text(
+        ROOT / "CHANGELOG.md",
+        [
+            "provider integration patterns",
+            "workflow pattern examples",
+            "Codex installation guide",
         ],
     )
 

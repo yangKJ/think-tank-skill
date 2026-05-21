@@ -9,6 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 README = ROOT / "README.md"
 README_CN = ROOT / "README_CN.md"
+CHANGELOG = ROOT / "CHANGELOG.md"
 THINK_TANK_README = ROOT / "think-tank" / "README.md"
 QUICKSTART = ROOT / "think-tank" / "docs" / "open-source-quickstart.md"
 SUPPORT_MATRIX = ROOT / "think-tank" / "docs" / "support-matrix.md"
@@ -35,7 +36,6 @@ VISUALS = [
     ROOT / "think-tank" / "assets" / "brand" / "think-tank-hero-image2.png",
     ROOT / "think-tank" / "assets" / "brand" / "think-tank-hero-cn-image2.png",
     ROOT / "think-tank" / "assets" / "brand" / "think-tank-hero-v2-image2.png",
-    ROOT / "think-tank" / "assets" / "brand" / "think-tank-hero-v2-cn-image2.png",
     ROOT / "think-tank" / "assets" / "brand" / "research-card-image2.png",
     ROOT / "think-tank" / "assets" / "brand" / "council-card-image2.png",
     ROOT / "think-tank" / "assets" / "brand" / "review-card-image2.png",
@@ -77,19 +77,13 @@ def main() -> None:
             "think-tank/docs/provider-ecosystem-examples.md",
             "think-tank/docs/provider-integration-patterns.md",
             "think-tank/docs/codex-installation.md",
-            "think-tank/docs/v1.1-roadmap.md",
-            "think-tank/docs/v1.1-release-notes.md",
-            "think-tank/docs/v2.0-roadmap.md",
-            "think-tank/docs/v2.0-release-notes.md",
-            "think-tank/docs/v3.0-roadmap.md",
-            "think-tank/docs/v3.0-release-notes.md",
             "think-tank/protocol/skill-trigger-intelligence.md",
             "think-tank/protocol/skill-invocation-contract.md",
             "think-tank/protocol/progressive-disclosure.md",
             "think-tank/self-tests/",
             "think-tank/docs/open-source-release.md",
             "think-tank/examples/public/research-request.md",
-            "think-tank/assets/brand/think-tank-hero-v2-image2.png",
+            "think-tank/assets/brand/think-tank-hero-image2.png",
             "think-tank/assets/brand/provider-ecosystem-image2.png",
             "think-tank/assets/brand/research-os-memory-runtime-image2.png",
             "think-tank/assets/brand/provider-ledger-image2.png",
@@ -102,7 +96,7 @@ def main() -> None:
         README_CN,
         [
             "[English](README.md)",
-            "think-tank/assets/brand/think-tank-hero-v2-cn-image2.png",
+            "think-tank/assets/brand/think-tank-hero-cn-image2.png",
             "think-tank/assets/brand/research-os-memory-runtime-image2.png",
             "think-tank/assets/brand/provider-ledger-image2.png",
             "任务理解 + 角色组织 + 能力路由 + 证据汇总 + 边界声明",
@@ -111,15 +105,10 @@ def main() -> None:
             "think-tank/docs/provider-ecosystem-examples.md",
             "think-tank/docs/provider-integration-patterns.md",
             "think-tank/docs/codex-installation.md",
-            "think-tank/docs/v1.1-roadmap.md",
-            "think-tank/docs/v1.1-release-notes.md",
-            "think-tank/docs/v2.0-roadmap.md",
-            "think-tank/docs/v2.0-release-notes.md",
-            "think-tank/docs/v3.0-roadmap.md",
-            "think-tank/docs/v3.0-release-notes.md",
             "think-tank/protocol/skill-trigger-intelligence.md",
             "think-tank/protocol/skill-invocation-contract.md",
             "think-tank/protocol/progressive-disclosure.md",
+            "CHANGELOG.md",
         ],
     )
     require_text(
@@ -133,12 +122,10 @@ def main() -> None:
             "docs/provider-ecosystem-examples.md",
             "docs/provider-integration-patterns.md",
             "docs/codex-installation.md",
-            "docs/v1.1-roadmap.md",
-            "docs/v2.0-roadmap.md",
-            "docs/v3.0-roadmap.md",
             "docs/open-source-release.md",
             "examples/public/research-request.md",
             "examples/v3/",
+            "../CHANGELOG.md",
             "skill_core_only_bundle",
             "python3 checks/open_source_release_suite.py",
             "python3 checks/open_source_release_check.py",
@@ -263,6 +250,16 @@ def main() -> None:
             "Skill Experience Layer",
             "user YAML policy owns actual trigger",
             "progressive disclosure",
+        ],
+    )
+    require_text(
+        CHANGELOG,
+        [
+            "Skill Experience Layer",
+            "Research OS + Memory Runtime",
+            "think-tank/assets/brand/think-tank-hero-v2-image2.png",
+            "README Hero 图片回退为 v1 Image2 主视觉",
+            "版本演进统一收敛到 `CHANGELOG.md`",
         ],
     )
     require_text(

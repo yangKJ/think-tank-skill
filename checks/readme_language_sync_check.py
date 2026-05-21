@@ -16,25 +16,19 @@ SHARED_LINKS = [
     "think-tank/docs/provider-ecosystem-examples.md",
     "think-tank/docs/provider-integration-patterns.md",
     "think-tank/docs/codex-installation.md",
-    "think-tank/docs/v1.1-roadmap.md",
-    "think-tank/docs/v1.1-release-notes.md",
-    "think-tank/docs/v2.0-roadmap.md",
-    "think-tank/docs/v2.0-release-notes.md",
-    "think-tank/docs/v2.1-v2.5-release-notes.md",
     "think-tank/protocol/skill-trigger-intelligence.md",
     "think-tank/protocol/skill-invocation-contract.md",
     "think-tank/protocol/progressive-disclosure.md",
     "think-tank/docs/agent-compatibility-matrix.md",
     "think-tank/docs/skill-composition-guide.md",
     "think-tank/docs/skill-quality-score.md",
-    "think-tank/docs/v3.0-roadmap.md",
-    "think-tank/docs/v3.0-release-notes.md",
     "think-tank/examples/v3/",
     "think-tank/self-tests/",
     "think-tank/docs/index.md",
     "think-tank/docs/faq.md",
     "think-tank/docs/troubleshooting.md",
     "think-tank/docs/provider-test-matrix.md",
+    "CHANGELOG.md",
     "python3 checks/open_source_release_suite.py",
     "python3 checks/stable_release_check.py",
 ]
@@ -53,8 +47,8 @@ def require(path: Path, term: str) -> None:
 def main() -> None:
     require(README, "[中文](README_CN.md)")
     require(README_CN, "[English](README.md)")
-    require(README, "think-tank/assets/brand/think-tank-hero-v2-image2.png")
-    require(README_CN, "think-tank/assets/brand/think-tank-hero-v2-cn-image2.png")
+    require(README, "think-tank/assets/brand/think-tank-hero-image2.png")
+    require(README_CN, "think-tank/assets/brand/think-tank-hero-cn-image2.png")
     require(README, "think-tank/assets/brand/research-os-memory-runtime-image2.png")
     require(README_CN, "think-tank/assets/brand/research-os-memory-runtime-image2.png")
     require(README, "think-tank/assets/brand/provider-ledger-image2.png")

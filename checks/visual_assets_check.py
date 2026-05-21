@@ -17,7 +17,6 @@ REQUIRED_FILES = [
     BRAND / "think-tank-hero-image2.png",
     BRAND / "think-tank-hero-cn-image2.png",
     BRAND / "think-tank-hero-v2-image2.png",
-    BRAND / "think-tank-hero-v2-cn-image2.png",
     BRAND / "research-card-image2.png",
     BRAND / "council-card-image2.png",
     BRAND / "review-card-image2.png",

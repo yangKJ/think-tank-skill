@@ -4,7 +4,7 @@
 
 **think-tank** 是一个协议优先、跨平台的高阶 AI 协作 Skill，用于研究、审查、讨论决策和策略分析。它当前以 Codex 主路径为默认稳定路径，并用明确的能力边界来说明哪些已经验证、哪些只是可选 provider 生态。
 
-![think-tank 2.0 中文主视觉](think-tank/assets/brand/think-tank-hero-v2-cn-image2.png)
+![think-tank 中文主视觉](think-tank/assets/brand/think-tank-hero-cn-image2.png)
 
 主 Skill 位于 [`think-tank/`](think-tank/)。
 
@@ -74,18 +74,9 @@ python3 checks/stable_release_check.py
 
 更多说明见 [`think-tank/docs/provider-ecosystem-examples.md`](think-tank/docs/provider-ecosystem-examples.md) 和 [`think-tank/docs/provider-integration-patterns.md`](think-tank/docs/provider-integration-patterns.md)。
 
-## v1.1 新增内容
+## Research OS 与记忆运行层
 
-v1.1 聚焦把 optional provider 说清楚，但不把模式说明写成能力承诺：
-
-- **Provider 接入模式：** [`think-tank/docs/provider-integration-patterns.md`](think-tank/docs/provider-integration-patterns.md)
-- **Codex 安装：** [`think-tank/docs/codex-installation.md`](think-tank/docs/codex-installation.md)
-- **v1.1 路线图：** [`think-tank/docs/v1.1-roadmap.md`](think-tank/docs/v1.1-roadmap.md)
-- **v1.1 发布说明：** [`think-tank/docs/v1.1-release-notes.md`](think-tank/docs/v1.1-release-notes.md)
-
-## v2.0 新增内容
-
-v2.0 增加 **Research OS + Memory Runtime** 层：
+**Research OS + Memory Runtime** 帮助可重复研究任务产出 run record、memory candidate、provider ledger、handoff、guardrail 和 eval fixture。
 
 ![Research OS and Memory Runtime](think-tank/assets/brand/research-os-memory-runtime-image2.png)
 
@@ -96,23 +87,20 @@ v2.0 增加 **Research OS + Memory Runtime** 层：
 - **Guardrails：** [`think-tank/protocol/guardrails.md`](think-tank/protocol/guardrails.md)
 - **Research OS：** [`think-tank/protocol/research-os.md`](think-tank/protocol/research-os.md)
 - **Eval Pack：** [`think-tank/protocol/eval-pack.md`](think-tank/protocol/eval-pack.md)
-- **v2.0 路线图：** [`think-tank/docs/v2.0-roadmap.md`](think-tank/docs/v2.0-roadmap.md)
-- **v2.0 发布说明：** [`think-tank/docs/v2.0-release-notes.md`](think-tank/docs/v2.0-release-notes.md)
 
 ![Provider Invocation Ledger](think-tank/assets/brand/provider-ledger-image2.png)
 
-## v2.1-v2.5 新增内容
+## 开源可用性
 
-- **v2.1 贡献与社区治理：** [`CONTRIBUTING.md`](CONTRIBUTING.md)、[`SECURITY.md`](SECURITY.md)、[`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md)、[`SUPPORT.md`](SUPPORT.md)、issue templates 和 PR template。
-- **v2.2 Research OS Starter Kit：** [`think-tank/templates/research-workspace/`](think-tank/templates/research-workspace/)。
-- **v2.3 Eval Pack Starter：** [`think-tank/evals/`](think-tank/evals/)。
-- **v2.4 Provider Test Matrix：** [`think-tank/docs/provider-test-matrix.md`](think-tank/docs/provider-test-matrix.md)。
-- **v2.5 Docs Site Ready：** [`think-tank/docs/index.md`](think-tank/docs/index.md)、concepts、guides、reference 和 release 分区。
-- **v2.1-v2.5 发布说明：** [`think-tank/docs/v2.1-v2.5-release-notes.md`](think-tank/docs/v2.1-v2.5-release-notes.md)。
+- **贡献与社区治理：** [`CONTRIBUTING.md`](CONTRIBUTING.md)、[`SECURITY.md`](SECURITY.md)、[`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md)、[`SUPPORT.md`](SUPPORT.md)、issue templates 和 PR template。
+- **Research OS Starter Kit：** [`think-tank/templates/research-workspace/`](think-tank/templates/research-workspace/)。
+- **Eval Pack Starter：** [`think-tank/evals/`](think-tank/evals/)。
+- **Provider Test Matrix：** [`think-tank/docs/provider-test-matrix.md`](think-tank/docs/provider-test-matrix.md)。
+- **Docs Site：** [`think-tank/docs/index.md`](think-tank/docs/index.md)、concepts、guides、reference 和 release 分区。
 
-## v3.0 新增内容
+## Skill Experience Layer
 
-v3.0 增加 **Skill Experience Layer**，让 Codex、Claude Code 和其他 agent 更容易判断何时使用 `think-tank`、如何形成 invocation contract、如何渐进加载文档、如何安全组合 optional peer skills，以及如何用 self-test 检查常见边界。
+**Skill Experience Layer** 让 Codex、Claude Code 和其他 agent 更容易判断何时使用 `think-tank`、如何形成 invocation contract、如何渐进加载文档、如何安全组合 optional peer skills，以及如何用 self-test 检查常见边界。
 
 触发词不内置在公开 core 里。触发词、别名和 provider 偏好应放在用户自己的 YAML policy 中；`think-tank` 只提供 intent 类别、路由契约和检查规则。
 
@@ -122,10 +110,10 @@ v3.0 增加 **Skill Experience Layer**，让 Codex、Claude Code 和其他 agent
 - **Agent Compatibility Matrix：** [`think-tank/docs/agent-compatibility-matrix.md`](think-tank/docs/agent-compatibility-matrix.md)
 - **Skill Composition Guide：** [`think-tank/docs/skill-composition-guide.md`](think-tank/docs/skill-composition-guide.md)
 - **Skill Quality Score：** [`think-tank/docs/skill-quality-score.md`](think-tank/docs/skill-quality-score.md)
-- **v3.0 Roadmap：** [`think-tank/docs/v3.0-roadmap.md`](think-tank/docs/v3.0-roadmap.md)
-- **v3.0 Release Notes：** [`think-tank/docs/v3.0-release-notes.md`](think-tank/docs/v3.0-release-notes.md)
-- **v3 示例：** [`think-tank/examples/v3/`](think-tank/examples/v3/)
+- **Skill Experience 示例：** [`think-tank/examples/v3/`](think-tank/examples/v3/)
 - **Skill Self Tests：** [`think-tank/self-tests/`](think-tank/self-tests/)
+
+版本更新记录统一放在 [`CHANGELOG.md`](CHANGELOG.md)。
 
 ## 仓库结构
 
@@ -185,11 +173,6 @@ Stable 不表示：
 - [`think-tank/docs/provider-ecosystem-examples.md`](think-tank/docs/provider-ecosystem-examples.md)
 - [`think-tank/docs/provider-integration-patterns.md`](think-tank/docs/provider-integration-patterns.md)
 - [`think-tank/docs/codex-installation.md`](think-tank/docs/codex-installation.md)
-- [`think-tank/docs/v1.1-roadmap.md`](think-tank/docs/v1.1-roadmap.md)
-- [`think-tank/docs/v1.1-release-notes.md`](think-tank/docs/v1.1-release-notes.md)
-- [`think-tank/docs/v2.0-roadmap.md`](think-tank/docs/v2.0-roadmap.md)
-- [`think-tank/docs/v2.0-release-notes.md`](think-tank/docs/v2.0-release-notes.md)
-- [`think-tank/docs/v2.1-v2.5-release-notes.md`](think-tank/docs/v2.1-v2.5-release-notes.md)
 - [`think-tank/docs/index.md`](think-tank/docs/index.md)
 - [`think-tank/docs/faq.md`](think-tank/docs/faq.md)
 - [`think-tank/docs/troubleshooting.md`](think-tank/docs/troubleshooting.md)

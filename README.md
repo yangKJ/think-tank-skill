@@ -4,7 +4,7 @@
 
 Stable, protocol-first home of **think-tank**: a cross-platform high-level Skill for research, review, council, and strategy workflows on a verified Codex-first runtime path.
 
-![think-tank 2.0 hero](think-tank/assets/brand/think-tank-hero-v2-image2.png)
+![think-tank hero](think-tank/assets/brand/think-tank-hero-image2.png)
 
 The high-level Skill lives in [`think-tank/`](think-tank/).
 The leader orchestration layer is being split into a standalone sibling project on the Desktop.
@@ -75,18 +75,9 @@ Representative peer skill pattern examples:
 
 See [`think-tank/docs/provider-ecosystem-examples.md`](think-tank/docs/provider-ecosystem-examples.md) and [`think-tank/docs/provider-integration-patterns.md`](think-tank/docs/provider-integration-patterns.md).
 
-## v1.1 Additions
+## Research OS And Memory Runtime
 
-v1.1 improves onboarding around optional providers without changing the core capability claim:
-
-- **Provider Integration Patterns:** [`think-tank/docs/provider-integration-patterns.md`](think-tank/docs/provider-integration-patterns.md)
-- **Codex Installation:** [`think-tank/docs/codex-installation.md`](think-tank/docs/codex-installation.md)
-- **v1.1 Roadmap:** [`think-tank/docs/v1.1-roadmap.md`](think-tank/docs/v1.1-roadmap.md)
-- **v1.1 Release Notes:** [`think-tank/docs/v1.1-release-notes.md`](think-tank/docs/v1.1-release-notes.md)
-
-## v2.0 Additions
-
-v2.0 adds the **Research OS + Memory Runtime** layer:
+The **Research OS + Memory Runtime** layer helps repeatable research work produce run records, memory candidates, provider ledgers, handoffs, guardrails, and eval fixtures.
 
 ![Research OS and Memory Runtime](think-tank/assets/brand/research-os-memory-runtime-image2.png)
 
@@ -97,23 +88,20 @@ v2.0 adds the **Research OS + Memory Runtime** layer:
 - **Guardrails:** [`think-tank/protocol/guardrails.md`](think-tank/protocol/guardrails.md)
 - **Research OS:** [`think-tank/protocol/research-os.md`](think-tank/protocol/research-os.md)
 - **Eval Pack:** [`think-tank/protocol/eval-pack.md`](think-tank/protocol/eval-pack.md)
-- **v2.0 Roadmap:** [`think-tank/docs/v2.0-roadmap.md`](think-tank/docs/v2.0-roadmap.md)
-- **v2.0 Release Notes:** [`think-tank/docs/v2.0-release-notes.md`](think-tank/docs/v2.0-release-notes.md)
 
 ![Provider Invocation Ledger](think-tank/assets/brand/provider-ledger-image2.png)
 
-## v2.1-v2.5 Additions
+## Open Source Usability
 
-- **v2.1 Contributor polish:** [`CONTRIBUTING.md`](CONTRIBUTING.md), [`SECURITY.md`](SECURITY.md), [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md), [`SUPPORT.md`](SUPPORT.md), issue templates, and PR template.
-- **v2.2 Research OS Starter Kit:** [`think-tank/templates/research-workspace/`](think-tank/templates/research-workspace/).
-- **v2.3 Eval Pack Starter:** [`think-tank/evals/`](think-tank/evals/).
-- **v2.4 Provider Test Matrix:** [`think-tank/docs/provider-test-matrix.md`](think-tank/docs/provider-test-matrix.md).
-- **v2.5 Docs Site Ready:** [`think-tank/docs/index.md`](think-tank/docs/index.md), concepts, guides, reference, and release sections.
-- **v2.1-v2.5 Release Notes:** [`think-tank/docs/v2.1-v2.5-release-notes.md`](think-tank/docs/v2.1-v2.5-release-notes.md).
+- **Contributor docs:** [`CONTRIBUTING.md`](CONTRIBUTING.md), [`SECURITY.md`](SECURITY.md), [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md), [`SUPPORT.md`](SUPPORT.md), issue templates, and PR template.
+- **Research OS Starter Kit:** [`think-tank/templates/research-workspace/`](think-tank/templates/research-workspace/).
+- **Eval Pack Starter:** [`think-tank/evals/`](think-tank/evals/).
+- **Provider Test Matrix:** [`think-tank/docs/provider-test-matrix.md`](think-tank/docs/provider-test-matrix.md).
+- **Docs Site:** [`think-tank/docs/index.md`](think-tank/docs/index.md), concepts, guides, reference, and release sections.
 
-## v3.0 Additions
+## Skill Experience Layer
 
-v3.0 adds the **Skill Experience Layer** so agents can decide when to use
+The **Skill Experience Layer** helps agents decide when to use
 `think-tank`, form a clear invocation contract, load references progressively,
 compose optional peer skills safely, and self-test common boundaries.
 
@@ -126,10 +114,10 @@ policy; `think-tank` documents intent categories and routing contracts.
 - **Agent Compatibility Matrix:** [`think-tank/docs/agent-compatibility-matrix.md`](think-tank/docs/agent-compatibility-matrix.md)
 - **Skill Composition Guide:** [`think-tank/docs/skill-composition-guide.md`](think-tank/docs/skill-composition-guide.md)
 - **Skill Quality Score:** [`think-tank/docs/skill-quality-score.md`](think-tank/docs/skill-quality-score.md)
-- **v3.0 Roadmap:** [`think-tank/docs/v3.0-roadmap.md`](think-tank/docs/v3.0-roadmap.md)
-- **v3.0 Release Notes:** [`think-tank/docs/v3.0-release-notes.md`](think-tank/docs/v3.0-release-notes.md)
-- **v3 Examples:** [`think-tank/examples/v3/`](think-tank/examples/v3/)
+- **Skill Experience Examples:** [`think-tank/examples/v3/`](think-tank/examples/v3/)
 - **Skill Self Tests:** [`think-tank/self-tests/`](think-tank/self-tests/)
+
+Version history lives in [`CHANGELOG.md`](CHANGELOG.md).
 
 ## Repository Layout
 
@@ -263,11 +251,6 @@ It is:
   - [`think-tank/docs/provider-ecosystem-examples.md`](think-tank/docs/provider-ecosystem-examples.md)
   - [`think-tank/docs/provider-integration-patterns.md`](think-tank/docs/provider-integration-patterns.md)
   - [`think-tank/docs/codex-installation.md`](think-tank/docs/codex-installation.md)
-  - [`think-tank/docs/v1.1-roadmap.md`](think-tank/docs/v1.1-roadmap.md)
-  - [`think-tank/docs/v1.1-release-notes.md`](think-tank/docs/v1.1-release-notes.md)
-  - [`think-tank/docs/v2.0-roadmap.md`](think-tank/docs/v2.0-roadmap.md)
-  - [`think-tank/docs/v2.0-release-notes.md`](think-tank/docs/v2.0-release-notes.md)
-  - [`think-tank/docs/v2.1-v2.5-release-notes.md`](think-tank/docs/v2.1-v2.5-release-notes.md)
   - [`think-tank/docs/index.md`](think-tank/docs/index.md)
   - [`think-tank/docs/faq.md`](think-tank/docs/faq.md)
   - [`think-tank/docs/troubleshooting.md`](think-tank/docs/troubleshooting.md)
@@ -277,7 +260,6 @@ It is:
   - [`think-tank/docs/stable-release-criteria.md`](think-tank/docs/stable-release-criteria.md)
   - [`think-tank/docs/stable-readiness-matrix.md`](think-tank/docs/stable-readiness-matrix.md)
   - [`think-tank/docs/stable-release-checklist.md`](think-tank/docs/stable-release-checklist.md)
-  - [`think-tank/docs/v1.0.0-release-notes.md`](think-tank/docs/v1.0.0-release-notes.md)
   - [`think-tank/docs/release-tagging.md`](think-tank/docs/release-tagging.md)
 - Codex runtime references:
   - [`think-tank/docs/codex-validation-report.md`](think-tank/docs/codex-validation-report.md)
@@ -317,10 +299,10 @@ Stable gate:
 python3 checks/stable_release_check.py
 ```
 
-Release packaging references:
+Version history and release packaging references:
 
 ```text
-think-tank/docs/v1.0.0-release-notes.md
+CHANGELOG.md
 think-tank/docs/release-tagging.md
 ```
 

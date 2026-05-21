@@ -148,6 +148,7 @@ def check_navigation_links() -> None:
         [
             read_text("README.md"),
             read_text("README_CN.md"),
+            read_text("CHANGELOG.md"),
             read_text("think-tank/SKILL.md"),
             read_text("think-tank/protocol/README.md"),
             read_text("think-tank/docs/index.md"),
