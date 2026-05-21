@@ -8,19 +8,12 @@
 
 ### Added
 
-- 增加 Research OS + Memory Runtime：run record、project memory runtime、provider invocation ledger、handoff protocol、guardrails、research workspace contract 和 eval pack。
-- 增加开源可用性配套：贡献指南、社区治理文件、Research OS starter kit、eval fixtures、provider test matrix 和 docs site structure。
-- 增加 provider integration patterns、workflow pattern examples、Codex installation guide 和对应 release checks。
 - 增加 `.think-tank/` 本地工作区协议，用于项目本地 provider policy、memory candidates、runs 和 artifacts。
 - 增加 `.think-tank/provider-policy.yaml` 作为唯一支持的项目本地 policy 路径；公开 Skill 源只保留 Codex example policy。
 - 增加 project memory capture 协议、recipe、模板、schema、样例报告和检查脚本。
 - 增加 local workspace 模板、schema、示例布局和检查脚本。
 - Codex provider policy runtime 支持 `providers.auto_select: false`，用于只产出候选记忆、不自动选择外部 persistence provider 的场景。
 - Project memory item 增加 `status`、`expires_when`、`review_after` 和 `refresh_trigger`，将记忆过期性纳入正式质量门禁。
-- 增加 v2.1 capability evidence state machine，细分 installed、discovered、selected、dispatched、invoked、recovered、verified_partial 和 verified。
-- 增加 v2.1 memory promotion policy，控制候选记忆从 `.think-tank/memory/` 提升到 AGENTS、项目文档或公开协议的条件。
-- 增加 v2.2 Runtime Provenance Gate，强制 think-tank 风格输出声明 runtime、provider 调用、数据来源、结果回收和真实多 agent 状态。
-- 增加 v2.3 Codex natural-language orchestrator，把用户请求串联到 policy route、minimal dispatch、source recovery、final output 和 run record。
 
 ### Changed
 
@@ -54,6 +47,48 @@
 - `python3 checks/open_source_release_suite.py`
 - `python3 checks/stable_release_check.py`
 - `python3 checks/release_privacy_check.py`
+
+## [2.5.0] - 2026-05-21
+
+### Added
+
+- 增加 v2.0 Research OS + Memory Runtime：run record、project memory runtime、provider invocation ledger、handoff protocol、guardrails、research workspace contract 和 eval pack。
+- 增加 v2.1 contributor and release polish：`CONTRIBUTING.md`、`SECURITY.md`、`CODE_OF_CONDUCT.md`、`SUPPORT.md`、issue templates 和 PR template。
+- 增加 v2.1 capability evidence state machine，细分 installed、discovered、selected、dispatched、invoked、recovered、verified_partial 和 verified。
+- 增加 v2.1 memory promotion policy，控制候选记忆从 `.think-tank/memory/` 提升到 AGENTS、项目文档或公开协议的条件。
+- 增加 v2.2 Research OS Starter Kit：`think-tank/templates/research-workspace/`。
+- 增加 v2.2 Runtime Provenance Gate，强制 think-tank 风格输出声明 runtime、provider 调用、数据来源、结果回收和真实多 agent 状态。
+- 增加 v2.3 Eval Pack Starter：`think-tank/evals/`。
+- 增加 v2.3 Codex natural-language orchestrator，把用户请求串联到 policy route、minimal dispatch、source recovery、final output 和 run record。
+- 增加 v2.4 Provider Test Matrix：`think-tank/docs/provider-test-matrix.md` 和 `think-tank/examples/provider-ledgers/`。
+- 增加 v2.5 Docs Site Ready：`think-tank/docs/index.md`、concepts、guides、reference 和 release sections。
+- 增加 `think-tank/docs/v2.0-roadmap.md`、`think-tank/docs/v2.0-release-notes.md` 和 `think-tank/docs/v2.1-v2.5-release-notes.md`。
+
+### Verified
+
+- `python3 checks/v2_0_release_check.py`
+- `python3 checks/contributor_docs_check.py`
+- `python3 checks/research_workspace_template_check.py`
+- `python3 checks/eval_pack_check.py`
+- `python3 checks/provider_test_matrix_check.py`
+- `python3 checks/docs_site_check.py`
+- `python3 checks/open_source_release_suite.py`
+
+## [1.1.0] - 2026-05-21
+
+### Added
+
+- 增加 provider integration patterns、workflow pattern examples、Codex installation guide 和对应 release checks。
+- 增加 `think-tank/docs/provider-integration-patterns.md`、`think-tank/docs/codex-installation.md`、`think-tank/docs/v1.1-roadmap.md` 和 `think-tank/docs/v1.1-release-notes.md`。
+- 增加 `think-tank/examples/provider-patterns/` 和 `think-tank/examples/workflow-patterns/`。
+- 增加 README 视觉资产治理规则和 Image2 prompt 目录说明。
+
+### Verified
+
+- `python3 checks/v1_1_release_check.py`
+- `python3 checks/provider_integration_patterns_check.py`
+- `python3 checks/workflow_patterns_check.py`
+- `python3 checks/visual_assets_check.py`
 
 ## [0.1.0] - 2026-05-14
 

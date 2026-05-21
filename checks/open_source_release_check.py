@@ -256,8 +256,12 @@ def main() -> None:
         CHANGELOG,
         [
             "## [3.0.0] - 2026-05-21",
+            "## [2.5.0] - 2026-05-21",
+            "## [1.1.0] - 2026-05-21",
             "Skill Experience Layer",
             "Research OS + Memory Runtime",
+            "v2.5 Docs Site Ready",
+            "provider integration patterns",
             "think-tank/assets/brand/think-tank-hero-v2-image2.png",
             "README Hero 图片回退为 v1 Image2 主视觉",
             "版本演进统一收敛到 `CHANGELOG.md`",
