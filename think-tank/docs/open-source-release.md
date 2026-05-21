@@ -8,6 +8,7 @@
 release_posture: public_beta
 safe_to_publish: true
 safe_to_market_as_stable_product: false
+current_default_release: full_repo_public_beta
 default_public_claim:
   - protocol-first high-level Skill
   - Codex-first verified foundation
@@ -43,6 +44,21 @@ warning_message: optional providers and broader runtime remain evidence-based be
 ```
 
 README、介绍页、示例仓库和演示材料都应保持同样的边界表述。
+
+## 发行档
+
+仓库当前维护两个发行档定义：
+
+- `full_repo_public_beta`
+- `skill_core_only_bundle`
+
+当前默认公开发行档是 `full_repo_public_beta`。That means the current default public release keeps `leader-runtime/` in the repository as a sibling runtime layer, not as think-tank core.
+
+对应机器可检查清单见：
+
+```text
+open-source-packages.yaml
+```
 
 ## 发布门禁
 

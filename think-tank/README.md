@@ -264,6 +264,11 @@ v0.5 已补齐专业 subagent runtime 契约：
 - `docs/support-matrix.md`
 - `docs/open-source-release.md`
 
+当前仓库公开发行档：
+
+- `full_repo_public_beta`
+- `skill_core_only_bundle`
+
 仍未声明完成：
 
 - Claude Code Agent Team

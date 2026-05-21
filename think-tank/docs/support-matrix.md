@@ -10,7 +10,13 @@ default_platform: codex
 default_runtime: single_agent_multi_profile
 multi_agent_runtime: verified_partial_for_readonly_council_only
 external_provider_runtime: per_provider_validation_required
+current_default_release: full_repo_public_beta
 ```
+
+Packaging:
+
+- leader-runtime packaging: included in current repository release
+- skill-only packaging: optional future split
 
 ## Core Workflow
 

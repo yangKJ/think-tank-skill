@@ -15,6 +15,7 @@ OPEN_SOURCE_RELEASE = ROOT / "think-tank" / "docs" / "open-source-release.md"
 CAPABILITY_STATUS = ROOT / "think-tank" / "platforms" / "codex" / "capability-status.md"
 RELEASE_SUITE = ROOT / "checks" / "open_source_release_suite.py"
 WORKFLOW = ROOT / ".github" / "workflows" / "open-source-release.yml"
+PACKAGE_MANIFEST = ROOT / "open-source-packages.yaml"
 
 
 def fail(message: str) -> None:
@@ -39,6 +40,7 @@ def main() -> None:
             "think-tank/docs/open-source-quickstart.md",
             "think-tank/docs/support-matrix.md",
             "think-tank/docs/open-source-release.md",
+            "open-source-packages.yaml",
             "python3 checks/open_source_release_suite.py",
             "python3 checks/open_source_release_check.py",
         ],
@@ -50,6 +52,8 @@ def main() -> None:
             "docs/open-source-quickstart.md",
             "docs/support-matrix.md",
             "docs/open-source-release.md",
+            "full_repo_public_beta",
+            "skill_core_only_bundle",
             "python3 checks/open_source_release_suite.py",
             "python3 checks/open_source_release_check.py",
         ],
@@ -82,6 +86,8 @@ def main() -> None:
             "safe_to_publish: true",
             "safe_to_market_as_stable_product: false",
             "versioning_hint: 0.x",
+            "full_repo_public_beta",
+            "skill_core_only_bundle",
             "python3 checks/open_source_release_suite.py",
             "python3 checks/open_source_release_check.py",
         ],
@@ -92,12 +98,22 @@ def main() -> None:
             "external_research_skills_executable: per_provider_validation_required",
             "external_readonly_web_source: verified_partial",
             "codex_parallel_subagent_council: verified_partial",
+            "current_default_release: full_repo_public_beta",
+        ],
+    )
+    require_text(
+        PACKAGE_MANIFEST,
+        [
+            "current_default_release: full_repo_public_beta",
+            "skill_core_only_bundle:",
+            "leader-runtime/**",
         ],
     )
     require_text(
         RELEASE_SUITE,
         [
             "checks/release_privacy_check.py",
+            "checks/public_package_boundary_check.py",
             "checks/open_source_release_check.py",
             "open source release suite 通过",
         ],

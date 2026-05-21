@@ -114,6 +114,7 @@ Readiness status:
 - [`think-tank/docs/open-source-quickstart.md`](think-tank/docs/open-source-quickstart.md)
 - [`think-tank/docs/support-matrix.md`](think-tank/docs/support-matrix.md)
 - [`think-tank/docs/open-source-release.md`](think-tank/docs/open-source-release.md)
+- [`open-source-packages.yaml`](open-source-packages.yaml)
 - [`think-tank/platforms/codex/operating-guide.md`](think-tank/platforms/codex/operating-guide.md)
 - [`think-tank/platforms/codex/capability-status.md`](think-tank/platforms/codex/capability-status.md)
 - [`think-tank/examples/codex-smoke-research.md`](think-tank/examples/codex-smoke-research.md)
