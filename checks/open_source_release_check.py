@@ -52,7 +52,6 @@ def main() -> None:
             "docs/open-source-quickstart.md",
             "docs/support-matrix.md",
             "docs/open-source-release.md",
-            "full_repo_public_beta",
             "skill_core_only_bundle",
             "python3 checks/open_source_release_suite.py",
             "python3 checks/open_source_release_check.py",
@@ -88,6 +87,7 @@ def main() -> None:
             "versioning_hint: 0.x",
             "full_repo_public_beta",
             "skill_core_only_bundle",
+            "current default public release is `skill_core_only_bundle`",
             "python3 checks/open_source_release_suite.py",
             "python3 checks/open_source_release_check.py",
         ],
@@ -98,13 +98,13 @@ def main() -> None:
             "external_research_skills_executable: per_provider_validation_required",
             "external_readonly_web_source: verified_partial",
             "codex_parallel_subagent_council: verified_partial",
-            "current_default_release: full_repo_public_beta",
+            "current_default_release: skill_core_only_bundle",
         ],
     )
     require_text(
         PACKAGE_MANIFEST,
         [
-            "current_default_release: full_repo_public_beta",
+            "current_default_release: skill_core_only_bundle",
             "skill_core_only_bundle:",
             "leader-runtime/**",
         ],

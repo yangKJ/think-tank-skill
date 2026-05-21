@@ -1,4 +1,4 @@
-current_default_release: full_repo_public_beta
+current_default_release: skill_core_only_bundle
 
 profiles:
   full_repo_public_beta:
@@ -51,5 +51,5 @@ profiles:
       - '*.pyc'
       - '**/.DS_Store'
     notes:
-      - Use this profile only when shipping think-tank as a pure Skill package.
-      - leader-runtime should then move to a separate repository or separate release artifact.
+      - Current default public release for the think-tank Skill repository.
+      - leader-runtime should live in a separate repository or separate release artifact.

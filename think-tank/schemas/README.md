@@ -28,8 +28,8 @@
 - 平台 adapter 可以把最终输出转换成 schema 兼容结构。
 - schema 变更必须遵守 `protocol/versioning.md`。
 
-主 agent 领导者系统的 schema 已迁移到仓库同级目录：
+主 agent 领导者系统的 schema 已迁移到外部 sibling 项目：
 
 ```text
-../leader-runtime/schemas/
+Desktop/leader-runtime-project/schemas/
 ```

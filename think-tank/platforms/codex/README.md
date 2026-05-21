@@ -24,12 +24,14 @@ Codex 适配可以先以单 agent 协议执行为主：
 
 ## 领导者模式主线
 
-Codex 平台的主 agent 领导者系统已经拆到仓库同级目录 `leader-runtime/`。
+Codex 平台的主 agent 领导者系统已经拆到外部 sibling 项目 `leader-runtime-project`。
 
 相关总纲见：
 
+推荐在桌面 sibling 项目中查看对应总纲：
+
 ```text
-../../../leader-runtime/docs/codex-leader-orchestration-blueprint.md
+Desktop/leader-runtime-project/docs/codex-leader-orchestration-blueprint.md
 ```
 
 该文档补充了：

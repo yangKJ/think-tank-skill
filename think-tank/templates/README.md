@@ -32,8 +32,8 @@
 
 模板可以被 Claude Code、Codex 或其他平台填充，但不得要求某个平台的私有工具。
 
-主 agent 领导者系统专属模板已迁移到仓库同级目录：
+主 agent 领导者系统专属模板已迁移到外部 sibling 项目：
 
 ```text
-../leader-runtime/templates/
+Desktop/leader-runtime-project/templates/
 ```

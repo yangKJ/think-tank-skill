@@ -3,7 +3,7 @@
 think-tank-skill is the main repository for **think-tank**, a cross-platform reusable Skill for multi-role information gathering, collaborative analysis, deliberation, synthesis, and actionable recommendations.
 
 The high-level Skill lives in [`think-tank/`](think-tank/).
-The leader orchestration layer lives in [`leader-runtime/`](leader-runtime/).
+The leader orchestration layer is being split into a standalone sibling project on the Desktop.
 
 ## What Is think-tank?
 
@@ -43,12 +43,6 @@ think-tank-skill/
 │   ├── domain-packs/
 │   ├── docs/
 │   └── examples/
-└── leader-runtime/
-    ├── README.md
-    ├── docs/
-    ├── runtime/
-    ├── schemas/
-    └── templates/
 ```
 
 ## Key Directories
@@ -64,7 +58,7 @@ think-tank-skill/
 - [`think-tank/domain-packs/`](think-tank/domain-packs/): Optional domain packs.
 - [`think-tank/schemas/`](think-tank/schemas/): Machine-readable input and output schemas.
 - [`think-tank/examples/`](think-tank/examples/): Reusable examples that demonstrate the protocol.
-- [`leader-runtime/`](leader-runtime/): Main-agent leader orchestration layer above the Skill core.
+- `leader-runtime`: standalone sibling project, no longer part of the default Skill release bundle.
 
 ## Release Posture
 
@@ -114,6 +108,9 @@ Readiness status:
 - [`think-tank/docs/open-source-quickstart.md`](think-tank/docs/open-source-quickstart.md)
 - [`think-tank/docs/support-matrix.md`](think-tank/docs/support-matrix.md)
 - [`think-tank/docs/open-source-release.md`](think-tank/docs/open-source-release.md)
+- [`think-tank/docs/stable-release-criteria.md`](think-tank/docs/stable-release-criteria.md)
+- [`think-tank/docs/stable-readiness-matrix.md`](think-tank/docs/stable-readiness-matrix.md)
+- [`think-tank/docs/stable-release-checklist.md`](think-tank/docs/stable-release-checklist.md)
 - [`open-source-packages.yaml`](open-source-packages.yaml)
 - [`think-tank/platforms/codex/operating-guide.md`](think-tank/platforms/codex/operating-guide.md)
 - [`think-tank/platforms/codex/capability-status.md`](think-tank/platforms/codex/capability-status.md)
@@ -139,6 +136,12 @@ python3 checks/schema_sample_check.py
 python3 checks/minimal_runtime_execution_check.py
 python3 checks/release_privacy_check.py
 python3 checks/open_source_release_check.py
+```
+
+Stable gate is stricter and currently expected to fail until more runtime evidence exists:
+
+```bash
+python3 checks/stable_release_check.py
 ```
 
 Codex foundation status:
@@ -175,4 +178,4 @@ The protocol layer defines what think-tank means. Platform adapters define how t
 
 Platform-specific behavior must not redefine the core protocol.
 
-`leader-runtime/` is intentionally separate. It defines how a Codex-style main agent becomes a leader that can orchestrate expert pools and acceptance governance. `think-tank/` remains a reusable Skill core, not the entire leader operating layer.
+`leader-runtime` is intentionally separate. It defines how a Codex-style main agent becomes a leader that can orchestrate expert pools and acceptance governance. `think-tank/` remains a reusable Skill core, not the entire leader operating layer.

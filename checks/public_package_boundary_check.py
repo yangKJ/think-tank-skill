@@ -32,7 +32,7 @@ def main() -> None:
     require_text(
         MANIFEST,
         [
-            "current_default_release: full_repo_public_beta",
+            "current_default_release: skill_core_only_bundle",
             "full_repo_public_beta:",
             "skill_core_only_bundle:",
             "leader-runtime/**",
@@ -45,7 +45,7 @@ def main() -> None:
         README,
         [
             "release_posture: public_beta",
-            "leader-runtime/",
+            "standalone sibling project",
             "checks/open_source_release_suite.py",
         ],
     )
@@ -54,15 +54,15 @@ def main() -> None:
         [
             "full_repo_public_beta",
             "skill_core_only_bundle",
-            "current default public release keeps `leader-runtime/` in the repository",
+            "current default public release is `skill_core_only_bundle`",
         ],
     )
     require_text(
         SUPPORT_MATRIX,
         [
-            "current_default_release: full_repo_public_beta",
-            "leader-runtime packaging: included in current repository release",
-            "skill-only packaging: optional future split",
+            "current_default_release: skill_core_only_bundle",
+            "leader-runtime packaging: moved to standalone sibling project",
+            "skill-only packaging: current default release",
         ],
     )
     require_text(

@@ -1,0 +1,36 @@
+release_posture: public_beta
+stable_release_ready: false
+
+core_contract:
+  protocol_check: pass
+  codex_validation_check: pass
+  schema_sample_check: pass
+  minimal_runtime_execution_check: pass
+  runtime_provenance_check: pass
+
+release_boundary:
+  release_privacy_check: pass
+  public_package_boundary_check: pass
+  open_source_release_check: pass
+
+stable_blockers:
+  provider_invocation_evidence:
+    status: blocked
+    current_public_proofs: 2
+    minimum_required: 3
+  browser_external_readonly:
+    status: blocked
+    current_status: blocked
+    minimum_required: verified_partial_or_verified
+  multi_agent_beyond_readonly_council:
+    status: blocked
+    current_status: not_verified
+    minimum_required: verified_partial_or_verified
+  long_running_subagent_lifecycle:
+    status: blocked
+    current_status: not_verified
+    minimum_required: specified_or_better
+
+notes:
+  - Public beta is releaseable.
+  - Stable release remains blocked by real runtime evidence, not by missing release docs.

@@ -10,7 +10,7 @@ foundation_status: verified
 default_execution: single_agent_multi_profile
 true_multi_agent_council: verified_partial
 last_updated: 2026-05-15
-current_default_release: full_repo_public_beta
+current_default_release: skill_core_only_bundle
 external_research_skills_installed: verified
 external_research_skills_executable: per_provider_validation_required
 ```

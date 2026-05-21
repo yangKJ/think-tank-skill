@@ -161,7 +161,7 @@ think-tank 不复制工具型 skill。它通过 capability 说明“需要什么
 
 ## 与领导者运行层的关系
 
-在基础执行路径之上，主 agent 的领导者编排层已经从 `think-tank/` 中拆出，迁移到同级目录 `leader-runtime/`。
+在基础执行路径之上，主 agent 的领导者编排层已经从 `think-tank/` 中拆出，迁移到外部 sibling 项目 `leader-runtime-project`。
 
 `think-tank/` 不再承担以下主语：
 
@@ -170,10 +170,10 @@ think-tank 不复制工具型 skill。它通过 capability 说明“需要什么
 - 如何向项目派生领导者下放子集专家编制
 - 如何做真实派遣、结果回收、验收和仲裁
 
-这些内容改由同级文档定义：
+这些内容改由外部 sibling 项目文档定义：
 
 ```text
-../../leader-runtime/docs/codex-leader-orchestration-blueprint.md
+Desktop/leader-runtime-project/docs/codex-leader-orchestration-blueprint.md
 ```
 
 think-tank 在领导者体系中的定位，是被调用的高阶 Skill core。
