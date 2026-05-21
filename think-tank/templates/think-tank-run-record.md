@@ -25,6 +25,22 @@ run_record:
     entries: []
   evidence_refs: []
   conclusions: []
+  minimal_conclusion:
+    request:
+    route:
+      selected_intent:
+      selected_mode:
+      selected_recipe:
+      trigger_status:
+    conclusion:
+    decision:
+    evidence:
+      summary:
+      evidence_state:
+      confidence:
+    risks: []
+    next_step:
+    boundaries: []
   disagreements: []
   risks: []
   next_actions: []

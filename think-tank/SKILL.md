@@ -305,6 +305,13 @@ post_run_curation:
 
 轻量任务可以合并栏目，但不能丢失结论、风险和行动建议。
 
+如果任务不需要完整长报告，也至少要输出一份最小结论摘要，格式见：
+
+```text
+protocol/minimal-conclusion-contract.md
+templates/minimal-conclusion.md
+```
+
 如果只是按 think-tank 结构输出，但没有真实走 runtime 或 provider dispatch，
 必须明确写出 `think_tank_runtime_used: false` 或相应降级状态。直接使用助手工具收集资料
 时必须写 `data_collection: direct_assistant_tool`，不能说成 provider-managed

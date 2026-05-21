@@ -42,6 +42,7 @@
 - `runtime-contract.md`：平台无关 runtime pipeline
 - `natural-language-runtime-orchestration.md`：自然语言请求到 policy、dispatch、invocation、recovery、run record 的最小闭环
 - `state-result-contract.md`：run、state、result、recovery 最小结构
+- `minimal-conclusion-contract.md`：跨 mode 的最小结论收口契约，统一 request、route、decision、evidence、risk 和 next_step
 - `consensus-contract.md`：显式投票、blocking objection、停止条件
 - `runtime-provenance.md`：运行来源披露门禁，防止把直接工具调用或单 agent 模拟写成真实 runtime
 - `run-record.md`：2.0 可回放运行记录协议

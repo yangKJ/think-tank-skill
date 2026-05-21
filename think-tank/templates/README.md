@@ -13,6 +13,7 @@
 - `video-storyboard.md`：`research-to-video` 的镜头级分镜、素材表和音频时间线。
 - `media-run-record.md`：`research-to-video` 的 provider 调用、生成产物、质量门禁和升级路径记录。
 - `think-tank-run-record.md`：2.0 通用 run record 模板。
+- `minimal-conclusion.md`：跨 mode 的最小结论摘要模板，适合宿主 agent 快速消费和后续 dispatch/review。
 - `provider-invocation-ledger.md`：2.0 provider 调用证据账本模板。
 - `memory-runtime-result.md`：2.0 memory runtime 输出模板。
 - `research-workspace/`：2.2 Research OS starter kit，可复制到用户项目作为本地 `.think-tank/` 工作区模板。
