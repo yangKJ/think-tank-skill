@@ -56,24 +56,33 @@ If both pass, you are on the repository's current stable public path.
 |---|---|---|
 | ![research scenario](think-tank/assets/brand/research-card-image2.png) | ![council scenario](think-tank/assets/brand/council-card-image2.png) | ![review scenario](think-tank/assets/brand/review-card-image2.png) |
 
-## Provider Ecosystem Evidence
+## Provider Ecosystem Patterns
 
-`think-tank` does not bundle concrete tools. It routes capability slots to optional peer skills when the current platform exposes them and the task has permission to use them.
+`think-tank` does not bundle concrete tools. It documents provider integration patterns and routes capability slots to optional peer skills only when the current platform exposes them and the task has permission to use them.
 
 ![provider ecosystem](think-tank/assets/brand/provider-ecosystem-image2.png)
 
-Representative real-world peer skill examples:
+Representative peer skill pattern examples:
 
 | capability slot | example peer skills | status boundary |
 |---|---|---|
-| source-acquisition | `web-access`, `agent-reach` | optional, evidence required |
+| source-acquisition | `web-access`, `agent-reach` | pattern documented, evidence required |
 | browser-automation | `browser`, `playwright-cli` | verified_partial for readonly paths |
-| social-listening | `xiaohongshu` | planned, login and permission required |
-| media-processing | `yt-dlp`, `openai-whisper` | planned, rights and permission required |
-| knowledge-persistence | `obsidian` | planned, private write confirmation required |
+| social-listening | `xiaohongshu` | pattern documented, login and permission required |
+| media-processing | `yt-dlp`, `openai-whisper` | pattern documented, rights and permission required |
+| knowledge-persistence | `obsidian` | pattern documented, private write confirmation required |
 | media-production | `research-to-video-production` | verified_partial, scoped production workflow |
 
-See [`think-tank/docs/provider-ecosystem-examples.md`](think-tank/docs/provider-ecosystem-examples.md).
+See [`think-tank/docs/provider-ecosystem-examples.md`](think-tank/docs/provider-ecosystem-examples.md) and [`think-tank/docs/provider-integration-patterns.md`](think-tank/docs/provider-integration-patterns.md).
+
+## v1.1 Additions
+
+v1.1 improves onboarding around optional providers without changing the core capability claim:
+
+- **Provider Integration Patterns:** [`think-tank/docs/provider-integration-patterns.md`](think-tank/docs/provider-integration-patterns.md)
+- **Codex Installation:** [`think-tank/docs/codex-installation.md`](think-tank/docs/codex-installation.md)
+- **v1.1 Roadmap:** [`think-tank/docs/v1.1-roadmap.md`](think-tank/docs/v1.1-roadmap.md)
+- **v1.1 Release Notes:** [`think-tank/docs/v1.1-release-notes.md`](think-tank/docs/v1.1-release-notes.md)
 
 ## Repository Layout
 
@@ -203,6 +212,10 @@ It is:
   - [`think-tank/docs/support-matrix.md`](think-tank/docs/support-matrix.md)
   - [`think-tank/docs/validation-tiers.md`](think-tank/docs/validation-tiers.md)
   - [`think-tank/docs/provider-ecosystem-examples.md`](think-tank/docs/provider-ecosystem-examples.md)
+  - [`think-tank/docs/provider-integration-patterns.md`](think-tank/docs/provider-integration-patterns.md)
+  - [`think-tank/docs/codex-installation.md`](think-tank/docs/codex-installation.md)
+  - [`think-tank/docs/v1.1-roadmap.md`](think-tank/docs/v1.1-roadmap.md)
+  - [`think-tank/docs/v1.1-release-notes.md`](think-tank/docs/v1.1-release-notes.md)
   - [`think-tank/docs/open-source-release.md`](think-tank/docs/open-source-release.md)
 - Stable release references:
   - [`think-tank/docs/stable-release-criteria.md`](think-tank/docs/stable-release-criteria.md)

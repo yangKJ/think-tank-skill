@@ -55,24 +55,33 @@ python3 checks/stable_release_check.py
 |---|---|---|
 | ![research scenario](think-tank/assets/brand/research-card-image2.png) | ![council scenario](think-tank/assets/brand/council-card-image2.png) | ![review scenario](think-tank/assets/brand/review-card-image2.png) |
 
-## Provider 生态证据
+## Provider 生态模式
 
-`think-tank` 不内置具体工具。它把 capability slot 路由到当前平台可用、且当前任务被授权使用的可选 peer skills。
+`think-tank` 不内置具体工具。它记录 provider 接入模式，并且只在当前平台暴露 provider、当前任务获得授权时，才把 capability slot 路由到可选 peer skills。
 
 ![provider ecosystem](think-tank/assets/brand/provider-ecosystem-image2.png)
 
-代表性真实同级技能示例：
+代表性同级技能模式示例：
 
 | 能力槽 | 典型 peer skills | 状态边界 |
 |---|---|---|
-| source-acquisition | `web-access`, `agent-reach` | 可选，需要证据 |
+| source-acquisition | `web-access`, `agent-reach` | 模式已记录，需要证据 |
 | browser-automation | `browser`, `playwright-cli` | 只读路径 `verified_partial` |
-| social-listening | `xiaohongshu` | planned，需要登录和授权 |
-| media-processing | `yt-dlp`, `openai-whisper` | planned，需要媒体权限和授权 |
-| knowledge-persistence | `obsidian` | planned，私有写入必须确认 |
+| social-listening | `xiaohongshu` | 模式已记录，需要登录和授权 |
+| media-processing | `yt-dlp`, `openai-whisper` | 模式已记录，需要媒体权限和授权 |
+| knowledge-persistence | `obsidian` | 模式已记录，私有写入必须确认 |
 | media-production | `research-to-video-production` | verified_partial，限定生产链路 |
 
-更多说明见 [`think-tank/docs/provider-ecosystem-examples.md`](think-tank/docs/provider-ecosystem-examples.md)。
+更多说明见 [`think-tank/docs/provider-ecosystem-examples.md`](think-tank/docs/provider-ecosystem-examples.md) 和 [`think-tank/docs/provider-integration-patterns.md`](think-tank/docs/provider-integration-patterns.md)。
+
+## v1.1 新增内容
+
+v1.1 聚焦把 optional provider 说清楚，但不把模式说明写成能力承诺：
+
+- **Provider 接入模式：** [`think-tank/docs/provider-integration-patterns.md`](think-tank/docs/provider-integration-patterns.md)
+- **Codex 安装：** [`think-tank/docs/codex-installation.md`](think-tank/docs/codex-installation.md)
+- **v1.1 路线图：** [`think-tank/docs/v1.1-roadmap.md`](think-tank/docs/v1.1-roadmap.md)
+- **v1.1 发布说明：** [`think-tank/docs/v1.1-release-notes.md`](think-tank/docs/v1.1-release-notes.md)
 
 ## 仓库结构
 
@@ -129,6 +138,10 @@ Stable 不表示：
 - [`think-tank/docs/support-matrix.md`](think-tank/docs/support-matrix.md)
 - [`think-tank/docs/validation-tiers.md`](think-tank/docs/validation-tiers.md)
 - [`think-tank/docs/provider-ecosystem-examples.md`](think-tank/docs/provider-ecosystem-examples.md)
+- [`think-tank/docs/provider-integration-patterns.md`](think-tank/docs/provider-integration-patterns.md)
+- [`think-tank/docs/codex-installation.md`](think-tank/docs/codex-installation.md)
+- [`think-tank/docs/v1.1-roadmap.md`](think-tank/docs/v1.1-roadmap.md)
+- [`think-tank/docs/v1.1-release-notes.md`](think-tank/docs/v1.1-release-notes.md)
 - [`think-tank/docs/open-source-release.md`](think-tank/docs/open-source-release.md)
 
 ## 验证

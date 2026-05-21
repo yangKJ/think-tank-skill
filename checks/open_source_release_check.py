@@ -15,6 +15,10 @@ SUPPORT_MATRIX = ROOT / "think-tank" / "docs" / "support-matrix.md"
 VALIDATION_TIERS = ROOT / "think-tank" / "docs" / "validation-tiers.md"
 HISTORY = ROOT / "think-tank" / "docs" / "history.md"
 PROVIDER_ECOSYSTEM = ROOT / "think-tank" / "docs" / "provider-ecosystem-examples.md"
+PROVIDER_PATTERNS = ROOT / "think-tank" / "docs" / "provider-integration-patterns.md"
+CODEX_INSTALLATION = ROOT / "think-tank" / "docs" / "codex-installation.md"
+V1_1_ROADMAP = ROOT / "think-tank" / "docs" / "v1.1-roadmap.md"
+V1_1_RELEASE_NOTES = ROOT / "think-tank" / "docs" / "v1.1-release-notes.md"
 OPEN_SOURCE_RELEASE = ROOT / "think-tank" / "docs" / "open-source-release.md"
 CAPABILITY_STATUS = ROOT / "think-tank" / "platforms" / "codex" / "capability-status.md"
 RELEASE_SUITE = ROOT / "checks" / "open_source_release_suite.py"
@@ -59,6 +63,10 @@ def main() -> None:
             "think-tank/docs/support-matrix.md",
             "think-tank/docs/validation-tiers.md",
             "think-tank/docs/provider-ecosystem-examples.md",
+            "think-tank/docs/provider-integration-patterns.md",
+            "think-tank/docs/codex-installation.md",
+            "think-tank/docs/v1.1-roadmap.md",
+            "think-tank/docs/v1.1-release-notes.md",
             "think-tank/docs/open-source-release.md",
             "think-tank/examples/public/research-request.md",
             "think-tank/assets/brand/think-tank-hero-image2.png",
@@ -77,6 +85,10 @@ def main() -> None:
             "python3 checks/open_source_release_suite.py",
             "python3 checks/stable_release_check.py",
             "think-tank/docs/provider-ecosystem-examples.md",
+            "think-tank/docs/provider-integration-patterns.md",
+            "think-tank/docs/codex-installation.md",
+            "think-tank/docs/v1.1-roadmap.md",
+            "think-tank/docs/v1.1-release-notes.md",
         ],
     )
     require_text(
@@ -88,6 +100,9 @@ def main() -> None:
             "docs/validation-tiers.md",
             "docs/history.md",
             "docs/provider-ecosystem-examples.md",
+            "docs/provider-integration-patterns.md",
+            "docs/codex-installation.md",
+            "docs/v1.1-roadmap.md",
             "docs/open-source-release.md",
             "examples/public/research-request.md",
             "skill_core_only_bundle",
@@ -148,6 +163,40 @@ def main() -> None:
         ],
     )
     require_text(
+        PROVIDER_PATTERNS,
+        [
+            "pattern_documented",
+            "available_if_user_installs_provider",
+            "requires_user_environment",
+            "not_bundled",
+            "selected != dispatched != invoked != recovered != verified",
+        ],
+    )
+    require_text(
+        CODEX_INSTALLATION,
+        [
+            "Copy The Skill Core",
+            ".codex/",
+            ".think-tank/",
+            "provider being mentioned in docs means `pattern_documented`, not `invoked`",
+        ],
+    )
+    require_text(
+        V1_1_ROADMAP,
+        [
+            "Document provider integration patterns",
+            "workflow pattern examples",
+            "release_gate: v1_1_release_check",
+        ],
+    )
+    require_text(
+        V1_1_RELEASE_NOTES,
+        [
+            "Provider examples are patterns, not bundled capabilities",
+            "python3 checks/v1_1_release_check.py",
+        ],
+    )
+    require_text(
         OPEN_SOURCE_RELEASE,
         [
             "safe_to_publish: true",
@@ -199,6 +248,7 @@ def main() -> None:
         [
             "checks/release_privacy_check.py",
             "checks/markdown_image_links_check.py",
+            "checks/v1_1_release_check.py",
             "checks/public_package_boundary_check.py",
             "checks/open_source_release_check.py",
             "open source release suite 通过",

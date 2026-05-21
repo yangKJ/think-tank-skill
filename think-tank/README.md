@@ -179,6 +179,9 @@ docs/open-source-quickstart.md
 docs/support-matrix.md
 docs/validation-tiers.md
 docs/provider-ecosystem-examples.md
+docs/provider-integration-patterns.md
+docs/codex-installation.md
+docs/v1.1-roadmap.md
 examples/public/
 docs/history.md
 ```

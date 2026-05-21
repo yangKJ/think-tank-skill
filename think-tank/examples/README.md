@@ -7,7 +7,7 @@
 视觉说明和 Image2 提示词见：
 
 ```text
-../assets/diagrams/
+../assets/
 ../assets/prompts/
 ```
 
@@ -16,6 +16,8 @@
 - `public/research-request.md`：公开 research 模板，展示用户材料路径和 provider 边界。
 - `public/council-decision.md`：公开 council 模板，展示单 agent 多视角 fallback 的声明方式。
 - `public/review-acceptance.md`：公开 review 模板，展示发布验收和证据优先输出。
+- `provider-patterns/`：v1.1 provider 接入模式示例，只说明可能接法，不承诺 provider 已安装或已调用。
+- `workflow-patterns/`：v1.1 工作流模式示例，展示用户可参考的组织方式，不替用户完成具体 provider 功能。
 - `research-request.md`：研究模式输入输出示例
 - `council-request.md`：委员会讨论模式输入输出示例
 - `end-to-end-research.md`：端到端 research mode 示例

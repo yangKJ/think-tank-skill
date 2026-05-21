@@ -19,6 +19,11 @@ COMMANDS = [
     ["python3", "checks/codex_runtime_pipeline_check.py"],
     ["python3", "checks/release_privacy_check.py"],
     ["python3", "checks/markdown_image_links_check.py"],
+    ["python3", "checks/provider_integration_patterns_check.py"],
+    ["python3", "checks/workflow_patterns_check.py"],
+    ["python3", "checks/readme_language_sync_check.py"],
+    ["python3", "checks/visual_assets_check.py"],
+    ["python3", "checks/v1_1_release_check.py"],
     ["python3", "checks/public_package_boundary_check.py"],
     ["python3", "checks/open_source_release_check.py"],
 ]

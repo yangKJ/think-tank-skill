@@ -2,6 +2,8 @@
 
 本文展示 `think-tank` 如何把真实同级 skills 作为可选 provider 生态接入。它不是内置能力清单，也不是默认安装承诺。
 
+v1.1 的更细接入模式见 [`provider-integration-patterns.md`](provider-integration-patterns.md)。这些示例是 `pattern_documented`，不是默认 provider invocation 证据。
+
 ## Core Boundary
 
 ```yaml
