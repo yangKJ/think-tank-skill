@@ -30,6 +30,7 @@ COMMANDS = [
     ["python3", "checks/eval_pack_check.py"],
     ["python3", "checks/provider_test_matrix_check.py"],
     ["python3", "checks/docs_site_check.py"],
+    ["python3", "checks/skill_experience_check.py"],
     ["python3", "checks/public_package_boundary_check.py"],
     ["python3", "checks/open_source_release_check.py"],
 ]

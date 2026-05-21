@@ -111,6 +111,26 @@ v2.0 adds the **Research OS + Memory Runtime** layer:
 - **v2.5 Docs Site Ready:** [`think-tank/docs/index.md`](think-tank/docs/index.md), concepts, guides, reference, and release sections.
 - **v2.1-v2.5 Release Notes:** [`think-tank/docs/v2.1-v2.5-release-notes.md`](think-tank/docs/v2.1-v2.5-release-notes.md).
 
+## v3.0 Additions
+
+v3.0 adds the **Skill Experience Layer** so agents can decide when to use
+`think-tank`, form a clear invocation contract, load references progressively,
+compose optional peer skills safely, and self-test common boundaries.
+
+Trigger words are not built into the public core. They belong in user-owned YAML
+policy; `think-tank` documents intent categories and routing contracts.
+
+- **Skill Trigger Intelligence:** [`think-tank/protocol/skill-trigger-intelligence.md`](think-tank/protocol/skill-trigger-intelligence.md)
+- **Skill Invocation Contract:** [`think-tank/protocol/skill-invocation-contract.md`](think-tank/protocol/skill-invocation-contract.md)
+- **Progressive Disclosure:** [`think-tank/protocol/progressive-disclosure.md`](think-tank/protocol/progressive-disclosure.md)
+- **Agent Compatibility Matrix:** [`think-tank/docs/agent-compatibility-matrix.md`](think-tank/docs/agent-compatibility-matrix.md)
+- **Skill Composition Guide:** [`think-tank/docs/skill-composition-guide.md`](think-tank/docs/skill-composition-guide.md)
+- **Skill Quality Score:** [`think-tank/docs/skill-quality-score.md`](think-tank/docs/skill-quality-score.md)
+- **v3.0 Roadmap:** [`think-tank/docs/v3.0-roadmap.md`](think-tank/docs/v3.0-roadmap.md)
+- **v3.0 Release Notes:** [`think-tank/docs/v3.0-release-notes.md`](think-tank/docs/v3.0-release-notes.md)
+- **v3 Examples:** [`think-tank/examples/v3/`](think-tank/examples/v3/)
+- **Skill Self Tests:** [`think-tank/self-tests/`](think-tank/self-tests/)
+
 ## Repository Layout
 
 ```text
@@ -128,6 +148,7 @@ think-tank-skill/
 │   ├── modes/
 │   ├── templates/
 │   ├── runtime/
+│   ├── self-tests/
 │   ├── domain-packs/
 │   ├── docs/
 │   └── examples/
@@ -143,6 +164,7 @@ think-tank-skill/
 - [`think-tank/modes/`](think-tank/modes/): Research, council, review, and strategy modes.
 - [`think-tank/runtime/`](think-tank/runtime/): Platform-neutral minimal runtime primitives.
 - [`think-tank/templates/`](think-tank/templates/): Cross-platform report and kickoff templates.
+- [`think-tank/self-tests/`](think-tank/self-tests/): Public skill experience self-test fixtures.
 - [`think-tank/domain-packs/`](think-tank/domain-packs/): Optional domain packs.
 - [`think-tank/schemas/`](think-tank/schemas/): Machine-readable input and output schemas.
 - [`think-tank/examples/`](think-tank/examples/): Reusable examples that demonstrate the protocol.

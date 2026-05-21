@@ -1,0 +1,12 @@
+{
+  "id": "run-record-memory",
+  "input": "Turn this research into a reusable project note and run record.",
+  "expected_decision": "use_think_tank",
+  "expected_refs": [
+    "protocol/run-record.md",
+    "protocol/project-memory-runtime.md",
+    "protocol/research-os.md"
+  ],
+  "permission_boundary": "Persistent writes require explicit destination and user permission.",
+  "expected_write_state": "planned_until_confirmed"
+}

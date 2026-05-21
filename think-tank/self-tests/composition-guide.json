@@ -1,0 +1,19 @@
+{
+  "id": "composition-guide",
+  "input": "Use a browser-capable peer skill to inspect a local page, then summarize risks.",
+  "expected_decision": "use_think_tank_with_peer_skill",
+  "responsibility_split": {
+    "think_tank": [
+      "intent selection",
+      "review framing",
+      "capability routing",
+      "evidence synthesis",
+      "boundary disclosure"
+    ],
+    "peer_skill": [
+      "browser inspection",
+      "raw observation capture"
+    ]
+  },
+  "required_boundary": "The final answer must disclose whether browser inspection actually ran."
+}

@@ -1,0 +1,15 @@
+{
+  "skill_route_decision": {
+    "user_goal": "Evaluate whether a feature plan is ready for an open-source release.",
+    "should_use_think_tank": true,
+    "reason": "The task needs review, evidence, risk ordering, and action recommendations.",
+    "selected_intent": "review_acceptance",
+    "selected_mode": "review",
+    "needs_provider_routing": false,
+    "policy_source": "protocol_default",
+    "trigger_source": "inferred_intent",
+    "trigger_status": "inferred_intent_only",
+    "confidence": "high",
+    "boundary": "No user YAML policy was loaded; no trigger word is claimed as installed."
+  }
+}

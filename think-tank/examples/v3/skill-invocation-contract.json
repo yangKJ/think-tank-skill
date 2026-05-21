@@ -1,0 +1,40 @@
+{
+  "think_tank_invocation": {
+    "user_goal": "Research a technical option and return a decision recommendation.",
+    "available_context": {
+      "user_supplied": ["requirements summary"],
+      "local_files": [],
+      "web_required": true,
+      "prior_run_required": false
+    },
+    "mode_hint": "research",
+    "output_expectation": {
+      "format": "structured recommendation",
+      "depth": "medium",
+      "decision_needed": true
+    },
+    "constraints": {
+      "time": "single session",
+      "privacy": "public sources only",
+      "platform": "codex",
+      "no_go_areas": ["external login", "private writes"]
+    },
+    "provider_permissions": {
+      "allow_network": true,
+      "allow_browser": false,
+      "allow_file_write": false,
+      "allow_external_login": false
+    },
+    "policy_state": {
+      "user_yaml_loaded": false,
+      "trigger_source": "explicit_user_request",
+      "provider_policy_loaded": false
+    },
+    "progressive_disclosure_refs": [
+      "SKILL.md",
+      "protocol/skill-trigger-intelligence.md",
+      "protocol/skill-invocation-contract.md",
+      "protocol/progressive-disclosure.md"
+    ]
+  }
+}

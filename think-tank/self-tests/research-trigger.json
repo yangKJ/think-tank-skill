@@ -1,0 +1,13 @@
+{
+  "id": "research-trigger",
+  "input": "Research this market and give me risks, evidence, and next actions.",
+  "expected_decision": "use_think_tank",
+  "expected_mode": "research",
+  "policy_requirement": "trigger may be inferred from intent, but no built-in trigger word is claimed",
+  "required_output_fields": [
+    "skill_route_decision",
+    "selected_intent",
+    "selected_mode",
+    "boundaries"
+  ]
+}

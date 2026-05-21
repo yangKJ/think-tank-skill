@@ -21,6 +21,8 @@ V1_1_ROADMAP = ROOT / "think-tank" / "docs" / "v1.1-roadmap.md"
 V1_1_RELEASE_NOTES = ROOT / "think-tank" / "docs" / "v1.1-release-notes.md"
 V2_0_ROADMAP = ROOT / "think-tank" / "docs" / "v2.0-roadmap.md"
 V2_0_RELEASE_NOTES = ROOT / "think-tank" / "docs" / "v2.0-release-notes.md"
+V3_0_ROADMAP = ROOT / "think-tank" / "docs" / "v3.0-roadmap.md"
+V3_0_RELEASE_NOTES = ROOT / "think-tank" / "docs" / "v3.0-release-notes.md"
 OPEN_SOURCE_RELEASE = ROOT / "think-tank" / "docs" / "open-source-release.md"
 CAPABILITY_STATUS = ROOT / "think-tank" / "platforms" / "codex" / "capability-status.md"
 RELEASE_SUITE = ROOT / "checks" / "open_source_release_suite.py"
@@ -79,6 +81,12 @@ def main() -> None:
             "think-tank/docs/v1.1-release-notes.md",
             "think-tank/docs/v2.0-roadmap.md",
             "think-tank/docs/v2.0-release-notes.md",
+            "think-tank/docs/v3.0-roadmap.md",
+            "think-tank/docs/v3.0-release-notes.md",
+            "think-tank/protocol/skill-trigger-intelligence.md",
+            "think-tank/protocol/skill-invocation-contract.md",
+            "think-tank/protocol/progressive-disclosure.md",
+            "think-tank/self-tests/",
             "think-tank/docs/open-source-release.md",
             "think-tank/examples/public/research-request.md",
             "think-tank/assets/brand/think-tank-hero-v2-image2.png",
@@ -107,6 +115,11 @@ def main() -> None:
             "think-tank/docs/v1.1-release-notes.md",
             "think-tank/docs/v2.0-roadmap.md",
             "think-tank/docs/v2.0-release-notes.md",
+            "think-tank/docs/v3.0-roadmap.md",
+            "think-tank/docs/v3.0-release-notes.md",
+            "think-tank/protocol/skill-trigger-intelligence.md",
+            "think-tank/protocol/skill-invocation-contract.md",
+            "think-tank/protocol/progressive-disclosure.md",
         ],
     )
     require_text(
@@ -122,8 +135,10 @@ def main() -> None:
             "docs/codex-installation.md",
             "docs/v1.1-roadmap.md",
             "docs/v2.0-roadmap.md",
+            "docs/v3.0-roadmap.md",
             "docs/open-source-release.md",
             "examples/public/research-request.md",
+            "examples/v3/",
             "skill_core_only_bundle",
             "python3 checks/open_source_release_suite.py",
             "python3 checks/open_source_release_check.py",
@@ -235,6 +250,22 @@ def main() -> None:
         ],
     )
     require_text(
+        V3_0_ROADMAP,
+        [
+            "Skill Experience Layer",
+            "no built-in project-specific trigger words",
+            "checks/skill_experience_check.py",
+        ],
+    )
+    require_text(
+        V3_0_RELEASE_NOTES,
+        [
+            "Skill Experience Layer",
+            "user YAML policy owns actual trigger",
+            "progressive disclosure",
+        ],
+    )
+    require_text(
         OPEN_SOURCE_RELEASE,
         [
             "safe_to_publish: true",
@@ -263,6 +294,8 @@ def main() -> None:
             "public_includes:",
             "public_excludes:",
             "skill_core",
+            "skill_experience_docs",
+            "skill_self_tests",
             "private_research_workspace",
             "closed_source_runtime_projects",
         ],
@@ -292,6 +325,7 @@ def main() -> None:
             "checks/markdown_image_links_check.py",
             "checks/v1_1_release_check.py",
             "checks/v2_0_release_check.py",
+            "checks/skill_experience_check.py",
             "checks/public_package_boundary_check.py",
             "checks/open_source_release_check.py",
             "open source release suite 通过",

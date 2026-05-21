@@ -31,6 +31,9 @@
 - `think-tank-protocol.md`：核心协议正文
 - `input-output.md`：输入输出契约
 - `intent-routing.md`：平台无关自然语言触发、intent 和 recipe 路由规则
+- `skill-trigger-intelligence.md`：3.0 skill 使用判断协议，明确 trigger examples 属于用户 YAML policy 而不是 core 内置规则
+- `skill-invocation-contract.md`：3.0 agent 调用 think-tank 前后的输入输出契约
+- `progressive-disclosure.md`：3.0 渐进式加载规则，避免 agent 一次性加载整个仓库
 - `roles.md`：角色职责、选择规则和角色输出契约
 - `agent-selection.md`：场景驱动的角色和平台 agent 选择规则
 - `mode-selection.md`：场景模式选择规则

@@ -1,0 +1,14 @@
+{
+  "id": "provider-boundary",
+  "input": "Analyze current web sources using any available web provider.",
+  "expected_decision": "escalate_to_provider_pattern",
+  "expected_provider_state": {
+    "route_selected": true,
+    "provider_preflight": "required",
+    "dispatch_decision": "required_before_invocation",
+    "invoked_providers": [],
+    "not_invoked_providers": ["web provider until actually called"],
+    "verification_status": "selected"
+  },
+  "required_boundary": "Provider selection is not provider invocation."
+}

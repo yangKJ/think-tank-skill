@@ -1,0 +1,30 @@
+{
+  "progressive_disclosure_plan": {
+    "initial_refs": [
+      "SKILL.md",
+      "protocol/skill-trigger-intelligence.md",
+      "protocol/skill-invocation-contract.md"
+    ],
+    "conditional_refs": [
+      {
+        "when": "selected_mode is research",
+        "refs": ["protocol/intent-routing.md", "modes/research.md"]
+      },
+      {
+        "when": "external capability is required",
+        "refs": ["routing/skill-router.md", "routing/dispatch-policy.md"]
+      },
+      {
+        "when": "persistent artifact is requested",
+        "refs": ["protocol/run-record.md", "protocol/research-os.md"]
+      }
+    ],
+    "skipped_refs": [
+      "all profiles not selected for the task",
+      "platform adapters not used by the current runtime",
+      "provider docs for capabilities not needed"
+    ],
+    "reason": "Load only the smallest reference set needed for the next correct decision.",
+    "max_context_boundary": "Do not bulk-load the full repository."
+  }
+}

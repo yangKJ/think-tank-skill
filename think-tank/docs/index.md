@@ -1,6 +1,6 @@
 # think-tank Documentation
 
-`think-tank` is a protocol-first AI collaboration Skill for research, review, council decisions, strategy, Research OS, run records, memory runtime, provider ledgers, handoffs, guardrails, and evals.
+`think-tank` is a protocol-first AI collaboration Skill for research, review, council decisions, strategy, Research OS, run records, memory runtime, provider ledgers, handoffs, guardrails, evals, and v3 skill experience.
 
 ## Start Here
 
@@ -15,6 +15,8 @@
 - [Research OS](concepts/research-os.md)
 - [Provider Evidence](concepts/provider-evidence.md)
 - [Memory Runtime](concepts/memory-runtime.md)
+- [Agent Compatibility Matrix](agent-compatibility-matrix.md)
+- [Skill Quality Score](skill-quality-score.md)
 
 ## Guides
 
@@ -22,6 +24,7 @@
 - [Use Research OS Starter](guides/use-research-os-starter.md)
 - [Add Provider Pattern](guides/add-provider-pattern.md)
 - [Run Release Checks](guides/run-release-checks.md)
+- [Skill Composition Guide](skill-composition-guide.md)
 
 ## Reference
 
@@ -36,3 +39,5 @@
 - [v2.0 Roadmap](v2.0-roadmap.md)
 - [v2.0 Release Notes](v2.0-release-notes.md)
 - [v2.1-v2.5 Release Notes](v2.1-v2.5-release-notes.md)
+- [v3.0 Roadmap](v3.0-roadmap.md)
+- [v3.0 Release Notes](v3.0-release-notes.md)

@@ -1,0 +1,29 @@
+{
+  "skill_self_test_result": {
+    "suite": "v3_skill_experience",
+    "status": "passed",
+    "cases": [
+      {
+        "id": "research-trigger",
+        "expected": "use_think_tank",
+        "actual": "use_think_tank"
+      },
+      {
+        "id": "anti-trigger-simple-command",
+        "expected": "do_not_use",
+        "actual": "do_not_use"
+      },
+      {
+        "id": "provider-boundary",
+        "expected": "route_selected_not_invoked",
+        "actual": "route_selected_not_invoked"
+      },
+      {
+        "id": "composition-guide",
+        "expected": "think_tank_coordinates_peer_skill_executes",
+        "actual": "think_tank_coordinates_peer_skill_executes"
+      }
+    ],
+    "boundary": "Fixture demonstrates expected decisions; it is not a runtime provider invocation proof."
+  }
+}

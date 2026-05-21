@@ -20,6 +20,7 @@
 - `provider-ledgers/`：v2.4 provider ledger 样例，与 provider test matrix 对齐。
 - `workflow-patterns/`：v1.1 工作流模式示例，展示用户可参考的组织方式，不替用户完成具体 provider 功能。
 - `v2/`：2.0 Research OS + Memory Runtime fixture，覆盖 run record、provider ledger、handoff、guardrail、eval 和本地 workspace contract。
+- `v3/`：3.0 Skill Experience fixture，覆盖 skill route decision、invocation contract、progressive disclosure、self-test result 和 quality score。
 - `research-request.md`：研究模式输入输出示例
 - `council-request.md`：委员会讨论模式输入输出示例
 - `end-to-end-research.md`：端到端 research mode 示例

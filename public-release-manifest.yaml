@@ -19,6 +19,8 @@ profiles:
       - eval_fixtures
       - public_visual_assets
       - docs_site_structure
+      - skill_experience_docs
+      - skill_self_tests
     public_excludes:
       - local_agent_instructions
       - local_runtime_state
@@ -28,6 +30,7 @@ profiles:
       - secrets_or_credentials
       - closed_source_runtime_projects
       - machine_specific_files
+      - user_owned_yaml_policy
     notes:
       - The public release is intentionally skill-core-only.
       - Runtime products, private workspaces, credentials, generated outputs, and machine-local state are outside the public release.

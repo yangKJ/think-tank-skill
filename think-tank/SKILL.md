@@ -19,6 +19,31 @@ think-tank 的 skill 本体只能是当前安装位置中的 `SKILL.md`、协议
 
 provider 边界仍必须遵守：selection 不等于 invocation，真实 provider 调用前必须有明确 dispatch decision、权限确认和结果回收。
 
+## 3.0 Skill Experience Layer
+
+think-tank 3.0 增加面向 agent 的使用体验层，用来回答三个问题：
+
+- 这个任务是否应该使用 think-tank？
+- 使用前需要形成什么 invocation contract？
+- 当前任务应该加载哪些最小协议、mode、recipe、profile、platform 或 provider 文档？
+
+先按以下协议做判断：
+
+```text
+protocol/skill-trigger-intelligence.md
+protocol/skill-invocation-contract.md
+protocol/progressive-disclosure.md
+```
+
+触发词、别名、平台快捷语和 provider 偏好不属于公开 core 的内置规则。它们应由用户自己的 YAML policy 或平台 adapter 定义。公开 core 只能提供 intent 识别原则、trigger category 示例和 policy schema。
+
+当触发来源不明确时，先输出 `skill_route_decision`，并标注：
+
+```yaml
+policy_source: protocol_default
+trigger_status: inferred_intent_only
+```
+
 ## 何时使用
 
 当用户任务满足任一条件时，使用 think-tank：
@@ -30,7 +55,7 @@ provider 边界仍必须遵守：selection 不等于 invocation，真实 provide
 - 需要策略、路线、产品或架构判断
 - 需要把复杂资料汇总为行动建议
 
-通用触发词也应进入 think-tank：
+以下只是可被用户 YAML policy 采用的 intent 短语示例，不是 think-tank core 的内置触发规则：
 
 - 研究：`研究一下`、`深度研究`、`全面分析`
 - 竞争：`竞品分析`、`竞争分析`、`竞品调研`
@@ -45,6 +70,7 @@ provider 边界仍必须遵守：selection 不等于 invocation，真实 provide
 
 ```text
 protocol/intent-routing.md
+protocol/skill-trigger-intelligence.md
 ```
 
 跨项目任务配方见：

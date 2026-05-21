@@ -1,0 +1,8 @@
+{
+  "id": "anti-trigger-simple-command",
+  "input": "Show the current git status.",
+  "expected_decision": "do_not_use",
+  "expected_mode": "none",
+  "reason": "The task is a simple one-step command and does not need multi-role reasoning.",
+  "required_boundary": "Do not wrap simple tasks in think-tank unless the user explicitly asks for it."
+}

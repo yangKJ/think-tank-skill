@@ -1,0 +1,21 @@
+{
+  "skill_quality_score": {
+    "release": "v3.0",
+    "score": 94,
+    "band": "stable skill experience",
+    "areas": {
+      "trigger_clarity": 10,
+      "invocation_contract": 10,
+      "progressive_disclosure": 10,
+      "mode_and_recipe_routing": 9,
+      "provider_boundaries": 10,
+      "agent_compatibility": 9,
+      "examples": 9,
+      "self_tests": 9,
+      "privacy_and_release_boundary": 9,
+      "documentation_navigation": 9
+    },
+    "required_gate": "checks/skill_experience_check.py",
+    "boundary": "Score covers skill usability and safety, not universal provider availability."
+  }
+}

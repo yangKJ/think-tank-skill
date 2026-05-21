@@ -110,6 +110,23 @@ v2.0 增加 **Research OS + Memory Runtime** 层：
 - **v2.5 Docs Site Ready：** [`think-tank/docs/index.md`](think-tank/docs/index.md)、concepts、guides、reference 和 release 分区。
 - **v2.1-v2.5 发布说明：** [`think-tank/docs/v2.1-v2.5-release-notes.md`](think-tank/docs/v2.1-v2.5-release-notes.md)。
 
+## v3.0 新增内容
+
+v3.0 增加 **Skill Experience Layer**，让 Codex、Claude Code 和其他 agent 更容易判断何时使用 `think-tank`、如何形成 invocation contract、如何渐进加载文档、如何安全组合 optional peer skills，以及如何用 self-test 检查常见边界。
+
+触发词不内置在公开 core 里。触发词、别名和 provider 偏好应放在用户自己的 YAML policy 中；`think-tank` 只提供 intent 类别、路由契约和检查规则。
+
+- **Skill Trigger Intelligence：** [`think-tank/protocol/skill-trigger-intelligence.md`](think-tank/protocol/skill-trigger-intelligence.md)
+- **Skill Invocation Contract：** [`think-tank/protocol/skill-invocation-contract.md`](think-tank/protocol/skill-invocation-contract.md)
+- **Progressive Disclosure：** [`think-tank/protocol/progressive-disclosure.md`](think-tank/protocol/progressive-disclosure.md)
+- **Agent Compatibility Matrix：** [`think-tank/docs/agent-compatibility-matrix.md`](think-tank/docs/agent-compatibility-matrix.md)
+- **Skill Composition Guide：** [`think-tank/docs/skill-composition-guide.md`](think-tank/docs/skill-composition-guide.md)
+- **Skill Quality Score：** [`think-tank/docs/skill-quality-score.md`](think-tank/docs/skill-quality-score.md)
+- **v3.0 Roadmap：** [`think-tank/docs/v3.0-roadmap.md`](think-tank/docs/v3.0-roadmap.md)
+- **v3.0 Release Notes：** [`think-tank/docs/v3.0-release-notes.md`](think-tank/docs/v3.0-release-notes.md)
+- **v3 示例：** [`think-tank/examples/v3/`](think-tank/examples/v3/)
+- **Skill Self Tests：** [`think-tank/self-tests/`](think-tank/self-tests/)
+
 ## 仓库结构
 
 ```text
@@ -128,6 +145,7 @@ think-tank-skill/
 │   ├── modes/
 │   ├── templates/
 │   ├── runtime/
+│   ├── self-tests/
 │   ├── docs/
 │   └── examples/
 ```
