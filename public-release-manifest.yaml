@@ -21,6 +21,9 @@ profiles:
       - docs_site_structure
       - skill_experience_docs
       - skill_self_tests
+      - platform_distribution_docs
+      - marketplace_listing_metadata
+      - packaging_script
     public_excludes:
       - local_agent_instructions
       - local_runtime_state

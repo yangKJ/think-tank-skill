@@ -89,7 +89,7 @@ python3 checks/stable_release_check.py
 | 平台 | 安装位置 | 安装后动作 |
 |---|---|---|
 | Codex | `~/.codex/skills/think-tank` | 重启 Codex 或当前会话 |
-| Claude Code | `~/.claude/skills/think-tank` | 重启 Claude Code 会话 |
+| Claude Code | `~/.claude/agents/think-tank.md` | 重启 Claude Code 会话 |
 | 其他 runtime | 对应 runtime 的 skill 目录 | 重建索引或重启 |
 
 ## 首装验收
@@ -166,6 +166,7 @@ Use think-tank to review these notes, separate facts from assumptions, and give 
 - **Eval Pack Starter：** [`think-tank/evals/`](think-tank/evals/)。
 - **Provider Test Matrix：** [`think-tank/docs/provider-test-matrix.md`](think-tank/docs/provider-test-matrix.md)。
 - **Docs Site：** [`think-tank/docs/index.md`](think-tank/docs/index.md)、concepts、guides、reference 和 release 分区。
+- **平台分发：** [`think-tank/docs/platform-publishing.md`](think-tank/docs/platform-publishing.md)、[`think-tank/docs/codex-installation.md`](think-tank/docs/codex-installation.md)、[`think-tank/docs/claude-code-installation.md`](think-tank/docs/claude-code-installation.md)。
 
 ## Skill Experience Layer
 
@@ -242,6 +243,8 @@ Stable 不表示：
 - [`think-tank/docs/provider-ecosystem-examples.md`](think-tank/docs/provider-ecosystem-examples.md)
 - [`think-tank/docs/provider-integration-patterns.md`](think-tank/docs/provider-integration-patterns.md)
 - [`think-tank/docs/codex-installation.md`](think-tank/docs/codex-installation.md)
+- [`think-tank/docs/claude-code-installation.md`](think-tank/docs/claude-code-installation.md)
+- [`think-tank/docs/platform-publishing.md`](think-tank/docs/platform-publishing.md)
 - [`think-tank/docs/index.md`](think-tank/docs/index.md)
 - [`think-tank/docs/faq.md`](think-tank/docs/faq.md)
 - [`think-tank/docs/troubleshooting.md`](think-tank/docs/troubleshooting.md)
@@ -260,6 +263,12 @@ stable gate：
 
 ```bash
 python3 checks/stable_release_check.py
+```
+
+生成平台分发产物：
+
+```bash
+python3 scripts/package_agent_distributions.py
 ```
 
 ## 设计边界

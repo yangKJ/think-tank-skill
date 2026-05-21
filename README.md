@@ -90,7 +90,7 @@ What you should not expect from a fresh install:
 | Platform | Install target | Post-install action |
 |---|---|---|
 | Codex | `~/.codex/skills/think-tank` | Restart Codex or the current session |
-| Claude Code | `~/.claude/skills/think-tank` | Restart Claude Code session |
+| Claude Code | `~/.claude/agents/think-tank.md` | Restart Claude Code session |
 | Other runtimes | Your runtime's skill directory | Re-index or restart that runtime |
 
 ## First-Install Validation
@@ -167,6 +167,7 @@ The **Research OS + Memory Runtime** layer helps repeatable research work produc
 - **Eval Pack Starter:** [`think-tank/evals/`](think-tank/evals/).
 - **Provider Test Matrix:** [`think-tank/docs/provider-test-matrix.md`](think-tank/docs/provider-test-matrix.md).
 - **Docs Site:** [`think-tank/docs/index.md`](think-tank/docs/index.md), concepts, guides, reference, and release sections.
+- **Platform Distribution:** [`think-tank/docs/platform-publishing.md`](think-tank/docs/platform-publishing.md), [`think-tank/docs/codex-installation.md`](think-tank/docs/codex-installation.md), and [`think-tank/docs/claude-code-installation.md`](think-tank/docs/claude-code-installation.md).
 
 ## Skill Experience Layer
 
@@ -317,12 +318,14 @@ It is:
   - [`think-tank/docs/open-source-quickstart.md`](think-tank/docs/open-source-quickstart.md)
   - [`think-tank/docs/support-matrix.md`](think-tank/docs/support-matrix.md)
   - [`think-tank/docs/validation-tiers.md`](think-tank/docs/validation-tiers.md)
-  - [`think-tank/docs/provider-ecosystem-examples.md`](think-tank/docs/provider-ecosystem-examples.md)
-  - [`think-tank/docs/provider-integration-patterns.md`](think-tank/docs/provider-integration-patterns.md)
-  - [`think-tank/docs/codex-installation.md`](think-tank/docs/codex-installation.md)
-  - [`think-tank/docs/index.md`](think-tank/docs/index.md)
-  - [`think-tank/docs/faq.md`](think-tank/docs/faq.md)
-  - [`think-tank/docs/troubleshooting.md`](think-tank/docs/troubleshooting.md)
+- [`think-tank/docs/provider-ecosystem-examples.md`](think-tank/docs/provider-ecosystem-examples.md)
+- [`think-tank/docs/provider-integration-patterns.md`](think-tank/docs/provider-integration-patterns.md)
+- [`think-tank/docs/codex-installation.md`](think-tank/docs/codex-installation.md)
+- [`think-tank/docs/claude-code-installation.md`](think-tank/docs/claude-code-installation.md)
+- [`think-tank/docs/platform-publishing.md`](think-tank/docs/platform-publishing.md)
+- [`think-tank/docs/index.md`](think-tank/docs/index.md)
+- [`think-tank/docs/faq.md`](think-tank/docs/faq.md)
+- [`think-tank/docs/troubleshooting.md`](think-tank/docs/troubleshooting.md)
   - [`think-tank/docs/provider-test-matrix.md`](think-tank/docs/provider-test-matrix.md)
   - [`think-tank/docs/open-source-release.md`](think-tank/docs/open-source-release.md)
 - Stable release references:
@@ -366,6 +369,12 @@ Stable gate:
 
 ```bash
 python3 checks/stable_release_check.py
+```
+
+Generate platform distribution artifacts:
+
+```bash
+python3 scripts/package_agent_distributions.py
 ```
 
 Version history and release packaging references:

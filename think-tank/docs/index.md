@@ -21,6 +21,9 @@
 ## Guides
 
 - [Install Skill Core](guides/install-skill-core.md)
+- [Codex Installation](codex-installation.md)
+- [Claude Code Installation](claude-code-installation.md)
+- [Platform Publishing](platform-publishing.md)
 - [Use Research OS Starter](guides/use-research-os-starter.md)
 - [Add Provider Pattern](guides/add-provider-pattern.md)
 - [Run Release Checks](guides/run-release-checks.md)

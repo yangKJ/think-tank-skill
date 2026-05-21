@@ -7,6 +7,7 @@ think-tank/*.local.yaml
 __pycache__/
 *.pyc
 outputs/
+dist/
 .claude/
 CLAUDE.md
 .playwright-cli/

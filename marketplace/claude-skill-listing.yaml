@@ -1,0 +1,25 @@
+platform: claude
+status: github_distribution_ready
+partner_directory_status: no_public_self_serve_submission_flow_documented
+package_modes:
+  - claude_code_subagent
+  - agent_skills_core
+display_name: think-tank
+subagent_name: think-tank
+short_description: >
+  Boundary-aware research, review, council, and strategy subagent with explicit
+  evidence states, protocol-first execution, and provider declaration rules.
+install_sources:
+  repository: https://github.com/yangKJ/think-tank-skill
+  subagent_artifact: dist/claude-code-subagent/think-tank.md
+  skill_core_artifact: dist/claude-code-skill/think-tank
+recommended_locations:
+  subagent_user: ~/.claude/agents/think-tank.md
+  subagent_project: .claude/agents/think-tank.md
+starter_prompts:
+  - Use the think-tank subagent to review this plan and separate verified facts from assumptions.
+  - Use the think-tank subagent to run a strategy comparison with explicit evidence states.
+  - Use the think-tank subagent to organize these notes into a council-style recommendation.
+known_constraints:
+  - Claude Code documents public subagent installation clearly.
+  - Anthropic mentions a skills ecosystem and partner directory, but a public self-serve listing flow was not documented in the sources used for this release.

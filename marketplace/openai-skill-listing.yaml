@@ -1,0 +1,38 @@
+platform: openai-skills
+status: workspace_publish_ready
+public_marketplace_status: no_public_codex_skill_store_documented
+skill_name: think-tank
+display_name: think-tank
+short_description: >
+  Protocol-first high-level skill for research, review, council, and strategy
+  workflows with explicit evidence states and provider boundary declarations.
+category_candidates:
+  - research
+  - productivity
+  - analysis
+tags:
+  - research
+  - review
+  - strategy
+  - council
+  - agent-skills
+install_source:
+  repository: https://github.com/yangKJ/think-tank-skill
+  skill_path: think-tank
+upload_artifact: dist/openai-chatgpt-skill/think-tank
+post_install_check: test -f "$HOME/.codex/skills/think-tank/SKILL.md"
+starter_prompts:
+  - Use think-tank to review these notes, separate facts from assumptions, and give me a boundary-aware recommendation.
+  - Use think-tank to compare three strategic options and show evidence states for each conclusion.
+  - Use think-tank to turn these source notes into a review-ready decision memo.
+capability_boundaries:
+  guaranteed:
+    - protocol-first research workflows
+    - review and strategy workflows
+    - local file and user-provided material analysis
+    - structured outputs with explicit evidence states
+  not_guaranteed:
+    - every optional peer skill installed
+    - provider authorization already completed
+    - full cross-platform multi-agent runtime parity
+    - arbitrary external provider invocation by default
