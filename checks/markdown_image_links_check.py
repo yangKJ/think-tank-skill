@@ -10,6 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SCAN_FILES = [
     ROOT / "README.md",
+    ROOT / "README_CN.md",
     ROOT / "think-tank" / "README.md",
 ]
 IMAGE_PATTERN = re.compile(r"!\[[^\]]*\]\(([^)]+)\)")

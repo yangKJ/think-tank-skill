@@ -1,5 +1,7 @@
 # think-tank-skill
 
+**Language:** English | [中文](README_CN.md)
+
 Stable, protocol-first home of **think-tank**: a cross-platform high-level Skill for research, review, council, and strategy workflows on a verified Codex-first runtime path.
 
 ![think-tank hero](think-tank/assets/brand/think-tank-hero-image2.png)

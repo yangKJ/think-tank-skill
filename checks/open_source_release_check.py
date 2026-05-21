@@ -8,6 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 README = ROOT / "README.md"
+README_CN = ROOT / "README_CN.md"
 THINK_TANK_README = ROOT / "think-tank" / "README.md"
 QUICKSTART = ROOT / "think-tank" / "docs" / "open-source-quickstart.md"
 SUPPORT_MATRIX = ROOT / "think-tank" / "docs" / "support-matrix.md"
@@ -24,6 +25,7 @@ PUBLIC_COUNCIL = ROOT / "think-tank" / "examples" / "public" / "council-decision
 PUBLIC_REVIEW = ROOT / "think-tank" / "examples" / "public" / "review-acceptance.md"
 VISUALS = [
     ROOT / "think-tank" / "assets" / "brand" / "think-tank-hero-image2.png",
+    ROOT / "think-tank" / "assets" / "brand" / "think-tank-hero-cn-image2.png",
     ROOT / "think-tank" / "assets" / "brand" / "research-card-image2.png",
     ROOT / "think-tank" / "assets" / "brand" / "council-card-image2.png",
     ROOT / "think-tank" / "assets" / "brand" / "review-card-image2.png",
@@ -52,6 +54,7 @@ def main() -> None:
         README,
         [
             "release_posture: stable_release",
+            "[中文](README_CN.md)",
             "think-tank/docs/open-source-quickstart.md",
             "think-tank/docs/support-matrix.md",
             "think-tank/docs/validation-tiers.md",
@@ -63,6 +66,17 @@ def main() -> None:
             "open-source-packages.yaml",
             "python3 checks/open_source_release_suite.py",
             "python3 checks/open_source_release_check.py",
+        ],
+    )
+    require_text(
+        README_CN,
+        [
+            "[English](README.md)",
+            "think-tank/assets/brand/think-tank-hero-cn-image2.png",
+            "任务理解 + 角色组织 + 能力路由 + 证据汇总 + 边界声明",
+            "python3 checks/open_source_release_suite.py",
+            "python3 checks/stable_release_check.py",
+            "think-tank/docs/provider-ecosystem-examples.md",
         ],
     )
     require_text(
