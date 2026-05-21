@@ -15,9 +15,13 @@
 ```text
 brand/think-tank-hero-image2.png
 brand/think-tank-hero-cn-image2.png
+brand/think-tank-hero-v2-image2.png
+brand/think-tank-hero-v2-cn-image2.png
 brand/research-card-image2.png
 brand/council-card-image2.png
 brand/review-card-image2.png
 brand/provider-ecosystem-image2.png
+brand/research-os-memory-runtime-image2.png
+brand/provider-ledger-image2.png
 prompts/
 ```

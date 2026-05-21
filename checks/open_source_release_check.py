@@ -32,12 +32,20 @@ PUBLIC_REVIEW = ROOT / "think-tank" / "examples" / "public" / "review-acceptance
 VISUALS = [
     ROOT / "think-tank" / "assets" / "brand" / "think-tank-hero-image2.png",
     ROOT / "think-tank" / "assets" / "brand" / "think-tank-hero-cn-image2.png",
+    ROOT / "think-tank" / "assets" / "brand" / "think-tank-hero-v2-image2.png",
+    ROOT / "think-tank" / "assets" / "brand" / "think-tank-hero-v2-cn-image2.png",
     ROOT / "think-tank" / "assets" / "brand" / "research-card-image2.png",
     ROOT / "think-tank" / "assets" / "brand" / "council-card-image2.png",
     ROOT / "think-tank" / "assets" / "brand" / "review-card-image2.png",
     ROOT / "think-tank" / "assets" / "brand" / "provider-ecosystem-image2.png",
+    ROOT / "think-tank" / "assets" / "brand" / "research-os-memory-runtime-image2.png",
+    ROOT / "think-tank" / "assets" / "brand" / "provider-ledger-image2.png",
     ROOT / "think-tank" / "assets" / "prompts" / "hero-image2-prompt.md",
+    ROOT / "think-tank" / "assets" / "prompts" / "hero-v2-image2-prompt.md",
+    ROOT / "think-tank" / "assets" / "prompts" / "hero-v2-cn-image2-prompt.md",
     ROOT / "think-tank" / "assets" / "prompts" / "provider-ecosystem-image2-prompt.md",
+    ROOT / "think-tank" / "assets" / "prompts" / "research-os-memory-runtime-image2-prompt.md",
+    ROOT / "think-tank" / "assets" / "prompts" / "provider-ledger-image2-prompt.md",
 ]
 
 
@@ -73,8 +81,10 @@ def main() -> None:
             "think-tank/docs/v2.0-release-notes.md",
             "think-tank/docs/open-source-release.md",
             "think-tank/examples/public/research-request.md",
-            "think-tank/assets/brand/think-tank-hero-image2.png",
+            "think-tank/assets/brand/think-tank-hero-v2-image2.png",
             "think-tank/assets/brand/provider-ecosystem-image2.png",
+            "think-tank/assets/brand/research-os-memory-runtime-image2.png",
+            "think-tank/assets/brand/provider-ledger-image2.png",
             "public-release-manifest.yaml",
             "python3 checks/open_source_release_suite.py",
             "python3 checks/open_source_release_check.py",
@@ -84,7 +94,9 @@ def main() -> None:
         README_CN,
         [
             "[English](README.md)",
-            "think-tank/assets/brand/think-tank-hero-cn-image2.png",
+            "think-tank/assets/brand/think-tank-hero-v2-cn-image2.png",
+            "think-tank/assets/brand/research-os-memory-runtime-image2.png",
+            "think-tank/assets/brand/provider-ledger-image2.png",
             "任务理解 + 角色组织 + 能力路由 + 证据汇总 + 边界声明",
             "python3 checks/open_source_release_suite.py",
             "python3 checks/stable_release_check.py",

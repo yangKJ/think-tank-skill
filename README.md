@@ -4,7 +4,7 @@
 
 Stable, protocol-first home of **think-tank**: a cross-platform high-level Skill for research, review, council, and strategy workflows on a verified Codex-first runtime path.
 
-![think-tank hero](think-tank/assets/brand/think-tank-hero-image2.png)
+![think-tank 2.0 hero](think-tank/assets/brand/think-tank-hero-v2-image2.png)
 
 The high-level Skill lives in [`think-tank/`](think-tank/).
 The leader orchestration layer is being split into a standalone sibling project on the Desktop.
@@ -88,6 +88,8 @@ v1.1 improves onboarding around optional providers without changing the core cap
 
 v2.0 adds the **Research OS + Memory Runtime** layer:
 
+![Research OS and Memory Runtime](think-tank/assets/brand/research-os-memory-runtime-image2.png)
+
 - **Run Record:** [`think-tank/protocol/run-record.md`](think-tank/protocol/run-record.md)
 - **Project Memory Runtime:** [`think-tank/protocol/project-memory-runtime.md`](think-tank/protocol/project-memory-runtime.md)
 - **Provider Invocation Ledger:** [`think-tank/protocol/provider-invocation-ledger.md`](think-tank/protocol/provider-invocation-ledger.md)
@@ -97,6 +99,8 @@ v2.0 adds the **Research OS + Memory Runtime** layer:
 - **Eval Pack:** [`think-tank/protocol/eval-pack.md`](think-tank/protocol/eval-pack.md)
 - **v2.0 Roadmap:** [`think-tank/docs/v2.0-roadmap.md`](think-tank/docs/v2.0-roadmap.md)
 - **v2.0 Release Notes:** [`think-tank/docs/v2.0-release-notes.md`](think-tank/docs/v2.0-release-notes.md)
+
+![Provider Invocation Ledger](think-tank/assets/brand/provider-ledger-image2.png)
 
 ## Repository Layout
 

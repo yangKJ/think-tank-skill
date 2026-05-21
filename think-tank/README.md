@@ -2,7 +2,7 @@
 
 think-tank 是一个跨平台、可复用的高阶 Skill，用于多角色信息收集、协作分析、讨论审议与结论汇总。
 
-![think-tank hero](assets/brand/think-tank-hero-image2.png)
+![think-tank 2.0 hero](assets/brand/think-tank-hero-v2-image2.png)
 
 它是本仓库的唯一主品牌、唯一主协议、唯一长期演进对象。research、agent-council、review、strategy 等能力都应收敛为 think-tank 的场景模式或历史实现来源，而不是与 think-tank 平行发展的独立体系。
 
@@ -191,6 +191,8 @@ docs/history.md
 
 2.0 增加一组平台无关的长期运行契约：
 
+![Research OS and Memory Runtime](assets/brand/research-os-memory-runtime-image2.png)
+
 - `protocol/run-record.md`：让一次运行可回放。
 - `protocol/project-memory-runtime.md`：把结论沉淀成有来源、有过期规则、有提升决策的 memory candidate。
 - `protocol/provider-invocation-ledger.md`：记录 provider 从 selected 到 invoked/recovered/verified 的真实状态。
@@ -198,6 +200,8 @@ docs/history.md
 - `protocol/guardrails.md`：定义权限、隐私、证据、artifact、memory 和 security gate。
 - `protocol/research-os.md`：定义用户本地 `.think-tank/` 工作区结构。
 - `protocol/eval-pack.md`：定义协议回归评测样例。
+
+![Provider Invocation Ledger](assets/brand/provider-ledger-image2.png)
 
 - research 是 think-tank 的一个核心应用场景，主要负责信息收集、证据整理和研究结论输出。
 - agent-council 是 think-tank 的历史实现分支或 council mode 来源，主要沉淀多角色讨论、交叉质询和审议机制。
