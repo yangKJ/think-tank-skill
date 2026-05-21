@@ -30,6 +30,29 @@ think-tank 是：
 - 汇总结论
 - 输出行动建议
 
+## 公开发布姿态
+
+```yaml
+release_posture: public_beta
+default_platform: codex
+default_runtime: single_agent_multi_profile_with_explicit_boundaries
+supported_for_daily_use:
+  - protocol-first research
+  - review and strategy workflows
+  - local file and user-provided material analysis
+not_yet_stable:
+  - arbitrary external provider invocation
+  - full cross-platform multi-agent runtime
+  - private knowledge-base writes
+```
+
+如果外部用户要直接使用，当前最准确的预期是：
+
+- core protocol 可以用
+- Codex 主路径可用
+- optional capability 需要按 provider 单独验证
+- 未验证能力必须保留 `planned`、`blocked` 或 `verified_partial`
+
 ## 当前主线补充
 
 think-tank 当前仍然是高阶 Skill core，不再承担 Codex 主 agent 领导者系统的主语。
@@ -237,6 +260,9 @@ v0.5 已补齐专业 subagent runtime 契约：
 
 - `docs/codex-installed-skill-validation.md`
 - `docs/codex-external-skills-installation.md`
+- `docs/open-source-quickstart.md`
+- `docs/support-matrix.md`
+- `docs/open-source-release.md`
 
 仍未声明完成：
 
@@ -245,3 +271,23 @@ v0.5 已补齐专业 subagent runtime 契约：
 - Claude Code adapter 自动 dispatch
 - Browser 外部网页 DOM 回收
 - `yt-dlp`、`obsidian`、`xiaohongshu` 等外部 skills 集成
+
+## 对外 Quickstart
+
+面向外部用户，建议先读：
+
+1. `docs/open-source-quickstart.md`
+2. `docs/support-matrix.md`
+3. `platforms/codex/operating-guide.md`
+4. `docs/open-source-release.md`
+
+推荐最小验证命令：
+
+```bash
+python3 checks/protocol_check.py
+python3 checks/codex_validation_check.py
+python3 checks/schema_sample_check.py
+python3 checks/minimal_runtime_execution_check.py
+python3 checks/release_privacy_check.py
+python3 checks/open_source_release_check.py
+```

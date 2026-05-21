@@ -66,13 +66,26 @@ think-tank-skill/
 - [`think-tank/examples/`](think-tank/examples/): Reusable examples that demonstrate the protocol.
 - [`leader-runtime/`](leader-runtime/): Main-agent leader orchestration layer above the Skill core.
 
+## Release Posture
+
+Public release posture:
+
+```yaml
+release_posture: public_beta
+target_users:
+  - Codex-first early adopters
+  - protocol-first contributors
+  - teams willing to work with explicit capability boundaries
+not_target_users:
+  - users expecting every optional provider to work out of the box
+  - users expecting full multi-agent runtime across platforms
+```
+
+This repository is ready to be shared publicly as a protocol-first beta. It is not yet a "install once and every provider just works" product distribution.
+
 ## Moved Creator Media System
 
-Creator media, comic-drama, TTS, image-production, and video-production resources have moved to the closed production repository:
-
-```text
-/Users/condy/Desktop/dev-domic-drama
-```
+Creator media, comic-drama, TTS, image-production, and video-production resources have moved to a separate closed production repository.
 
 This repository now keeps only the public, reusable `think-tank/` core and non-project-specific governance. Do not add self-media, comic-drama episode assets, generated videos, local TTS runs, or creator production queues back into `think-tank-skill`.
 
@@ -98,6 +111,9 @@ Readiness status:
 - [`think-tank/docs/codex-validation-report.md`](think-tank/docs/codex-validation-report.md)
 - [`think-tank/docs/codex-acceptance.md`](think-tank/docs/codex-acceptance.md)
 - [`think-tank/docs/codex-readiness-matrix.md`](think-tank/docs/codex-readiness-matrix.md)
+- [`think-tank/docs/open-source-quickstart.md`](think-tank/docs/open-source-quickstart.md)
+- [`think-tank/docs/support-matrix.md`](think-tank/docs/support-matrix.md)
+- [`think-tank/docs/open-source-release.md`](think-tank/docs/open-source-release.md)
 - [`think-tank/platforms/codex/operating-guide.md`](think-tank/platforms/codex/operating-guide.md)
 - [`think-tank/platforms/codex/capability-status.md`](think-tank/platforms/codex/capability-status.md)
 - [`think-tank/examples/codex-smoke-research.md`](think-tank/examples/codex-smoke-research.md)
@@ -111,6 +127,17 @@ Readiness status:
 ## Validation
 
 Validation is performed locally. Public protocol changes should still be reviewed against the relevant protocol, schema, template, and README files before release.
+
+Release gate commands:
+
+```bash
+python3 checks/protocol_check.py
+python3 checks/codex_validation_check.py
+python3 checks/schema_sample_check.py
+python3 checks/minimal_runtime_execution_check.py
+python3 checks/release_privacy_check.py
+python3 checks/open_source_release_check.py
+```
 
 Codex foundation status:
 
