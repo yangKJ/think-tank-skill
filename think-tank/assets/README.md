@@ -22,6 +22,5 @@ brand/council-card-image2.png
 brand/review-card-image2.png
 brand/provider-ecosystem-image2.png
 brand/research-os-memory-runtime-image2.png
-brand/provider-ledger-image2.png
 prompts/
 ```

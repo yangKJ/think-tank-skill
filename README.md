@@ -89,8 +89,6 @@ The **Research OS + Memory Runtime** layer helps repeatable research work produc
 - **Research OS:** [`think-tank/protocol/research-os.md`](think-tank/protocol/research-os.md)
 - **Eval Pack:** [`think-tank/protocol/eval-pack.md`](think-tank/protocol/eval-pack.md)
 
-![Provider Invocation Ledger](think-tank/assets/brand/provider-ledger-image2.png)
-
 ## Open Source Usability
 
 - **Contributor docs:** [`CONTRIBUTING.md`](CONTRIBUTING.md), [`SECURITY.md`](SECURITY.md), [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md), [`SUPPORT.md`](SUPPORT.md), issue templates, and PR template.

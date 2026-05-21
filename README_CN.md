@@ -88,8 +88,6 @@ python3 checks/stable_release_check.py
 - **Research OS：** [`think-tank/protocol/research-os.md`](think-tank/protocol/research-os.md)
 - **Eval Pack：** [`think-tank/protocol/eval-pack.md`](think-tank/protocol/eval-pack.md)
 
-![Provider Invocation Ledger](think-tank/assets/brand/provider-ledger-image2.png)
-
 ## 开源可用性
 
 - **贡献与社区治理：** [`CONTRIBUTING.md`](CONTRIBUTING.md)、[`SECURITY.md`](SECURITY.md)、[`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md)、[`SUPPORT.md`](SUPPORT.md)、issue templates 和 PR template。

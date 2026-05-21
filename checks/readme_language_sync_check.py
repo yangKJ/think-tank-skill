@@ -51,8 +51,6 @@ def main() -> None:
     require(README_CN, "think-tank/assets/brand/think-tank-hero-cn-image2.png")
     require(README, "think-tank/assets/brand/research-os-memory-runtime-image2.png")
     require(README_CN, "think-tank/assets/brand/research-os-memory-runtime-image2.png")
-    require(README, "think-tank/assets/brand/provider-ledger-image2.png")
-    require(README_CN, "think-tank/assets/brand/provider-ledger-image2.png")
     for link in SHARED_LINKS:
         require(README, link)
         require(README_CN, link)

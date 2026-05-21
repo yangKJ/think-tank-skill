@@ -214,8 +214,6 @@ Research OS + Memory Runtime 提供一组平台无关的长期运行契约：
 - `protocol/research-os.md`：定义用户本地 `.think-tank/` 工作区结构。
 - `protocol/eval-pack.md`：定义协议回归评测样例。
 
-![Provider Invocation Ledger](assets/brand/provider-ledger-image2.png)
-
 ## Open Source Usability
 
 - `templates/research-workspace/`：Research OS starter kit。

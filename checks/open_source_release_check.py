@@ -41,13 +41,11 @@ VISUALS = [
     ROOT / "think-tank" / "assets" / "brand" / "review-card-image2.png",
     ROOT / "think-tank" / "assets" / "brand" / "provider-ecosystem-image2.png",
     ROOT / "think-tank" / "assets" / "brand" / "research-os-memory-runtime-image2.png",
-    ROOT / "think-tank" / "assets" / "brand" / "provider-ledger-image2.png",
     ROOT / "think-tank" / "assets" / "prompts" / "hero-image2-prompt.md",
     ROOT / "think-tank" / "assets" / "prompts" / "hero-v2-image2-prompt.md",
     ROOT / "think-tank" / "assets" / "prompts" / "hero-v2-cn-image2-prompt.md",
     ROOT / "think-tank" / "assets" / "prompts" / "provider-ecosystem-image2-prompt.md",
     ROOT / "think-tank" / "assets" / "prompts" / "research-os-memory-runtime-image2-prompt.md",
-    ROOT / "think-tank" / "assets" / "prompts" / "provider-ledger-image2-prompt.md",
 ]
 
 
@@ -86,7 +84,6 @@ def main() -> None:
             "think-tank/assets/brand/think-tank-hero-image2.png",
             "think-tank/assets/brand/provider-ecosystem-image2.png",
             "think-tank/assets/brand/research-os-memory-runtime-image2.png",
-            "think-tank/assets/brand/provider-ledger-image2.png",
             "public-release-manifest.yaml",
             "python3 checks/open_source_release_suite.py",
             "python3 checks/open_source_release_check.py",
@@ -98,7 +95,6 @@ def main() -> None:
             "[English](README.md)",
             "think-tank/assets/brand/think-tank-hero-cn-image2.png",
             "think-tank/assets/brand/research-os-memory-runtime-image2.png",
-            "think-tank/assets/brand/provider-ledger-image2.png",
             "任务理解 + 角色组织 + 能力路由 + 证据汇总 + 边界声明",
             "python3 checks/open_source_release_suite.py",
             "python3 checks/stable_release_check.py",
