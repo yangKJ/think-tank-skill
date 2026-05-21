@@ -18,6 +18,8 @@ SHARED_LINKS = [
     "think-tank/docs/codex-installation.md",
     "think-tank/docs/v1.1-roadmap.md",
     "think-tank/docs/v1.1-release-notes.md",
+    "think-tank/docs/v2.0-roadmap.md",
+    "think-tank/docs/v2.0-release-notes.md",
     "python3 checks/open_source_release_suite.py",
     "python3 checks/stable_release_check.py",
 ]

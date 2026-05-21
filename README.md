@@ -84,6 +84,20 @@ v1.1 improves onboarding around optional providers without changing the core cap
 - **v1.1 Roadmap:** [`think-tank/docs/v1.1-roadmap.md`](think-tank/docs/v1.1-roadmap.md)
 - **v1.1 Release Notes:** [`think-tank/docs/v1.1-release-notes.md`](think-tank/docs/v1.1-release-notes.md)
 
+## v2.0 Additions
+
+v2.0 adds the **Research OS + Memory Runtime** layer:
+
+- **Run Record:** [`think-tank/protocol/run-record.md`](think-tank/protocol/run-record.md)
+- **Project Memory Runtime:** [`think-tank/protocol/project-memory-runtime.md`](think-tank/protocol/project-memory-runtime.md)
+- **Provider Invocation Ledger:** [`think-tank/protocol/provider-invocation-ledger.md`](think-tank/protocol/provider-invocation-ledger.md)
+- **Handoff Protocol:** [`think-tank/protocol/handoff-protocol.md`](think-tank/protocol/handoff-protocol.md)
+- **Guardrails:** [`think-tank/protocol/guardrails.md`](think-tank/protocol/guardrails.md)
+- **Research OS:** [`think-tank/protocol/research-os.md`](think-tank/protocol/research-os.md)
+- **Eval Pack:** [`think-tank/protocol/eval-pack.md`](think-tank/protocol/eval-pack.md)
+- **v2.0 Roadmap:** [`think-tank/docs/v2.0-roadmap.md`](think-tank/docs/v2.0-roadmap.md)
+- **v2.0 Release Notes:** [`think-tank/docs/v2.0-release-notes.md`](think-tank/docs/v2.0-release-notes.md)
+
 ## Repository Layout
 
 ```text
@@ -216,6 +230,8 @@ It is:
   - [`think-tank/docs/codex-installation.md`](think-tank/docs/codex-installation.md)
   - [`think-tank/docs/v1.1-roadmap.md`](think-tank/docs/v1.1-roadmap.md)
   - [`think-tank/docs/v1.1-release-notes.md`](think-tank/docs/v1.1-release-notes.md)
+  - [`think-tank/docs/v2.0-roadmap.md`](think-tank/docs/v2.0-roadmap.md)
+  - [`think-tank/docs/v2.0-release-notes.md`](think-tank/docs/v2.0-release-notes.md)
   - [`think-tank/docs/open-source-release.md`](think-tank/docs/open-source-release.md)
 - Stable release references:
   - [`think-tank/docs/stable-release-criteria.md`](think-tank/docs/stable-release-criteria.md)

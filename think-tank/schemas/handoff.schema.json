@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://think-tank.local/schemas/handoff.schema.json",
+  "title": "think-tank handoff packet",
+  "type": "object",
+  "required": ["from", "to", "type", "purpose", "input_filter", "evidence_refs", "expected_output", "guardrails", "completion_condition", "runtime_provenance"],
+  "properties": {
+    "from": {"type": "string"},
+    "to": {"type": "string"},
+    "type": {"type": "string", "enum": ["profile_handoff", "subagent_handoff", "provider_handoff", "human_handoff"]},
+    "purpose": {"type": "string"},
+    "input_filter": {
+      "type": "object",
+      "required": ["include", "exclude", "redactions"],
+      "properties": {
+        "include": {"type": "array", "items": {"type": "string"}},
+        "exclude": {"type": "array", "items": {"type": "string"}},
+        "redactions": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    },
+    "evidence_refs": {"type": "array", "items": {"type": "string"}},
+    "expected_output": {"type": "string"},
+    "guardrails": {"type": "array", "items": {"type": "string"}},
+    "completion_condition": {"type": "string"},
+    "runtime_provenance": {"type": "object"}
+  },
+  "additionalProperties": false
+}

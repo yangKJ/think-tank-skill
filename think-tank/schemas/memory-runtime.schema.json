@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://think-tank.local/schemas/memory-runtime.schema.json",
+  "title": "think-tank project memory runtime",
+  "type": "object",
+  "required": ["enabled", "memory_candidates", "promotion_decisions", "conflicts", "written", "skipped", "boundaries"],
+  "properties": {
+    "enabled": {"type": "boolean"},
+    "memory_candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "layer", "type", "title", "summary", "source_refs", "privacy", "staleness_risk", "expires_when", "confidence", "target", "action"],
+        "properties": {
+          "id": {"type": "string"},
+          "layer": {"type": "string", "enum": ["episodic", "semantic", "procedural"]},
+          "type": {"type": "string"},
+          "title": {"type": "string"},
+          "summary": {"type": "string"},
+          "source_refs": {"type": "array", "items": {"type": "string"}},
+          "privacy": {"type": "string"},
+          "staleness_risk": {"type": "string"},
+          "expires_when": {"type": "string"},
+          "confidence": {"type": "string"},
+          "target": {"type": "string"},
+          "action": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "promotion_decisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["candidate_id", "from", "to", "decision", "reason", "privacy_review", "staleness_review", "quality_check"],
+        "properties": {
+          "candidate_id": {"type": "string"},
+          "from": {"type": "string"},
+          "to": {"type": "string"},
+          "decision": {"type": "string"},
+          "reason": {"type": "string"},
+          "privacy_review": {"type": "object"},
+          "staleness_review": {"type": "object"},
+          "quality_check": {"type": "object"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "conflicts": {"type": "array", "items": {"type": "object"}},
+    "written": {"type": "array", "items": {"type": "string"}},
+    "skipped": {"type": "array", "items": {"type": "object"}},
+    "boundaries": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}

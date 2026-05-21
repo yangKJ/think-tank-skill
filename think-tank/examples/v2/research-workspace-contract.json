@@ -1,0 +1,17 @@
+{
+  "root": ".think-tank/",
+  "directories": [
+    "inbox/",
+    "sources/",
+    "sources/ledger.jsonl",
+    "artifacts/",
+    "decisions/",
+    "experiments/",
+    "runbooks/",
+    "memory/",
+    "runs/",
+    "provider-ledger/"
+  ],
+  "public_core_defines_contract": true,
+  "local_workspace_stores_project_data": true
+}

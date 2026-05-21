@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://think-tank.local/schemas/eval-case.schema.json",
+  "title": "think-tank eval case result",
+  "type": "object",
+  "required": ["eval_id", "case_type", "fixture", "expected_contracts", "actual_contracts", "passed", "failures", "residual_risk"],
+  "properties": {
+    "eval_id": {"type": "string"},
+    "case_type": {"type": "string"},
+    "fixture": {"type": "string"},
+    "expected_contracts": {"type": "array", "items": {"type": "string"}},
+    "actual_contracts": {"type": "array", "items": {"type": "string"}},
+    "passed": {"type": "boolean"},
+    "failures": {"type": "array", "items": {"type": "string"}},
+    "residual_risk": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}

@@ -18,6 +18,7 @@
 - `public/review-acceptance.md`：公开 review 模板，展示发布验收和证据优先输出。
 - `provider-patterns/`：v1.1 provider 接入模式示例，只说明可能接法，不承诺 provider 已安装或已调用。
 - `workflow-patterns/`：v1.1 工作流模式示例，展示用户可参考的组织方式，不替用户完成具体 provider 功能。
+- `v2/`：2.0 Research OS + Memory Runtime fixture，覆盖 run record、provider ledger、handoff、guardrail、eval 和本地 workspace contract。
 - `research-request.md`：研究模式输入输出示例
 - `council-request.md`：委员会讨论模式输入输出示例
 - `end-to-end-research.md`：端到端 research mode 示例

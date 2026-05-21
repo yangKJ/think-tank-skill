@@ -11,6 +11,13 @@
 - `claude-dispatch.schema.json`：Claude Code dispatch 输出结构
 - `claude-runtime.schema.json`：Claude Code minimal runtime 输出结构，用于检查成功与失败路径样例
 - `runtime-provenance.schema.json`：think-tank 风格输出的运行来源披露结构
+- `run-record.schema.json`：2.0 可回放运行记录结构
+- `provider-invocation-ledger.schema.json`：2.0 provider 调用证据账本结构
+- `memory-runtime.schema.json`：2.0 项目记忆运行时结构
+- `handoff.schema.json`：2.0 handoff packet 结构
+- `guardrail-result.schema.json`：2.0 guardrail 结果结构
+- `research-workspace.schema.json`：2.0 Research OS 本地工作区契约
+- `eval-case.schema.json`：2.0 回归评测样例结果结构
 - `runtime-result.schema.json`：平台无关 runtime pipeline 输出结构
 - `codex-orchestrator-result.schema.json`：Codex 自然语言 orchestrator 输出结构
 - `evidence-sources.schema.json`：统一证据来源表结构

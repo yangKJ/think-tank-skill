@@ -41,6 +41,13 @@
 - `state-result-contract.md`：run、state、result、recovery 最小结构
 - `consensus-contract.md`：显式投票、blocking objection、停止条件
 - `runtime-provenance.md`：运行来源披露门禁，防止把直接工具调用或单 agent 模拟写成真实 runtime
+- `run-record.md`：2.0 可回放运行记录协议
+- `project-memory-runtime.md`：2.0 项目记忆运行时，定义 episodic、semantic、procedural memory 和冲突处理
+- `provider-invocation-ledger.md`：2.0 provider 调用证据账本，区分 selected、preflight、invoked、recovered 和 verified
+- `handoff-protocol.md`：2.0 profile、subagent、provider 和 human handoff 契约
+- `guardrails.md`：2.0 权限、隐私、证据、artifact、memory 和 security gate
+- `research-os.md`：2.0 本地 `.think-tank/` Research OS 工作区契约
+- `eval-pack.md`：2.0 协议回归评测包
 - `capability-evidence-state-machine.md`：capability 证据状态机
 - `evidence-sources.md`：统一证据来源表，区分本地代码、文档、网页、用户材料、推理和缺失数据
 - `artifact-write-policy.md`：报告、运行记录、backlog 和项目文档的写入策略

@@ -24,6 +24,7 @@ COMMANDS = [
     ["python3", "checks/readme_language_sync_check.py"],
     ["python3", "checks/visual_assets_check.py"],
     ["python3", "checks/v1_1_release_check.py"],
+    ["python3", "checks/v2_0_release_check.py"],
     ["python3", "checks/public_package_boundary_check.py"],
     ["python3", "checks/open_source_release_check.py"],
 ]

@@ -19,6 +19,8 @@ PROVIDER_PATTERNS = ROOT / "think-tank" / "docs" / "provider-integration-pattern
 CODEX_INSTALLATION = ROOT / "think-tank" / "docs" / "codex-installation.md"
 V1_1_ROADMAP = ROOT / "think-tank" / "docs" / "v1.1-roadmap.md"
 V1_1_RELEASE_NOTES = ROOT / "think-tank" / "docs" / "v1.1-release-notes.md"
+V2_0_ROADMAP = ROOT / "think-tank" / "docs" / "v2.0-roadmap.md"
+V2_0_RELEASE_NOTES = ROOT / "think-tank" / "docs" / "v2.0-release-notes.md"
 OPEN_SOURCE_RELEASE = ROOT / "think-tank" / "docs" / "open-source-release.md"
 CAPABILITY_STATUS = ROOT / "think-tank" / "platforms" / "codex" / "capability-status.md"
 RELEASE_SUITE = ROOT / "checks" / "open_source_release_suite.py"
@@ -67,6 +69,8 @@ def main() -> None:
             "think-tank/docs/codex-installation.md",
             "think-tank/docs/v1.1-roadmap.md",
             "think-tank/docs/v1.1-release-notes.md",
+            "think-tank/docs/v2.0-roadmap.md",
+            "think-tank/docs/v2.0-release-notes.md",
             "think-tank/docs/open-source-release.md",
             "think-tank/examples/public/research-request.md",
             "think-tank/assets/brand/think-tank-hero-image2.png",
@@ -89,6 +93,8 @@ def main() -> None:
             "think-tank/docs/codex-installation.md",
             "think-tank/docs/v1.1-roadmap.md",
             "think-tank/docs/v1.1-release-notes.md",
+            "think-tank/docs/v2.0-roadmap.md",
+            "think-tank/docs/v2.0-release-notes.md",
         ],
     )
     require_text(
@@ -103,6 +109,7 @@ def main() -> None:
             "docs/provider-integration-patterns.md",
             "docs/codex-installation.md",
             "docs/v1.1-roadmap.md",
+            "docs/v2.0-roadmap.md",
             "docs/open-source-release.md",
             "examples/public/research-request.md",
             "skill_core_only_bundle",
@@ -197,6 +204,25 @@ def main() -> None:
         ],
     )
     require_text(
+        V2_0_ROADMAP,
+        [
+            "Research OS + Memory Runtime",
+            "protocol/run-record.md",
+            "protocol/project-memory-runtime.md",
+            "protocol/provider-invocation-ledger.md",
+            "protocol/eval-pack.md",
+        ],
+    )
+    require_text(
+        V2_0_RELEASE_NOTES,
+        [
+            "Run Record",
+            "Project Memory Runtime",
+            "Provider Invocation Ledger",
+            "python3 checks/v2_0_release_check.py",
+        ],
+    )
+    require_text(
         OPEN_SOURCE_RELEASE,
         [
             "safe_to_publish: true",
@@ -249,6 +275,7 @@ def main() -> None:
             "checks/release_privacy_check.py",
             "checks/markdown_image_links_check.py",
             "checks/v1_1_release_check.py",
+            "checks/v2_0_release_check.py",
             "checks/public_package_boundary_check.py",
             "checks/open_source_release_check.py",
             "open source release suite 通过",

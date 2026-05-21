@@ -12,6 +12,9 @@
 - `research-to-video-brief.md`：`research_to_video` 的选题、来源、证据、素材和 BGM 输入 brief。
 - `video-storyboard.md`：`research-to-video` 的镜头级分镜、素材表和音频时间线。
 - `media-run-record.md`：`research-to-video` 的 provider 调用、生成产物、质量门禁和升级路径记录。
+- `think-tank-run-record.md`：2.0 通用 run record 模板。
+- `provider-invocation-ledger.md`：2.0 provider 调用证据账本模板。
+- `memory-runtime-result.md`：2.0 memory runtime 输出模板。
 
 ## Required Fields
 

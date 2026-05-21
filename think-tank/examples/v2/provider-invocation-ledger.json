@@ -1,0 +1,36 @@
+{
+  "entries": [
+    {
+      "capability_slot": "knowledge-persistence",
+      "provider_name": "obsidian",
+      "provider_type": "peer_skill",
+      "state": "blocked",
+      "preflight": {
+        "checked": true,
+        "result": "requires_user_environment",
+        "blockers": ["No vault path confirmed.", "No write confirmation."]
+      },
+      "dispatch": {
+        "decision": "do_not_invoke",
+        "reason": "Private write requires explicit confirmation.",
+        "permission_gate": "needs_user_confirmation"
+      },
+      "invocation": {
+        "invoked": false,
+        "command_or_tool_ref": "",
+        "started_at": "",
+        "completed_at": ""
+      },
+      "recovery": {
+        "recovered": false,
+        "artifact_refs": [],
+        "error": ""
+      },
+      "verification": {
+        "status": "blocked",
+        "evidence_refs": ["think-tank/protocol/provider-invocation-ledger.md"],
+        "limitations": ["This sample proves ledger structure, not provider availability."]
+      }
+    }
+  ]
+}

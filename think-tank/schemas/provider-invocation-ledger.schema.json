@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://think-tank.local/schemas/provider-invocation-ledger.schema.json",
+  "title": "think-tank provider invocation ledger",
+  "type": "object",
+  "required": ["entries"],
+  "properties": {
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "capability_slot",
+          "provider_name",
+          "provider_type",
+          "state",
+          "preflight",
+          "dispatch",
+          "invocation",
+          "recovery",
+          "verification"
+        ],
+        "properties": {
+          "capability_slot": {"type": "string"},
+          "provider_name": {"type": "string"},
+          "provider_type": {"type": "string"},
+          "state": {
+            "type": "string",
+            "enum": [
+              "candidate",
+              "discovered",
+              "selected",
+              "preflight_checked",
+              "dispatched",
+              "invoked",
+              "recovered",
+              "verified_partial",
+              "verified",
+              "failed",
+              "blocked"
+            ]
+          },
+          "preflight": {
+            "type": "object",
+            "required": ["checked", "result", "blockers"],
+            "properties": {
+              "checked": {"type": "boolean"},
+              "result": {"type": "string"},
+              "blockers": {"type": "array", "items": {"type": "string"}}
+            },
+            "additionalProperties": false
+          },
+          "dispatch": {
+            "type": "object",
+            "required": ["decision", "reason", "permission_gate"],
+            "properties": {
+              "decision": {"type": "string"},
+              "reason": {"type": "string"},
+              "permission_gate": {"type": "string"}
+            },
+            "additionalProperties": false
+          },
+          "invocation": {
+            "type": "object",
+            "required": ["invoked", "command_or_tool_ref", "started_at", "completed_at"],
+            "properties": {
+              "invoked": {"type": "boolean"},
+              "command_or_tool_ref": {"type": "string"},
+              "started_at": {"type": "string"},
+              "completed_at": {"type": "string"}
+            },
+            "additionalProperties": false
+          },
+          "recovery": {
+            "type": "object",
+            "required": ["recovered", "artifact_refs", "error"],
+            "properties": {
+              "recovered": {"type": "boolean"},
+              "artifact_refs": {"type": "array", "items": {"type": "string"}},
+              "error": {"type": "string"}
+            },
+            "additionalProperties": false
+          },
+          "verification": {
+            "type": "object",
+            "required": ["status", "evidence_refs", "limitations"],
+            "properties": {
+              "status": {"type": "string"},
+              "evidence_refs": {"type": "array", "items": {"type": "string"}},
+              "limitations": {"type": "array", "items": {"type": "string"}}
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
