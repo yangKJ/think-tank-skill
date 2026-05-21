@@ -2,6 +2,8 @@
 
 Stable, protocol-first home of **think-tank**: a cross-platform high-level Skill for research, review, council, and strategy workflows on a verified Codex-first runtime path.
 
+![think-tank hero](think-tank/assets/diagrams/hero.svg)
+
 The high-level Skill lives in [`think-tank/`](think-tank/).
 The leader orchestration layer is being split into a standalone sibling project on the Desktop.
 
@@ -45,6 +47,33 @@ python3 checks/stable_release_check.py
 ```
 
 If both pass, you are on the repository's current stable public path.
+
+## How It Works
+
+![runtime flow](think-tank/assets/diagrams/runtime-flow.svg)
+
+## Provider Ecosystem Evidence
+
+`think-tank` does not bundle concrete tools. It routes capability slots to optional peer skills when the current platform exposes them and the task has permission to use them.
+
+![provider ecosystem](think-tank/assets/diagrams/provider-ecosystem.svg)
+
+Representative real-world peer skill examples:
+
+| capability slot | example peer skills | status boundary |
+|---|---|---|
+| source-acquisition | `web-access`, `agent-reach` | optional, evidence required |
+| browser-automation | `browser`, `playwright-cli` | verified_partial for readonly paths |
+| social-listening | `xiaohongshu` | planned, login and permission required |
+| media-processing | `yt-dlp`, `openai-whisper` | planned, rights and permission required |
+| knowledge-persistence | `obsidian` | planned, private write confirmation required |
+| media-production | `research-to-video-production` | verified_partial, scoped production workflow |
+
+See [`think-tank/docs/provider-ecosystem-examples.md`](think-tank/docs/provider-ecosystem-examples.md).
+
+## Capability Boundaries
+
+![capability boundaries](think-tank/assets/diagrams/boundary-map.svg)
 
 ## Repository Layout
 
@@ -173,6 +202,7 @@ It is:
   - [`think-tank/docs/open-source-quickstart.md`](think-tank/docs/open-source-quickstart.md)
   - [`think-tank/docs/support-matrix.md`](think-tank/docs/support-matrix.md)
   - [`think-tank/docs/validation-tiers.md`](think-tank/docs/validation-tiers.md)
+  - [`think-tank/docs/provider-ecosystem-examples.md`](think-tank/docs/provider-ecosystem-examples.md)
   - [`think-tank/docs/open-source-release.md`](think-tank/docs/open-source-release.md)
 - Stable release references:
   - [`think-tank/docs/stable-release-criteria.md`](think-tank/docs/stable-release-criteria.md)

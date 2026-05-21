@@ -4,6 +4,13 @@
 
 示例必须体现主协议，而不是某个平台的临时脚本。
 
+视觉说明和 Image2 提示词见：
+
+```text
+../assets/diagrams/
+../assets/prompts/
+```
+
 ## 第一批示例
 
 - `public/research-request.md`：公开 research 模板，展示用户材料路径和 provider 边界。

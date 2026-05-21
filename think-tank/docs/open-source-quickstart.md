@@ -46,6 +46,7 @@ README.md
   -> think-tank/platforms/codex/operating-guide.md
   -> think-tank/docs/support-matrix.md
   -> think-tank/docs/validation-tiers.md
+  -> think-tank/docs/provider-ecosystem-examples.md
   -> think-tank/docs/open-source-release.md
 ```
 

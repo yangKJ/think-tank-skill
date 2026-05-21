@@ -13,6 +13,7 @@ QUICKSTART = ROOT / "think-tank" / "docs" / "open-source-quickstart.md"
 SUPPORT_MATRIX = ROOT / "think-tank" / "docs" / "support-matrix.md"
 VALIDATION_TIERS = ROOT / "think-tank" / "docs" / "validation-tiers.md"
 HISTORY = ROOT / "think-tank" / "docs" / "history.md"
+PROVIDER_ECOSYSTEM = ROOT / "think-tank" / "docs" / "provider-ecosystem-examples.md"
 OPEN_SOURCE_RELEASE = ROOT / "think-tank" / "docs" / "open-source-release.md"
 CAPABILITY_STATUS = ROOT / "think-tank" / "platforms" / "codex" / "capability-status.md"
 RELEASE_SUITE = ROOT / "checks" / "open_source_release_suite.py"
@@ -21,6 +22,14 @@ PACKAGE_MANIFEST = ROOT / "open-source-packages.yaml"
 PUBLIC_RESEARCH = ROOT / "think-tank" / "examples" / "public" / "research-request.md"
 PUBLIC_COUNCIL = ROOT / "think-tank" / "examples" / "public" / "council-decision.md"
 PUBLIC_REVIEW = ROOT / "think-tank" / "examples" / "public" / "review-acceptance.md"
+VISUALS = [
+    ROOT / "think-tank" / "assets" / "diagrams" / "hero.svg",
+    ROOT / "think-tank" / "assets" / "diagrams" / "runtime-flow.svg",
+    ROOT / "think-tank" / "assets" / "diagrams" / "provider-ecosystem.svg",
+    ROOT / "think-tank" / "assets" / "diagrams" / "boundary-map.svg",
+    ROOT / "think-tank" / "assets" / "prompts" / "hero-image2-prompt.md",
+    ROOT / "think-tank" / "assets" / "prompts" / "provider-ecosystem-image2-prompt.md",
+]
 
 
 def fail(message: str) -> None:
@@ -45,8 +54,10 @@ def main() -> None:
             "think-tank/docs/open-source-quickstart.md",
             "think-tank/docs/support-matrix.md",
             "think-tank/docs/validation-tiers.md",
+            "think-tank/docs/provider-ecosystem-examples.md",
             "think-tank/docs/open-source-release.md",
             "think-tank/examples/public/research-request.md",
+            "think-tank/assets/diagrams/hero.svg",
             "open-source-packages.yaml",
             "python3 checks/open_source_release_suite.py",
             "python3 checks/open_source_release_check.py",
@@ -60,6 +71,7 @@ def main() -> None:
             "docs/support-matrix.md",
             "docs/validation-tiers.md",
             "docs/history.md",
+            "docs/provider-ecosystem-examples.md",
             "docs/open-source-release.md",
             "examples/public/research-request.md",
             "skill_core_only_bundle",
@@ -111,6 +123,15 @@ def main() -> None:
         ],
     )
     require_text(
+        PROVIDER_ECOSYSTEM,
+        [
+            "optional_ecosystem_examples",
+            "Representative Providers",
+            "selected != dispatched != invoked != recovered != verified",
+            "think-tank/assets/diagrams/provider-ecosystem.svg",
+        ],
+    )
+    require_text(
         OPEN_SOURCE_RELEASE,
         [
             "safe_to_publish: true",
@@ -152,6 +173,8 @@ def main() -> None:
                 "verification_status:",
             ],
         )
+    for path in VISUALS:
+        require_text(path, ["<svg"] if path.suffix == ".svg" else ["Image2 Prompt"])
     require_text(
         RELEASE_SUITE,
         [

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Provider ecosystem evidence map</title>
+  <desc id="desc">Optional peer skills around think-tank core.</desc>
+  <rect width="1280" height="720" fill="#f8fbff"/>
+  <circle cx="640" cy="350" r="130" fill="#e7f0ff" stroke="#9fbff8" stroke-width="3"/>
+  <text x="545" y="338" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="800" fill="#102a43">think-tank</text>
+  <text x="579" y="373" font-family="Inter, Arial, sans-serif" font-size="18" fill="#486581">core protocol</text>
+  <g font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">
+    <rect x="132" y="108" width="205" height="64" rx="18" fill="#ffffff" stroke="#c9dce3"/>
+    <text x="170" y="147" fill="#102a43">web-access</text>
+    <rect x="926" y="108" width="205" height="64" rx="18" fill="#ffffff" stroke="#c9dce3"/>
+    <text x="978" y="147" fill="#102a43">browser</text>
+    <rect x="88" y="336" width="245" height="64" rx="18" fill="#fff7ed" stroke="#fed7aa"/>
+    <text x="130" y="375" fill="#9a3412">xiaohongshu</text>
+    <rect x="948" y="336" width="245" height="64" rx="18" fill="#fff7ed" stroke="#fed7aa"/>
+    <text x="1015" y="375" fill="#9a3412">yt-dlp</text>
+    <rect x="178" y="560" width="220" height="64" rx="18" fill="#ffffff" stroke="#c9dce3"/>
+    <text x="241" y="599" fill="#102a43">obsidian</text>
+    <rect x="850" y="560" width="260" height="64" rx="18" fill="#dff7ed" stroke="#9ae6b4"/>
+    <text x="890" y="599" fill="#14532d">research-to-video</text>
+  </g>
+  <g stroke="#8aa6b2" stroke-width="3" fill="none" stroke-dasharray="8 8">
+    <path d="M337 140 C430 175 510 230 556 263"/>
+    <path d="M926 140 C850 170 770 225 724 263"/>
+    <path d="M333 368 C430 365 490 357 510 353"/>
+    <path d="M948 368 C850 365 790 357 770 353"/>
+    <path d="M398 592 C480 530 530 455 565 440"/>
+    <path d="M850 592 C780 525 745 465 710 440"/>
+  </g>
+  <g font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">
+    <rect x="435" y="64" width="115" height="32" rx="16" fill="#dff7ed"/>
+    <text x="457" y="85" fill="#14532d">verified</text>
+    <rect x="565" y="64" width="162" height="32" rx="16" fill="#e7f0ff"/>
+    <text x="585" y="85" fill="#163b73">verified_partial</text>
+    <rect x="742" y="64" width="104" height="32" rx="16" fill="#fff7ed"/>
+    <text x="768" y="85" fill="#9a3412">planned</text>
+    <text x="421" y="674" fill="#486581">Selected is not invoked. Installed is not verified. Providers are optional ecosystem examples.</text>
+  </g>
+</svg>
