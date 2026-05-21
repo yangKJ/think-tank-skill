@@ -7,8 +7,10 @@ think-tank/*.local.yaml
 __pycache__/
 *.pyc
 outputs/
-checks/
 .claude/
 CLAUDE.md
 .playwright-cli/
 .learnings/
+checks/*
+!checks/
+!checks/protocol_check.py
