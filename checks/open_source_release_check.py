@@ -11,11 +11,16 @@ README = ROOT / "README.md"
 THINK_TANK_README = ROOT / "think-tank" / "README.md"
 QUICKSTART = ROOT / "think-tank" / "docs" / "open-source-quickstart.md"
 SUPPORT_MATRIX = ROOT / "think-tank" / "docs" / "support-matrix.md"
+VALIDATION_TIERS = ROOT / "think-tank" / "docs" / "validation-tiers.md"
+HISTORY = ROOT / "think-tank" / "docs" / "history.md"
 OPEN_SOURCE_RELEASE = ROOT / "think-tank" / "docs" / "open-source-release.md"
 CAPABILITY_STATUS = ROOT / "think-tank" / "platforms" / "codex" / "capability-status.md"
 RELEASE_SUITE = ROOT / "checks" / "open_source_release_suite.py"
 WORKFLOW = ROOT / ".github" / "workflows" / "open-source-release.yml"
 PACKAGE_MANIFEST = ROOT / "open-source-packages.yaml"
+PUBLIC_RESEARCH = ROOT / "think-tank" / "examples" / "public" / "research-request.md"
+PUBLIC_COUNCIL = ROOT / "think-tank" / "examples" / "public" / "council-decision.md"
+PUBLIC_REVIEW = ROOT / "think-tank" / "examples" / "public" / "review-acceptance.md"
 
 
 def fail(message: str) -> None:
@@ -39,7 +44,9 @@ def main() -> None:
             "release_posture: stable_release",
             "think-tank/docs/open-source-quickstart.md",
             "think-tank/docs/support-matrix.md",
+            "think-tank/docs/validation-tiers.md",
             "think-tank/docs/open-source-release.md",
+            "think-tank/examples/public/research-request.md",
             "open-source-packages.yaml",
             "python3 checks/open_source_release_suite.py",
             "python3 checks/open_source_release_check.py",
@@ -51,7 +58,10 @@ def main() -> None:
             "release_posture: stable_release",
             "docs/open-source-quickstart.md",
             "docs/support-matrix.md",
+            "docs/validation-tiers.md",
+            "docs/history.md",
             "docs/open-source-release.md",
+            "examples/public/research-request.md",
             "skill_core_only_bundle",
             "python3 checks/open_source_release_suite.py",
             "python3 checks/open_source_release_check.py",
@@ -62,6 +72,7 @@ def main() -> None:
         [
             "只安装 `think-tank` 时，默认保证",
             "只安装 `think-tank` 时，默认不保证",
+            "think-tank/examples/public/research-request.md",
             "python3 checks/open_source_release_suite.py",
             "python3 checks/release_privacy_check.py",
             "python3 checks/open_source_release_check.py",
@@ -76,7 +87,27 @@ def main() -> None:
             "| Codex | verified_foundation |",
             "| Claude Code | deferred |",
             "| agent-reach | available_not_verified |",
+            "default included?",
+            "do not claim",
+            "think-tank/docs/validation-tiers.md",
             "Not Claimed",
+        ],
+    )
+    require_text(
+        VALIDATION_TIERS,
+        [
+            "Tier 1: release gate",
+            "Tier 2: core validation",
+            "Tier 3: local provider validation",
+            "provider_invoked",
+        ],
+    )
+    require_text(
+        HISTORY,
+        [
+            "维护者背景",
+            "不是外部用户第一入口",
+            "不能替代当前协议",
         ],
     )
     require_text(
@@ -108,6 +139,19 @@ def main() -> None:
             "leader-runtime-project",
         ],
     )
+    for path in [PUBLIC_RESEARCH, PUBLIC_COUNCIL, PUBLIC_REVIEW]:
+        require_text(
+            path,
+            [
+                "selected_intent:",
+                "selected_mode:",
+                "selected_profiles:",
+                "invoked_providers:",
+                "not_invoked_providers:",
+                "boundaries:",
+                "verification_status:",
+            ],
+        )
     require_text(
         RELEASE_SUITE,
         [

@@ -8,19 +8,37 @@ The leader orchestration layer is being split into a standalone sibling project 
 ## Why use think-tank?
 
 - One protocol surface for research, review, council, and strategy work.
+- A clear split between orchestration and tools:
+  `think-tank = task understanding + role organization + capability routing + evidence synthesis + boundary declaration`.
 - Explicit evidence states: `verified`, `verified_partial`, `planned`, `blocked`.
 - Public release gates that check protocol integrity, privacy boundaries, package scope, and stable posture.
 
 ## Quick Start
 
 1. Read [`think-tank/README.md`](think-tank/README.md) and [`think-tank/docs/open-source-quickstart.md`](think-tank/docs/open-source-quickstart.md).
-2. Run the public release gate:
+2. Install or copy the skill core:
+
+```text
+think-tank/
+```
+
+into your platform's skill directory, or clone this repository and reference `think-tank/` directly.
+
+3. Try one of the public templates:
+
+```text
+think-tank/examples/public/research-request.md
+think-tank/examples/public/council-decision.md
+think-tank/examples/public/review-acceptance.md
+```
+
+4. Run the public release gate:
 
 ```bash
 python3 checks/open_source_release_suite.py
 ```
 
-3. Run the stable gate:
+5. Run the stable gate:
 
 ```bash
 python3 checks/stable_release_check.py
@@ -154,6 +172,7 @@ It is:
   - [`think-tank/README.md`](think-tank/README.md)
   - [`think-tank/docs/open-source-quickstart.md`](think-tank/docs/open-source-quickstart.md)
   - [`think-tank/docs/support-matrix.md`](think-tank/docs/support-matrix.md)
+  - [`think-tank/docs/validation-tiers.md`](think-tank/docs/validation-tiers.md)
   - [`think-tank/docs/open-source-release.md`](think-tank/docs/open-source-release.md)
 - Stable release references:
   - [`think-tank/docs/stable-release-criteria.md`](think-tank/docs/stable-release-criteria.md)
@@ -169,6 +188,7 @@ It is:
   - [`think-tank/platforms/codex/capability-status.md`](think-tank/platforms/codex/capability-status.md)
 - Protocol and governance references:
   - [`open-source-packages.yaml`](open-source-packages.yaml)
+  - [`think-tank/docs/history.md`](think-tank/docs/history.md)
   - [`think-tank/protocol/local-workspace.md`](think-tank/protocol/local-workspace.md)
   - [`think-tank/protocol/memory-curation.md`](think-tank/protocol/memory-curation.md)
   - [`think-tank/protocol/capability-evidence-state-machine.md`](think-tank/protocol/capability-evidence-state-machine.md)

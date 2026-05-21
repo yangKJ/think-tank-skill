@@ -50,18 +50,18 @@ Packaging:
 
 ## Provider Support
 
-| provider | status | notes |
-|----------|--------|-------|
-| local_static_reader | verified | 仓库内本地文件路径 |
-| public_http_static_reader | verified_partial | 公网静态页面只读样例 |
-| playwright-cli | verified_partial | external static page readonly + localhost snapshot |
-| research-to-video-production | verified_partial | 本地长生命周期 adapter run，回收 render 和 delivery artifacts |
-| agent-reach | available_not_verified | policy 可选中，但不默认声称已调用 |
-| web-access | available_not_verified | 需要单独 invocation 证据 |
-| taskflow | available_not_verified | policy 可选中，不默认写外部状态 |
-| obsidian | planned | 不默认写入 |
-| yt-dlp | planned | 尚未做公开稳定承诺 |
-| xiaohongshu | planned | 尚未做公开稳定承诺 |
+| provider | status | default included? | login? | network? | permission? | safe fallback | do not claim |
+|----------|--------|-------------------|--------|----------|-------------|---------------|--------------|
+| local_static_reader | verified | yes | no | no | no | user-provided material | external provider runtime |
+| public_http_static_reader | verified_partial | yes | no | yes | task-dependent | user-provided excerpt | broad web automation |
+| playwright-cli | verified_partial | optional | no for readonly fixtures | yes for external pages | yes before automation | static snapshots or user-provided excerpt | login, click flows, or dynamic app automation |
+| research-to-video-production | verified_partial | optional | no by default | task-dependent | yes before media production | markdown brief | fully automated publishing |
+| agent-reach | available_not_verified | no | provider-dependent | provider-dependent | yes | core protocol synthesis | invoked provider |
+| web-access | available_not_verified | no | provider-dependent | yes | yes | user-provided excerpt | verified source acquisition |
+| taskflow | available_not_verified | no | provider-dependent | provider-dependent | yes before writes | markdown artifact | external state write |
+| obsidian | planned | no | local vault access | no by default | yes before private write | markdown artifact | default private knowledge write |
+| yt-dlp | planned | no | no | yes | yes before download | user-provided transcript | default media download |
+| xiaohongshu | planned | no | yes | yes | yes | user-provided samples | default social scraping |
 
 ## Not Claimed
 
@@ -73,3 +73,11 @@ Packaging:
 - private knowledge-base write by default
 - social media scraping by default
 - every installed peer skill being executable
+
+## Validation Tiers
+
+公开发布只依赖 release gate。更深的 core validation 和 local provider validation 见：
+
+```text
+think-tank/docs/validation-tiers.md
+```

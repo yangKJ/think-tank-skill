@@ -26,8 +26,8 @@ ios_automation_context_imported: false
 | `council_v791_review.md` | v7.9.1 安全经验 |
 | `council_workflow_optimization.md` | workflow optimization 经验 |
 | `doc_location_review.md` | 文档落点经验 |
-| `floral-wall-codex/` | 项目私有样例，不迁入 |
-| `floral-wall-prompt/` | 项目私有样例，不迁入 |
+| `project-codex-sample/` | 项目私有样例，不迁入 |
+| `project-prompt-sample/` | 项目私有样例，不迁入 |
 | `multi_agent_research_design/` | research 子系统设计经验 |
 | `self_healing_review/` | retry / skipped / circuit breaker 经验 |
 | `skill-review.md` | skill 审查经验 |

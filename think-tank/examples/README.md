@@ -6,6 +6,9 @@
 
 ## 第一批示例
 
+- `public/research-request.md`：公开 research 模板，展示用户材料路径和 provider 边界。
+- `public/council-decision.md`：公开 council 模板，展示单 agent 多视角 fallback 的声明方式。
+- `public/review-acceptance.md`：公开 review 模板，展示发布验收和证据优先输出。
 - `research-request.md`：研究模式输入输出示例
 - `council-request.md`：委员会讨论模式输入输出示例
 - `end-to-end-research.md`：端到端 research mode 示例

@@ -94,6 +94,5 @@
 ### Notes
 
 - 当前版本是主仓基础版本，重点是统一抽象和协议边界。
-- 旧 research think-tank 和 agent-council 都被视为 Claude Code 平台旧资产来源。
 - 当前只声明 Codex readonly council subagent runtime 为 `verified_partial`；其他平台和 full runtime 仍需独立验证。
 - 当前不声明 Browser 外部网页 DOM 回收能力；该路径在当前 Codex 环境标记为 `blocked`。

@@ -62,10 +62,15 @@ open-source-packages.yaml
 
 ## 发布门禁
 
-以下检查应全部通过：
+默认公开发布只要求 release gate 通过：
 
 ```bash
 python3 checks/open_source_release_suite.py
+```
+
+展开后包含：
+
+```bash
 python3 checks/protocol_check.py
 python3 checks/codex_validation_check.py
 python3 checks/schema_sample_check.py
@@ -73,6 +78,14 @@ python3 checks/minimal_runtime_execution_check.py
 python3 checks/release_privacy_check.py
 python3 checks/open_source_release_check.py
 ```
+
+检查分层见：
+
+```text
+think-tank/docs/validation-tiers.md
+```
+
+不要把 local provider validation 当成默认开源承诺。
 
 ## 需要持续补强的点
 

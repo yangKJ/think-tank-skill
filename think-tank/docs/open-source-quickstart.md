@@ -42,9 +42,22 @@
 ```text
 README.md
   -> think-tank/README.md
+  -> think-tank/examples/public/
   -> think-tank/platforms/codex/operating-guide.md
   -> think-tank/docs/support-matrix.md
+  -> think-tank/docs/validation-tiers.md
   -> think-tank/docs/open-source-release.md
+```
+
+## 两种使用方式
+
+```text
+clone as repo
+  -> run release checks from repository root
+
+copy as skill
+  -> copy think-tank/ into your platform skill directory
+  -> keep .think-tank/ as project-local runtime data, not as public skill source
 ```
 
 ## 最小验证命令
@@ -78,6 +91,14 @@ python3 checks/open_source_release_check.py
 - strategy mode
 
 先用本地文件或用户提供材料验证，再考虑外部 provider。
+
+可直接复制的模板：
+
+```text
+think-tank/examples/public/research-request.md
+think-tank/examples/public/council-decision.md
+think-tank/examples/public/review-acceptance.md
+```
 
 ## 升级路径
 

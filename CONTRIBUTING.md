@@ -7,8 +7,7 @@
 1. `think-tank/protocol/` 是唯一协议源。
 2. `think-tank/platforms/` 只能做平台适配，不能重新定义协议。
 3. `think-tank/modes/` 只能定义场景默认策略，不能变成平行产品。
-4. 旧 research think-tank 和 agent-council 是迁移素材，不是新体系中心。
-5. 任何能力都必须标注真实状态：`verified`、`mock`、`tracking`、`planned`。
+4. 任何能力都必须标注真实状态：`verified`、`mock`、`tracking`、`planned`。
 
 ## 修改协议
 
@@ -51,18 +50,6 @@
 - 平台限制
 
 平台适配不能把平台特有能力写成协议要求。
-
-## 吸收旧资产
-
-吸收旧 research think-tank 或 agent-council 内容时，请先判断它属于：
-
-- 协议行为：进入 `think-tank/protocol/`
-- 场景默认策略：进入 `think-tank/modes/`
-- Claude Code 执行细节：进入 `think-tank/platforms/claude-code/`
-- 示例：进入 `think-tank/examples/`
-- 历史背景：进入 `think-tank/docs/`
-
-不要原样复制旧 `.claude` 结构或项目私有路径。
 
 ## 提交前检查
 
