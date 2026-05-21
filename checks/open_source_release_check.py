@@ -23,6 +23,7 @@ PUBLIC_RESEARCH = ROOT / "think-tank" / "examples" / "public" / "research-reques
 PUBLIC_COUNCIL = ROOT / "think-tank" / "examples" / "public" / "council-decision.md"
 PUBLIC_REVIEW = ROOT / "think-tank" / "examples" / "public" / "review-acceptance.md"
 VISUALS = [
+    ROOT / "think-tank" / "assets" / "brand" / "think-tank-hero-image2.png",
     ROOT / "think-tank" / "assets" / "diagrams" / "hero.svg",
     ROOT / "think-tank" / "assets" / "diagrams" / "runtime-flow.svg",
     ROOT / "think-tank" / "assets" / "diagrams" / "provider-ecosystem.svg",
@@ -57,7 +58,7 @@ def main() -> None:
             "think-tank/docs/provider-ecosystem-examples.md",
             "think-tank/docs/open-source-release.md",
             "think-tank/examples/public/research-request.md",
-            "think-tank/assets/diagrams/hero.svg",
+            "think-tank/assets/brand/think-tank-hero-image2.png",
             "open-source-packages.yaml",
             "python3 checks/open_source_release_suite.py",
             "python3 checks/open_source_release_check.py",
@@ -174,7 +175,12 @@ def main() -> None:
             ],
         )
     for path in VISUALS:
-        require_text(path, ["<svg"] if path.suffix == ".svg" else ["Image2 Prompt"])
+        if not path.exists():
+            fail(f"缺少文件: {path.relative_to(ROOT)}")
+        if path.suffix == ".svg":
+            require_text(path, ["<svg"])
+        elif path.suffix == ".md":
+            require_text(path, ["Image2 Prompt"])
     require_text(
         RELEASE_SUITE,
         [

@@ -2,7 +2,7 @@
 
 think-tank 是一个跨平台、可复用的高阶 Skill，用于多角色信息收集、协作分析、讨论审议与结论汇总。
 
-![think-tank hero](assets/diagrams/hero.svg)
+![think-tank hero](assets/brand/think-tank-hero-image2.png)
 
 它是本仓库的唯一主品牌、唯一主协议、唯一长期演进对象。research、agent-council、review、strategy 等能力都应收敛为 think-tank 的场景模式或历史实现来源，而不是与 think-tank 平行发展的独立体系。
 

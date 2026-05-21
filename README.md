@@ -2,7 +2,7 @@
 
 Stable, protocol-first home of **think-tank**: a cross-platform high-level Skill for research, review, council, and strategy workflows on a verified Codex-first runtime path.
 
-![think-tank hero](think-tank/assets/diagrams/hero.svg)
+![think-tank hero](think-tank/assets/brand/think-tank-hero-image2.png)
 
 The high-level Skill lives in [`think-tank/`](think-tank/).
 The leader orchestration layer is being split into a standalone sibling project on the Desktop.
