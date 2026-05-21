@@ -77,7 +77,7 @@ python3 checks/open_source_release_check.py
 
 1. readonly council 之外的 multi-agent runtime evidence
 2. long-running subagent lifecycle evidence
-3. broader provider coverage beyond the current minimum threshold
+3. long-running adapter runtime depth beyond the current local video path
 4. public onboarding and example freshness
 5. semantic consistency checks beyond file presence
 

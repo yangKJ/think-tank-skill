@@ -55,6 +55,7 @@ Packaging:
 | local_static_reader | verified | 仓库内本地文件路径 |
 | public_http_static_reader | verified_partial | 公网静态页面只读样例 |
 | playwright-cli | verified_partial | external static page readonly + localhost snapshot |
+| research-to-video-production | verified_partial | 本地长生命周期 adapter run，回收 render 和 delivery artifacts |
 | agent-reach | available_not_verified | policy 可选中，但不默认声称已调用 |
 | web-access | available_not_verified | 需要单独 invocation 证据 |
 | taskflow | available_not_verified | policy 可选中，不默认写外部状态 |

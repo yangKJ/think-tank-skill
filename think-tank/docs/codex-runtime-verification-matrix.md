@@ -30,6 +30,7 @@ claude_code_runtime: deferred
 | agent-reach | source-acquisition | available_not_verified | `provider-policy.example.yaml` | 统一入口分派，不直接执行抓取 |
 | public_http_static_reader | source-acquisition | verified_partial | `examples/codex-provider-invocation-matrix.json` | HTTP 成功，HTTPS 本地证书失败 |
 | playwright-cli | browser-automation | verified_partial | `examples/codex-provider-invocation-matrix.json` + `examples/codex-browser-external-readonly.md` | 外部静态页面只读 DOM 回收；不含登录态和交互 |
+| research-to-video-production | media-production | verified_partial | `examples/codex-provider-invocation-matrix.json` + `examples/codex-long-running-adapter-runtime.md` | 长生命周期本地 adapter run；不含 true multi-agent |
 | web-access | source-acquisition | available_not_verified | `provider-policy.example.yaml` | policy selection only |
 | taskflow | knowledge-persistence | available_not_verified | `provider-policy.example.yaml` | policy selection only |
 | xiaohongshu | social-listening | available_not_verified | `provider-registry.md` | 未真实调用 |
@@ -62,10 +63,12 @@ can_claim:
   - local source-acquisition verified
   - public HTTP static source-acquisition verified_partial
   - playwright external readonly DOM capture verified_partial
+  - research-to-video long-running adapter lifecycle verified_partial
   - YAML trigger routing verified
 cannot_claim:
   - all peer skills are executable
   - all external providers are automatically invoked
   - external browser interaction or login automation is verified
+  - long-running subagent lifecycle is verified
   - Claude Code runtime is verified
 ```

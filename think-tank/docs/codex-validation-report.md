@@ -38,6 +38,7 @@ codex:
   browser_automation_external_web: verified_partial
   external_skill_invocation: planned
   true_multi_agent_execution: verified_partial_for_readonly_council_only
+  long_running_adapter_runtime: verified_partial
 ```
 
 ## 验证产物
@@ -53,6 +54,7 @@ codex:
 | local source + artifact | `examples/codex-local-source-validation.md` | verified |
 | external source readonly | `examples/codex-external-source-validation.md` | verified |
 | browser external readonly | `examples/codex-browser-external-readonly.md` | verified_partial |
+| long-running adapter runtime | `examples/codex-long-running-adapter-runtime.md` | verified_partial |
 
 ## Research Mode
 

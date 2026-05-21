@@ -20,6 +20,8 @@
 - `codex-local-source-validation.md`：Codex 本地 source-acquisition 与 artifact 验证
 - `codex-external-source-validation.md`：Codex 外部只读 source-acquisition 验证
 - `codex-browser-external-readonly.md`：Codex Browser 外部只读验证成功记录
+- `codex-long-running-adapter-runtime.md`：Codex 长生命周期 adapter runtime 验证记录
+- `codex-long-running-adapter-runtime.json`：Codex 长生命周期 adapter runtime 机器样例
 - `codex-runtime-sample.json`：Codex minimal runtime 成功路径样例
 - `codex-runtime-failure-sample.json`：Codex minimal runtime 失败路径样例
 - `claude-code-research-validation.md`：Claude Code research mode preflight 验证记录

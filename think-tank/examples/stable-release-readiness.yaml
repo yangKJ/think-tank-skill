@@ -16,7 +16,7 @@ release_boundary:
 stable_blockers:
   provider_invocation_evidence:
     status: pass
-    current_public_proofs: 3
+    current_public_proofs: 4
     minimum_required: 3
   browser_external_readonly:
     status: pass
@@ -30,6 +30,10 @@ stable_blockers:
     status: blocked
     current_status: not_verified
     minimum_required: specified_or_better
+  long_running_adapter_lifecycle:
+    status: verified_partial
+    current_status: verified_partial_for_local_video_adapter
+    minimum_required: informational_only
 
 notes:
   - Public beta is releaseable.

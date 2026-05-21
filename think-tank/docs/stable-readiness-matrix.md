@@ -31,6 +31,7 @@ last_evaluated_by_repo_gate: true
 - 仓库已经达到稳定公开 beta 的工程标准
 - 仓库还没有达到 stable release 的证据标准
 - 当前 blocker 主要不是文档或 gate，而是真实能力证据
+- long-running adapter lifecycle 已有 `verified_partial` 样例，但 long-running subagent lifecycle 仍未验证
 
 ## Required Next Evidence
 

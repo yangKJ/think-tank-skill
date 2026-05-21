@@ -73,6 +73,29 @@
       ]
     },
     {
+      "provider": "research-to-video-production",
+      "capability": "media-production",
+      "selected_by_policy": true,
+      "dispatch_decision_before_invocation": true,
+      "invoked": true,
+      "target": "AI快报：把今天的AI资讯做成视频",
+      "result_status": "success",
+      "recovery_targets": ["artifact[]", "evidence[]", "role_result"],
+      "status": "verified_partial",
+      "invocation_log": [
+        "route matched local-ai-tech-news-video-production",
+        "provider preflight returned ready",
+        "init video run and handoff artifacts",
+        "prepare voiceover manifest and continue lifecycle",
+        "render final local video and create delivery report"
+      ],
+      "boundaries": [
+        "Long-running local adapter lifecycle only.",
+        "Source acquisition for the example target failed in the local sandboxed path, but downstream artifact recovery succeeded.",
+        "This does not prove true multi-agent runtime or long-running subagent lifecycle."
+      ]
+    },
+    {
       "provider": "web-access",
       "capability": "source-acquisition",
       "selected_by_policy": false,
