@@ -44,9 +44,7 @@ Artifacts:
 - `openai-chatgpt-skill/think-tank/`
   OpenAI Skills / Codex-compatible Agent Skills bundle.
 - `claude-code-skill/think-tank/`
-  Agent Skills core bundle for Claude-side distribution where Agent Skills are supported.
-- `claude-code-subagent/think-tank.md`
-  Claude Code subagent wrapper for installation into `~/.claude/agents/`.
+  Claude Code skill bundle for installation into `~/.claude/skills/think-tank/`.
 
 Zip archives are generated next to each folder for manual upload or distribution.
 """
@@ -58,30 +56,23 @@ def main() -> None:
 
     openai_dir = DIST / "openai-chatgpt-skill"
     claude_skill_dir = DIST / "claude-code-skill"
-    claude_subagent_dir = DIST / "claude-code-subagent"
-
     openai_dir.mkdir(parents=True, exist_ok=True)
     claude_skill_dir.mkdir(parents=True, exist_ok=True)
-    claude_subagent_dir.mkdir(parents=True, exist_ok=True)
 
     copy_skill_bundle(openai_dir)
     copy_skill_bundle(claude_skill_dir)
 
-    shutil.copy2(MARKETPLACE / "claude-code-subagent.md", claude_subagent_dir / "think-tank.md")
     shutil.copy2(MARKETPLACE / "openai-skill-listing.yaml", openai_dir / "listing.yaml")
     shutil.copy2(MARKETPLACE / "claude-skill-listing.yaml", claude_skill_dir / "listing.yaml")
-    shutil.copy2(MARKETPLACE / "claude-skill-listing.yaml", claude_subagent_dir / "listing.yaml")
 
     write_dist_readme()
 
     zip_dir(openai_dir)
     zip_dir(claude_skill_dir)
-    zip_dir(claude_subagent_dir)
 
     print("Built distribution artifacts:")
     print(f"- {openai_dir}")
     print(f"- {claude_skill_dir}")
-    print(f"- {claude_subagent_dir}")
 
 
 if __name__ == "__main__":

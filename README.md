@@ -90,7 +90,7 @@ What you should not expect from a fresh install:
 | Platform | Install target | Post-install action |
 |---|---|---|
 | Codex | `~/.codex/skills/think-tank` | Restart Codex or the current session |
-| Claude Code | `~/.claude/agents/think-tank.md` | Restart Claude Code session |
+| Claude Code | `~/.claude/skills/think-tank/` | Restart Claude Code session |
 | Other runtimes | Your runtime's skill directory | Re-index or restart that runtime |
 
 ## First-Install Validation

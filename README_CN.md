@@ -89,7 +89,7 @@ python3 checks/stable_release_check.py
 | 平台 | 安装位置 | 安装后动作 |
 |---|---|---|
 | Codex | `~/.codex/skills/think-tank` | 重启 Codex 或当前会话 |
-| Claude Code | `~/.claude/agents/think-tank.md` | 重启 Claude Code 会话 |
+| Claude Code | `~/.claude/skills/think-tank/` | 重启 Claude Code 会话 |
 | 其他 runtime | 对应 runtime 的 skill 目录 | 重建索引或重启 |
 
 ## 首装验收

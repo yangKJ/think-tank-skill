@@ -1,37 +1,25 @@
 # Claude Code Installation Guide
 
-This guide explains the two realistic distribution paths for `think-tank` in Claude Code today.
+This guide explains the public skill installation path for `think-tank` in Claude Code.
 
-## Path 1: Install As A Claude Code Subagent
+## Install As A Claude Code Skill
 
-This is the clearest documented Claude Code path in Anthropic's public docs.
+Install the generated skill bundle into one of these locations:
 
-Install the generated subagent file into one of these locations:
-
-- User-wide: `~/.claude/agents/think-tank.md`
-- Project-local: `.claude/agents/think-tank.md`
+- User-wide: `~/.claude/skills/think-tank/`
+- Project-local: `.claude/skills/think-tank/`
 
 Generated artifact:
-
-```text
-dist/claude-code-subagent/think-tank.md
-```
-
-After copying the file, restart Claude Code or start a new session.
-
-## Path 2: Install The Agent Skills Core Bundle
-
-If your Claude-side environment supports Agent Skills directly, use the generated skill core bundle:
 
 ```text
 dist/claude-code-skill/think-tank/
 ```
 
-This path is useful for teams that want the portable `SKILL.md` + resources bundle instead of only a Claude-specific subagent wrapper.
+After copying the folder, restart Claude Code or start a new session.
 
 ## Packaging
 
-Generate both Claude artifacts with:
+Generate the Claude artifact with:
 
 ```bash
 python3 scripts/package_agent_distributions.py
@@ -47,13 +35,12 @@ python3 scripts/package_agent_distributions.py
 Suggested first prompt:
 
 ```text
-Use the think-tank subagent to review these notes, separate facts from assumptions, and give me a boundary-aware recommendation.
+Use think-tank to review these notes, separate facts from assumptions, and give me a boundary-aware recommendation.
 ```
 
 ## Distribution Status
 
-- Claude Code subagent distribution: ready
-- Agent Skills core bundle for Claude-side reuse: ready
+- Claude Code skill bundle distribution: ready
 - Public self-serve Claude marketplace submission flow: not documented in the official sources used for this repository
 
-That last point matters: if Anthropic later exposes a public listing flow, these artifacts are designed to be upload-ready, but today the safe public path is GitHub distribution plus direct install.
+That last point matters: if Anthropic later exposes a public listing flow, these artifacts are designed to be upload-ready, but today the safe public path is GitHub distribution plus direct skill install.
