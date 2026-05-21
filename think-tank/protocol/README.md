@@ -54,6 +54,7 @@
 - `eval-pack.md`：2.0 协议回归评测包
 - `capability-evidence-state-machine.md`：capability 证据状态机
 - `evidence-sources.md`：统一证据来源表，区分本地代码、文档、网页、用户材料、推理和缺失数据
+- `evidence-recovery-contract.md`：证据不足时的统一恢复契约，明确缺口、补证动作、owner 和目标升级状态
 - `artifact-write-policy.md`：报告、运行记录、backlog 和项目文档的写入策略
 - `strategy-to-backlog.md`：把策略建议转成可验收 backlog 候选的结构
 - `post-run-curation.md`：研究、趋势、策略、审查和内容规划任务结束后的来源候选、趋势候选、行动候选、artifact plan 和持久化决策协议

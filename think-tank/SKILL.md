@@ -312,6 +312,14 @@ protocol/minimal-conclusion-contract.md
 templates/minimal-conclusion.md
 ```
 
+如果当前结论可用但证据仍偏弱，或只能停在 `verified_partial` / `minimal` 一类状态，
+还应补一份证据恢复计划，格式见：
+
+```text
+protocol/evidence-recovery-contract.md
+templates/evidence-recovery-plan.md
+```
+
 如果只是按 think-tank 结构输出，但没有真实走 runtime 或 provider dispatch，
 必须明确写出 `think_tank_runtime_used: false` 或相应降级状态。直接使用助手工具收集资料
 时必须写 `data_collection: direct_assistant_tool`，不能说成 provider-managed

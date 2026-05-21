@@ -41,6 +41,15 @@ run_record:
     risks: []
     next_step:
     boundaries: []
+  evidence_recovery_plan:
+    target_question:
+    current_evidence_state:
+    confidence:
+    blocking_gap:
+    target_upgrade_state:
+    recovery_actions: []
+    fallback_if_unavailable:
+    boundaries: []
   disagreements: []
   risks: []
   next_actions: []

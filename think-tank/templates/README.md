@@ -16,6 +16,7 @@
 - `minimal-conclusion.md`：跨 mode 的最小结论摘要模板，适合宿主 agent 快速消费和后续 dispatch/review。
 - `provider-invocation-ledger.md`：2.0 provider 调用证据账本模板。
 - `memory-runtime-result.md`：2.0 memory runtime 输出模板。
+- `evidence-recovery-plan.md`：证据不足时的标准补证计划模板。
 - `research-workspace/`：2.2 Research OS starter kit，可复制到用户项目作为本地 `.think-tank/` 工作区模板。
 
 ## Required Fields
