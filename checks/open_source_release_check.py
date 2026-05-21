@@ -28,10 +28,6 @@ VISUALS = [
     ROOT / "think-tank" / "assets" / "brand" / "council-card-image2.png",
     ROOT / "think-tank" / "assets" / "brand" / "review-card-image2.png",
     ROOT / "think-tank" / "assets" / "brand" / "provider-ecosystem-image2.png",
-    ROOT / "think-tank" / "assets" / "diagrams" / "hero.svg",
-    ROOT / "think-tank" / "assets" / "diagrams" / "runtime-flow.svg",
-    ROOT / "think-tank" / "assets" / "diagrams" / "provider-ecosystem.svg",
-    ROOT / "think-tank" / "assets" / "diagrams" / "boundary-map.svg",
     ROOT / "think-tank" / "assets" / "prompts" / "hero-image2-prompt.md",
     ROOT / "think-tank" / "assets" / "prompts" / "provider-ecosystem-image2-prompt.md",
 ]
@@ -134,7 +130,7 @@ def main() -> None:
             "optional_ecosystem_examples",
             "Representative Providers",
             "selected != dispatched != invoked != recovered != verified",
-            "think-tank/assets/diagrams/provider-ecosystem.svg",
+            "think-tank/assets/brand/provider-ecosystem-image2.png",
         ],
     )
     require_text(
@@ -182,9 +178,7 @@ def main() -> None:
     for path in VISUALS:
         if not path.exists():
             fail(f"缺少文件: {path.relative_to(ROOT)}")
-        if path.suffix == ".svg":
-            require_text(path, ["<svg"])
-        elif path.suffix == ".md":
+        if path.suffix == ".md":
             require_text(path, ["Image2 Prompt"])
     require_text(
         RELEASE_SUITE,

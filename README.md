@@ -48,10 +48,6 @@ python3 checks/stable_release_check.py
 
 If both pass, you are on the repository's current stable public path.
 
-## How It Works
-
-![runtime flow](think-tank/assets/diagrams/runtime-flow.svg)
-
 ## Use Cases
 
 | Research | Council | Review |
@@ -76,10 +72,6 @@ Representative real-world peer skill examples:
 | media-production | `research-to-video-production` | verified_partial, scoped production workflow |
 
 See [`think-tank/docs/provider-ecosystem-examples.md`](think-tank/docs/provider-ecosystem-examples.md).
-
-## Capability Boundaries
-
-![capability boundaries](think-tank/assets/diagrams/boundary-map.svg)
 
 ## Repository Layout
 
