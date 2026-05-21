@@ -18,16 +18,33 @@
 
 ## 快速开始
 
-1. 阅读 [`think-tank/README.md`](think-tank/README.md) 和 [`think-tank/docs/open-source-quickstart.md`](think-tank/docs/open-source-quickstart.md)。
-2. 安装或复制 Skill core：
+1. 先选安装方式：
+
+- Codex 安装：
+
+```bash
+python3 "$HOME/.codex/skills/.system/skill-installer/scripts/install-skill-from-github.py" --repo yangKJ/think-tank-skill --path think-tank
+```
+
+- 手动安装：
 
 ```text
 think-tank/
 ```
 
-可以把它复制到你的平台 skill 目录，也可以直接 clone 本仓库并引用 `think-tank/`。
+把它复制到你的平台 skill 目录，或者直接 clone 本仓库并引用 `think-tank/`。
 
-3. 先试用公开模板：
+2. 安装后重启你的 agent 运行环境。
+
+对 Codex 来说，需要重启 App 或当前会话，新的 skill 才会被识别。
+
+3. 先做首装检查：
+
+```bash
+test -f "$HOME/.codex/skills/think-tank/SKILL.md" && echo "think-tank installed"
+```
+
+4. 先试用公开模板：
 
 ```text
 think-tank/examples/public/research-request.md
@@ -35,19 +52,73 @@ think-tank/examples/public/council-decision.md
 think-tank/examples/public/review-acceptance.md
 ```
 
-4. 运行公开发布门禁：
+5. 再阅读 [`think-tank/README.md`](think-tank/README.md) 和 [`think-tank/docs/open-source-quickstart.md`](think-tank/docs/open-source-quickstart.md)，理解协议面和运行边界。
+
+6. 运行公开发布门禁：
 
 ```bash
 python3 checks/open_source_release_suite.py
 ```
 
-5. 运行 stable gate：
+7. 运行 stable gate：
 
 ```bash
 python3 checks/stable_release_check.py
 ```
 
 两条命令都通过，说明当前仓库处在可公开发布的稳定路径上。
+
+## 首装预期
+
+刚安装完 `think-tank`，你立刻能得到：
+
+- protocol-first 的 research、review、council、strategy 工作流
+- mode 选择、profile 模拟和结构化输出
+- 本地文件分析和用户提供材料分析
+- 基于证据状态的边界声明
+
+刚安装完时，不应该默认期待：
+
+- 所有 optional peer skills 自动存在
+- browser、社媒、媒体、知识库 provider 已经预授权
+- 所有平台都有完整多 agent runtime
+- “已经安装” 等于 “已经真实调用并验证通过”
+
+## 平台安装位置
+
+| 平台 | 安装位置 | 安装后动作 |
+|---|---|---|
+| Codex | `~/.codex/skills/think-tank` | 重启 Codex 或当前会话 |
+| Claude Code | `~/.claude/skills/think-tank` | 重启 Claude Code 会话 |
+| 其他 runtime | 对应 runtime 的 skill 目录 | 重建索引或重启 |
+
+## 首装验收
+
+建议按下面最短路径验收：
+
+1. 确认入口文件存在。
+2. 重启运行环境。
+3. 发一个很小的 research、review 或 strategy 请求。
+4. 检查返回是否体现 `think-tank` 的边界感和结构化风格，而不是普通自由回答。
+
+Codex 最小文件检查：
+
+```bash
+test -f "$HOME/.codex/skills/think-tank/SKILL.md" && echo "think-tank installed"
+```
+
+建议第一条测试 prompt：
+
+```text
+Use think-tank to review these notes, separate facts from assumptions, and give me a boundary-aware recommendation.
+```
+
+## 首装故障排查
+
+- 如果安装脚本遇到 HTTPS 证书错误，可以改走手动 `git clone` 或下载 zip，再只复制 `think-tank/`。
+- 如果目标目录已存在，先删除或改名旧的 `~/.codex/skills/think-tank` 再重装。
+- 如果运行环境没有识别到 skill，先重启 App 或会话，再继续深挖。
+- 不要把 `.think-tank/`、`.codex/`、`.claude/` 或生成产物目录复制进公开 skill 目录。
 
 ## 典型场景
 

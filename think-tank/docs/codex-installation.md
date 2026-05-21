@@ -2,6 +2,20 @@
 
 This guide explains how to use `think-tank` from Codex without bundling private local configuration.
 
+## Fastest Path
+
+Install directly with the Codex skill installer:
+
+```bash
+python3 "$HOME/.codex/skills/.system/skill-installer/scripts/install-skill-from-github.py" --repo yangKJ/think-tank-skill --path think-tank
+```
+
+Then restart Codex and verify the entry file:
+
+```bash
+test -f "$HOME/.codex/skills/think-tank/SKILL.md" && echo "think-tank installed"
+```
+
 ## Option 1: Use This Repository Directly
 
 Clone the repository and reference the skill directory:
@@ -72,3 +86,9 @@ python3 checks/stable_release_check.py
 ```
 
 If you copied only `think-tank/` into another environment, use the docs and examples as protocol references. The repository-level checks require this full repository layout.
+
+## First-Install Troubleshooting
+
+- If the installer fails with HTTPS certificate verification errors, fall back to manual clone or zip download and copy only `think-tank/`.
+- If `~/.codex/skills/think-tank` already exists, remove or rename it before reinstalling.
+- If Codex does not recognize the skill after files are in place, restart the app or session before assuming a packaging problem.

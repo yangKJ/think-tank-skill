@@ -19,16 +19,33 @@ The leader orchestration layer is being split into a standalone sibling project 
 
 ## Quick Start
 
-1. Read [`think-tank/README.md`](think-tank/README.md) and [`think-tank/docs/open-source-quickstart.md`](think-tank/docs/open-source-quickstart.md).
-2. Install or copy the skill core:
+1. Pick your install path:
+
+- Codex install:
+
+```bash
+python3 "$HOME/.codex/skills/.system/skill-installer/scripts/install-skill-from-github.py" --repo yangKJ/think-tank-skill --path think-tank
+```
+
+- Manual install:
 
 ```text
 think-tank/
 ```
 
-into your platform's skill directory, or clone this repository and reference `think-tank/` directly.
+Copy it into your platform's skill directory, or clone this repository and reference `think-tank/` directly.
 
-3. Try one of the public templates:
+2. Restart your agent runtime after installation.
+
+For Codex, restart the app or session so the new skill can be discovered.
+
+3. Run the first-install check:
+
+```bash
+test -f "$HOME/.codex/skills/think-tank/SKILL.md" && echo "think-tank installed"
+```
+
+4. Try one of the public templates:
 
 ```text
 think-tank/examples/public/research-request.md
@@ -36,19 +53,73 @@ think-tank/examples/public/council-decision.md
 think-tank/examples/public/review-acceptance.md
 ```
 
-4. Run the public release gate:
+5. Read [`think-tank/README.md`](think-tank/README.md) and [`think-tank/docs/open-source-quickstart.md`](think-tank/docs/open-source-quickstart.md) for the protocol surface and runtime boundaries.
+
+6. Run the public release gate:
 
 ```bash
 python3 checks/open_source_release_suite.py
 ```
 
-5. Run the stable gate:
+7. Run the stable gate:
 
 ```bash
 python3 checks/stable_release_check.py
 ```
 
 If both pass, you are on the repository's current stable public path.
+
+## First-Install Expectations
+
+What you get immediately after installing `think-tank`:
+
+- protocol-first research, review, council, and strategy workflows
+- mode selection, profile simulation, and structured output
+- local file analysis and user-provided material analysis
+- explicit boundary declaration through evidence states
+
+What you should not expect from a fresh install:
+
+- every optional peer skill to be present automatically
+- browser, social, media, or knowledge-base providers to be pre-authorized
+- full multi-agent runtime parity across platforms
+- "installed" to mean "already invoked and verified"
+
+## Platform Install Targets
+
+| Platform | Install target | Post-install action |
+|---|---|---|
+| Codex | `~/.codex/skills/think-tank` | Restart Codex or the current session |
+| Claude Code | `~/.claude/skills/think-tank` | Restart Claude Code session |
+| Other runtimes | Your runtime's skill directory | Re-index or restart that runtime |
+
+## First-Install Validation
+
+Use this shortest path when validating a first install:
+
+1. Confirm the entry file exists.
+2. Restart the runtime.
+3. Send a small prompt that should trigger research, review, or strategy behavior.
+4. Check that the response uses `think-tank` style boundary-aware structure rather than generic freeform output.
+
+Minimal file check for Codex:
+
+```bash
+test -f "$HOME/.codex/skills/think-tank/SKILL.md" && echo "think-tank installed"
+```
+
+Suggested first prompt:
+
+```text
+Use think-tank to review these notes, separate facts from assumptions, and give me a boundary-aware recommendation.
+```
+
+## Troubleshooting First Install
+
+- If the install script fails with HTTPS certificate errors, use a manual `git clone` or zip download path and copy only `think-tank/`.
+- If the destination already exists, remove or rename the old `~/.codex/skills/think-tank` directory before reinstalling.
+- If the runtime does not recognize the skill, restart the app or session before debugging deeper.
+- Do not copy `.think-tank/`, `.codex/`, `.claude/`, or generated output folders into the public skill directory.
 
 ## Use Cases
 
