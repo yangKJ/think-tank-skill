@@ -4,7 +4,7 @@
 
 ## 文档与边界
 
-- [x] `open-source-packages.yaml` 与实际公开范围一致
+- [x] `public-release-manifest.yaml` 与实际公开范围一致
 - [x] `open-source-release.md` 公开承诺更新为 stable 表述
 - [x] `support-matrix.md` 中 blocked/planned 项目已同步
 - [x] `README.md` 不再保留 beta-only 提示，或明确说明剩余实验范围

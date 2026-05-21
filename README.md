@@ -246,7 +246,7 @@ It is:
   - [`think-tank/platforms/codex/operating-guide.md`](think-tank/platforms/codex/operating-guide.md)
   - [`think-tank/platforms/codex/capability-status.md`](think-tank/platforms/codex/capability-status.md)
 - Protocol and governance references:
-  - [`open-source-packages.yaml`](open-source-packages.yaml)
+  - [`public-release-manifest.yaml`](public-release-manifest.yaml)
   - [`think-tank/docs/history.md`](think-tank/docs/history.md)
   - [`think-tank/protocol/local-workspace.md`](think-tank/protocol/local-workspace.md)
   - [`think-tank/protocol/memory-curation.md`](think-tank/protocol/memory-curation.md)

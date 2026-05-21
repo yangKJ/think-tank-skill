@@ -25,7 +25,7 @@ OPEN_SOURCE_RELEASE = ROOT / "think-tank" / "docs" / "open-source-release.md"
 CAPABILITY_STATUS = ROOT / "think-tank" / "platforms" / "codex" / "capability-status.md"
 RELEASE_SUITE = ROOT / "checks" / "open_source_release_suite.py"
 WORKFLOW = ROOT / ".github" / "workflows" / "open-source-release.yml"
-PACKAGE_MANIFEST = ROOT / "open-source-packages.yaml"
+PACKAGE_MANIFEST = ROOT / "public-release-manifest.yaml"
 PUBLIC_RESEARCH = ROOT / "think-tank" / "examples" / "public" / "research-request.md"
 PUBLIC_COUNCIL = ROOT / "think-tank" / "examples" / "public" / "council-decision.md"
 PUBLIC_REVIEW = ROOT / "think-tank" / "examples" / "public" / "review-acceptance.md"
@@ -75,7 +75,7 @@ def main() -> None:
             "think-tank/examples/public/research-request.md",
             "think-tank/assets/brand/think-tank-hero-image2.png",
             "think-tank/assets/brand/provider-ecosystem-image2.png",
-            "open-source-packages.yaml",
+            "public-release-manifest.yaml",
             "python3 checks/open_source_release_suite.py",
             "python3 checks/open_source_release_check.py",
         ],
@@ -248,7 +248,11 @@ def main() -> None:
         [
             "current_default_release: skill_core_only_bundle",
             "skill_core_only_bundle:",
-            "leader-runtime-project",
+            "public_includes:",
+            "public_excludes:",
+            "skill_core",
+            "private_research_workspace",
+            "closed_source_runtime_projects",
         ],
     )
     for path in [PUBLIC_RESEARCH, PUBLIC_COUNCIL, PUBLIC_REVIEW]:

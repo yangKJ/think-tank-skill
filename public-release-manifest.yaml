@@ -1,0 +1,30 @@
+release_manifest_version: 1
+current_default_release: skill_core_only_bundle
+
+profiles:
+  skill_core_only_bundle:
+    description: Public repository release that publishes only the reusable think-tank Skill core.
+    public_includes:
+      - repository_readme
+      - license
+      - contribution_guide
+      - changelog
+      - release_checks
+      - skill_core
+      - protocol_docs
+      - schemas
+      - templates
+      - public_examples
+      - public_visual_assets
+    public_excludes:
+      - local_agent_instructions
+      - local_runtime_state
+      - private_research_workspace
+      - generated_outputs
+      - local_cache_files
+      - secrets_or_credentials
+      - closed_source_runtime_projects
+      - machine_specific_files
+    notes:
+      - The public release is intentionally skill-core-only.
+      - Runtime products, private workspaces, credentials, generated outputs, and machine-local state are outside the public release.

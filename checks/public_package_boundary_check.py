@@ -7,7 +7,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-MANIFEST = ROOT / "open-source-packages.yaml"
+MANIFEST = ROOT / "public-release-manifest.yaml"
 README = ROOT / "README.md"
 OPEN_SOURCE_RELEASE = ROOT / "think-tank" / "docs" / "open-source-release.md"
 SUPPORT_MATRIX = ROOT / "think-tank" / "docs" / "support-matrix.md"
@@ -34,10 +34,13 @@ def main() -> None:
         [
             "current_default_release: skill_core_only_bundle",
             "skill_core_only_bundle:",
-            "checks/*.py",
-            ".think-tank/**",
-            ".codex/**",
-            "leader-runtime-project",
+            "public_includes:",
+            "public_excludes:",
+            "skill_core",
+            "release_checks",
+            "local_agent_instructions",
+            "private_research_workspace",
+            "closed_source_runtime_projects",
         ],
     )
     require_text(
