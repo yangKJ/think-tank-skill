@@ -146,4 +146,4 @@ leader-runtime/runtime/project_leader_pilot.py \
 
 生产环境放量建议参照：
 
-- [project-leader-production-operations.md](/Users/condy/Desktop/think-tank-skill/leader-runtime/docs/project-leader-production-operations.md)
+- [project-leader-production-operations.md](project-leader-production-operations.md)

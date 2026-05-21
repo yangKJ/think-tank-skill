@@ -21,7 +21,7 @@ pre-invocation boundary behavior.
 
 Copy template:
 
-- [project-leader-weekly-observations-template.csv](/Users/condy/Desktop/think-tank-skill/leader-runtime/examples/project-leader-weekly-observations-template.csv)
+- [project-leader-weekly-observations-template.csv](../examples/project-leader-weekly-observations-template.csv)
 
 Append rows to:
 

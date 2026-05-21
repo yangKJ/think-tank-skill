@@ -13,5 +13,4 @@ CLAUDE.md
 .learnings/
 checks/*
 !checks/
-!checks/protocol_check.py
-!checks/open_source_release_check.py
+!checks/*.py

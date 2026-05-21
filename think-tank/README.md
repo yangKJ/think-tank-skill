@@ -284,6 +284,7 @@ v0.5 已补齐专业 subagent runtime 契约：
 推荐最小验证命令：
 
 ```bash
+python3 checks/open_source_release_suite.py
 python3 checks/protocol_check.py
 python3 checks/codex_validation_check.py
 python3 checks/schema_sample_check.py

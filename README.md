@@ -131,6 +131,7 @@ Validation is performed locally. Public protocol changes should still be reviewe
 Release gate commands:
 
 ```bash
+python3 checks/open_source_release_suite.py
 python3 checks/protocol_check.py
 python3 checks/codex_validation_check.py
 python3 checks/schema_sample_check.py

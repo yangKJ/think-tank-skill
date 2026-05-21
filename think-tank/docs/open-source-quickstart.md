@@ -52,6 +52,7 @@ README.md
 在仓库根目录运行：
 
 ```bash
+python3 checks/open_source_release_suite.py
 python3 checks/protocol_check.py
 python3 checks/codex_validation_check.py
 python3 checks/schema_sample_check.py

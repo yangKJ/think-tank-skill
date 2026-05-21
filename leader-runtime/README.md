@@ -151,7 +151,7 @@ source agent frontmatter
   -> promoted project team pack
 ```
 
-这意味着 Awakening、Agent-team、think-tank 主仓或其他 Codex 项目都可以从同一个候选来源中挑不同专家，但不会互相污染队伍配置。
+这意味着不同的 Codex 项目、think-tank 主仓或其他派生仓库都可以从同一个候选来源中挑不同专家，但不会互相污染队伍配置。
 
 晋升入口：
 
