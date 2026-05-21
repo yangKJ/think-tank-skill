@@ -15,12 +15,12 @@ release_boundary:
 
 stable_blockers:
   provider_invocation_evidence:
-    status: blocked
-    current_public_proofs: 2
+    status: pass
+    current_public_proofs: 3
     minimum_required: 3
   browser_external_readonly:
-    status: blocked
-    current_status: blocked
+    status: pass
+    current_status: verified_partial
     minimum_required: verified_partial_or_verified
   multi_agent_beyond_readonly_council:
     status: blocked
@@ -33,4 +33,4 @@ stable_blockers:
 
 notes:
   - Public beta is releaseable.
-  - Stable release remains blocked by real runtime evidence, not by missing release docs.
+  - Stable release remains blocked by multi-agent depth, long-running lifecycle, and stronger public release posture.

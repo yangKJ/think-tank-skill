@@ -35,7 +35,7 @@ REQUIRED_VALIDATION_FILES = [
     THINK_TANK / "examples" / "codex-local-source-artifact.md",
     THINK_TANK / "examples" / "codex-local-source-validation.md",
     THINK_TANK / "examples" / "codex-external-source-validation.md",
-    THINK_TANK / "examples" / "codex-browser-external-blocked.md",
+    THINK_TANK / "examples" / "codex-browser-external-readonly.md",
     THINK_TANK / "examples" / "codex-runtime-sample.json",
     THINK_TANK / "examples" / "codex-runtime-failure-sample.json",
     THINK_TANK / "docs" / "runtime-mirror-report.md",
@@ -50,8 +50,8 @@ CODEX_REPORT_REQUIRED_SNIPPETS = [
     "local_source_markdown_artifact: verified",
     "external_source_readonly: verified",
     "codex_runtime_mirror: verified_with_local_fixture",
-    "browser_automation_external_web: blocked",
-    "true_multi_agent_execution: planned",
+    "browser_automation_external_web: verified_partial",
+    "true_multi_agent_execution: verified_partial_for_readonly_council_only",
 ]
 
 MINIMAL_INSTALL_REQUIRED_SNIPPETS = [
@@ -153,7 +153,7 @@ def check_example_boundaries() -> None:
         THINK_TANK / "examples" / "codex-local-source-artifact.md",
         THINK_TANK / "examples" / "codex-local-source-validation.md",
         THINK_TANK / "examples" / "codex-external-source-validation.md",
-        THINK_TANK / "examples" / "codex-browser-external-blocked.md",
+        THINK_TANK / "examples" / "codex-browser-external-readonly.md",
     ]:
         content = read(example)
         if "## 边界" not in content:

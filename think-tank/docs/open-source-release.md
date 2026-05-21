@@ -75,9 +75,9 @@ python3 checks/open_source_release_check.py
 
 ## 需要持续补强的点
 
-1. provider invocation evidence
-2. external browser runtime evidence
-3. long-running subagent lifecycle evidence
+1. readonly council 之外的 multi-agent runtime evidence
+2. long-running subagent lifecycle evidence
+3. broader provider coverage beyond the current minimum threshold
 4. public onboarding and example freshness
 5. semantic consistency checks beyond file presence
 
@@ -86,6 +86,7 @@ python3 checks/open_source_release_check.py
 只有当以下条件成立，才考虑把 `public_beta` 提升为更强承诺：
 
 - 至少 3 个 optional providers 形成真实 invocation + recovery 样例
+- external browser readonly 至少达到 `verified_partial`
 - readonly council 之外的多 agent runtime 有独立证据
 - 外部用户 quickstart 可以在干净环境重复通过
 - release gate 能检查文案、边界和隐私问题

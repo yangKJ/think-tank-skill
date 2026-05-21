@@ -43,7 +43,7 @@ Packaging:
 | capability | status | default path | notes |
 |------------|--------|--------------|-------|
 | source-acquisition | verified | local files + user-provided material | 公开静态 HTTP 来源是 `verified_partial` |
-| browser-automation | verified_optional_localhost | localhost fixture | 外部网页仍未声明通用可用 |
+| browser-automation | verified_optional_readonly | external readonly + localhost fixture | 不声明登录态、点击交互或复杂动态网页可用 |
 | knowledge-persistence | verified_for_markdown_artifact | repository markdown artifact | 不默认写私有知识库 |
 | media-processing | degraded_verified | fallback to user-provided material | 不默认下载或转录媒体 |
 | social-listening | degraded_verified | fallback to user-provided samples | 不默认抓取社媒 |
@@ -54,7 +54,7 @@ Packaging:
 |----------|--------|-------|
 | local_static_reader | verified | 仓库内本地文件路径 |
 | public_http_static_reader | verified_partial | 公网静态页面只读样例 |
-| playwright-cli | verified_partial | localhost read-only DOM snapshot |
+| playwright-cli | verified_partial | external static page readonly + localhost snapshot |
 | agent-reach | available_not_verified | policy 可选中，但不默认声称已调用 |
 | web-access | available_not_verified | 需要单独 invocation 证据 |
 | taskflow | available_not_verified | policy 可选中，不默认写外部状态 |
@@ -68,7 +68,7 @@ Packaging:
 
 - full cross-platform multi-agent runtime
 - arbitrary provider invocation
-- browser external DOM recovery as generally available
+- browser interaction, login, or dynamic app automation as generally available
 - private knowledge-base write by default
 - social media scraping by default
 - every installed peer skill being executable

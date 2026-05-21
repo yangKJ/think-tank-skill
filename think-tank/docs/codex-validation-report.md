@@ -35,9 +35,9 @@ codex:
   capability_queue_check: verified
   schema_sample_check: verified
   browser_automation_localhost: verified_optional
-  browser_automation_external_web: blocked
+  browser_automation_external_web: verified_partial
   external_skill_invocation: planned
-  true_multi_agent_execution: planned
+  true_multi_agent_execution: verified_partial_for_readonly_council_only
 ```
 
 ## 验证产物
@@ -52,7 +52,7 @@ codex:
 | operational usage | `examples/codex-operational-validation.md` | verified |
 | local source + artifact | `examples/codex-local-source-validation.md` | verified |
 | external source readonly | `examples/codex-external-source-validation.md` | verified |
-| browser external readonly | `examples/codex-browser-external-blocked.md` | blocked |
+| browser external readonly | `examples/codex-browser-external-readonly.md` | verified_partial |
 
 ## Research Mode
 
@@ -170,7 +170,7 @@ think-tank 在 Codex 平台的内部协议执行路径已经可以继续使用�
 - 已真实多 agent 并行执行
 - 已验证 Claude Code Agent Team
 - 已验证 `.claude/skills` 和 `.claude/agents` 映射
-- 已验证 Browser 外部网页 DOM 回收
+- 已验证登录态、交互式网页或复杂动态应用的 Browser 自动化
 
 ## Codex 验收命令
 

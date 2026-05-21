@@ -1,6 +1,6 @@
 {
   "platform": "codex",
-  "executed_at": "2026-05-15",
+  "executed_at": "2026-05-21",
   "status": "established",
   "providers": [
     {
@@ -56,14 +56,20 @@
       "selected_by_policy": false,
       "dispatch_decision_before_invocation": true,
       "invoked": true,
-      "target": "http://127.0.0.1:8765/think-tank/examples/browser-automation-fixture.html",
+      "target": "https://example.com",
       "result_status": "success",
-      "recovery_targets": ["snapshot", "evidence[]"],
+      "recovery_targets": ["sources[]", "evidence[]", "snapshot"],
       "status": "verified_partial",
+      "invocation_log": [
+        "launch chrome headless via playwright",
+        "goto https://example.com with domcontentloaded",
+        "recover title, URL, h1, and first paragraph",
+        "close browser after readonly capture"
+      ],
       "boundaries": [
-        "Localhost read-only DOM snapshot only.",
-        "file:// access was blocked by playwright-cli and not treated as success.",
-        "No external page, login, click workflow, form submit, or social media scraping was attempted."
+        "External static page readonly capture only.",
+        "No login state, click workflow, form submit, dynamic app flow, or private write was attempted.",
+        "Localhost fixture remains a separate earlier proof and is not the basis of this external verification."
       ]
     },
     {

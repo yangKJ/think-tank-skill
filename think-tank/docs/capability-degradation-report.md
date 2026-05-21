@@ -19,7 +19,7 @@ capability_degradation:
   knowledge_persistence_local_markdown_only: verified
   browser_automation_unavailable: verified
   browser_automation_codex_localhost_integration: verified_optional
-  browser_automation_external_web: blocked
+  browser_automation_external_web: verified_partial
   source_acquisition_external_readonly: verified
 ```
 

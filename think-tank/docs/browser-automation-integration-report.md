@@ -32,7 +32,7 @@ browser_automation:
   dom_snapshot: verified
   testid_locator: verified
   result_recovery: verified
-  external_site_validation: not_tested
+  external_site_validation: verified_partial
 ```
 
 ## 对 think-tank 的意义
@@ -51,7 +51,7 @@ browser_automation:
 capabilities:
   browser_automation_unavailable_degradation: verified
   browser_automation_codex_localhost_integration: verified_optional
-  browser_automation_external_web: blocked
+  browser_automation_external_web: verified_partial
   media_processing_external_skill: planned
   social_listening_external_skill: planned
   knowledge_persistence_external_skill: planned
@@ -64,4 +64,4 @@ capabilities:
 可以选择两个方向之一：
 
 1. 准备 Claude Code preflight，验证旧 research agent 和 agent-council 能否作为平台适配素材被吸收。
-2. 等 Codex in-app Browser pane 可用后，重试 browser-automation 的外部网页只读测试，仍保持 optional，并避免登录态、表单提交或动态复杂页面。
+2. 继续把验证范围从静态外部只读页面推进到登录态、点击交互和复杂动态页面，但仍保持 optional，并避免夸大为通用浏览器能力。

@@ -29,7 +29,7 @@ claude_code_runtime: deferred
 | local_static_reader | source-acquisition | verified | `examples/codex-provider-invocation-matrix.json` | 本地静态文件 |
 | agent-reach | source-acquisition | available_not_verified | `provider-policy.example.yaml` | 统一入口分派，不直接执行抓取 |
 | public_http_static_reader | source-acquisition | verified_partial | `examples/codex-provider-invocation-matrix.json` | HTTP 成功，HTTPS 本地证书失败 |
-| playwright-cli | browser-automation | verified_partial | `examples/codex-provider-invocation-matrix.json` | localhost DOM snapshot，只读 |
+| playwright-cli | browser-automation | verified_partial | `examples/codex-provider-invocation-matrix.json` + `examples/codex-browser-external-readonly.md` | 外部静态页面只读 DOM 回收；不含登录态和交互 |
 | web-access | source-acquisition | available_not_verified | `provider-policy.example.yaml` | policy selection only |
 | taskflow | knowledge-persistence | available_not_verified | `provider-policy.example.yaml` | policy selection only |
 | xiaohongshu | social-listening | available_not_verified | `provider-registry.md` | 未真实调用 |
@@ -61,11 +61,11 @@ can_claim:
   - Codex true multi-agent council verified_partial
   - local source-acquisition verified
   - public HTTP static source-acquisition verified_partial
-  - playwright localhost readonly DOM snapshot verified_partial
+  - playwright external readonly DOM capture verified_partial
   - YAML trigger routing verified
 cannot_claim:
   - all peer skills are executable
   - all external providers are automatically invoked
-  - external browser automation is verified
+  - external browser interaction or login automation is verified
   - Claude Code runtime is verified
 ```

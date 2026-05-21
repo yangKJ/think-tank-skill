@@ -11,9 +11,9 @@
 
 ## 证据
 
-- [ ] 三条 optional provider invocation 样例存在且带 `dispatch_decision`
-- [ ] 三条样例都带 `sources[]` / `evidence[]` / `boundaries[]`
-- [ ] external browser readonly 至少一条成功样例
+- [x] 三条 optional provider invocation 样例存在且带 `dispatch_decision`
+- [x] 三条样例都带 `sources[]` / `evidence[]` / `boundaries[]`
+- [x] external browser readonly 至少一条成功样例
 - [ ] multi-agent runtime 至少一条超出 readonly council 的成功样例
 - [ ] long-running lifecycle 至少一条成功样例
 

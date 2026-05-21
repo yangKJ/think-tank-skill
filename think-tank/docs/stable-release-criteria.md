@@ -63,7 +63,6 @@ public_beta
 
 ## 当前已知关键缺口
 
-1. 外部 provider 的真实 invocation 证据数量不足
-2. browser external readonly 仍未达到 `verified_partial_or_verified`
-3. 多 agent runtime 仍主要停留在 readonly council `verified_partial`
-4. 长生命周期 subagent 仍未形成稳定证据
+1. 公开发布姿态仍停留在 `public_beta`
+2. 多 agent runtime 仍主要停留在 readonly council `verified_partial`
+3. 长生命周期 subagent 仍未形成稳定证据

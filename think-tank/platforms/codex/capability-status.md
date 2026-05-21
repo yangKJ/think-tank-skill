@@ -9,7 +9,7 @@ platform: codex
 foundation_status: verified
 default_execution: single_agent_multi_profile
 true_multi_agent_council: verified_partial
-last_updated: 2026-05-15
+last_updated: 2026-05-21
 current_default_release: skill_core_only_bundle
 external_research_skills_installed: verified
 external_research_skills_executable: per_provider_validation_required
@@ -18,7 +18,7 @@ external_research_skills_executable: per_provider_validation_required
 | capability | Codex 状态 | 默认实现 | 边界 |
 |------------|------------|----------|------|
 | `source-acquisition` | verified | 本地文件、用户提供材料、必要时 web | 最新外部信息需要显式联网验证 |
-| `browser-automation` | verified_optional_localhost | Codex Browser localhost fixture | 外部网页 Browser 验证当前 blocked |
+| `browser-automation` | verified_optional_readonly | Playwright 外部只读 + localhost fixture | 不声明登录态、交互式网页或复杂动态应用可用 |
 | `knowledge-persistence` | verified_for_markdown_artifact | 仓库内 Markdown artifact | 不默认写 Obsidian 或私有知识库 |
 | `media-processing` | degraded_verified | 用户提供转录、摘要或本地材料 | 不默认下载、转码或转录媒体 |
 | `social-listening` | degraded_verified | 用户提供样本或手动摘录 | 不默认抓取小红书、评论或社媒数据 |
@@ -52,7 +52,7 @@ knowledge_persistence:
 browser_automation:
   localhost_fixture: verified_optional
   playwright_localhost_readonly: verified_partial
-  external_web_readonly: blocked
+  external_web_readonly: verified_partial
 
 degradation:
   media_processing_unavailable: verified
@@ -61,13 +61,13 @@ degradation:
   browser_automation_unavailable: verified
 ```
 
-## planned
+## tracked
 
-当前仍 planned：
+当前仍在持续跟踪：
 
 ```yaml
-browser_automation_external_web: blocked
-playwright_cli_integration: verified_partial_localhost_readonly
+browser_automation_external_web: verified_partial_external_readonly
+playwright_cli_integration: verified_partial_external_readonly
 codex_parallel_subagent_council: verified_partial
 yt_dlp_integration: planned
 obsidian_integration: planned
@@ -95,8 +95,8 @@ end_to_end_tool_invocation: per_skill_validation_required
 
 Codex 优先继续验证：
 
-1. `browser-automation` 的只读外部网页路径。
-2. `source-acquisition` 的外部来源只读路径。
+1. `browser-automation` 的登录态和交互式网页边界。
+2. `source-acquisition` 的更广外部来源只读路径。
 3. 更严格的 artifact 索引和复用路径。
 
 暂缓验证：

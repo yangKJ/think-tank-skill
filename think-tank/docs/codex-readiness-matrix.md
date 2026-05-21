@@ -8,7 +8,7 @@
 platform: codex
 status: ready_before_claude_code_preflight
 execution_model: single_agent_multi_profile_with_verified_partial_subagent_council
-last_updated: 2026-05-15
+last_updated: 2026-05-21
 ```
 
 Codex 当前已经足够作为 think-tank 的主工作平台继续使用。
@@ -29,7 +29,7 @@ Codex 当前已经足够作为 think-tank 的主工作平台继续使用。
 
 - Claude Code Agent Team 可用。
 - 真实多 agent 覆盖所有任务、外部 provider 和长期生命周期可用。
-- Browser 外部网页 DOM 回收可用。
+- Browser 登录态、点击交互和复杂动态应用自动化可用。
 - Playwright CLI、yt-dlp、Obsidian、小红书等外部 skills 已集成。
 
 ## 验收矩阵
@@ -49,7 +49,7 @@ Codex 当前已经足够作为 think-tank 的主工作平台继续使用。
 | Markdown artifact persistence | verified | `examples/codex-local-source-artifact.md` |
 | external readonly source acquisition | verified | `examples/codex-external-source-validation.md` |
 | browser localhost fixture | verified_optional | `examples/browser-automation-integration.md` |
-| browser external readonly | blocked | `examples/codex-browser-external-blocked.md` |
+| browser external readonly | verified_partial | `examples/codex-browser-external-readonly.md` |
 | Codex true council subagents | verified_partial | `examples/codex-true-council-runtime.md` |
 | Codex provider invocation matrix | established | `examples/codex-provider-invocation-matrix.json` |
 | media-processing unavailable | verified_degradation | `examples/capability-degradation-media.md` |
@@ -97,7 +97,7 @@ codex_ready_for_handoff:
   external_readonly_source: verified
   markdown_artifacts: verified
   degradation: verified
-  browser_external_dom: blocked_with_reason
+  browser_external_dom: verified_partial_for_static_public_pages
   claude_code_preflight_doc: ready
 ```
 

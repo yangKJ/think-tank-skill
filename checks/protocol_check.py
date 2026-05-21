@@ -92,7 +92,7 @@ REQUIRED_FILES = [
     THINK_TANK / "examples" / "codex-local-source-artifact.md",
     THINK_TANK / "examples" / "codex-local-source-validation.md",
     THINK_TANK / "examples" / "codex-external-source-validation.md",
-    THINK_TANK / "examples" / "codex-browser-external-blocked.md",
+    THINK_TANK / "examples" / "codex-browser-external-readonly.md",
     THINK_TANK / "examples" / "codex-runtime-sample.json",
     THINK_TANK / "examples" / "codex-runtime-failure-sample.json",
     THINK_TANK / "examples" / "claude-code-research-validation.md",

@@ -20,8 +20,8 @@ last_evaluated_by_repo_gate: true
 | runtime provenance | pass | pass | pass |
 | privacy boundary | pass | pass | pass |
 | package boundary | pass | pass | pass |
-| provider invocation evidence | at least 3 real provider invocations with recovery | fewer than 3 stable public proofs | blocked |
-| browser external readonly | `verified_partial_or_verified` | `blocked` | blocked |
+| provider invocation evidence | at least 3 real provider invocations with recovery | 3 public proofs recorded | pass |
+| browser external readonly | `verified_partial_or_verified` | `verified_partial` | pass |
 | multi-agent beyond readonly council | `verified_partial_or_verified` | `not_verified` | blocked |
 | long-running subagent lifecycle | not `not_verified` | `not_verified` | blocked |
 | clean environment repeatability | documented + CI | pass | pass |
@@ -34,7 +34,6 @@ last_evaluated_by_repo_gate: true
 
 ## Required Next Evidence
 
-1. 三条 optional provider 的真实 invocation + recovery 样例
-2. 至少一条 external browser readonly 成功样例
-3. 至少一条超出 readonly council 的多 agent runtime 样例
-4. 至少一条 long-running lifecycle 证据
+1. 至少一条超出 readonly council 的多 agent runtime 样例
+2. 至少一条 long-running lifecycle 证据
+3. 公开发布姿态从 `public_beta` 升级到 `stable_candidate_or_stronger`

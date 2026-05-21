@@ -59,7 +59,7 @@ def main() -> None:
         READINESS,
         [
             "stable_release_ready: false",
-            "current_public_proofs: 2",
+            "current_public_proofs: 3",
             "browser_external_readonly:",
             "multi_agent_beyond_readonly_council:",
             "long_running_subagent_lifecycle:",
@@ -77,7 +77,7 @@ def main() -> None:
         print("stable release 检查通过")
         return
 
-    fail("当前仓库仍是 public_beta；真实 provider/browser/multi-agent/lifecycle 证据不足")
+    fail("当前仓库仍是 public_beta；multi-agent 深度和 long-running lifecycle 证据不足")
 
 
 if __name__ == "__main__":
