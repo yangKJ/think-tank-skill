@@ -1,27 +1,32 @@
 # think-tank-skill
 
-think-tank-skill is the main repository for **think-tank**, a cross-platform reusable Skill for multi-role information gathering, collaborative analysis, deliberation, synthesis, and actionable recommendations.
+Stable, protocol-first home of **think-tank**: a cross-platform high-level Skill for research, review, council, and strategy workflows on a verified Codex-first runtime path.
 
 The high-level Skill lives in [`think-tank/`](think-tank/).
 The leader orchestration layer is being split into a standalone sibling project on the Desktop.
 
-## What Is think-tank?
+## Why use think-tank?
 
-think-tank is a higher-level Skill and protocol system. It is designed to be used by Claude Code, Codex, other local projects, and future users without being tied to one runtime or one private project.
+- One protocol surface for research, review, council, and strategy work.
+- Explicit evidence states: `verified`, `verified_partial`, `planned`, `blocked`.
+- Public release gates that check protocol integrity, privacy boundaries, package scope, and stable posture.
 
-It is not:
+## Quick Start
 
-- A platform-specific script wrapper
-- A private prompt collection
-- A child module of a research agent
-- A renamed agent-council implementation
+1. Read [`think-tank/README.md`](think-tank/README.md) and [`think-tank/docs/open-source-quickstart.md`](think-tank/docs/open-source-quickstart.md).
+2. Run the public release gate:
 
-It is:
+```bash
+python3 checks/open_source_release_suite.py
+```
 
-- The primary Skill
-- The primary protocol source
-- A reusable cross-platform capability framework
-- A place to consolidate research, council, review, and strategy workflows
+3. Run the stable gate:
+
+```bash
+python3 checks/stable_release_check.py
+```
+
+If both pass, you are on the repository's current stable public path.
 
 ## Repository Layout
 
@@ -60,7 +65,7 @@ think-tank-skill/
 - [`think-tank/examples/`](think-tank/examples/): Reusable examples that demonstrate the protocol.
 - `leader-runtime`: standalone sibling project, no longer part of the default Skill release bundle.
 
-## Release Posture
+## Stable Posture
 
 Public release posture:
 
@@ -77,11 +82,61 @@ not_target_users:
 
 This repository is ready to be shared publicly as a stable protocol-first release with explicit capability boundaries. It is not an "install once and every provider just works" distribution.
 
+## Stable Means
+
+- Stable protocol surface in `think-tank/`
+- Stable Codex-first default path
+- Stable public release gates
+- Stable evidence-based capability claims
+
+## Stable Does Not Mean
+
+- Every optional provider works by default
+- Cross-platform runtime parity is complete
+- External login flows, social scraping, or private knowledge-base writes are default capabilities
+- Every installed peer skill is automatically invoked and recovered
+
+## Evidence At A Glance
+
+| area | status | source |
+|------|--------|--------|
+| Codex foundation | verified | [`think-tank/docs/codex-readiness-matrix.md`](think-tank/docs/codex-readiness-matrix.md) |
+| Provider invocation proofs | 4 public proofs | [`think-tank/examples/stable-release-readiness.yaml`](think-tank/examples/stable-release-readiness.yaml) |
+| External browser readonly | verified_partial | [`think-tank/examples/codex-browser-external-readonly.md`](think-tank/examples/codex-browser-external-readonly.md) |
+| Beyond-readonly subagent runtime | verified_partial | [`think-tank/examples/codex-subagent-lifecycle-validation.md`](think-tank/examples/codex-subagent-lifecycle-validation.md) |
+| Long-running subagent lifecycle | verified_partial | [`think-tank/docs/stable-readiness-matrix.md`](think-tank/docs/stable-readiness-matrix.md) |
+| Claude Code runtime | deferred | [`think-tank/docs/support-matrix.md`](think-tank/docs/support-matrix.md) |
+
+## Who Should Not Use This
+
+- Teams expecting zero-configuration access to every optional provider
+- Users who do not want explicit runtime and evidence boundaries
+- Users who need default support for external login automation or private knowledge-base writes
+- Users who need full cross-platform multi-agent parity today
+
 ## Moved Creator Media System
 
 Creator media, comic-drama, TTS, image-production, and video-production resources have moved to a separate closed production repository.
 
 This repository now keeps only the public, reusable `think-tank/` core and non-project-specific governance. Do not add self-media, comic-drama episode assets, generated videos, local TTS runs, or creator production queues back into `think-tank-skill`.
+
+## What Is think-tank?
+
+think-tank is a higher-level Skill and protocol system. It is designed to be used by Claude Code, Codex, other local projects, and future users without being tied to one runtime or one private project.
+
+It is not:
+
+- A platform-specific script wrapper
+- A private prompt collection
+- A child module of a research agent
+- A renamed agent-council implementation
+
+It is:
+
+- The primary Skill
+- The primary protocol source
+- A reusable cross-platform capability framework
+- A place to consolidate research, council, review, and strategy workflows
 
 ## Protocol Core
 
@@ -93,36 +148,33 @@ This repository now keeps only the public, reusable `think-tank/` core and non-p
 - [`think-tank/protocol/artifact-quality-gates.md`](think-tank/protocol/artifact-quality-gates.md): Artifact and media production quality gates.
 - [`think-tank/protocol/versioning.md`](think-tank/protocol/versioning.md): Protocol versioning.
 
-## Current Status
+## Read Next
 
-This repository has completed the foundation, legacy migration, Codex runtime hardening, peer-skill routing, and workspace design stages.
-
-The current public Skill source is `think-tank/`. Project-specific policy, run logs, artifacts, and memory candidates should stay outside the public Skill core.
-
-Readiness status:
-
-- [`think-tank/docs/v0.1-readiness.md`](think-tank/docs/v0.1-readiness.md)
-- [`think-tank/docs/codex-validation-report.md`](think-tank/docs/codex-validation-report.md)
-- [`think-tank/docs/codex-acceptance.md`](think-tank/docs/codex-acceptance.md)
-- [`think-tank/docs/codex-readiness-matrix.md`](think-tank/docs/codex-readiness-matrix.md)
-- [`think-tank/docs/open-source-quickstart.md`](think-tank/docs/open-source-quickstart.md)
-- [`think-tank/docs/support-matrix.md`](think-tank/docs/support-matrix.md)
-- [`think-tank/docs/open-source-release.md`](think-tank/docs/open-source-release.md)
-- [`think-tank/docs/stable-release-criteria.md`](think-tank/docs/stable-release-criteria.md)
-- [`think-tank/docs/stable-readiness-matrix.md`](think-tank/docs/stable-readiness-matrix.md)
-- [`think-tank/docs/stable-release-checklist.md`](think-tank/docs/stable-release-checklist.md)
-- [`think-tank/docs/v1.0.0-release-notes.md`](think-tank/docs/v1.0.0-release-notes.md)
-- [`think-tank/docs/release-tagging.md`](think-tank/docs/release-tagging.md)
-- [`open-source-packages.yaml`](open-source-packages.yaml)
-- [`think-tank/platforms/codex/operating-guide.md`](think-tank/platforms/codex/operating-guide.md)
-- [`think-tank/platforms/codex/capability-status.md`](think-tank/platforms/codex/capability-status.md)
-- [`think-tank/examples/codex-smoke-research.md`](think-tank/examples/codex-smoke-research.md)
-- [`think-tank/protocol/local-workspace.md`](think-tank/protocol/local-workspace.md)
-- [`think-tank/protocol/memory-curation.md`](think-tank/protocol/memory-curation.md)
-- [`think-tank/protocol/capability-evidence-state-machine.md`](think-tank/protocol/capability-evidence-state-machine.md)
-- [`think-tank/protocol/memory-promotion-policy.md`](think-tank/protocol/memory-promotion-policy.md)
-- [`think-tank/protocol/runtime-provenance.md`](think-tank/protocol/runtime-provenance.md)
-- [`think-tank/protocol/natural-language-runtime-orchestration.md`](think-tank/protocol/natural-language-runtime-orchestration.md)
+- Start here:
+  - [`think-tank/README.md`](think-tank/README.md)
+  - [`think-tank/docs/open-source-quickstart.md`](think-tank/docs/open-source-quickstart.md)
+  - [`think-tank/docs/support-matrix.md`](think-tank/docs/support-matrix.md)
+  - [`think-tank/docs/open-source-release.md`](think-tank/docs/open-source-release.md)
+- Stable release references:
+  - [`think-tank/docs/stable-release-criteria.md`](think-tank/docs/stable-release-criteria.md)
+  - [`think-tank/docs/stable-readiness-matrix.md`](think-tank/docs/stable-readiness-matrix.md)
+  - [`think-tank/docs/stable-release-checklist.md`](think-tank/docs/stable-release-checklist.md)
+  - [`think-tank/docs/v1.0.0-release-notes.md`](think-tank/docs/v1.0.0-release-notes.md)
+  - [`think-tank/docs/release-tagging.md`](think-tank/docs/release-tagging.md)
+- Codex runtime references:
+  - [`think-tank/docs/codex-validation-report.md`](think-tank/docs/codex-validation-report.md)
+  - [`think-tank/docs/codex-acceptance.md`](think-tank/docs/codex-acceptance.md)
+  - [`think-tank/docs/codex-readiness-matrix.md`](think-tank/docs/codex-readiness-matrix.md)
+  - [`think-tank/platforms/codex/operating-guide.md`](think-tank/platforms/codex/operating-guide.md)
+  - [`think-tank/platforms/codex/capability-status.md`](think-tank/platforms/codex/capability-status.md)
+- Protocol and governance references:
+  - [`open-source-packages.yaml`](open-source-packages.yaml)
+  - [`think-tank/protocol/local-workspace.md`](think-tank/protocol/local-workspace.md)
+  - [`think-tank/protocol/memory-curation.md`](think-tank/protocol/memory-curation.md)
+  - [`think-tank/protocol/capability-evidence-state-machine.md`](think-tank/protocol/capability-evidence-state-machine.md)
+  - [`think-tank/protocol/memory-promotion-policy.md`](think-tank/protocol/memory-promotion-policy.md)
+  - [`think-tank/protocol/runtime-provenance.md`](think-tank/protocol/runtime-provenance.md)
+  - [`think-tank/protocol/natural-language-runtime-orchestration.md`](think-tank/protocol/natural-language-runtime-orchestration.md)
 
 ## Validation
 
@@ -152,35 +204,6 @@ Release packaging references:
 think-tank/docs/v1.0.0-release-notes.md
 think-tank/docs/release-tagging.md
 ```
-
-Codex foundation status:
-
-- Four core modes are verified through Codex single-agent multi-profile execution.
-- Capability degradation is verified.
-- Browser automation is verified as an optional localhost fixture integration.
-- External readonly source acquisition is verified through Codex source acquisition.
-- Codex minimal runtime mirror is verified with a local static fixture.
-- Browser external readonly recovery is verified_partial for public static pages.
-- JSON input/output samples are checked.
-- Codex true multi-agent council is verified_partial for readonly subagent role-result recovery.
-- Codex subagent write lifecycle is verified_partial for scoped public artifact writes with lifecycle continuation.
-- Claude Code runtime remains deferred.
-- v0.2 runtime hardening contracts are specified and checked.
-- v0.2 platform-neutral minimal runtime library is implemented and checked.
-- v0.2 Codex runtime pipeline and platform-neutral runtime result schema are checked.
-- Legacy Claude Code think-tank assets have been migrated by abstraction into protocol, runtime, templates, and Claude Code adapter documentation.
-- Legacy research agent assets have been fully classified and migrated by disposition in v0.3.
-- Legacy agent-council assets have been fully classified and migrated by disposition in v0.4.
-- Specialist subagent runtime contracts and runtime primitives are implemented in v0.5, with fallback labeling when true independent subagents are unavailable.
-- Current local Codex installation is validated by ignored local checks.
-- Legacy research external skills are installed as peer Codex skills and validated by ignored local checks.
-- Codex provider invocation matrix is established; selected peer skills still require per-provider invocation validation before they can be called verified.
-- Project-local workspace data is separated from the public Skill core.
-- Project memory capture is implemented as propose-then-review; it does not auto-select persistence providers or auto-write private knowledge stores.
-- v2.1 capability evidence states distinguish installed, discovered, selected, dispatched, invoked, recovered, verified_partial, and verified.
-- v2.1 memory promotion policy controls whether memory stays local, moves to AGENTS.md, becomes project docs, or is generalized into public protocol.
-- v2.2 runtime provenance gate requires every think-tank-style output to disclose runtime, provider invocation, data collection, result recovery, and multi-agent truthfulness.
-- v2.3 Codex natural-language orchestrator routes a user request through policy, minimal dispatch, source recovery, final output, and optional local run records.
 
 ## Design Boundary
 
