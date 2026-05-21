@@ -33,12 +33,11 @@ def main() -> None:
         MANIFEST,
         [
             "current_default_release: skill_core_only_bundle",
-            "full_repo_public_beta:",
             "skill_core_only_bundle:",
-            "leader-runtime/**",
             "checks/*.py",
             ".think-tank/**",
             ".codex/**",
+            "leader-runtime-project",
         ],
     )
     require_text(
@@ -52,7 +51,6 @@ def main() -> None:
     require_text(
         OPEN_SOURCE_RELEASE,
         [
-            "full_repo_public_beta",
             "skill_core_only_bundle",
             "current default public release is `skill_core_only_bundle`",
         ],

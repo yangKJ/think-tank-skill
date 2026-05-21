@@ -85,7 +85,6 @@ def main() -> None:
             "safe_to_publish: true",
             "safe_to_market_as_stable_product: false",
             "versioning_hint: 0.x",
-            "full_repo_public_beta",
             "skill_core_only_bundle",
             "current default public release is `skill_core_only_bundle`",
             "python3 checks/open_source_release_suite.py",
@@ -106,7 +105,7 @@ def main() -> None:
         [
             "current_default_release: skill_core_only_bundle",
             "skill_core_only_bundle:",
-            "leader-runtime/**",
+            "leader-runtime-project",
         ],
     )
     require_text(

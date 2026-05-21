@@ -1,35 +1,8 @@
 current_default_release: skill_core_only_bundle
 
 profiles:
-  full_repo_public_beta:
-    description: Public repository release that includes think-tank core, release checks, and leader-runtime.
-    includes:
-      - README.md
-      - LICENSE
-      - CONTRIBUTING.md
-      - CHANGELOG.md
-      - .github/workflows/open-source-release.yml
-      - checks/*.py
-      - think-tank/**
-      - leader-runtime/**
-    excludes:
-      - AGENTS.md
-      - CLAUDE.md
-      - .think-tank/**
-      - .codex/**
-      - .claude/**
-      - .playwright-cli/**
-      - .learnings/**
-      - outputs/**
-      - '**/__pycache__/**'
-      - '*.pyc'
-      - '**/.DS_Store'
-    notes:
-      - Current default public release for this repository.
-      - leader-runtime is included as a sibling runtime layer, not as think-tank core.
-
   skill_core_only_bundle:
-    description: Optional future distribution that publishes only the reusable think-tank Skill core.
+    description: Public repository release that publishes only the reusable think-tank Skill core.
     includes:
       - README.md
       - LICENSE
@@ -38,7 +11,6 @@ profiles:
       - checks/*.py
       - think-tank/**
     excludes:
-      - leader-runtime/**
       - AGENTS.md
       - CLAUDE.md
       - .think-tank/**
@@ -52,4 +24,4 @@ profiles:
       - '**/.DS_Store'
     notes:
       - Current default public release for the think-tank Skill repository.
-      - leader-runtime should live in a separate repository or separate release artifact.
+      - leader-runtime now lives in the standalone sibling project `leader-runtime-project`.
