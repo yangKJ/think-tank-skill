@@ -36,6 +36,10 @@ trigger_resolution:
     fallback_behavior: no_match_degrade | use_default_mode | ask_for_clarification
 ```
 
+`selected_runtime_profile` must follow `protocol/runtime-profile-contract.md`.
+Do not treat `deep` as the default. Pick the lightest profile that can still
+produce a useful, honest result.
+
 规则：
 
 - `strict: true` 时，无匹配不得自动使用 full/default workflow。

@@ -32,6 +32,7 @@ think-tank 3.0 增加面向 agent 的使用体验层，用来回答三个问题�
 ```text
 protocol/skill-trigger-intelligence.md
 protocol/skill-invocation-contract.md
+protocol/runtime-profile-contract.md
 protocol/progressive-disclosure.md
 ```
 

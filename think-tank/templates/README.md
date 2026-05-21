@@ -9,6 +9,7 @@
 - `deep-research.md`：research mode 的深度研究报告。
 - `expert-meeting.md`：council mode 的专家会议纪要。
 - `task-kickoff.md`：strategy/review/research 任务启动前的执行规划。
+- `runtime-profile-decision.md`：选择 `quick`、`standard`、`deep` 运行强度时的结构化决策模板。
 - `research-to-video-brief.md`：`research_to_video` 的选题、来源、证据、素材和 BGM 输入 brief。
 - `video-storyboard.md`：`research-to-video` 的镜头级分镜、素材表和音频时间线。
 - `media-run-record.md`：`research-to-video` 的 provider 调用、生成产物、质量门禁和升级路径记录。

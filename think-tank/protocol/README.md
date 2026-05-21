@@ -40,6 +40,7 @@
 - `quality-gates.md`：质量门禁和验收标准
 - `artifact-quality-gates.md`：生成物、媒体成品、报告、样例和 run record 的成品验收门禁
 - `runtime-contract.md`：平台无关 runtime pipeline
+- `runtime-profile-contract.md`：`quick`、`standard`、`deep` 三档运行强度选择规则，防止简单任务过重、复杂任务过轻
 - `natural-language-runtime-orchestration.md`：自然语言请求到 policy、dispatch、invocation、recovery、run record 的最小闭环
 - `state-result-contract.md`：run、state、result、recovery 最小结构
 - `minimal-conclusion-contract.md`：跨 mode 的最小结论收口契约，统一 request、route、decision、evidence、risk 和 next_step

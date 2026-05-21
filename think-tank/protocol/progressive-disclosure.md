@@ -14,6 +14,15 @@ all provider docs unless the task explicitly needs them.
 
 ## Loading Order
 
+Before loading mode-specific or recipe-specific references, select a runtime
+profile using:
+
+```text
+protocol/runtime-profile-contract.md
+```
+
+The selected profile controls how much context should be loaded.
+
 ### 1. Entrypoint
 
 Always start with:
