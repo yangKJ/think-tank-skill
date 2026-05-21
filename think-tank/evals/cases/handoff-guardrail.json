@@ -1,0 +1,20 @@
+{
+  "eval_id": "eval_handoff_guardrail",
+  "case_type": "handoff_guardrail",
+  "fixture": "think-tank/evals/fixtures/handoff-guardrail.json",
+  "expected_contracts": [
+    "handoff",
+    "input_filter",
+    "guardrail_result",
+    "runtime_truthfulness"
+  ],
+  "actual_contracts": [
+    "handoff",
+    "input_filter",
+    "guardrail_result",
+    "runtime_truthfulness"
+  ],
+  "passed": true,
+  "failures": [],
+  "residual_risk": ["Fixture does not prove true subagent execution."]
+}

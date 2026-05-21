@@ -10,12 +10,15 @@ profiles:
       - contribution_guide
       - changelog
       - release_checks
+      - community_health_files
       - skill_core
       - protocol_docs
       - schemas
       - templates
       - public_examples
+      - eval_fixtures
       - public_visual_assets
+      - docs_site_structure
     public_excludes:
       - local_agent_instructions
       - local_runtime_state

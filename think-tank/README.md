@@ -203,6 +203,15 @@ docs/history.md
 
 ![Provider Invocation Ledger](assets/brand/provider-ledger-image2.png)
 
+## 2.1-2.5 Open Source Usability
+
+- `templates/research-workspace/`：Research OS starter kit。
+- `evals/`：轻量协议回归 fixture。
+- `docs/provider-test-matrix.md`：provider pattern 到 provider ledger 的测试矩阵。
+- `docs/index.md`：文档站入口，含 concepts、guides、reference 和 release 分区。
+- `docs/v2.1-v2.5-release-notes.md`：2.1 到 2.5 开源可用性增强说明。
+- 根目录社区文件：`CONTRIBUTING.md`、`SECURITY.md`、`CODE_OF_CONDUCT.md`、`SUPPORT.md`。
+
 - research 是 think-tank 的一个核心应用场景，主要负责信息收集、证据整理和研究结论输出。
 - agent-council 是 think-tank 的历史实现分支或 council mode 来源，主要沉淀多角色讨论、交叉质询和审议机制。
 - 旧实现资产应逐步迁入 think-tank 的协议、模式或平台适配目录，不应继续作为新体系中心。

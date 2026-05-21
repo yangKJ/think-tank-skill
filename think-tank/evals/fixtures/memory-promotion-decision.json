@@ -1,0 +1,19 @@
+{
+  "memory_candidates": [
+    {
+      "id": "mem_eval_public_boundary",
+      "layer": "procedural",
+      "title": "Selected providers are not invoked providers",
+      "privacy": "public",
+      "staleness_risk": "low",
+      "expires_when": "Provider evidence protocol changes"
+    }
+  ],
+  "promotion_decision": {
+    "candidate_id": "mem_eval_public_boundary",
+    "decision": "promote",
+    "reason": "Public-safe and platform-neutral",
+    "privacy_review": {"no_secret": true, "public_safe": true},
+    "staleness_review": {"has_expiry_rule": true}
+  }
+}

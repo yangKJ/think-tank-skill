@@ -20,6 +20,11 @@ SHARED_LINKS = [
     "think-tank/docs/v1.1-release-notes.md",
     "think-tank/docs/v2.0-roadmap.md",
     "think-tank/docs/v2.0-release-notes.md",
+    "think-tank/docs/v2.1-v2.5-release-notes.md",
+    "think-tank/docs/index.md",
+    "think-tank/docs/faq.md",
+    "think-tank/docs/troubleshooting.md",
+    "think-tank/docs/provider-test-matrix.md",
     "python3 checks/open_source_release_suite.py",
     "python3 checks/stable_release_check.py",
 ]

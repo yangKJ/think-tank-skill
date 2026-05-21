@@ -1,0 +1,26 @@
+{
+  "eval_id": "eval_research_output_shape",
+  "case_type": "research",
+  "fixture": "think-tank/evals/fixtures/research-output-shape.md",
+  "expected_contracts": [
+    "selected_intent",
+    "selected_mode",
+    "selected_profiles",
+    "runtime_provenance",
+    "evidence_refs",
+    "post_run_curation",
+    "quality_check"
+  ],
+  "actual_contracts": [
+    "selected_intent",
+    "selected_mode",
+    "selected_profiles",
+    "runtime_provenance",
+    "evidence_refs",
+    "post_run_curation",
+    "quality_check"
+  ],
+  "passed": true,
+  "failures": [],
+  "residual_risk": ["Fixture validates structure, not factual source accuracy."]
+}

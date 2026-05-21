@@ -1,0 +1,21 @@
+{
+  "handoff": {
+    "from": "source-collector",
+    "to": "skeptic",
+    "type": "profile_handoff",
+    "input_filter": {
+      "include": ["claims", "source_refs"],
+      "exclude": ["credentials", "private account state"],
+      "redactions": []
+    },
+    "runtime_provenance": {
+      "true_multi_agent_runtime": false,
+      "execution_method": "single_agent_multi_profile"
+    }
+  },
+  "guardrail_result": {
+    "gate": "privacy_gate",
+    "status": "pass",
+    "reason": "No private data is handed off."
+  }
+}

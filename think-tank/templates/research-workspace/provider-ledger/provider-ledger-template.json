@@ -1,0 +1,36 @@
+{
+  "entries": [
+    {
+      "capability_slot": "",
+      "provider_name": "",
+      "provider_type": "",
+      "state": "selected",
+      "preflight": {
+        "checked": false,
+        "result": "",
+        "blockers": []
+      },
+      "dispatch": {
+        "decision": "do_not_invoke",
+        "reason": "",
+        "permission_gate": ""
+      },
+      "invocation": {
+        "invoked": false,
+        "command_or_tool_ref": "",
+        "started_at": "",
+        "completed_at": ""
+      },
+      "recovery": {
+        "recovered": false,
+        "artifact_refs": [],
+        "error": ""
+      },
+      "verification": {
+        "status": "selected",
+        "evidence_refs": [],
+        "limitations": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "eval_id": "eval_open_source_readiness_review",
+  "case_type": "review",
+  "fixture": "think-tank/evals/fixtures/open-source-readiness-review.md",
+  "expected_contracts": [
+    "findings_first",
+    "release_gate",
+    "privacy_boundary",
+    "residual_risk"
+  ],
+  "actual_contracts": [
+    "findings_first",
+    "release_gate",
+    "privacy_boundary",
+    "residual_risk"
+  ],
+  "passed": true,
+  "failures": [],
+  "residual_risk": ["Review fixture is a structure check, not maintainer approval."]
+}

@@ -1,0 +1,26 @@
+name: Protocol change
+description: Propose a protocol, schema, template, or evidence-state change
+title: "[Protocol]: "
+labels: ["protocol"]
+body:
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: What should change?
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Compatibility impact
+      description: Does this change input/output shape, runtime provenance, provider evidence, or versioning?
+    validations:
+      required: true
+  - type: textarea
+    id: checks
+    attributes:
+      label: Required checks
+      description: Which schemas, templates, examples, and checks should be updated?
+    validations:
+      required: true

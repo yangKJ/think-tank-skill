@@ -25,6 +25,11 @@ COMMANDS = [
     ["python3", "checks/visual_assets_check.py"],
     ["python3", "checks/v1_1_release_check.py"],
     ["python3", "checks/v2_0_release_check.py"],
+    ["python3", "checks/contributor_docs_check.py"],
+    ["python3", "checks/research_workspace_template_check.py"],
+    ["python3", "checks/eval_pack_check.py"],
+    ["python3", "checks/provider_test_matrix_check.py"],
+    ["python3", "checks/docs_site_check.py"],
     ["python3", "checks/public_package_boundary_check.py"],
     ["python3", "checks/open_source_release_check.py"],
 ]

@@ -101,6 +101,15 @@ v2.0 增加 **Research OS + Memory Runtime** 层：
 
 ![Provider Invocation Ledger](think-tank/assets/brand/provider-ledger-image2.png)
 
+## v2.1-v2.5 新增内容
+
+- **v2.1 贡献与社区治理：** [`CONTRIBUTING.md`](CONTRIBUTING.md)、[`SECURITY.md`](SECURITY.md)、[`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md)、[`SUPPORT.md`](SUPPORT.md)、issue templates 和 PR template。
+- **v2.2 Research OS Starter Kit：** [`think-tank/templates/research-workspace/`](think-tank/templates/research-workspace/)。
+- **v2.3 Eval Pack Starter：** [`think-tank/evals/`](think-tank/evals/)。
+- **v2.4 Provider Test Matrix：** [`think-tank/docs/provider-test-matrix.md`](think-tank/docs/provider-test-matrix.md)。
+- **v2.5 Docs Site Ready：** [`think-tank/docs/index.md`](think-tank/docs/index.md)、concepts、guides、reference 和 release 分区。
+- **v2.1-v2.5 发布说明：** [`think-tank/docs/v2.1-v2.5-release-notes.md`](think-tank/docs/v2.1-v2.5-release-notes.md)。
+
 ## 仓库结构
 
 ```text
@@ -162,6 +171,11 @@ Stable 不表示：
 - [`think-tank/docs/v1.1-release-notes.md`](think-tank/docs/v1.1-release-notes.md)
 - [`think-tank/docs/v2.0-roadmap.md`](think-tank/docs/v2.0-roadmap.md)
 - [`think-tank/docs/v2.0-release-notes.md`](think-tank/docs/v2.0-release-notes.md)
+- [`think-tank/docs/v2.1-v2.5-release-notes.md`](think-tank/docs/v2.1-v2.5-release-notes.md)
+- [`think-tank/docs/index.md`](think-tank/docs/index.md)
+- [`think-tank/docs/faq.md`](think-tank/docs/faq.md)
+- [`think-tank/docs/troubleshooting.md`](think-tank/docs/troubleshooting.md)
+- [`think-tank/docs/provider-test-matrix.md`](think-tank/docs/provider-test-matrix.md)
 - [`think-tank/docs/open-source-release.md`](think-tank/docs/open-source-release.md)
 
 ## 验证

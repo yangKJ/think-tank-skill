@@ -1,0 +1,20 @@
+{
+  "eval_id": "eval_provider_selected_not_invoked",
+  "case_type": "provider_fallback",
+  "fixture": "think-tank/evals/fixtures/provider-selected-not-invoked.json",
+  "expected_contracts": [
+    "provider_invocation_ledger",
+    "selected_not_invoked",
+    "fallback",
+    "verification_status"
+  ],
+  "actual_contracts": [
+    "provider_invocation_ledger",
+    "selected_not_invoked",
+    "fallback",
+    "verification_status"
+  ],
+  "passed": true,
+  "failures": [],
+  "residual_risk": ["No provider was invoked in this fixture."]
+}

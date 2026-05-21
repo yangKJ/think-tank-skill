@@ -1,0 +1,33 @@
+name: Provider pattern
+description: Propose or improve an optional provider integration pattern
+title: "[Provider pattern]: "
+labels: ["provider-pattern"]
+body:
+  - type: input
+    id: capability
+    attributes:
+      label: Capability slot
+      placeholder: source-acquisition, social-listening, media-processing, knowledge-persistence
+    validations:
+      required: true
+  - type: textarea
+    id: provider
+    attributes:
+      label: Provider pattern
+      description: Describe the provider as optional and user-installed.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence boundary
+      description: Is this pattern_documented, selected, invoked, recovered, verified_partial, or verified?
+    validations:
+      required: true
+  - type: textarea
+    id: risks
+    attributes:
+      label: Permissions and risks
+      description: Include login, rights, network, privacy, or security constraints.
+    validations:
+      required: true

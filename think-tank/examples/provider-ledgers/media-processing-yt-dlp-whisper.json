@@ -1,0 +1,11 @@
+{
+  "capability_slot": "media-processing",
+  "provider_name": "yt-dlp + openai-whisper",
+  "state": "blocked",
+  "preflight": {"checked": true, "result": "requires_user_environment", "blockers": ["media rights", "runtime availability"]},
+  "dispatch": {"decision": "do_not_invoke", "reason": "Media rights not confirmed", "permission_gate": "rights_confirmation"},
+  "invocation": {"invoked": false, "command_or_tool_ref": ""},
+  "recovery": {"recovered": false, "artifact_refs": []},
+  "verification": {"status": "blocked", "evidence_refs": ["think-tank/docs/provider-test-matrix.md"]},
+  "failure_boundary": "Use user-provided transcript or metadata."
+}

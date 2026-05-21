@@ -1,0 +1,11 @@
+# Research OS Concept
+
+Research OS is the project-local workspace model for long-running research and decision work.
+
+The public core defines the contract. User projects own the data.
+
+Key files:
+
+- `../../protocol/research-os.md`
+- `../../templates/research-workspace/README.md`
+- `../../examples/v2/research-workspace-contract.json`

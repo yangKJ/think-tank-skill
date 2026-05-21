@@ -1,0 +1,11 @@
+{
+  "capability_slot": "knowledge-persistence",
+  "provider_name": "obsidian",
+  "state": "blocked",
+  "preflight": {"checked": true, "result": "requires_user_environment", "blockers": ["vault path", "write confirmation"]},
+  "dispatch": {"decision": "do_not_invoke", "reason": "Private write not confirmed", "permission_gate": "explicit_write_confirmation"},
+  "invocation": {"invoked": false, "command_or_tool_ref": ""},
+  "recovery": {"recovered": false, "artifact_refs": []},
+  "verification": {"status": "blocked", "evidence_refs": ["think-tank/docs/provider-test-matrix.md"]},
+  "failure_boundary": "Produce memory candidates without writing private notes."
+}

@@ -15,6 +15,7 @@
 - `think-tank-run-record.md`：2.0 通用 run record 模板。
 - `provider-invocation-ledger.md`：2.0 provider 调用证据账本模板。
 - `memory-runtime-result.md`：2.0 memory runtime 输出模板。
+- `research-workspace/`：2.2 Research OS starter kit，可复制到用户项目作为本地 `.think-tank/` 工作区模板。
 
 ## Required Fields
 

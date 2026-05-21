@@ -1,0 +1,16 @@
+{
+  "provider_invocation_ledger": {
+    "entries": [
+      {
+        "capability_slot": "source-acquisition",
+        "provider_name": "web-access",
+        "state": "selected",
+        "invocation": {"invoked": false},
+        "recovery": {"recovered": false},
+        "verification": {"status": "selected_not_invoked"}
+      }
+    ]
+  },
+  "fallback": "Use user-provided material or protocol-only synthesis.",
+  "verification_status": "selected_not_invoked"
+}

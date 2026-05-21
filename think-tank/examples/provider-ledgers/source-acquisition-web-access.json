@@ -1,0 +1,11 @@
+{
+  "capability_slot": "source-acquisition",
+  "provider_name": "web-access",
+  "state": "selected",
+  "preflight": {"checked": true, "result": "available_if_user_installs_provider", "blockers": []},
+  "dispatch": {"decision": "do_not_invoke", "reason": "Public sample only", "permission_gate": "source_scope_required"},
+  "invocation": {"invoked": false, "command_or_tool_ref": ""},
+  "recovery": {"recovered": false, "artifact_refs": []},
+  "verification": {"status": "pattern_documented", "evidence_refs": ["think-tank/docs/provider-test-matrix.md"]},
+  "failure_boundary": "Use user-provided material or protocol-only synthesis."
+}

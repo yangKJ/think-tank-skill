@@ -1,0 +1,20 @@
+{
+  "eval_id": "eval_memory_promotion_decision",
+  "case_type": "memory_promotion",
+  "fixture": "think-tank/evals/fixtures/memory-promotion-decision.json",
+  "expected_contracts": [
+    "memory_candidates",
+    "privacy_review",
+    "staleness_review",
+    "promotion_decision"
+  ],
+  "actual_contracts": [
+    "memory_candidates",
+    "privacy_review",
+    "staleness_review",
+    "promotion_decision"
+  ],
+  "passed": true,
+  "failures": [],
+  "residual_risk": ["Promotion fixture is public-safe and does not write private memory."]
+}
