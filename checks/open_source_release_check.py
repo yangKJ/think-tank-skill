@@ -255,6 +255,7 @@ def main() -> None:
     require_text(
         CHANGELOG,
         [
+            "## [3.0.0] - 2026-05-21",
             "Skill Experience Layer",
             "Research OS + Memory Runtime",
             "think-tank/assets/brand/think-tank-hero-v2-image2.png",

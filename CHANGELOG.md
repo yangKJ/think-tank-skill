@@ -8,8 +8,6 @@
 
 ### Added
 
-- 增加 Skill Experience Layer：`skill-trigger-intelligence`、`skill-invocation-contract`、`progressive-disclosure`、agent compatibility matrix、skill composition guide、skill quality score、v3 examples、self-tests 和 `checks/skill_experience_check.py`。
-- Skill Experience Layer 详细规划与发布说明见 `think-tank/docs/v3.0-roadmap.md` 和 `think-tank/docs/v3.0-release-notes.md`。
 - 增加 Research OS + Memory Runtime：run record、project memory runtime、provider invocation ledger、handoff protocol、guardrails、research workspace contract 和 eval pack。
 - 增加开源可用性配套：贡献指南、社区治理文件、Research OS starter kit、eval fixtures、provider test matrix 和 docs site structure。
 - 增加 provider integration patterns、workflow pattern examples、Codex installation guide 和对应 release checks。
@@ -26,15 +24,36 @@
 
 ### Changed
 
-![think-tank 2.0 hero](think-tank/assets/brand/think-tank-hero-v2-image2.png)
-
 - README 和 `think-tank/README.md` 改为产品介绍、能力入口和导航，不再承载版本更新记录；版本演进统一收敛到 `CHANGELOG.md`。
 - README Hero 图片回退为 v1 Image2 主视觉。
-- 公开 core 明确不内置触发词；触发词、别名和 provider 偏好由用户自己的 YAML policy 或平台 adapter 管理。
 - 移除旧本地 policy 路径兼容思路，避免多个项目本地入口形成多套逻辑。
 - 更新 Codex routing 文档，明确触发词和 provider 偏好应由 `.think-tank/provider-policy.yaml` 项目实例配置承载。
 - Codex provider policy runtime 改为“默认 policy + `.think-tank` overlay”合并模式，避免本地配置启用后丢失基础 research、council、review 和 strategy 路由。
 - 收紧 project memory capture 默认触发词，避免公开 policy 抢占平台或用户自己的通用记忆指令。
+
+## [3.0.0] - 2026-05-21
+
+### Added
+
+- 增加 Skill Experience Layer：`skill-trigger-intelligence`、`skill-invocation-contract`、`progressive-disclosure`、agent compatibility matrix、skill composition guide、skill quality score、v3 examples、self-tests 和 `checks/skill_experience_check.py`。
+- 增加 3.0 规划和发布说明：`think-tank/docs/v3.0-roadmap.md` 和 `think-tank/docs/v3.0-release-notes.md`。
+- 增加 `think-tank/self-tests/`，用于检查 trigger、anti-trigger、provider boundary、composition 和 memory write 边界。
+- 增加 `think-tank/examples/v3/`，提供 skill route decision、invocation contract、progressive disclosure plan、self-test result 和 quality score 样例。
+
+### Changed
+
+![think-tank 2.0 hero](think-tank/assets/brand/think-tank-hero-v2-image2.png)
+
+- 公开 core 明确不内置触发词；触发词、别名和 provider 偏好由用户自己的 YAML policy 或平台 adapter 管理。
+- README 和 `think-tank/README.md` 只保留产品介绍、能力入口和导航，不再承载版本更新记录。
+- README Hero 图片回退为 v1 Image2 主视觉，v2 Hero 作为版本视觉记录保留在本 changelog。
+
+### Verified
+
+- `python3 checks/skill_experience_check.py`
+- `python3 checks/open_source_release_suite.py`
+- `python3 checks/stable_release_check.py`
+- `python3 checks/release_privacy_check.py`
 
 ## [0.1.0] - 2026-05-14
 
