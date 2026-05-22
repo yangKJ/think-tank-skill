@@ -13,6 +13,7 @@
         "type": "object",
         "required": [
           "title",
+          "readiness",
           "priority",
           "reason",
           "affected_area",
@@ -20,11 +21,13 @@
           "acceptance_criteria",
           "non_goals",
           "dependencies",
-          "risk"
+          "risk",
+          "next_owner"
         ],
         "additionalProperties": false,
         "properties": {
           "title": {"type": "string"},
+          "readiness": {"type": "string", "enum": ["ready", "needs_input", "observe_only", "blocked"]},
           "priority": {"type": "string", "enum": ["P0", "P1", "P2"]},
           "reason": {"type": "string"},
           "affected_area": {"type": "array", "items": {"type": "string"}},
@@ -32,7 +35,8 @@
           "acceptance_criteria": {"type": "array", "items": {"type": "string"}},
           "non_goals": {"type": "array", "items": {"type": "string"}},
           "dependencies": {"type": "array", "items": {"type": "string"}},
-          "risk": {"type": "array", "items": {"type": "string"}}
+          "risk": {"type": "array", "items": {"type": "string"}},
+          "next_owner": {"type": "string"}
         }
       }
     },

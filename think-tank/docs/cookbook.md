@@ -81,3 +81,14 @@ Suggested prompt:
 ```text
 Use think-tank to classify this blocker, identify the next owner, and tell me whether this should be escalated or can proceed with a clear handoff.
 ```
+
+## Strategy To Backlog
+
+Use when the host agent already has a strategic conclusion and now needs a
+clean backlog candidate set with readiness and ownership.
+
+Suggested prompt:
+
+```text
+Use think-tank to turn this strategy into backlog candidates. Mark each item as ready, needs input, observe only, or blocked, and name the next owner.
+```

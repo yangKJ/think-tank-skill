@@ -68,6 +68,17 @@ legacy_platform_baggage_discarded: true
 
 这样才能把分析自然转成推进。
 
+### strategy_to_backlog 的宿主消费体验
+
+单有 backlog 候选还不够，宿主 agent 还需要知道：
+
+- 当前是否 `ready`
+- 还是 `needs_input`
+- 还是只应 `observe_only`
+- 还是已经 `blocked`
+
+同时每个候选都应明确 `next_owner`，否则策略输出仍会停在“看起来合理”。
+
 ## 不应反哺的内容
 
 - 项目专属页面结构、接口合同和运行前置
@@ -85,3 +96,6 @@ legacy_platform_baggage_discarded: true
 - `recipes/review-acceptance.md`
 - `templates/blocker-handoff-brief.md`
 - `templates/minimal-conclusion.md`
+- `protocol/strategy-to-backlog.md`
+- `schemas/strategy-backlog.schema.json`
+- `templates/strategy-backlog-brief.md`

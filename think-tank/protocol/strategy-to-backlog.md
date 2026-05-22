@@ -16,6 +16,7 @@ purpose: convert_recommendations_to_actionable_work
 strategy_to_backlog:
   backlog_candidates:
     - title: "<task title>"
+      readiness: ready | needs_input | observe_only | blocked
       priority: P0 | P1 | P2
       reason: "<why this matters>"
       affected_area:
@@ -30,6 +31,7 @@ strategy_to_backlog:
         - "<optional dependency>"
       risk:
         - "<main risk>"
+      next_owner: "<who should pick this up next>"
   sequencing:
     - "<recommended order>"
   validation_plan:
@@ -47,6 +49,9 @@ strategy_to_backlog:
 - 每个 backlog 候选必须有验收标准。
 - 每个 backlog 候选必须有非目标，防止策略建议膨胀成无边界任务。
 - 证据不足的建议必须降低优先级或标注风险。
+- `observe_only` 表示值得持续跟踪，但当前不建议执行。
+- `blocked` 表示方向成立，但缺关键依赖或输入，不能直接进入执行。
+- 每个候选都应明确 `next_owner`，避免“看起来合理，但没人接”。
 - 不得把 strategy_to_backlog 写成承诺已实现。
 
 ## Quality Gates
