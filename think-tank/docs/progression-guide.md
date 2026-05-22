@@ -1,6 +1,6 @@
 # Progression Guide
 
-![Progression guide](../assets/brand/research-os-memory-runtime-image2.png)
+![Progression guide](../assets/brand/progression-guide-image2.png)
 
 This guide explains how users unlock more value from `think-tank` as they
 become more deliberate operators.

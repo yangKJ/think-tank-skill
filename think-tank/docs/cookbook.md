@@ -1,6 +1,6 @@
 # Cookbook
 
-![Cookbook](../assets/brand/provider-ecosystem-image2.png)
+![Cookbook](../assets/brand/cookbook-image2.png)
 
 This cookbook shows typical ways to use `think-tank` without turning examples
 into capability promises.

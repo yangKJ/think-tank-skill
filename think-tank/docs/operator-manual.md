@@ -1,6 +1,6 @@
 # Operator Manual
 
-![Operator manual](../assets/brand/council-card-image2.png)
+![Operator manual](../assets/brand/operator-manual-image2.png)
 
 This manual explains how to operate `think-tank` as a high-level collaboration
 skill instead of a generic prompt.

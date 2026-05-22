@@ -22,6 +22,10 @@ brand/council-card-image2.png
 brand/review-card-image2.png
 brand/provider-ecosystem-image2.png
 brand/research-os-memory-runtime-image2.png
+brand/first-run-guide-image2.png
+brand/operator-manual-image2.png
+brand/cookbook-image2.png
+brand/progression-guide-image2.png
 prompts/
 ```
 

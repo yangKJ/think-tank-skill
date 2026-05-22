@@ -12,4 +12,7 @@ large_raw_assets: disallowed
 private_project_assets: disallowed
 ```
 
-The Chinese README keeps a localized hero image. Scenario, Research OS, and provider ledger images are shared across English and Chinese docs unless the project deliberately regenerates localized versions.
+The Chinese README keeps a localized hero image. Scenario and system visuals are
+shared across English and Chinese docs unless the project deliberately
+regenerates localized versions. User-operation guide visuals now have dedicated
+PNG covers for first run, operator manual, cookbook, and progression.
