@@ -199,6 +199,12 @@ Use think-tank to review these notes, separate facts from assumptions, and give 
 - **Cookbook：** [`think-tank/docs/cookbook.md`](think-tank/docs/cookbook.md)
 - **Progression Guide：** [`think-tank/docs/progression-guide.md`](think-tank/docs/progression-guide.md)
 
+| First Run Guide | Operator Manual |
+|---|---|
+| [![First Run Guide](https://raw.githubusercontent.com/yangKJ/think-tank-skill/master/think-tank/assets/brand/first-run-guide-image2.png)](think-tank/docs/first-run-guide.md) | [![Operator Manual](https://raw.githubusercontent.com/yangKJ/think-tank-skill/master/think-tank/assets/brand/operator-manual-image2.png)](think-tank/docs/operator-manual.md) |
+| Cookbook | Progression Guide |
+| [![Cookbook](https://raw.githubusercontent.com/yangKJ/think-tank-skill/master/think-tank/assets/brand/cookbook-image2.png)](think-tank/docs/cookbook.md) | [![Progression Guide](https://raw.githubusercontent.com/yangKJ/think-tank-skill/master/think-tank/assets/brand/progression-guide-image2.png)](think-tank/docs/progression-guide.md) |
+
 ## 仓库结构
 
 ```text
