@@ -121,6 +121,7 @@
     "backlog_candidates": [
       {
         "title": "Build AI diagnosis to recommendation workflow",
+        "readiness": "ready",
         "priority": "P0",
         "reason": "This is the clearest differentiation between generic editing and the project's local AI strategy.",
         "affected_area": ["Home", "Aesthetic", "Repair", "Product positioning"],
@@ -135,7 +136,8 @@
           "Do not require cloud inference for the first version."
         ],
         "dependencies": ["stable sample image set"],
-        "risk": ["AI scoring may not correlate with user taste without sample validation."]
+        "risk": ["AI scoring may not correlate with user taste without sample validation."],
+        "next_owner": "host_product_or_execution_agent"
       }
     ],
     "sequencing": [

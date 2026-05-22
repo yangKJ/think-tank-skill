@@ -99,8 +99,10 @@ def main() -> None:
         [
             "strategy_to_backlog:",
             "backlog_candidates",
+            "readiness",
             "acceptance_criteria",
             "non_goals",
+            "next_owner",
             "validation_plan",
             "not_claimed_as_implemented",
         ],
@@ -134,10 +136,14 @@ def main() -> None:
     if not candidates:
         fail("golden sample 必须包含 backlog_candidates")
     for item in candidates:
+        if item.get("readiness") not in {"ready", "needs_input", "observe_only", "blocked"}:
+            fail("每个 backlog candidate 必须包含合法 readiness")
         if not item.get("acceptance_criteria"):
             fail("每个 backlog candidate 必须有 acceptance_criteria")
         if not item.get("non_goals"):
             fail("每个 backlog candidate 必须有 non_goals")
+        if not item.get("next_owner"):
+            fail("每个 backlog candidate 必须有 next_owner")
 
     artifact = sample.get("artifact_plan", {})
     if artifact.get("write_requested_by_user") is not True:
