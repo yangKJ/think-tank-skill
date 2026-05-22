@@ -27,6 +27,10 @@ REQUIRED_FILES = [
     PROMPTS / "hero-v2-cn-image2-prompt.md",
     PROMPTS / "provider-ecosystem-image2-prompt.md",
     PROMPTS / "research-os-memory-runtime-image2-prompt.md",
+    PROMPTS / "first-run-guide-image2-prompt.md",
+    PROMPTS / "operator-manual-image2-prompt.md",
+    PROMPTS / "cookbook-image2-prompt.md",
+    PROMPTS / "progression-guide-image2-prompt.md",
 ]
 
 

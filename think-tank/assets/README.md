@@ -24,3 +24,12 @@ brand/provider-ecosystem-image2.png
 brand/research-os-memory-runtime-image2.png
 prompts/
 ```
+
+## Planned Doc Visuals
+
+```text
+prompts/first-run-guide-image2-prompt.md
+prompts/operator-manual-image2-prompt.md
+prompts/cookbook-image2-prompt.md
+prompts/progression-guide-image2-prompt.md
+```

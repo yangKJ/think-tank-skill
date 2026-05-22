@@ -9,3 +9,10 @@ Prompt files are part of the source record. They let maintainers regenerate imag
 - Each public README PNG should have a corresponding prompt record when practical.
 - Prompts must not contain private project names, private paths, credentials, or unreleased product claims.
 - Prompts should describe real documentation visuals, not fictional product screenshots.
+
+## User Operation Visual Prompts
+
+- `first-run-guide-image2-prompt.md`
+- `operator-manual-image2-prompt.md`
+- `cookbook-image2-prompt.md`
+- `progression-guide-image2-prompt.md`
