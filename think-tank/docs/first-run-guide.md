@@ -1,6 +1,6 @@
 # First Run Guide
 
-![First run guide](../assets/brand/first-run-guide-image2.png)
+![First run guide](https://raw.githubusercontent.com/yangKJ/think-tank-skill/master/think-tank/assets/brand/first-run-guide-image2.png)
 
 This guide is for a user who has already installed `think-tank` and wants the
 shortest path to a real first success.

@@ -4,7 +4,7 @@
 
 Stable, protocol-first home of **think-tank**: a cross-platform high-level Skill for research, review, council, and strategy workflows on a verified Codex-first runtime path.
 
-![think-tank hero](think-tank/assets/brand/think-tank-hero-image2.png)
+![think-tank hero](https://raw.githubusercontent.com/yangKJ/think-tank-skill/master/think-tank/assets/brand/think-tank-hero-image2.png)
 
 The high-level Skill lives in [`think-tank/`](think-tank/).
 The leader orchestration layer is being split into a standalone sibling project on the Desktop.
@@ -132,13 +132,13 @@ Use think-tank to review these notes, separate facts from assumptions, and give 
 
 | Research | Council | Review |
 |---|---|---|
-| ![research scenario](think-tank/assets/brand/research-card-image2.png) | ![council scenario](think-tank/assets/brand/council-card-image2.png) | ![review scenario](think-tank/assets/brand/review-card-image2.png) |
+| ![research scenario](https://raw.githubusercontent.com/yangKJ/think-tank-skill/master/think-tank/assets/brand/research-card-image2.png) | ![council scenario](https://raw.githubusercontent.com/yangKJ/think-tank-skill/master/think-tank/assets/brand/council-card-image2.png) | ![review scenario](https://raw.githubusercontent.com/yangKJ/think-tank-skill/master/think-tank/assets/brand/review-card-image2.png) |
 
 ## Provider Ecosystem Patterns
 
 `think-tank` does not bundle concrete tools. It documents provider integration patterns and routes capability slots to optional peer skills only when the current platform exposes them and the task has permission to use them.
 
-![provider ecosystem](think-tank/assets/brand/provider-ecosystem-image2.png)
+![provider ecosystem](https://raw.githubusercontent.com/yangKJ/think-tank-skill/master/think-tank/assets/brand/provider-ecosystem-image2.png)
 
 Representative peer skill pattern examples:
 
@@ -157,7 +157,7 @@ See [`think-tank/docs/provider-ecosystem-examples.md`](think-tank/docs/provider-
 
 The **Research OS + Memory Runtime** layer helps repeatable research work produce run records, memory candidates, provider ledgers, handoffs, guardrails, and eval fixtures.
 
-![Research OS and Memory Runtime](think-tank/assets/brand/research-os-memory-runtime-image2.png)
+![Research OS and Memory Runtime](https://raw.githubusercontent.com/yangKJ/think-tank-skill/master/think-tank/assets/brand/research-os-memory-runtime-image2.png)
 
 - **Run Record:** [`think-tank/protocol/run-record.md`](think-tank/protocol/run-record.md)
 - **Project Memory Runtime:** [`think-tank/protocol/project-memory-runtime.md`](think-tank/protocol/project-memory-runtime.md)

@@ -38,7 +38,7 @@
 
 ### Changed
 
-![think-tank 2.0 hero](think-tank/assets/brand/think-tank-hero-v2-image2.png)
+![think-tank 2.0 hero](https://raw.githubusercontent.com/yangKJ/think-tank-skill/master/think-tank/assets/brand/think-tank-hero-v2-image2.png)
 
 - 公开 core 明确不内置触发词；触发词、别名和 provider 偏好由用户自己的 YAML policy 或平台 adapter 管理。
 - README 和 `think-tank/README.md` 只保留产品介绍、能力入口和导航，不再承载版本更新记录。

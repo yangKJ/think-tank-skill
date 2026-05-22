@@ -51,10 +51,10 @@ def require(path: Path, term: str) -> None:
 def main() -> None:
     require(README, "[中文](README_CN.md)")
     require(README_CN, "[English](README.md)")
-    require(README, "think-tank/assets/brand/think-tank-hero-image2.png")
-    require(README_CN, "think-tank/assets/brand/think-tank-hero-cn-image2.png")
-    require(README, "think-tank/assets/brand/research-os-memory-runtime-image2.png")
-    require(README_CN, "think-tank/assets/brand/research-os-memory-runtime-image2.png")
+    require(README, "https://raw.githubusercontent.com/yangKJ/think-tank-skill/master/think-tank/assets/brand/think-tank-hero-image2.png")
+    require(README_CN, "https://raw.githubusercontent.com/yangKJ/think-tank-skill/master/think-tank/assets/brand/think-tank-hero-cn-image2.png")
+    require(README, "https://raw.githubusercontent.com/yangKJ/think-tank-skill/master/think-tank/assets/brand/research-os-memory-runtime-image2.png")
+    require(README_CN, "https://raw.githubusercontent.com/yangKJ/think-tank-skill/master/think-tank/assets/brand/research-os-memory-runtime-image2.png")
     for link in SHARED_LINKS:
         require(README, link)
         require(README_CN, link)

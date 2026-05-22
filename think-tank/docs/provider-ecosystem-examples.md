@@ -48,5 +48,5 @@ If a provider was only discovered or selected by policy, list it under `not_invo
 See:
 
 ```text
-think-tank/assets/brand/provider-ecosystem-image2.png
+https://raw.githubusercontent.com/yangKJ/think-tank-skill/master/think-tank/assets/brand/provider-ecosystem-image2.png
 ```

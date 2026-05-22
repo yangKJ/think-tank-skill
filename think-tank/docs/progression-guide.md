@@ -1,6 +1,6 @@
 # Progression Guide
 
-![Progression guide](../assets/brand/progression-guide-image2.png)
+![Progression guide](https://raw.githubusercontent.com/yangKJ/think-tank-skill/master/think-tank/assets/brand/progression-guide-image2.png)
 
 This guide explains how users unlock more value from `think-tank` as they
 become more deliberate operators.

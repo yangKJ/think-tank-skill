@@ -4,7 +4,7 @@
 
 **think-tank** 是一个协议优先、跨平台的高阶 AI 协作 Skill，用于研究、审查、讨论决策和策略分析。它当前以 Codex 主路径为默认稳定路径，并用明确的能力边界来说明哪些已经验证、哪些只是可选 provider 生态。
 
-![think-tank 中文主视觉](think-tank/assets/brand/think-tank-hero-cn-image2.png)
+![think-tank 中文主视觉](https://raw.githubusercontent.com/yangKJ/think-tank-skill/master/think-tank/assets/brand/think-tank-hero-cn-image2.png)
 
 主 Skill 位于 [`think-tank/`](think-tank/)。
 
@@ -131,13 +131,13 @@ Use think-tank to review these notes, separate facts from assumptions, and give 
 
 | Research | Council | Review |
 |---|---|---|
-| ![research scenario](think-tank/assets/brand/research-card-image2.png) | ![council scenario](think-tank/assets/brand/council-card-image2.png) | ![review scenario](think-tank/assets/brand/review-card-image2.png) |
+| ![research scenario](https://raw.githubusercontent.com/yangKJ/think-tank-skill/master/think-tank/assets/brand/research-card-image2.png) | ![council scenario](https://raw.githubusercontent.com/yangKJ/think-tank-skill/master/think-tank/assets/brand/council-card-image2.png) | ![review scenario](https://raw.githubusercontent.com/yangKJ/think-tank-skill/master/think-tank/assets/brand/review-card-image2.png) |
 
 ## Provider 生态模式
 
 `think-tank` 不内置具体工具。它记录 provider 接入模式，并且只在当前平台暴露 provider、当前任务获得授权时，才把 capability slot 路由到可选 peer skills。
 
-![provider ecosystem](think-tank/assets/brand/provider-ecosystem-image2.png)
+![provider ecosystem](https://raw.githubusercontent.com/yangKJ/think-tank-skill/master/think-tank/assets/brand/provider-ecosystem-image2.png)
 
 代表性同级技能模式示例：
 
@@ -156,7 +156,7 @@ Use think-tank to review these notes, separate facts from assumptions, and give 
 
 **Research OS + Memory Runtime** 帮助可重复研究任务产出 run record、memory candidate、provider ledger、handoff、guardrail 和 eval fixture。
 
-![Research OS and Memory Runtime](think-tank/assets/brand/research-os-memory-runtime-image2.png)
+![Research OS and Memory Runtime](https://raw.githubusercontent.com/yangKJ/think-tank-skill/master/think-tank/assets/brand/research-os-memory-runtime-image2.png)
 
 - **Run Record：** [`think-tank/protocol/run-record.md`](think-tank/protocol/run-record.md)
 - **Project Memory Runtime：** [`think-tank/protocol/project-memory-runtime.md`](think-tank/protocol/project-memory-runtime.md)

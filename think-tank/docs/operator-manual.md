@@ -1,6 +1,6 @@
 # Operator Manual
 
-![Operator manual](../assets/brand/operator-manual-image2.png)
+![Operator manual](https://raw.githubusercontent.com/yangKJ/think-tank-skill/master/think-tank/assets/brand/operator-manual-image2.png)
 
 This manual explains how to operate `think-tank` as a high-level collaboration
 skill instead of a generic prompt.
