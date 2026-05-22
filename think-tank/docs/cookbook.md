@@ -38,6 +38,17 @@ Suggested prompt:
 Use think-tank to compare these strategic options, highlight disagreements, and recommend a decision path.
 ```
 
+## Review To Readiness
+
+Use when the host agent must decide whether work can move forward now or needs
+handoff, input, or escalation.
+
+Suggested prompt:
+
+```text
+Use think-tank to review this work, tell me whether it is ready, needs input, is blocked, or should remain observation-only, and identify the next owner.
+```
+
 ## Local Documentation Synthesis
 
 Use when you already have local notes, specs, or code and want synthesis before

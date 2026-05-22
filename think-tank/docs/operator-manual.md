@@ -41,6 +41,23 @@ Use these defaults:
 - `council`: contrast viewpoints and surface disagreement
 - `strategy`: prioritize paths and recommend direction
 
+## Host Enhancement Paths
+
+When `think-tank` is enhancing a host agent such as Codex, three paths are
+especially valuable after the base modes are working:
+
+- `research -> action`
+  Use when evidence is already collected and the host agent now needs next
+  steps, prioritization, and observation boundaries.
+- `review -> readiness`
+  Use when the host agent needs to know whether something is truly ready,
+  partially ready, or blocked, and who should act next.
+- `strategy -> backlog`
+  Use when the host agent needs backlog candidates with readiness,
+  dependencies, validation plan, and next owner.
+
+These paths should produce host-consumable structure, not just good prose.
+
 ## Policy And Triggers
 
 `think-tank` does not own built-in trigger words.

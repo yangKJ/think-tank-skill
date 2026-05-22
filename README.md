@@ -51,6 +51,8 @@ test -f "$HOME/.codex/skills/think-tank/SKILL.md" && echo "think-tank installed"
 think-tank/examples/public/research-request.md
 think-tank/examples/public/council-decision.md
 think-tank/examples/public/review-acceptance.md
+think-tank/examples/public/research-to-action.md
+think-tank/examples/public/strategy-backlog.md
 ```
 
 5. Read [`think-tank/README.md`](think-tank/README.md) and [`think-tank/docs/open-source-quickstart.md`](think-tank/docs/open-source-quickstart.md) for the protocol surface and runtime boundaries.

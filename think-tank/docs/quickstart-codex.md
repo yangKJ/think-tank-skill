@@ -18,7 +18,16 @@ Do not copy private runtime state, generated outputs, provider login state, or l
 think-tank/examples/public/research-request.md
 think-tank/examples/public/council-decision.md
 think-tank/examples/public/review-acceptance.md
+think-tank/examples/public/research-to-action.md
+think-tank/examples/public/strategy-backlog.md
 ```
+
+If your goal is to improve the host agent rather than just collect evidence,
+start with:
+
+- `research-to-action` when you need next steps, prioritization, or observation boundaries
+- `review-acceptance` when you need readiness, blocker classification, or next owner
+- `strategy-backlog` when you need backlog candidates with readiness and ownership
 
 ## 3. Run Validation
 

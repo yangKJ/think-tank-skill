@@ -28,6 +28,18 @@ A successful first run means:
 Use think-tank to review these notes, separate facts from assumptions, and give me a boundary-aware recommendation.
 ```
 
+## Recommended Early Follow-Ups
+
+Once the first review-style output works, test one host-enhancement path:
+
+```text
+Use think-tank to turn this research into action. Separate verified signals from assumptions, rank the next steps, and tell me what should stay in observation instead of execution.
+```
+
+```text
+Use think-tank to turn this strategy into backlog candidates. Mark each item as ready, needs input, observe only, or blocked, and name the next owner.
+```
+
 ## What Good Output Looks Like
 
 The first response should make these things visible:
