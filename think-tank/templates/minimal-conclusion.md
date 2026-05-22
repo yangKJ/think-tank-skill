@@ -16,6 +16,8 @@ minimal_conclusion:
     confidence: "{low|medium|high}"
   risks:
     - "{residual risk}"
+  readiness: "{ready|needs_input|blocked|observe_only}"
+  owner: "{current owner or next owner}"
   next_step: "{single best next action}"
   boundaries:
     - "{what this conclusion does not cover}"
@@ -31,6 +33,7 @@ minimal_conclusion_quality_check:
   decision_actionable: true
   evidence_state_labeled: true
   confidence_labeled: true
+  readiness_labeled: true
   next_step_present: true
   boundaries_present: true
 ```

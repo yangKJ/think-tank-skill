@@ -46,6 +46,28 @@ legacy_platform_baggage_discarded: true
 
 这样宿主 agent 可以把研究结论安全转译成后续任务，而不是跳过边界。
 
+### blocker 与 handoff 治理骨架
+
+宿主 agent 不只需要“想明白”，还需要在停滞时知道：
+
+- 当前到底卡在哪
+- 这属于信息、依赖、环境还是执行问题
+- 应该交给谁补位
+- 什么时候该升级，而不是继续等
+
+这类结构本质上是跨项目治理方法，适合进入 `think-tank` 的 review/strategy 收口层。
+
+### 验收 readiness 结构
+
+验收类输出不应只有“通过 / 不通过”。宿主 agent 更需要：
+
+- 当前 readiness
+- 下一阶段是否可进
+- 未通过时的 blocker 类型
+- 下一 owner 和建议动作
+
+这样才能把分析自然转成推进。
+
 ## 不应反哺的内容
 
 - 项目专属页面结构、接口合同和运行前置
@@ -60,3 +82,6 @@ legacy_platform_baggage_discarded: true
 - `recipes/evidence-synthesis.md`
 - `recipes/competitive-intelligence.md`
 - `recipes/user-feedback-analysis.md`
+- `recipes/review-acceptance.md`
+- `templates/blocker-handoff-brief.md`
+- `templates/minimal-conclusion.md`

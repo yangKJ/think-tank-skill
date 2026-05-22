@@ -70,3 +70,14 @@ Suggested prompt:
 ```text
 Use think-tank to turn this research into action. Separate verified signals from assumptions, rank the next steps, and tell me what should stay in observation instead of execution.
 ```
+
+## Blocker And Handoff
+
+Use when work is stalled and the host agent needs a clean explanation of what
+is blocked, who should take over, and whether escalation is justified.
+
+Suggested prompt:
+
+```text
+Use think-tank to classify this blocker, identify the next owner, and tell me whether this should be escalated or can proceed with a clear handoff.
+```

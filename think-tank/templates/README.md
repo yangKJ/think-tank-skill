@@ -19,6 +19,7 @@
 - `memory-runtime-result.md`：2.0 memory runtime 输出模板。
 - `evidence-recovery-plan.md`：证据不足时的标准补证计划模板。
 - `research-action-brief.md`：把研究结论转成行动建议、优先级和非目标的通用简报模板。
+- `blocker-handoff-brief.md`：把阻塞类型、交接字段、下一 owner 和升级判断说清楚的治理模板。
 - `research-workspace/`：2.2 Research OS starter kit，可复制到用户项目作为本地 `.think-tank/` 工作区模板。
 
 ## Required Fields
