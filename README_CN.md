@@ -194,16 +194,16 @@ Use think-tank to review these notes, separate facts from assumptions, and give 
 
 ## 用户操作路径
 
-- **First Run Guide：** [`think-tank/docs/first-run-guide.md`](think-tank/docs/first-run-guide.md)
-- **Operator Manual：** [`think-tank/docs/operator-manual.md`](think-tank/docs/operator-manual.md)
-- **Cookbook：** [`think-tank/docs/cookbook.md`](think-tank/docs/cookbook.md)
-- **Progression Guide：** [`think-tank/docs/progression-guide.md`](think-tank/docs/progression-guide.md)
+- **首次运行指南：** [`think-tank/docs/first-run-guide.md`](think-tank/docs/first-run-guide.md)
+- **操作手册：** [`think-tank/docs/operator-manual.md`](think-tank/docs/operator-manual.md)
+- **专属定制：** [`think-tank/docs/cookbook.md`](think-tank/docs/cookbook.md)
+- **进阶教程：** [`think-tank/docs/progression-guide.md`](think-tank/docs/progression-guide.md)
 
-| First Run Guide | Operator Manual |
-|---|---|
-| [![First Run Guide](https://raw.githubusercontent.com/yangKJ/think-tank-skill/master/think-tank/assets/brand/first-run-guide-image2.png)](think-tank/docs/first-run-guide.md) | [![Operator Manual](https://raw.githubusercontent.com/yangKJ/think-tank-skill/master/think-tank/assets/brand/operator-manual-image2.png)](think-tank/docs/operator-manual.md) |
-| Cookbook | Progression Guide |
-| [![Cookbook](https://raw.githubusercontent.com/yangKJ/think-tank-skill/master/think-tank/assets/brand/cookbook-image2.png)](think-tank/docs/cookbook.md) | [![Progression Guide](https://raw.githubusercontent.com/yangKJ/think-tank-skill/master/think-tank/assets/brand/progression-guide-image2.png)](think-tank/docs/progression-guide.md) |
+| 首次运行指南 |进阶教程 |
+|:---:|:---:|
+| [![First Run Guide](https://raw.githubusercontent.com/yangKJ/think-tank-skill/master/think-tank/assets/brand/first-run-guide-image2.png)](think-tank/docs/first-run-guide.md) | [![Progression Guide](https://raw.githubusercontent.com/yangKJ/think-tank-skill/master/think-tank/assets/brand/progression-guide-image2.png)](think-tank/docs/progression-guide.md) |
+| 专属定制 | 操作手册 |
+| [![Cookbook](https://raw.githubusercontent.com/yangKJ/think-tank-skill/master/think-tank/assets/brand/cookbook-image2.png)](think-tank/docs/cookbook.md) | [![Operator Manual](https://raw.githubusercontent.com/yangKJ/think-tank-skill/master/think-tank/assets/brand/operator-manual-image2.png)](think-tank/docs/operator-manual.md) |
 
 ## 仓库结构
 

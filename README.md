@@ -203,11 +203,11 @@ Version history lives in [`CHANGELOG.md`](CHANGELOG.md).
 - **Cookbook:** [`think-tank/docs/cookbook.md`](think-tank/docs/cookbook.md)
 - **Progression Guide:** [`think-tank/docs/progression-guide.md`](think-tank/docs/progression-guide.md)
 
-| First Run Guide | Operator Manual |
-|---|---|
-| [![First Run Guide](https://raw.githubusercontent.com/yangKJ/think-tank-skill/master/think-tank/assets/brand/first-run-guide-image2.png)](think-tank/docs/first-run-guide.md) | [![Operator Manual](https://raw.githubusercontent.com/yangKJ/think-tank-skill/master/think-tank/assets/brand/operator-manual-image2.png)](think-tank/docs/operator-manual.md) |
-| Cookbook | Progression Guide |
-| [![Cookbook](https://raw.githubusercontent.com/yangKJ/think-tank-skill/master/think-tank/assets/brand/cookbook-image2.png)](think-tank/docs/cookbook.md) | [![Progression Guide](https://raw.githubusercontent.com/yangKJ/think-tank-skill/master/think-tank/assets/brand/progression-guide-image2.png)](think-tank/docs/progression-guide.md) |
+| First Run Guide | Progression Guide |
+|:---:|:---:|
+| [![First Run Guide](https://raw.githubusercontent.com/yangKJ/think-tank-skill/master/think-tank/assets/brand/first-run-guide-image2.png)](think-tank/docs/first-run-guide.md) | [![Progression Guide](https://raw.githubusercontent.com/yangKJ/think-tank-skill/master/think-tank/assets/brand/progression-guide-image2.png)](think-tank/docs/progression-guide.md) |
+| Cookbook | Operator Manual |
+| [![Cookbook](https://raw.githubusercontent.com/yangKJ/think-tank-skill/master/think-tank/assets/brand/cookbook-image2.png)](think-tank/docs/cookbook.md) | [![Operator Manual](https://raw.githubusercontent.com/yangKJ/think-tank-skill/master/think-tank/assets/brand/operator-manual-image2.png)](think-tank/docs/operator-manual.md) |
 
 ## Repository Layout
 
