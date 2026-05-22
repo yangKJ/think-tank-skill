@@ -67,6 +67,7 @@ runtime_provenance:
 3. 新技术、流程或模式变化。
 4. 用户反馈和市场信号。
 5. 对当前项目的机会、风险和优先级建议。
+6. 哪些信号足够进入 backlog，哪些仍只适合观察。
 
 ## Output
 
@@ -77,6 +78,7 @@ runtime_provenance:
 技术/产品/市场洞察
 分歧与风险
 行动建议
+优先级判断
 边界
 ```
 
@@ -84,6 +86,7 @@ runtime_provenance:
 
 - 不把营销话术当事实。
 - 区分已验证信息、推断和建议。
+- 每个行动建议都应能回答“为什么现在做”和“如何验证是否值得做”。
 - 不因存在某个旧竞品分析脚本或工具，就绕过 think-tank 的 policy route、recipe、capability 和 quality gates。
 - 如果没有外部来源，必须标注证据不足。
 

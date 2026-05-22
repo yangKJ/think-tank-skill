@@ -59,3 +59,14 @@ Suggested prompt:
 ```text
 Use think-tank for this research. If an external source provider is needed, state the route, boundary, and what was actually invoked.
 ```
+
+## Research To Action
+
+Use when the hard part is no longer collecting evidence, but deciding what the
+host agent should do next.
+
+Suggested prompt:
+
+```text
+Use think-tank to turn this research into action. Separate verified signals from assumptions, rank the next steps, and tell me what should stay in observation instead of execution.
+```

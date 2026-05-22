@@ -35,4 +35,5 @@ think-tank 在没有任何外部 peer skill 的情况下，也必须能执行 re
 - `strategy-planning.md`：路线图、优先级、行动方案。
 - `monitoring-plan.md`：持续关注、监控指标、定期追踪方案。
 - `evidence-synthesis.md`：资料汇总、证据综合、结论提炼。
+- `research-to-action.md`：将研究、证据和分歧收口成可执行行动建议与 backlog 候选。
 - `project-competitive-strategy.md`：项目能力盘点、竞品对比、差异化策略和 backlog 转化。
