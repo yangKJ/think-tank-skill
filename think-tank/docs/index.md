@@ -5,6 +5,10 @@
 ## Start Here
 
 - [Getting Started](getting-started.md)
+- [First Run Guide](first-run-guide.md)
+- [Operator Manual](operator-manual.md)
+- [Cookbook](cookbook.md)
+- [Progression Guide](progression-guide.md)
 - [FAQ](faq.md)
 - [Troubleshooting](troubleshooting.md)
 - [Codex Quickstart](quickstart-codex.md)

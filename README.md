@@ -55,6 +55,13 @@ think-tank/examples/public/review-acceptance.md
 
 5. Read [`think-tank/README.md`](think-tank/README.md) and [`think-tank/docs/open-source-quickstart.md`](think-tank/docs/open-source-quickstart.md) for the protocol surface and runtime boundaries.
 
+Continue with the user-operation path:
+
+- [`think-tank/docs/first-run-guide.md`](think-tank/docs/first-run-guide.md)
+- [`think-tank/docs/operator-manual.md`](think-tank/docs/operator-manual.md)
+- [`think-tank/docs/cookbook.md`](think-tank/docs/cookbook.md)
+- [`think-tank/docs/progression-guide.md`](think-tank/docs/progression-guide.md)
+
 6. Run the public release gate:
 
 ```bash
@@ -189,6 +196,13 @@ policy; `think-tank` documents intent categories and routing contracts.
 
 Version history lives in [`CHANGELOG.md`](CHANGELOG.md).
 
+## User Operation Path
+
+- **First Run Guide:** [`think-tank/docs/first-run-guide.md`](think-tank/docs/first-run-guide.md)
+- **Operator Manual:** [`think-tank/docs/operator-manual.md`](think-tank/docs/operator-manual.md)
+- **Cookbook:** [`think-tank/docs/cookbook.md`](think-tank/docs/cookbook.md)
+- **Progression Guide:** [`think-tank/docs/progression-guide.md`](think-tank/docs/progression-guide.md)
+
 ## Repository Layout
 
 ```text
@@ -226,7 +240,6 @@ think-tank-skill/
 - [`think-tank/domain-packs/`](think-tank/domain-packs/): Optional domain packs.
 - [`think-tank/schemas/`](think-tank/schemas/): Machine-readable input and output schemas.
 - [`think-tank/examples/`](think-tank/examples/): Reusable examples that demonstrate the protocol.
-- `leader-runtime`: standalone sibling project, no longer part of the default Skill release bundle.
 
 ## Stable Posture
 

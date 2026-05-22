@@ -194,11 +194,22 @@ docs/validation-tiers.md
 docs/provider-ecosystem-examples.md
 docs/provider-integration-patterns.md
 docs/codex-installation.md
+docs/first-run-guide.md
+docs/operator-manual.md
+docs/cookbook.md
+docs/progression-guide.md
 examples/public/
 examples/v3/
 ../CHANGELOG.md
 docs/history.md
 ```
+
+## 用户操作路径
+
+- `docs/first-run-guide.md`：帮助新用户跑通第一次成功使用。
+- `docs/operator-manual.md`：解释 mode、policy、capability、provider boundary 和操作模型。
+- `docs/cookbook.md`：给出典型场景做法。
+- `docs/progression-guide.md`：说明 beginner、intermediate、advanced 三层上限如何提升。
 
 ## Research OS + Memory Runtime
 

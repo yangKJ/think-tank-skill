@@ -12,6 +12,10 @@ DOCS = ROOT / "think-tank" / "docs"
 REQUIRED = [
     "index.md",
     "getting-started.md",
+    "first-run-guide.md",
+    "operator-manual.md",
+    "cookbook.md",
+    "progression-guide.md",
     "faq.md",
     "troubleshooting.md",
     "quickstart-codex.md",

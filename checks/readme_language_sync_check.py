@@ -13,6 +13,10 @@ README_CN = ROOT / "README_CN.md"
 SHARED_LINKS = [
     "think-tank/README.md",
     "think-tank/docs/open-source-quickstart.md",
+    "think-tank/docs/first-run-guide.md",
+    "think-tank/docs/operator-manual.md",
+    "think-tank/docs/cookbook.md",
+    "think-tank/docs/progression-guide.md",
     "think-tank/docs/provider-ecosystem-examples.md",
     "think-tank/docs/provider-integration-patterns.md",
     "think-tank/docs/codex-installation.md",

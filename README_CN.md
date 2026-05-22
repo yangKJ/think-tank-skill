@@ -54,6 +54,13 @@ think-tank/examples/public/review-acceptance.md
 
 5. 再阅读 [`think-tank/README.md`](think-tank/README.md) 和 [`think-tank/docs/open-source-quickstart.md`](think-tank/docs/open-source-quickstart.md)，理解协议面和运行边界。
 
+接着走用户操作路径：
+
+- [`think-tank/docs/first-run-guide.md`](think-tank/docs/first-run-guide.md)
+- [`think-tank/docs/operator-manual.md`](think-tank/docs/operator-manual.md)
+- [`think-tank/docs/cookbook.md`](think-tank/docs/cookbook.md)
+- [`think-tank/docs/progression-guide.md`](think-tank/docs/progression-guide.md)
+
 6. 运行公开发布门禁：
 
 ```bash
@@ -184,6 +191,13 @@ Use think-tank to review these notes, separate facts from assumptions, and give 
 - **Skill Self Tests：** [`think-tank/self-tests/`](think-tank/self-tests/)
 
 版本更新记录统一放在 [`CHANGELOG.md`](CHANGELOG.md)。
+
+## 用户操作路径
+
+- **First Run Guide：** [`think-tank/docs/first-run-guide.md`](think-tank/docs/first-run-guide.md)
+- **Operator Manual：** [`think-tank/docs/operator-manual.md`](think-tank/docs/operator-manual.md)
+- **Cookbook：** [`think-tank/docs/cookbook.md`](think-tank/docs/cookbook.md)
+- **Progression Guide：** [`think-tank/docs/progression-guide.md`](think-tank/docs/progression-guide.md)
 
 ## 仓库结构
 

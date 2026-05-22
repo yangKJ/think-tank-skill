@@ -25,14 +25,23 @@ think-tank/examples/public/council-decision.md
 think-tank/examples/public/review-acceptance.md
 ```
 
-## 4. Run Checks
+## 4. Learn The User Path
+
+Read in this order:
+
+- `first-run-guide.md`
+- `operator-manual.md`
+- `cookbook.md`
+- `progression-guide.md`
+
+## 5. Run Checks
 
 ```bash
 python3 checks/open_source_release_suite.py
 python3 checks/stable_release_check.py
 ```
 
-## 5. Move To 2.0 Features
+## 6. Move To 2.0 Features
 
 Use:
 

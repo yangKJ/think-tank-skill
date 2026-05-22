@@ -8,6 +8,7 @@
 
 ### Added
 
+- 增加用户操作路径文档：`first-run-guide.md`、`operator-manual.md`、`cookbook.md` 和 `progression-guide.md`，并在 README 与 docs index 中建立索引。
 - 增加 `.think-tank/` 本地工作区协议，用于项目本地 provider policy、memory candidates、runs 和 artifacts。
 - 增加 `.think-tank/provider-policy.yaml` 作为唯一支持的项目本地 policy 路径；公开 Skill 源只保留 Codex example policy。
 - 增加 project memory capture 协议、recipe、模板、schema、样例报告和检查脚本。
