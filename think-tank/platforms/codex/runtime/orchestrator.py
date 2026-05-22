@@ -597,7 +597,7 @@ def build_runtime_provenance(
         "result_recovered": recovered,
         "true_multi_agent_runtime": False,
         "execution_method": execution_method,
-        "authority_level": "lower_fallback_single_context" if is_single_agent_fallback else "full_runtime" if invoked else "protocol_only",
+        "authority_level": "lower_fallback_single_context" if is_single_agent_fallback else "adapter_runtime" if invoked else "protocol_only",
         "data_collection": data_collection,
         "evidence_state": evidence_state,
         "result_recovery": result_recovery,

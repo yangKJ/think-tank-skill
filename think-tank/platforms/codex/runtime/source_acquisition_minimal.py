@@ -54,6 +54,23 @@ def summarize(content: str) -> str:
     return text[:220] if text else "No readable text extracted."
 
 
+def source_type_for(target: str) -> str:
+    parsed = urlparse(target)
+    path = Path(unquote(parsed.path if parsed.scheme == "file" else parsed.path or target))
+    suffix = path.suffix.lower()
+    if parsed.scheme in {"http", "https"}:
+        return "web"
+    if suffix in {".md", ".markdown"}:
+        return "markdown"
+    if suffix == ".json":
+        return "json"
+    if suffix in {".txt", ".log"}:
+        return "text"
+    if suffix in {".html", ".htm"}:
+        return "static-html"
+    return "local-file"
+
+
 def runtime_result(target: str, runtime: str) -> dict[str, Any]:
     success, content, status = read_target(target)
     runtime_provenance = {
@@ -113,7 +130,7 @@ def runtime_result(target: str, runtime: str) -> dict[str, Any]:
             {
                 "title": title,
                 "url": target,
-                "source_type": "static-html",
+                "source_type": source_type_for(target),
                 "summary": summary,
                 "reliability": "medium",
                 "freshness": now_iso(),

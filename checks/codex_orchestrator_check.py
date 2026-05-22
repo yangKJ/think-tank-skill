@@ -97,6 +97,8 @@ def main() -> None:
     provenance = data["runtime_provenance"]
     if provenance["provider_policy_checked"] is not True:
         fail("必须声明 provider_policy_checked")
+    if provenance.get("authority_level") == "full_runtime":
+        fail("minimal orchestrator 不得把 adapter runtime 标成 full_runtime authority")
     if provenance["result_recovered"] is not True:
         fail("成功路径必须回收结果")
     if provenance["true_multi_agent_runtime"] is not False:
@@ -116,6 +118,11 @@ def main() -> None:
         fail("测试应证明 policy provider 不等于 minimal runtime provider")
     if data["run_record"]["artifact_written"] is not False:
         fail("默认不应写 run artifact")
+
+    local_markdown = run_orchestrator("竞品分析 Cursor 和 Codex", "--target", "AGENTS.md")
+    source_type = local_markdown["source_result"]["sources"][0]["source_type"]
+    if source_type != "markdown":
+        fail(f"Markdown 目标不应标成 HTML source_type: {source_type}")
 
     run_dir = ROOT / ".think-tank" / "runs"
     written = run_orchestrator("竞品分析 Cursor 和 Codex", "--target", FIXTURE, "--write-run", "--runs-dir", str(run_dir))
