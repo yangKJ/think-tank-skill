@@ -1,6 +1,6 @@
 # think-tank Documentation
 
-`think-tank` is a protocol-first AI collaboration Skill for research, review, council decisions, strategy, Research OS, run records, memory runtime, provider ledgers, handoffs, guardrails, evals, and v3 skill experience.
+`think-tank` is a protocol-first AI collaboration Skill for research, review, council decisions, strategy, Research OS, run records, memory runtime, provider ledgers, handoffs, guardrails, and v3 skill experience. Companion evals, self-tests, and starter kits live at the repository root.
 
 ## Start Here
 

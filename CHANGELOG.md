@@ -33,7 +33,7 @@
 
 - 增加 Skill Experience Layer：`skill-trigger-intelligence`、`skill-invocation-contract`、`progressive-disclosure`、agent compatibility matrix、skill composition guide、skill quality score、v3 examples、self-tests 和 `checks/skill_experience_check.py`。
 - 增加 3.0 规划和发布说明：`think-tank/docs/v3.0-roadmap.md` 和 `think-tank/docs/v3.0-release-notes.md`。
-- 增加 `think-tank/self-tests/`，用于检查 trigger、anti-trigger、provider boundary、composition 和 memory write 边界。
+- 增加 `self-tests/`，用于检查 trigger、anti-trigger、provider boundary、composition 和 memory write 边界。
 - 增加 `think-tank/examples/v3/`，提供 skill route decision、invocation contract、progressive disclosure plan、self-test result 和 quality score 样例。
 
 ### Changed
@@ -59,9 +59,9 @@
 - 增加 v2.1 contributor and release polish：`CONTRIBUTING.md`、`SECURITY.md`、`CODE_OF_CONDUCT.md`、`SUPPORT.md`、issue templates 和 PR template。
 - 增加 v2.1 capability evidence state machine，细分 installed、discovered、selected、dispatched、invoked、recovered、verified_partial 和 verified。
 - 增加 v2.1 memory promotion policy，控制候选记忆从 `.think-tank/memory/` 提升到 AGENTS、项目文档或公开协议的条件。
-- 增加 v2.2 Research OS Starter Kit：`think-tank/templates/research-workspace/`。
+- 增加 v2.2 Research OS Starter Kit：`starter-kits/research-workspace/`。
 - 增加 v2.2 Runtime Provenance Gate，强制 think-tank 风格输出声明 runtime、provider 调用、数据来源、结果回收和真实多 agent 状态。
-- 增加 v2.3 Eval Pack Starter：`think-tank/evals/`。
+- 增加 v2.3 Eval Pack Starter：`evals/`。
 - 增加 v2.3 Codex natural-language orchestrator，把用户请求串联到 policy route、minimal dispatch、source recovery、final output 和 run record。
 - 增加 v2.4 Provider Test Matrix：`think-tank/docs/provider-test-matrix.md` 和 `think-tank/examples/provider-ledgers/`。
 - 增加 v2.5 Docs Site Ready：`think-tank/docs/index.md`、concepts、guides、reference 和 release sections。

@@ -24,12 +24,12 @@ REQUIRED_FILES = [
     "think-tank/examples/v3/progressive-disclosure-plan.json",
     "think-tank/examples/v3/skill-self-test-result.json",
     "think-tank/examples/v3/skill-quality-score.json",
-    "think-tank/self-tests/README.md",
-    "think-tank/self-tests/research-trigger.json",
-    "think-tank/self-tests/anti-trigger-simple-command.json",
-    "think-tank/self-tests/provider-boundary.json",
-    "think-tank/self-tests/run-record-memory.json",
-    "think-tank/self-tests/composition-guide.json",
+    "self-tests/README.md",
+    "self-tests/research-trigger.json",
+    "self-tests/anti-trigger-simple-command.json",
+    "self-tests/provider-boundary.json",
+    "self-tests/run-record-memory.json",
+    "self-tests/composition-guide.json",
 ]
 
 
@@ -137,7 +137,7 @@ def check_json_examples() -> None:
     if decision.get("policy_source") == "built_in":
         fail("skill-route-decision.json 不能声明 built_in policy")
 
-    provider_case = json.loads((ROOT / "think-tank/self-tests/provider-boundary.json").read_text(encoding="utf-8"))
+    provider_case = json.loads((ROOT / "self-tests/provider-boundary.json").read_text(encoding="utf-8"))
     provider_state = provider_case.get("expected_provider_state", {})
     if provider_state.get("invoked_providers") != []:
         fail("provider-boundary.json 必须保持 invoked_providers 为空")

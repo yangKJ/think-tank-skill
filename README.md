@@ -170,8 +170,8 @@ The **Research OS + Memory Runtime** layer helps repeatable research work produc
 ## Open Source Usability
 
 - **Contributor docs:** [`CONTRIBUTING.md`](CONTRIBUTING.md), [`SECURITY.md`](SECURITY.md), [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md), [`SUPPORT.md`](SUPPORT.md), issue templates, and PR template.
-- **Research OS Starter Kit:** [`think-tank/templates/research-workspace/`](think-tank/templates/research-workspace/).
-- **Eval Pack Starter:** [`think-tank/evals/`](think-tank/evals/).
+- **Research OS Starter Kit:** [`starter-kits/research-workspace/`](starter-kits/research-workspace/).
+- **Eval Pack Starter:** [`evals/`](evals/).
 - **Provider Test Matrix:** [`think-tank/docs/provider-test-matrix.md`](think-tank/docs/provider-test-matrix.md).
 - **Docs Site:** [`think-tank/docs/index.md`](think-tank/docs/index.md), concepts, guides, reference, and release sections.
 - **Platform Distribution:** [`think-tank/docs/platform-publishing.md`](think-tank/docs/platform-publishing.md), [`think-tank/docs/codex-installation.md`](think-tank/docs/codex-installation.md), and [`think-tank/docs/claude-code-installation.md`](think-tank/docs/claude-code-installation.md).
@@ -192,7 +192,7 @@ policy; `think-tank` documents intent categories and routing contracts.
 - **Skill Composition Guide:** [`think-tank/docs/skill-composition-guide.md`](think-tank/docs/skill-composition-guide.md)
 - **Skill Quality Score:** [`think-tank/docs/skill-quality-score.md`](think-tank/docs/skill-quality-score.md)
 - **Skill Experience Examples:** [`think-tank/examples/v3/`](think-tank/examples/v3/)
-- **Skill Self Tests:** [`think-tank/self-tests/`](think-tank/self-tests/)
+- **Skill Self Tests:** [`self-tests/`](self-tests/)
 
 Version history lives in [`CHANGELOG.md`](CHANGELOG.md).
 
@@ -226,10 +226,13 @@ think-tank-skill/
 │   ├── modes/
 │   ├── templates/
 │   ├── runtime/
-│   ├── self-tests/
 │   ├── domain-packs/
 │   ├── docs/
 │   └── examples/
+├── starter-kits/
+│   └── research-workspace/
+├── evals/
+└── self-tests/
 ```
 
 ## Key Directories
@@ -242,10 +245,12 @@ think-tank-skill/
 - [`think-tank/modes/`](think-tank/modes/): Research, council, review, and strategy modes.
 - [`think-tank/runtime/`](think-tank/runtime/): Platform-neutral minimal runtime primitives.
 - [`think-tank/templates/`](think-tank/templates/): Cross-platform report and kickoff templates.
-- [`think-tank/self-tests/`](think-tank/self-tests/): Public skill experience self-test fixtures.
 - [`think-tank/domain-packs/`](think-tank/domain-packs/): Optional domain packs.
 - [`think-tank/schemas/`](think-tank/schemas/): Machine-readable input and output schemas.
 - [`think-tank/examples/`](think-tank/examples/): Reusable examples that demonstrate the protocol.
+- [`starter-kits/research-workspace/`](starter-kits/research-workspace/): Project-local Research OS starter kit.
+- [`evals/`](evals/): Public protocol eval fixtures.
+- [`self-tests/`](self-tests/): Public skill experience self-test fixtures.
 
 ## Stable Posture
 

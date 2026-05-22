@@ -7,4 +7,4 @@ Primary template files:
 - `../../templates/think-tank-run-record.md`
 - `../../templates/provider-invocation-ledger.md`
 - `../../templates/memory-runtime-result.md`
-- `../../templates/research-workspace/README.md`
+- `../../../starter-kits/research-workspace/README.md`

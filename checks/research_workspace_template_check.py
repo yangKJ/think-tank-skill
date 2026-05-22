@@ -8,7 +8,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-BASE = ROOT / "think-tank" / "templates" / "research-workspace"
+BASE = ROOT / "starter-kits" / "research-workspace"
 REQUIRED = [
     "README.md",
     "inbox/README.md",

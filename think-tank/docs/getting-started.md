@@ -50,5 +50,5 @@ Use:
 - memory runtime
 - handoff protocol
 - guardrails
-- eval fixtures
-- Research OS starter kit
+- eval fixtures in `../../evals/`
+- Research OS starter kit in `../../starter-kits/research-workspace/`

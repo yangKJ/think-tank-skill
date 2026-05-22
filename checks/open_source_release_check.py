@@ -78,7 +78,7 @@ def main() -> None:
             "think-tank/protocol/skill-trigger-intelligence.md",
             "think-tank/protocol/skill-invocation-contract.md",
             "think-tank/protocol/progressive-disclosure.md",
-            "think-tank/self-tests/",
+            "self-tests/",
             "think-tank/docs/open-source-release.md",
             "think-tank/examples/public/research-request.md",
             "https://raw.githubusercontent.com/yangKJ/think-tank-skill/master/think-tank/assets/brand/think-tank-hero-image2.png",

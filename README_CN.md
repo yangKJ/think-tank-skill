@@ -169,8 +169,8 @@ Use think-tank to review these notes, separate facts from assumptions, and give 
 ## 开源可用性
 
 - **贡献与社区治理：** [`CONTRIBUTING.md`](CONTRIBUTING.md)、[`SECURITY.md`](SECURITY.md)、[`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md)、[`SUPPORT.md`](SUPPORT.md)、issue templates 和 PR template。
-- **Research OS Starter Kit：** [`think-tank/templates/research-workspace/`](think-tank/templates/research-workspace/)。
-- **Eval Pack Starter：** [`think-tank/evals/`](think-tank/evals/)。
+- **Research OS Starter Kit：** [`starter-kits/research-workspace/`](starter-kits/research-workspace/)。
+- **Eval Pack Starter：** [`evals/`](evals/)。
 - **Provider Test Matrix：** [`think-tank/docs/provider-test-matrix.md`](think-tank/docs/provider-test-matrix.md)。
 - **Docs Site：** [`think-tank/docs/index.md`](think-tank/docs/index.md)、concepts、guides、reference 和 release 分区。
 - **平台分发：** [`think-tank/docs/platform-publishing.md`](think-tank/docs/platform-publishing.md)、[`think-tank/docs/codex-installation.md`](think-tank/docs/codex-installation.md)、[`think-tank/docs/claude-code-installation.md`](think-tank/docs/claude-code-installation.md)。
@@ -188,7 +188,7 @@ Use think-tank to review these notes, separate facts from assumptions, and give 
 - **Skill Composition Guide：** [`think-tank/docs/skill-composition-guide.md`](think-tank/docs/skill-composition-guide.md)
 - **Skill Quality Score：** [`think-tank/docs/skill-quality-score.md`](think-tank/docs/skill-quality-score.md)
 - **Skill Experience 示例：** [`think-tank/examples/v3/`](think-tank/examples/v3/)
-- **Skill Self Tests：** [`think-tank/self-tests/`](think-tank/self-tests/)
+- **Skill Self Tests：** [`self-tests/`](self-tests/)
 
 版本更新记录统一放在 [`CHANGELOG.md`](CHANGELOG.md)。
 
@@ -223,9 +223,12 @@ think-tank-skill/
 │   ├── modes/
 │   ├── templates/
 │   ├── runtime/
-│   ├── self-tests/
 │   ├── docs/
 │   └── examples/
+├── starter-kits/
+│   └── research-workspace/
+├── evals/
+└── self-tests/
 ```
 
 ## Stable 是什么含义？

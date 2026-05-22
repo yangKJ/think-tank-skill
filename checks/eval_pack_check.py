@@ -8,7 +8,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-BASE = ROOT / "think-tank" / "evals"
+BASE = ROOT / "evals"
 CASES = [
     "research-output-shape.json",
     "provider-selected-not-invoked.json",

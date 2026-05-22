@@ -1,6 +1,6 @@
 # Eval Pack Starter
 
-`think-tank/evals/` contains lightweight regression fixtures for public protocol behavior.
+`evals/` contains lightweight regression fixtures for public protocol behavior.
 
 The eval pack checks structure and boundary discipline. It does not prove factual correctness for arbitrary real-world claims.
 

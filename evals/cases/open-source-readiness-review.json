@@ -1,7 +1,7 @@
 {
   "eval_id": "eval_open_source_readiness_review",
   "case_type": "review",
-  "fixture": "think-tank/evals/fixtures/open-source-readiness-review.md",
+  "fixture": "evals/fixtures/open-source-readiness-review.md",
   "expected_contracts": [
     "findings_first",
     "release_gate",

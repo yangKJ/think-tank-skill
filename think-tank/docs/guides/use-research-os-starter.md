@@ -1,6 +1,6 @@
 # Use Research OS Starter
 
-Copy `think-tank/templates/research-workspace/` into a user project when the user wants a local `.think-tank/` workspace.
+Copy `starter-kits/research-workspace/` into a user project when the user wants a local `.think-tank/` workspace.
 
 Recommended flow:
 

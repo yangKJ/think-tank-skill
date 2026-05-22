@@ -7,5 +7,5 @@ The public core defines the contract. User projects own the data.
 Key files:
 
 - `../../protocol/research-os.md`
-- `../../templates/research-workspace/README.md`
+- `../../../starter-kits/research-workspace/README.md`
 - `../../examples/v2/research-workspace-contract.json`

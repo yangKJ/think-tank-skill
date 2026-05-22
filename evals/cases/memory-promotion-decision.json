@@ -1,7 +1,7 @@
 {
   "eval_id": "eval_memory_promotion_decision",
   "case_type": "memory_promotion",
-  "fixture": "think-tank/evals/fixtures/memory-promotion-decision.json",
+  "fixture": "evals/fixtures/memory-promotion-decision.json",
   "expected_contracts": [
     "memory_candidates",
     "privacy_review",

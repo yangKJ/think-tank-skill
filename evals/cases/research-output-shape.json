@@ -1,7 +1,7 @@
 {
   "eval_id": "eval_research_output_shape",
   "case_type": "research",
-  "fixture": "think-tank/evals/fixtures/research-output-shape.md",
+  "fixture": "evals/fixtures/research-output-shape.md",
   "expected_contracts": [
     "selected_intent",
     "selected_mode",
