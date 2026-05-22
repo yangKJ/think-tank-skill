@@ -16,6 +16,8 @@
 - `public/research-request.md`：公开 research 模板，展示用户材料路径和 provider 边界。
 - `public/council-decision.md`：公开 council 模板，展示单 agent 多视角 fallback 的声明方式。
 - `public/review-acceptance.md`：公开 review 模板，展示发布验收和证据优先输出。
+- `public/research-to-action.md`：公开 research-to-action 模板，展示如何把调研收口成动作建议和观察项。
+- `public/strategy-backlog.md`：公开 strategy backlog 模板，展示 readiness、owner 和 backlog 候选结构。
 - `provider-patterns/`：v1.1 provider 接入模式示例，只说明可能接法，不承诺 provider 已安装或已调用。
 - `provider-ledgers/`：v2.4 provider ledger 样例，与 provider test matrix 对齐。
 - `workflow-patterns/`：v1.1 工作流模式示例，展示用户可参考的组织方式，不替用户完成具体 provider 功能。

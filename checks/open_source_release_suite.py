@@ -17,6 +17,7 @@ COMMANDS = [
     ["python3", "checks/schema_sample_check.py"],
     ["python3", "checks/project_competitive_strategy_check.py"],
     ["python3", "checks/host_enhancement_backfeed_check.py"],
+    ["python3", "checks/public_examples_check.py"],
     ["python3", "checks/minimal_runtime_execution_check.py"],
     ["python3", "checks/runtime_provenance_check.py"],
     ["python3", "checks/codex_runtime_verification_matrix_check.py"],
