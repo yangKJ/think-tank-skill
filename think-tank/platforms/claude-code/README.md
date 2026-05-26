@@ -27,4 +27,6 @@
 - `runtime-contract.md`：真实执行、结果回收和失败恢复约定
 - `skill-mapping.md`：Claude Code skills 到 think-tank capabilities 的映射
 - `agent-mapping.md`：Claude Code subagents 到 think-tank profiles 的映射
-- `migration-notes.md`：从旧 research think-tank 迁入的资产清单
+- `session-gc.md`：Claude Code Session GC 适配 ✅ GC 机制
+- `teamless-collaboration.md`：Claude Code 无 Team 协作指南 ✅ 事前规避
+- `specialist-subagent-runtime.md`：Claude Code 专业 subagent runtime 验证 ✅ 已验证

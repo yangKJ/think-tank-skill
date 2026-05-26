@@ -15,10 +15,13 @@ from typing import Any
 
 import yaml
 
-from path_context import SKILL_ROOT, WORKSPACE_ROOT, display_path
+from path_context import SKILL_ROOT, USER_THINK_TANK_ROOT, WORKSPACE_ROOT, display_path
 
 DEFAULT_PREFLIGHT = SKILL_ROOT / "platforms" / "codex" / "provider-preflight.example.yaml"
+GLOBAL_WORKSPACE_PREFLIGHT = USER_THINK_TANK_ROOT / "provider-preflight.yaml"
 LOCAL_WORKSPACE_PREFLIGHT = WORKSPACE_ROOT / ".think-tank" / "provider-preflight.yaml"
+if WORKSPACE_ROOT == USER_THINK_TANK_ROOT:
+    LOCAL_WORKSPACE_PREFLIGHT = GLOBAL_WORKSPACE_PREFLIGHT
 
 
 def load_yaml(path: Path) -> dict[str, Any]:
@@ -46,18 +49,25 @@ def merge_preflight(base: dict[str, Any], overlay: dict[str, Any]) -> dict[str, 
 def load_effective_preflight(explicit: Path | None = None) -> tuple[dict[str, Any], list[Path]]:
     if explicit is not None:
         return load_yaml(explicit), [explicit]
-    default = load_yaml(DEFAULT_PREFLIGHT)
-    if LOCAL_WORKSPACE_PREFLIGHT.exists():
-        local = load_yaml(LOCAL_WORKSPACE_PREFLIGHT)
-        return merge_preflight(default, local), [DEFAULT_PREFLIGHT, LOCAL_WORKSPACE_PREFLIGHT]
-    return default, [DEFAULT_PREFLIGHT]
+
+    policy = load_yaml(DEFAULT_PREFLIGHT)
+    sources = [DEFAULT_PREFLIGHT]
+    if GLOBAL_WORKSPACE_PREFLIGHT.exists():
+        policy = merge_preflight(policy, load_yaml(GLOBAL_WORKSPACE_PREFLIGHT))
+        sources.append(GLOBAL_WORKSPACE_PREFLIGHT)
+    if LOCAL_WORKSPACE_PREFLIGHT.exists() and LOCAL_WORKSPACE_PREFLIGHT != GLOBAL_WORKSPACE_PREFLIGHT:
+        policy = merge_preflight(policy, load_yaml(LOCAL_WORKSPACE_PREFLIGHT))
+        sources.append(LOCAL_WORKSPACE_PREFLIGHT)
+    return policy, sources
 
 
 def selected_preflight_path(explicit: Path | None = None) -> Path:
     if explicit is not None:
         return explicit
-    if LOCAL_WORKSPACE_PREFLIGHT.exists():
+    if LOCAL_WORKSPACE_PREFLIGHT.exists() and LOCAL_WORKSPACE_PREFLIGHT != GLOBAL_WORKSPACE_PREFLIGHT:
         return LOCAL_WORKSPACE_PREFLIGHT
+    if GLOBAL_WORKSPACE_PREFLIGHT.exists():
+        return GLOBAL_WORKSPACE_PREFLIGHT
     return DEFAULT_PREFLIGHT
 
 

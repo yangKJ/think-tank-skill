@@ -2,13 +2,14 @@
 
 本文记录旧 think-tank 在 Claude Code Agent Team 上的运行经验，以及它在当前主仓里的边界。
 
+**重要更新 (2026-05-24)**：Agent Team Runtime 已通过真实测试验证，具体调用流程和限制已迁移到 `specialist-subagent-runtime.md`。本文仅保留历史背景和设计参考。
+
 ## 定位
 
 ```yaml
 legacy_team_runtime: historical_adapter_source
 current_core_protocol: platform_independent
-current_claude_code_status: minimal_runtime_verified_partial
-full_team_runtime_status: not_verified
+claude_code_agent_team: verified (see specialist-subagent-runtime.md)
 ```
 
 旧 think-tank 曾依赖 Claude Code Agent Team、sub-agent 文档、inbox/outbox 文件通信、TeamDelete 清理和 `.think-tank/` 运行目录。
@@ -20,14 +21,14 @@ full_team_runtime_status: not_verified
 | 旧机制 | 新位置 | 当前状态 |
 |--------|--------|----------|
 | `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1` | Claude Code 环境前置条件 | documented_only |
-| `TeamCreate` / `SendMessage` / `TeamDelete` | Claude Code future adapter | not_verified |
+| `TeamCreate` / `SendMessage` / `TeamDelete` | `specialist-subagent-runtime.md` | **verified** |
 | `subagent_type` 配置 | `agent-mapping.md` | mapped |
 | `documents` 渐进加载 | `agent-mapping.md`、`runtime-pipeline.md` | documented |
 | `.think-tank/inbox` / `shared/results` | `state-result-contract.md` | abstracted |
 | checkpoint / heartbeat | `state-result-contract.md` | abstracted |
 | result polling | `runtime-result.schema.json` | abstracted |
 | forced critic / objections | `consensus-contract.md` | implemented_in_minimal_runtime |
-| Team cleanup | 本文档 | documented_only |
+| Team cleanup | `specialist-subagent-runtime.md` | **verified** |
 
 ## 运行时顺序
 
@@ -69,11 +70,21 @@ true_multi_agent_runtime: verified
 
 ## 当前验收策略
 
-当前阶段只保留低流量 Claude Code 验证：
+基于 2026-05-24 真实测试更新：
 
-- 已验证 pre-invocation dispatch decision。
-- 已验证 WebFetch 成功路径和失败路径。
-- 未验证完整 Team runtime。
+- ✅ 已验证 TeamCreate / TeamDelete
+- ✅ 已验证 TaskCreate
+- ✅ 已验证 Agent spawn 并行执行
+- ✅ 已验证 SendMessage (subagent→main) 消息回收
+- ✅ 已验证 SendMessage (main→subagent) shutdown
+- ✅ 已验证 TeamDelete 清理
 
-后续只有在用户明确进入 Claude Code full runtime 验证时，才恢复 Agent Team 路径。
+详细验证记录见 `specialist-subagent-runtime.md`。
+
+## 下一步待验证
+
+- [ ] agent 间 peer-to-peer SendMessage
+- [ ] 状态文件协调机制
+- [ ] 大规模并发 (5+ agents)
+- [ ] 跨 team 通信
 

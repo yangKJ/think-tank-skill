@@ -11,7 +11,7 @@ from typing import Any
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from path_context import PROJECT_SKILLS, display_path
+from path_context import PROJECT_SKILLS, SKILL_DIRS, display_path
 
 
 
@@ -269,22 +269,41 @@ def provider_for_skill(skill_file: Path) -> dict[str, Any]:
     }
 
 
-def discover_providers(skills_dir: Path = PROJECT_SKILLS) -> list[dict[str, Any]]:
-    if not skills_dir.exists():
-        return []
-    providers: list[dict[str, Any]] = []
-    for skill_file in sorted(skills_dir.glob("*/SKILL.md")):
-        if skill_file.parent.name == "think-tank":
+def discover_providers(skills_dirs: list[Path] | tuple[Path, ...] | Path | None = None) -> list[dict[str, Any]]:
+    """Discover peer skills from global and project scopes.
+
+    Global skills are loaded first. Project-local skills with the same name then
+    override them, so project policy can specialize a provider without duplicate
+    entries or ambiguous selection.
+    """
+
+    if skills_dirs is None:
+        search_dirs = SKILL_DIRS
+    elif isinstance(skills_dirs, Path):
+        search_dirs = [skills_dirs]
+    else:
+        search_dirs = list(skills_dirs)
+
+    providers_by_id: dict[str, dict[str, Any]] = {}
+    source_order: list[str] = []
+    for skills_dir in search_dirs:
+        if not skills_dir.exists():
             continue
-        providers.append(provider_for_skill(skill_file))
-    return providers
+        source_order.append(display_path(skills_dir))
+        for skill_file in sorted(skills_dir.glob("*/SKILL.md")):
+            if skill_file.parent.name == "think-tank":
+                continue
+            providers_by_id[skill_file.parent.name] = provider_for_skill(skill_file)
+    return [providers_by_id[key] for key in sorted(providers_by_id)]
 
 
-def registry(skills_dir: Path = PROJECT_SKILLS) -> dict[str, Any]:
-    providers = discover_providers(skills_dir)
+def registry(skills_dir: Path | None = None) -> dict[str, Any]:
+    search_dirs = [skills_dir] if skills_dir is not None else SKILL_DIRS
+    providers = discover_providers(search_dirs)
     return {
         "adapter": "codex",
-        "registry_source": display_path(skills_dir),
+        "registry_sources": [display_path(path) for path in search_dirs if path.exists()],
+        "registry_source": ",".join(display_path(path) for path in search_dirs if path.exists()),
         "provider_count": len(providers),
         "providers": providers,
         "boundaries": [
@@ -297,7 +316,7 @@ def registry(skills_dir: Path = PROJECT_SKILLS) -> dict[str, Any]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Discover Codex peer skills as think-tank providers.")
-    parser.add_argument("--skills-dir", type=Path, default=PROJECT_SKILLS)
+    parser.add_argument("--skills-dir", type=Path, default=None)
     args = parser.parse_args()
     print(json.dumps(registry(args.skills_dir), ensure_ascii=False, indent=2))
     return 0

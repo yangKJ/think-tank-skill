@@ -36,7 +36,8 @@ Codex 项目本地 think-tank 数据统一放在：
 `.think-tank/` 默认应被 Git 忽略。公开 Skill 源 `think-tank/` 不存放项目实例配置。
 
 本地 `provider-policy.yaml` 是 overlay，不是完整替换。Codex 先加载公开默认 policy，
-再合并 `.think-tank/provider-policy.yaml`，这样项目定制不会丢失基础
+再合并用户级 `~/.think-tank/provider-policy.yaml`，最后合并项目级 `.think-tank/provider-policy.yaml`。
+项目级配置永远覆盖用户级配置，这样全局偏好不会污染项目定制，项目定制也不会丢失基础
 research、council、review 和 strategy 路由。
 
 ## 触发方式

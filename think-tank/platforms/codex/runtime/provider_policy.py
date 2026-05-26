@@ -11,12 +11,15 @@ from typing import Any
 
 import yaml
 
-from path_context import PROJECT_SKILLS, SKILL_ROOT, WORKSPACE_ROOT, display_path
+from path_context import PROJECT_SKILLS, SKILL_ROOT, USER_THINK_TANK_ROOT, WORKSPACE_ROOT, display_path
 from provider_registry import registry
 
 
 DEFAULT_POLICY = SKILL_ROOT / "platforms" / "codex" / "provider-policy.example.yaml"
+GLOBAL_WORKSPACE_POLICY = USER_THINK_TANK_ROOT / "provider-policy.yaml"
 LOCAL_WORKSPACE_POLICY = WORKSPACE_ROOT / ".think-tank" / "provider-policy.yaml"
+if WORKSPACE_ROOT == USER_THINK_TANK_ROOT:
+    LOCAL_WORKSPACE_POLICY = GLOBAL_WORKSPACE_POLICY
 
 
 def load_policy(path: Path) -> dict[str, Any]:
@@ -28,8 +31,22 @@ def load_policy(path: Path) -> dict[str, Any]:
     return data
 
 
+def _tag_policy_routes(policy: dict[str, Any], source: Path) -> dict[str, Any]:
+    tagged = dict(policy)
+    tagged_routes = []
+    for route in tagged.get("routes", []) or []:
+        if isinstance(route, dict):
+            tagged_route = dict(route)
+            tagged_route["_policy_source"] = display_path(source)
+            tagged_routes.append(tagged_route)
+        else:
+            tagged_routes.append(route)
+    tagged["routes"] = tagged_routes
+    return tagged
+
+
 def merge_policies(base: dict[str, Any], overlay: dict[str, Any]) -> dict[str, Any]:
-    """Merge project-local policy over the public default policy."""
+    """Merge overlay policy over base while preserving non-duplicated routes."""
     if not base:
         return overlay
     if not overlay:
@@ -58,19 +75,26 @@ def merge_policies(base: dict[str, Any], overlay: dict[str, Any]) -> dict[str, A
 
 def load_effective_policy(explicit: Path | None = None) -> tuple[dict[str, Any], list[Path]]:
     if explicit is not None:
-        return load_policy(explicit), [explicit]
-    default_policy = load_policy(DEFAULT_POLICY)
-    if LOCAL_WORKSPACE_POLICY.exists():
-        local_policy = load_policy(LOCAL_WORKSPACE_POLICY)
-        return merge_policies(default_policy, local_policy), [DEFAULT_POLICY, LOCAL_WORKSPACE_POLICY]
-    return default_policy, [DEFAULT_POLICY]
+        return _tag_policy_routes(load_policy(explicit), explicit), [explicit]
+
+    policy = _tag_policy_routes(load_policy(DEFAULT_POLICY), DEFAULT_POLICY)
+    sources = [DEFAULT_POLICY]
+    if GLOBAL_WORKSPACE_POLICY.exists():
+        policy = merge_policies(policy, _tag_policy_routes(load_policy(GLOBAL_WORKSPACE_POLICY), GLOBAL_WORKSPACE_POLICY))
+        sources.append(GLOBAL_WORKSPACE_POLICY)
+    if LOCAL_WORKSPACE_POLICY.exists() and LOCAL_WORKSPACE_POLICY != GLOBAL_WORKSPACE_POLICY:
+        policy = merge_policies(policy, _tag_policy_routes(load_policy(LOCAL_WORKSPACE_POLICY), LOCAL_WORKSPACE_POLICY))
+        sources.append(LOCAL_WORKSPACE_POLICY)
+    return policy, sources
 
 
 def policy_path(explicit: Path | None = None) -> Path:
     if explicit is not None:
         return explicit
-    if LOCAL_WORKSPACE_POLICY.exists():
+    if LOCAL_WORKSPACE_POLICY.exists() and LOCAL_WORKSPACE_POLICY != GLOBAL_WORKSPACE_POLICY:
         return LOCAL_WORKSPACE_POLICY
+    if GLOBAL_WORKSPACE_POLICY.exists():
+        return GLOBAL_WORKSPACE_POLICY
     return DEFAULT_POLICY
 
 
@@ -185,6 +209,7 @@ def resolve_request(text: str, policy: dict[str, Any], available_providers: list
         "policy_status": "loaded",
         "matched": True,
         "route_id": selected_route.get("id"),
+        "route_source": selected_route.get("_policy_source", "unknown"),
         "selected_intent": selected_route.get("intent"),
         "selected_mode": selected_route.get("mode"),
         "selected_recipe": selected_route.get("recipe"),
@@ -203,7 +228,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Resolve a request through Codex think-tank provider policy.")
     parser.add_argument("request")
     parser.add_argument("--policy", type=Path)
-    parser.add_argument("--skills-dir", type=Path, default=PROJECT_SKILLS)
+    parser.add_argument("--skills-dir", type=Path, default=None)
     args = parser.parse_args()
 
     selected_policy_path = policy_path(args.policy)
