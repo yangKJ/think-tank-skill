@@ -80,11 +80,18 @@ Recommended Codex load order:
 policy_load_order:
   - explicit --policy
   - think-tank/platforms/codex/provider-policy.example.yaml
-  - .think-tank/provider-policy.yaml
+  - ~/.think-tank/provider-policy.yaml
+  - <project>/.think-tank/provider-policy.yaml
 ```
 
-Default behavior: load the bundled example first, then merge `.think-tank`
-routes and defaults as project-local overrides.
+Default behavior: load the bundled example first, then merge user-level
+`~/.think-tank` defaults, then merge project-local `.think-tank` routes and
+defaults as the final override. Routes are merged by `id`: a project-local route
+with the same `id` replaces the global route, while non-duplicated global routes
+remain available inside the project. Project-local policy always wins over
+user-level policy. If a project does not have `.think-tank/`, Codex may use
+`~/.think-tank` as the fallback runtime workspace for global preferences and
+non-project runs.
 
 No legacy project-local policy path is supported in 2.0. The local instance
 policy belongs in `.think-tank/provider-policy.yaml`.
@@ -92,6 +99,7 @@ policy belongs in `.think-tank/provider-policy.yaml`.
 ## Quality Gates
 
 - Do not write private project memory into `think-tank/`.
+- Do not treat `~/.think-tank/` as project memory when a nearer project `.think-tank/` exists.
 - Do not commit `.think-tank/` by default.
 - Do not treat provider selection as provider invocation.
 - Do not store secrets, tokens, credentials, or closed-source implementation

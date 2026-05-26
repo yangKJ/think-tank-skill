@@ -196,6 +196,26 @@ recovery:
 
 但 persistence 是 adapter 实现，不是协议硬依赖。
 
+## Team Cleanup
+
+当使用 multi-agent team 时，必须保证 team 清理：
+
+```yaml
+team_cleanup:
+  required: true
+  verification: check_team_directory_empty
+  failure_action: |
+    1. 尝试 TeamDelete 重试（等待 2s）
+    2. 检测 config.json 中 tmuxPaneId 状态
+    3. 如卡在 in-process，提示用户手动清理
+    4. 记录 zombie team 到 artifact，供后续清理
+  artifact:
+    - team_residue_manifest: []
+    - cleanup_instructions: ""
+```
+
+详细规范见 `protocol/shutdown-contract.md`。
+
 ## Verification Status
 
 ```yaml

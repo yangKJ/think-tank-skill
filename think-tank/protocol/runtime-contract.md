@@ -107,6 +107,7 @@ stage_timeout:
 - tool invocation
 - browser automation
 - memory/artifact write
+- team cleanup with zombie detection
 
 平台 adapter 不得改变：
 
@@ -115,6 +116,20 @@ stage_timeout:
 - capability 状态语义
 - output contract
 - quality gates
+
+## Shutdown Handling
+
+Claude Code 等平台存在已知 shutdown 死锁 bug。平台 adapter 必须：
+
+1. 实现超时保护机制（见 `protocol/shutdown-contract.md`）
+2. 检测 zombie team（`config.json` 中 `tmuxPaneId: "in-process"`）
+3. 在输出中包含手动清理提示
+4. 不得假设 `TeamDelete` 一定成功
+
+参考：
+- `protocol/shutdown-contract.md` - Shutdown 流程
+- `protocol/session-gc-contract.md` - Zombie team 清理
+- `protocol/filesystem-message-bus.md` - Teamless 协作（事前规避）
 
 ## Verification Status
 
@@ -128,4 +143,9 @@ not_verified:
   - full_adapter_runtime
   - automatic_result_recovery
   - subagent_parallel_runtime
+related_contracts:
+  - protocol/shutdown-contract.md (shutdown handling)
+  - protocol/state-result-contract.md (team cleanup)
+  - protocol/session-gc-contract.md (zombie gc)
+  - protocol/filesystem-message-bus.md (teamless mode)
 ```
