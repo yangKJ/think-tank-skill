@@ -12,13 +12,7 @@ capabilities:
   - source-acquisition
   - media-production
   - knowledge-persistence
-optional_peer_skills:
-  - research-to-video-production
-  - product-intro-video
-  - web-video-presentation
-  - sound-fx-for-video
-  - summarize
-  - web-access
+# Provider selection is configured in .think-tank/provider-policy.yaml
 ---
 
 # Research To Video

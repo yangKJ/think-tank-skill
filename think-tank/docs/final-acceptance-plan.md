@@ -14,15 +14,15 @@ phase_1_foundation_commit:
 
 phase_2_claude_code_minimal_runtime:
   status: implemented_as_repeatable_contract
-  success_sample: examples/claude-runtime-sample.json
-  failure_sample: examples/claude-runtime-failure-sample.json
+  success_sample: examples/runtime/claude-runtime-sample.json
+  failure_sample: examples/runtime/claude-runtime-failure-sample.json
   final_prompt: platforms/claude-code/final-validation-prompt.md
 
 phase_3_codex_runtime_mirror:
   status: verified_with_local_fixture
   runner: platforms/codex/runtime/source_acquisition_minimal.py
-  success_sample: examples/codex-runtime-sample.json
-  failure_sample: examples/codex-runtime-failure-sample.json
+  success_sample: examples/runtime/codex-runtime-sample.json
+  failure_sample: examples/runtime/codex-runtime-failure-sample.json
 
 phase_4_capability_queue:
   status: defined_and_checked
@@ -31,7 +31,7 @@ phase_4_capability_queue:
 phase_5_claude_code_low_flow_validation:
   status: verified_partial_with_success_pre_invocation_and_failure_degradation
   prompt: platforms/claude-code/final-validation-prompt.md
-  record: examples/claude-code-final-validation.md
+  record: think-tank/examples/platforms/claude-code/claude-code-final-validation.md
   caveat: failure_path_pre_invocation_decision_not_confirmed_from_transcript
 
 legacy_think_tank_full_migration:

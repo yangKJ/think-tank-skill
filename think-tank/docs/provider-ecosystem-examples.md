@@ -31,7 +31,7 @@ peer_skills:
 | social-listening | `xiaohongshu` | social sample collection when user has access | planned | MCP service, login, platform permission | default social scraping |
 | media-processing | `yt-dlp` / `openai-whisper` | media download, audio extraction, transcript workflows | planned | network, media rights, task permission | default media download or transcription |
 | knowledge-persistence | `obsidian` | optional local knowledge artifact persistence | planned | vault path, explicit write confirmation | default private knowledge-base write |
-| media-production | `research-to-video-production` | structured brief to production package workflow | verified_partial | task-specific media boundary | fully automated publishing |
+| media-production | `ai-research-to-video-production` | structured brief to production package workflow | verified_partial | task-specific media boundary | fully automated publishing |
 
 ## Evidence Rule
 

@@ -30,14 +30,7 @@ capabilities:
   - source-acquisition
   - social-listening
   - knowledge-persistence
-optional_peer_skills:
-  - web-access
-  - summarize
-  - google-ai-mode-skill
-  - 36kr-hotlist
-  - xiaohongshu
-  - social-media-analyzer
-  - obsidian
+# Provider selection is configured in .think-tank/provider-policy.yaml
 ```
 
 ## Runtime Provenance

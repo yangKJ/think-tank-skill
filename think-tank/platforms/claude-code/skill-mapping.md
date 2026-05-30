@@ -39,16 +39,16 @@
 ```yaml
 skill_discovery:
   status: verified
-  evidence: think-tank/examples/claude-code-capability-discovery.md
+  evidence: think-tank/examples/platforms/claude-code/claude-code-capability-discovery.md
 
 capability_auto_mapping:
   status: verified_partial_pre_invocation_decision
-  evidence: think-tank/examples/claude-code-dispatch-pre-invocation-validation.md
+  evidence: think-tank/examples/platforms/claude-code/claude-code-dispatch-pre-invocation-validation.md
   limitation: 已验证 dispatch_decision 可在 WebFetch 调用前形成，但尚未验证完整 adapter runtime、自动 result recovery 或 fallback 链
 
 external_skill_invocation:
   status: verified_partial_for_webfetch
-  evidence: think-tank/examples/claude-code-external-source-readonly.md
+  evidence: think-tank/examples/platforms/claude-code/claude-code-external-source-readonly.md
   limitation: 通过直接 WebFetch 调用完成公开静态页读取，尚未验证完整 adapter 自动调度
 
 next_candidate:

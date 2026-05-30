@@ -48,11 +48,11 @@ test -f "$HOME/.codex/skills/think-tank/SKILL.md" && echo "think-tank installed"
 4. Try one of the public templates:
 
 ```text
-think-tank/examples/public/research-request.md
-think-tank/examples/public/council-decision.md
-think-tank/examples/public/review-acceptance.md
-think-tank/examples/public/research-to-action.md
-think-tank/examples/public/strategy-backlog.md
+think-tank/examples/usage/research-request.md
+think-tank/examples/usage/council-decision.md
+think-tank/examples/usage/review-acceptance.md
+think-tank/examples/usage/research-to-action.md
+think-tank/examples/usage/strategy-backlog.md
 ```
 
 5. Read [`think-tank/README.md`](think-tank/README.md) and [`think-tank/docs/open-source-quickstart.md`](think-tank/docs/open-source-quickstart.md) for the protocol surface and runtime boundaries.
@@ -151,7 +151,7 @@ Representative peer skill pattern examples:
 | social-listening | `xiaohongshu` | pattern documented, login and permission required |
 | media-processing | `yt-dlp`, `openai-whisper` | pattern documented, rights and permission required |
 | knowledge-persistence | `obsidian` | pattern documented, private write confirmation required |
-| media-production | `research-to-video-production` | verified_partial, scoped production workflow |
+| media-production | `ai-research-to-video-production` | verified_partial, scoped production workflow |
 
 See [`think-tank/docs/provider-ecosystem-examples.md`](think-tank/docs/provider-ecosystem-examples.md) and [`think-tank/docs/provider-integration-patterns.md`](think-tank/docs/provider-integration-patterns.md).
 
@@ -193,7 +193,7 @@ policy; `think-tank` documents intent categories and routing contracts.
 - **Agent Compatibility Matrix:** [`think-tank/docs/agent-compatibility-matrix.md`](think-tank/docs/agent-compatibility-matrix.md)
 - **Skill Composition Guide:** [`think-tank/docs/skill-composition-guide.md`](think-tank/docs/skill-composition-guide.md)
 - **Skill Quality Score:** [`think-tank/docs/skill-quality-score.md`](think-tank/docs/skill-quality-score.md)
-- **Skill Experience Examples:** [`think-tank/examples/v3/`](think-tank/examples/v3/)
+- **Skill Experience Examples:** [`think-tank/examples/formats/`](think-tank/examples/formats/)
 - **Skill Self Tests:** [`self-tests/`](self-tests/)
 
 Version history lives in [`CHANGELOG.md`](CHANGELOG.md).
@@ -290,9 +290,9 @@ This repository is ready to be shared publicly as a stable protocol-first releas
 | area | status | source |
 |------|--------|--------|
 | Codex foundation | verified | [`think-tank/docs/codex-readiness-matrix.md`](think-tank/docs/codex-readiness-matrix.md) |
-| Provider invocation proofs | 4 public proofs | [`think-tank/examples/stable-release-readiness.yaml`](think-tank/examples/stable-release-readiness.yaml) |
-| External browser readonly | verified_partial | [`think-tank/examples/codex-browser-external-readonly.md`](think-tank/examples/codex-browser-external-readonly.md) |
-| Beyond-readonly subagent runtime | verified_partial | [`think-tank/examples/codex-subagent-lifecycle-validation.md`](think-tank/examples/codex-subagent-lifecycle-validation.md) |
+| Provider invocation proofs | 4 public proofs | [`think-tank/examples/quality/stable-release-readiness.yaml`](think-tank/examples/quality/stable-release-readiness.yaml) |
+| External browser readonly | verified_partial | [`think-tank/examples/platforms/codex/codex-browser-external-readonly.md`](think-tank/examples/platforms/codex/codex-browser-external-readonly.md) |
+| Beyond-readonly subagent runtime | verified_partial | [`think-tank/examples/platforms/codex/codex-subagent-lifecycle-validation.md`](think-tank/examples/platforms/codex/codex-subagent-lifecycle-validation.md) |
 | Long-running subagent lifecycle | verified_partial | [`think-tank/docs/stable-readiness-matrix.md`](think-tank/docs/stable-readiness-matrix.md) |
 | Claude Code runtime | deferred | [`think-tank/docs/support-matrix.md`](think-tank/docs/support-matrix.md) |
 

@@ -19,6 +19,6 @@ Also update:
 
 - `provider-integration-patterns.md`
 - `provider-test-matrix.md`
-- `examples/provider-patterns/`
-- `examples/provider-ledgers/`
+- `think-tank/examples/providers/patterns/`
+- `think-tank/examples/providers/ledgers/`
 - relevant checks

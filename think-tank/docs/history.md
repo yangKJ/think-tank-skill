@@ -8,7 +8,7 @@
 open-source-quickstart.md
 support-matrix.md
 validation-tiers.md
-../examples/public/
+../../think-tank/examples/usage/
 ```
 
 历史迁移材料只用于解释为什么当前协议如此设计：

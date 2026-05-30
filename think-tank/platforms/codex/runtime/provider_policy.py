@@ -216,6 +216,7 @@ def resolve_request(text: str, policy: dict[str, Any], available_providers: list
         "selected_profiles": selected_route.get("profiles", []),
         "selected_capabilities": selected_route.get("capabilities", []),
         "skill_route": provider_selection,
+        "post_dispatch": selected_route.get("post_dispatch", {}),
         "fallback": selected_route.get("fallback", policy.get("defaults", {}).get("fallback", "core_protocol")),
         "boundaries": [
             "Policy route selection does not invoke any provider.",

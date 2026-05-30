@@ -27,10 +27,10 @@ capability_degradation:
 
 | capability | 文件 | 状态 |
 |------------|------|------|
-| media-processing | `examples/capability-degradation-media.md` | verified |
-| social-listening | `examples/capability-degradation-social.md` | verified |
-| knowledge-persistence | `examples/capability-degradation-knowledge.md` | verified |
-| browser-automation unavailable | `examples/capability-degradation-browser.md` | verified |
+| media-processing | `examples/quality/capability-degradation-media.md` | verified |
+| social-listening | `examples/quality/capability-degradation-social.md` | verified |
+| knowledge-persistence | `examples/quality/capability-degradation-knowledge.md` | verified |
+| browser-automation unavailable | `examples/quality/capability-degradation-browser.md` | verified |
 
 ## 结论
 

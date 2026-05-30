@@ -23,11 +23,14 @@ from source_acquisition_minimal import runtime_result as source_runtime_result  
 from state_model import StageResult, make_run  # noqa: E402
 
 
+# Generic capability-to-slot mapping. Concrete skill names are NOT hardcoded here.
+# Specific skill-to-slot routing is configured in .think-tank/provider-policy.yaml
+# so that think-tank/ remains provider-agnostic.
 CODEX_CAPABILITY_MAPPING = {
     "source-acquisition": ["local_static_reader", "user_provided_material"],
     "browser-automation": ["browser", "playwright"],
     "knowledge-persistence": ["repository_markdown"],
-    "media-production": ["research-to-video-production", "web-design-engineer"],
+    "media-production": ["local_media_adapter"],
     "media-processing": ["user_provided_transcript"],
     "social-listening": ["user_provided_samples"],
 }

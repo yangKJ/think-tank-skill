@@ -35,7 +35,7 @@ capabilities:
 5. 以 `skeptic` 视角指出风险和缺口。
 6. 以 `report-architect` 视角汇总成结构化输出。
 7. 执行 `python3 checks/protocol_check.py`。
-8. 写入示例输出到 `examples/codex-smoke-research.md`。
+8. 写入示例输出到 `examples/platforms/codex/codex-smoke-research.md`。
 
 ## 验收标准
 

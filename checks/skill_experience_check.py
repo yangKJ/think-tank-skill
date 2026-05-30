@@ -19,11 +19,11 @@ REQUIRED_FILES = [
     "think-tank/docs/skill-quality-score.md",
     "think-tank/docs/v3.0-roadmap.md",
     "think-tank/docs/v3.0-release-notes.md",
-    "think-tank/examples/v3/skill-route-decision.json",
-    "think-tank/examples/v3/skill-invocation-contract.json",
-    "think-tank/examples/v3/progressive-disclosure-plan.json",
-    "think-tank/examples/v3/skill-self-test-result.json",
-    "think-tank/examples/v3/skill-quality-score.json",
+    "think-tank/examples/formats/skill-route-decision.json",
+    "think-tank/examples/formats/skill-invocation-contract.json",
+    "think-tank/examples/formats/progressive-disclosure-plan.json",
+    "think-tank/examples/formats/skill-self-test-result.json",
+    "think-tank/examples/formats/skill-quality-score.json",
     "self-tests/README.md",
     "self-tests/research-trigger.json",
     "self-tests/anti-trigger-simple-command.json",
@@ -130,7 +130,7 @@ def check_json_examples() -> None:
         except json.JSONDecodeError as exc:
             fail(f"{path} 不是合法 JSON: {exc}")
 
-    route = json.loads((ROOT / "think-tank/examples/v3/skill-route-decision.json").read_text(encoding="utf-8"))
+    route = json.loads((ROOT / "think-tank/examples/formats/skill-route-decision.json").read_text(encoding="utf-8"))
     decision = route.get("skill_route_decision", {})
     if decision.get("trigger_status") != "inferred_intent_only":
         fail("skill-route-decision.json 必须声明 trigger_status=inferred_intent_only")

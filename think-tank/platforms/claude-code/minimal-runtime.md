@@ -113,8 +113,8 @@ no_available_skill:
 
 参考样例：
 
-- `examples/claude-runtime-sample.json`：成功路径。
-- `examples/claude-runtime-failure-sample.json`：失败/降级路径。
+- `examples/runtime/claude-runtime-sample.json`：成功路径。
+- `examples/runtime/claude-runtime-failure-sample.json`：失败/降级路径。
 
 ## Next Implementation Unit
 

@@ -1,0 +1,145 @@
+{
+  "run_id": "run_2026_05_21_research_os_example",
+  "created_at": "2026-05-21T00:00:00Z",
+  "user_intent": "Evaluate whether a provider-assisted research workflow should persist reusable conclusions.",
+  "selected_mode": "research",
+  "selected_recipe": "market-research",
+  "selected_profiles": ["source-collector", "trend-analyst", "skeptic", "report-architect"],
+  "selected_capabilities": ["source-acquisition", "evidence-synthesis", "knowledge-persistence"],
+  "runtime_provenance": {
+    "think_tank_runtime_used": false,
+    "provider_policy_checked": true,
+    "dispatch_decision_emitted": true,
+    "provider_invoked": false,
+    "result_recovered": false,
+    "true_multi_agent_runtime": false,
+    "execution_method": "protocol_only",
+    "data_collection": "user_provided",
+    "evidence_state": "selected",
+    "result_recovery": "none",
+    "boundaries": ["This fixture documents contract shape; it does not invoke providers."]
+  },
+  "provider_invocation_ledger": {
+    "entries": [
+      {
+        "capability_slot": "source-acquisition",
+        "provider_name": "web-access",
+        "provider_type": "peer_skill",
+        "state": "selected",
+        "preflight": {
+          "checked": true,
+          "result": "available_if_user_installs_provider",
+          "blockers": ["No provider invocation was requested for this fixture."]
+        },
+        "dispatch": {
+          "decision": "do_not_invoke",
+          "reason": "Pattern fixture only.",
+          "permission_gate": "not_requested"
+        },
+        "invocation": {
+          "invoked": false,
+          "command_or_tool_ref": "",
+          "started_at": "",
+          "completed_at": ""
+        },
+        "recovery": {
+          "recovered": false,
+          "artifact_refs": [],
+          "error": ""
+        },
+        "verification": {
+          "status": "pattern_documented",
+          "evidence_refs": ["think-tank/docs/provider-integration-patterns.md"],
+          "limitations": ["No runtime provider output."]
+        }
+      }
+    ]
+  },
+  "evidence_refs": ["think-tank/protocol/run-record.md", "think-tank/protocol/research-os.md"],
+  "conclusions": ["Research OS should persist run records only in user-local workspaces unless exported intentionally."],
+  "disagreements": ["Provider-assisted research can be useful, but selected providers cannot be treated as invoked providers."],
+  "risks": ["Publishing raw local run records can leak private source paths or user research context."],
+  "next_actions": ["Use the run record template for future research fixtures."],
+  "post_run_curation": {
+    "required": true,
+    "should_persist": false,
+    "source_candidates": [],
+    "trend_candidates": [],
+    "action_candidates": [],
+    "generated_artifacts": [
+      {
+        "title": "Research OS run record fixture",
+        "artifact_type": "run_record",
+        "path": "think-tank/examples/formats/research-os-run-record.json",
+        "source_refs": ["think-tank/protocol/run-record.md"],
+        "verification_refs": ["checks/v2_0_release_check.py"],
+        "known_gaps": ["Fixture only; not produced by a live provider run."],
+        "rights_boundary": "public_safe",
+        "verification_status": "verified_partial"
+      }
+    ],
+    "artifact_plan": {
+      "should_write": false,
+      "artifact_type": "run_record",
+      "suggested_destination": ".think-tank/runs/",
+      "title": "User-local run record",
+      "source_refs": ["think-tank/protocol/run-record.md"],
+      "requires_confirmation": true,
+      "privacy_boundary": "local_only",
+      "verification_status": "partial"
+    },
+    "persistence_decision": {
+      "wrote_files": false,
+      "write_requested_by_user": false,
+      "write_permission_obtained": false,
+      "destinations": [],
+      "skipped_destinations": [".think-tank/runs/"],
+      "reason": "Public fixture documents shape only."
+    },
+    "boundaries": ["The public fixture does not write to a user-local Research OS workspace."]
+  },
+  "memory_runtime": {
+    "enabled": true,
+    "memory_candidates": [
+      {
+        "id": "mem_research_os_boundary",
+        "layer": "procedural",
+        "type": "workflow",
+        "title": "Research OS writes are local by default",
+        "summary": "Public think-tank core defines the Research OS contract; project data belongs in the user's local .think-tank workspace.",
+        "source_refs": ["think-tank/protocol/research-os.md"],
+        "privacy": "public",
+        "staleness_risk": "low",
+        "expires_when": "Protocol changes or workspace layout changes.",
+        "confidence": "high",
+        "target": "think-tank_public_protocol",
+        "action": "keep_documented"
+      }
+    ],
+    "promotion_decisions": [
+      {
+        "candidate_id": "mem_research_os_boundary",
+        "from": "run_record",
+        "to": "think-tank_public_protocol",
+        "decision": "promote",
+        "reason": "The boundary is platform-neutral and public-safe.",
+        "privacy_review": {"no_secret": true, "public_safe": true},
+        "staleness_review": {"has_expiry_rule": true, "review_after": ""},
+        "quality_check": {"target_allowed": true, "user_confirmed_if_write": true, "no_private_core_leak": true}
+      }
+    ],
+    "conflicts": [],
+    "written": [],
+    "skipped": [{"id": "mem_research_os_boundary", "reason": "Already represented by public protocol docs."}],
+    "boundaries": ["Memory candidate is illustrative and does not write to private memory."]
+  },
+  "quality_check": {
+    "has_runtime_provenance": true,
+    "has_provider_invocation_ledger": true,
+    "selected_vs_invoked_clear": true,
+    "evidence_refs_present": true,
+    "memory_boundary_clear": true,
+    "post_run_curation_present": true,
+    "private_data_not_published": true
+  }
+}

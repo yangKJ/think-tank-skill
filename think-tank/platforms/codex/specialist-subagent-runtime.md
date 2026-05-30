@@ -63,6 +63,6 @@ long_running_subagent_lifecycle: verified_partial
 
 证据：
 
-- `examples/codex-true-council-runtime.md`
+- `examples/platforms/codex/codex-true-council-runtime.md`
 - `docs/codex-true-multi-agent-validation.md`
-- `examples/codex-subagent-lifecycle-validation.md`
+- `examples/platforms/codex/codex-subagent-lifecycle-validation.md`

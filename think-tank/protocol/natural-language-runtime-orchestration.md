@@ -43,9 +43,12 @@ unsupported_by_minimal_runtime:
 
 ## Provider Boundary
 
-The route may select a peer provider such as `web-access`, `xiaohongshu`, or
-`summarize`. The minimal orchestrator must not pretend to invoke that provider
-unless a real provider wrapper is executed.
+The route may select a peer provider such as a browser automation provider, a
+social-listening provider, or a content-summarization provider. The minimal
+orchestrator must not pretend to invoke that provider unless a real provider
+wrapper is executed.
+
+注：上述 provider 描述为示例性说明，非协议规范。实际 provider 选择由本地 policy 配置决定。
 
 ```yaml
 policy_selected_provider: may_be_external_peer_skill

@@ -84,7 +84,7 @@ collect -> discuss -> conclude -> complete
 2. 将 collect/discuss/conclude/complete 写入 Claude Code runtime contract。
 3. 将 L1/L2/L3 机制抽象到 council mode 与质量门禁。
 4. 将动态 Agent 选择规则合并到 `protocol/roles.md`。
-5. 将讨论文档格式转成 `examples/council-request.md` 或新的 council 输出模板。
+5. 将讨论文档格式转成 `examples/usage/council-request.md` 或新的 council 输出模板。
 6. 将状态机脚本暂列为 Claude Code 适配候选实现，不直接进入主协议。
 
 ## v0.4 状态

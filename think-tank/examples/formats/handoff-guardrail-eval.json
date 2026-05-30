@@ -1,0 +1,39 @@
+{
+  "handoff": {
+    "from": "source-collector",
+    "to": "skeptic",
+    "type": "profile_handoff",
+    "purpose": "Review source reliability before report synthesis.",
+    "input_filter": {
+      "include": ["source summaries", "claim map", "known gaps"],
+      "exclude": ["raw credentials", "irrelevant tool logs"],
+      "redactions": ["private account identifiers"]
+    },
+    "evidence_refs": ["think-tank/protocol/handoff-protocol.md"],
+    "expected_output": "Reliability concerns and claims that need stronger evidence.",
+    "guardrails": ["evidence_gate", "privacy_gate"],
+    "completion_condition": "Skeptic marks unsupported claims or accepts evidence boundary.",
+    "runtime_provenance": {
+      "true_multi_agent_runtime": false,
+      "execution_method": "single_agent_multi_profile"
+    }
+  },
+  "guardrail_result": {
+    "gate": "privacy_gate",
+    "status": "pass",
+    "reason": "The handoff excludes secrets and private account identifiers.",
+    "evidence_refs": ["think-tank/protocol/guardrails.md"],
+    "required_action": "Continue with redacted context.",
+    "fallback": "Manual synthesis with privacy warning."
+  },
+  "eval_result": {
+    "eval_id": "eval_handoff_guardrail_v2",
+    "case_type": "handoff_guardrail",
+    "fixture": "think-tank/examples/formats/handoff-guardrail-eval.json",
+    "expected_contracts": ["handoff", "guardrail_result", "runtime truthfulness"],
+    "actual_contracts": ["handoff", "guardrail_result", "runtime truthfulness"],
+    "passed": true,
+    "failures": [],
+    "residual_risk": ["Fixture does not prove platform subagent execution."]
+  }
+}

@@ -13,7 +13,6 @@ think-tank
 ├── profiles/       # 跨平台角色模板
 ├── capabilities/   # 外部能力槽
 ├── platforms/      # 平台适配
-├── domain-packs/   # 可选领域包
 ├── schemas/        # 机器可读输入输出契约
 ├── examples/       # 示例
 └── docs/           # 架构、迁移、使用说明
@@ -113,7 +112,7 @@ think-tank 不复制工具型 skill。它通过 capability 说明“需要什么
 
 ### domain-packs
 
-`domain-packs/` 存放可选领域知识。
+`domain-packs/` 已迁至 `.think-tank/domain-packs/`（本地配置，不随公开 Skill 发布）。
 
 领域包可以提供：
 

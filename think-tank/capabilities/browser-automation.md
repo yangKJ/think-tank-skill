@@ -31,10 +31,12 @@ actions_taken: []
 limitations: []
 ```
 
-## 候选 skills
+## 示例实现
 
-- `web-access`
-- `playwright-cli`
+以下为示例，非协议规范。实际 provider 选择由本地 policy 配置决定。
+
+- 通用浏览器自动化 provider
+- 可编程浏览器测试 provider
 
 ## 降级策略
 

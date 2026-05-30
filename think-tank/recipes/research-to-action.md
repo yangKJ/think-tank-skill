@@ -27,8 +27,7 @@ profiles:
 capabilities:
   - source-acquisition
   - knowledge-persistence
-optional_peer_skills:
-  - summarize
+# Provider selection is configured in .think-tank/provider-policy.yaml
 fallback_inputs:
   - local_files
   - user_provided_materials

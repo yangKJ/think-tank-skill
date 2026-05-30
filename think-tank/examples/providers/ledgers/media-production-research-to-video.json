@@ -1,0 +1,11 @@
+{
+  "capability_slot": "media-production",
+  "provider_name": "ai-research-to-video-production",
+  "state": "selected",
+  "preflight": {"checked": true, "result": "available_if_user_installs_provider", "blockers": ["asset rights not reviewed"]},
+  "dispatch": {"decision": "do_not_invoke", "reason": "Public sample only", "permission_gate": "production_scope_required"},
+  "invocation": {"invoked": false, "command_or_tool_ref": ""},
+  "recovery": {"recovered": false, "artifact_refs": []},
+  "verification": {"status": "pattern_documented", "evidence_refs": ["think-tank/docs/provider-test-matrix.md"]},
+  "failure_boundary": "Return storyboard and acceptance criteria only."
+}

@@ -8,4 +8,4 @@ Key files:
 
 - `../../protocol/research-os.md`
 - `../../../starter-kits/research-workspace/README.md`
-- `../../examples/v2/research-workspace-contract.json`
+- `../../examples/formats/research-workspace-contract.json`

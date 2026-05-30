@@ -15,3 +15,4 @@ CLAUDE.md
 checks/*
 !checks/
 !checks/*.py
+garden-gpt-image-2/

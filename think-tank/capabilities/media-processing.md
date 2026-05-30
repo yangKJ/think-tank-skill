@@ -30,12 +30,14 @@ timestamps: []
 limitations: []
 ```
 
-## 候选 skills
+## 示例实现
 
-- `yt-dlp`
-- `openai-whisper`
-- `xiaoyuzhou-transcribe`
-- `summarize`
+以下为示例，非协议规范。实际 provider 选择由本地 policy 配置决定。
+
+- 媒体下载 provider
+- 语音转录 provider
+- 播客平台转录 provider
+- 内容摘要 provider
 
 ## 降级策略
 

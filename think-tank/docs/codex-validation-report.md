@@ -46,17 +46,17 @@ codex:
 
 | mode | 文件 | 状态 |
 |------|------|------|
-| research | `examples/codex-smoke-research.md` | verified |
-| council | `examples/codex-council-validation.md` | verified |
-| review | `examples/codex-review-validation.md` | verified |
-| strategy | `examples/codex-strategy-validation.md` | verified |
-| minimal install | `examples/codex-minimal-install-validation.md` | verified |
-| operational usage | `examples/codex-operational-validation.md` | verified |
-| local source + artifact | `examples/codex-local-source-validation.md` | verified |
-| external source readonly | `examples/codex-external-source-validation.md` | verified |
-| browser external readonly | `examples/codex-browser-external-readonly.md` | verified_partial |
-| long-running adapter runtime | `examples/codex-long-running-adapter-runtime.md` | verified_partial |
-| subagent write lifecycle | `examples/codex-subagent-lifecycle-validation.md` | verified_partial |
+| research | `think-tank/examples/platforms/codex/codex-smoke-research.md` | verified |
+| council | `think-tank/examples/platforms/codex/codex-council-validation.md` | verified |
+| review | `examples/platforms/codex/codex-review-validation.md` | verified |
+| strategy | `examples/platforms/codex/codex-strategy-validation.md` | verified |
+| minimal install | `think-tank/examples/platforms/codex/codex-minimal-install-validation.md` | verified |
+| operational usage | `think-tank/examples/platforms/codex/codex-operational-validation.md` | verified |
+| local source + artifact | `think-tank/examples/platforms/codex/codex-local-source-validation.md` | verified |
+| external source readonly | `examples/platforms/codex/codex-external-source-validation.md` | verified |
+| browser external readonly | `think-tank/examples/platforms/codex/codex-browser-external-readonly.md` | verified_partial |
+| long-running adapter runtime | `think-tank/examples/platforms/codex/codex-long-running-adapter-runtime.md` | verified_partial |
+| subagent write lifecycle | `examples/platforms/codex/codex-subagent-lifecycle-validation.md` | verified_partial |
 
 ## Research Mode
 

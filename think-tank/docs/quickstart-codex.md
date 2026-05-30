@@ -15,11 +15,11 @@ Do not copy private runtime state, generated outputs, provider login state, or l
 ## 2. Start With Public Examples
 
 ```text
-think-tank/examples/public/research-request.md
-think-tank/examples/public/council-decision.md
-think-tank/examples/public/review-acceptance.md
-think-tank/examples/public/research-to-action.md
-think-tank/examples/public/strategy-backlog.md
+think-tank/examples/usage/research-request.md  
+think-tank/examples/usage/council-decision.md
+think-tank/examples/usage/review-acceptance.md  
+think-tank/examples/usage/research-to-action.md  
+think-tank/examples/usage/strategy-backlog.md  
 ```
 
 If your goal is to improve the host agent rather than just collect evidence,

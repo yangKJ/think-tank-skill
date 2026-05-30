@@ -18,20 +18,20 @@ claude_code_runtime: deferred
 
 | runtime | status | evidence | boundary |
 |---------|--------|----------|----------|
-| single_agent_multi_profile | verified | `examples/codex-council-validation.md` | 单 agent 模拟多 profile |
-| codex_parallel_subagents | verified_partial | `examples/codex-true-council-runtime.md` | 只读 repo 分析和 role_result 回收 |
-| codex_parallel_subagent_write_lifecycle | verified_partial | `examples/codex-subagent-lifecycle-validation.md` | scoped 写入 + peer review 续跑 |
+| single_agent_multi_profile | verified | `examples/platforms/codex/codex-council-validation.md` | 单 agent 模拟多 profile |
+| codex_parallel_subagents | verified_partial | `examples/platforms/codex/codex-true-council-runtime.md` | 只读 repo 分析和 role_result 回收 |
+| codex_parallel_subagent_write_lifecycle | verified_partial | `examples/platforms/codex/codex-subagent-lifecycle-validation.md` | scoped 写入 + peer review 续跑 |
 | claude_code_team_runtime | deferred | `platforms/claude-code/` | 当前阶段不验证 |
 
 ## Provider Invocation
 
 | provider | capability | status | evidence | boundary |
 |----------|------------|--------|----------|----------|
-| local_static_reader | source-acquisition | verified | `examples/codex-provider-invocation-matrix.json` | 本地静态文件 |
+| local_static_reader | source-acquisition | verified | `examples/platforms/codex/codex-provider-invocation-matrix.json` | 本地静态文件 |
 | agent-reach | source-acquisition | available_not_verified | `provider-policy.example.yaml` | 统一入口分派，不直接执行抓取 |
-| public_http_static_reader | source-acquisition | verified_partial | `examples/codex-provider-invocation-matrix.json` | HTTP 成功，HTTPS 本地证书失败 |
-| playwright-cli | browser-automation | verified_partial | `examples/codex-provider-invocation-matrix.json` + `examples/codex-browser-external-readonly.md` | 外部静态页面只读 DOM 回收；不含登录态和交互 |
-| research-to-video-production | media-production | verified_partial | `examples/codex-provider-invocation-matrix.json` + `examples/codex-long-running-adapter-runtime.md` | 长生命周期本地 adapter run；不含 true multi-agent |
+| public_http_static_reader | source-acquisition | verified_partial | `examples/platforms/codex/codex-provider-invocation-matrix.json` | HTTP 成功，HTTPS 本地证书失败 |
+| playwright-cli | browser-automation | verified_partial | `examples/platforms/codex/codex-provider-invocation-matrix.json` + `examples/platforms/codex/codex-browser-external-readonly.md` | 外部静态页面只读 DOM 回收；不含登录态和交互 |
+| ai-research-to-video-production | media-production | verified_partial | `examples/platforms/codex/codex-provider-invocation-matrix.json` + `examples/platforms/codex/codex-long-running-adapter-runtime.md` | 长生命周期本地 adapter run；不含 true multi-agent |
 | web-access | source-acquisition | available_not_verified | `provider-policy.example.yaml` | policy selection only |
 | taskflow | knowledge-persistence | available_not_verified | `provider-policy.example.yaml` | policy selection only |
 | xiaohongshu | social-listening | available_not_verified | `provider-registry.md` | 未真实调用 |

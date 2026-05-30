@@ -1,0 +1,126 @@
+{
+  "runtime": "codex-natural-language-orchestrator",
+  "request": "AI快报：把今天的AI资讯做成视频",
+  "mode": "research",
+  "runtime_provenance": {
+    "think_tank_runtime_used": true,
+    "provider_policy_checked": true,
+    "dispatch_decision_emitted": true,
+    "provider_invoked": true,
+    "result_recovered": true,
+    "true_multi_agent_runtime": false,
+    "execution_method": "adapter_runtime",
+    "authority_level": "adapter_runtime",
+    "data_collection": "provider_managed",
+    "evidence_state": "verified_partial",
+    "result_recovery": "automatic",
+    "boundaries": [
+      "Codex natural-language orchestrator is a minimal adapter runtime.",
+      "It does not claim true independent multi-agent execution.",
+      "Policy provider selection is distinct from the minimal runtime provider actually invoked.",
+      "Provider dispatch is determined by local policy configuration, not hardcoded in think-tank core.",
+      "Downstream provider handoff is the responsibility of local .think-tank/ configuration."
+    ]
+  },
+  "policy_route": {
+    "route_id": "local-ai-tech-news-video-production",
+    "matched": true,
+    "selected_intent": "research_to_video",
+    "selected_recipe": "research-to-video",
+    "selected_mode": "research",
+    "selected_capabilities": ["source-acquisition", "media-production", "knowledge-persistence"],
+    "skill_route": {
+      "selected_provider": "ai-research-to-video-production",
+      "candidate_providers": ["ai-research-to-video-production", "web-access", "36kr-hotlist"],
+      "selection_reason": "Policy prefer match: ai-research-to-video-production"
+    }
+  },
+  "provider_preflight": {
+    "provider": "ai-research-to-video-production",
+    "status": "ready",
+    "can_invoke": true,
+    "missing": [],
+    "present": ["ai-research-to-video-production"],
+    "manual_checks": [],
+    "fallbacks": ["production_plan_ready"],
+    "boundaries": ["Preflight passed. Actual invocation depends on local dispatch configuration."]
+  },
+  "dispatch_record": {
+    "dispatch_decision_emitted": true,
+    "policy_selected_provider": "ai-research-to-video-production",
+    "runtime_selected_provider": "local_static_reader",
+    "status": "dispatched",
+    "boundary": "Provider dispatch is determined by local .think-tank/ policy configuration."
+  },
+  "dispatch_log": {
+    "started_at": "2026-05-30T00:00:00+00:00",
+    "dispatch_request": {
+      "intent": "research_to_video",
+      "recipe": "research-to-video",
+      "mode": "research",
+      "capability": "source-acquisition",
+      "task": "AI快报：把今天的AI资讯做成视频",
+      "target": null,
+      "constraints": ["readonly", "no_login", "no_download", "no_private_write"]
+    },
+    "dispatch_decision": {
+      "intent": "research_to_video",
+      "recipe": "research-to-video",
+      "mode": "research",
+      "capability": "source-acquisition",
+      "selected_peer_skill": "local_static_reader",
+      "policy_selected_peer_skill": "ai-research-to-video-production",
+      "invocation_method": "local_static_reader",
+      "fallback": "production_plan_ready",
+      "risk_level": "low",
+      "dispatch_allowed": true
+    },
+    "invocation": {
+      "provider_invoked": true,
+      "provider": "local_static_reader",
+      "status": "success"
+    },
+    "recovery": {
+      "sources_recovered": true,
+      "result_recovered": true
+    },
+    "boundaries": [
+      "Provider dispatch is determined by local .think-tank/ policy configuration.",
+      "think-tank core does not hardcode downstream skill names, paths, or internals.",
+      "For provider-specific handoff, configure a post-dispatch hook in local policy."
+    ]
+  },
+  "source_result": {
+    "runtime": "codex-minimal",
+    "sources": [
+      {
+        "title": "Example source from static reader",
+        "url": "think-tank/examples/browser-automation-fixture.html"
+      }
+    ],
+    "evidence": ["local_static_reader returned readable static content."],
+    "boundaries": ["Source acquisition succeeded with minimal runtime adapter."]
+  },
+  "final_output": {
+    "request": "AI快报：把今天的AI资讯做成视频",
+    "conclusion": "Request routed to research-to-video and completed minimal source recovery.",
+    "evidence": ["local_static_reader returned readable static content."],
+    "recommendations": [
+      "Use recovered sources as input for role analysis.",
+      "Do not mark external peer providers verified until they are invoked and recovered."
+    ]
+  },
+  "quality_check": {
+    "protocol_complete": true,
+    "runtime_provenance_present": true,
+    "provider_invocation_truthful": true,
+    "evidence_boundary_clear": true,
+    "actionable": true
+  },
+  "boundaries": [
+    "This run demonstrates generic orchestrator dispatch, not provider-specific handoff.",
+    "Provider-specific handoff (e.g. video production pipeline) is configured in .think-tank/ local policy.",
+    "think-tank core orchestrator only handles routing, preflight, dispatch decision, and source acquisition.",
+    "Source acquisition for the example target succeeded, but downstream media production requires local configuration."
+  ]
+}

@@ -42,14 +42,16 @@ sources:
 gaps: []
 ```
 
-## 候选 skills
+## 示例实现
 
-- `web-access`
-- `google-ai-mode-skill`
-- `juejin-search`
-- `36kr-hotlist`
-- `pdf-extraction`
-- `mcp-cli`
+以下为示例，非协议规范。实际 provider 选择由本地 policy 配置决定。
+
+- 通用网页搜索与抓取 provider
+- AI 增强搜索 provider
+- 技术社区搜索 provider
+- 行业热榜 provider
+- PDF 提取 provider
+- 命令行资料获取 provider
 
 ## 降级策略
 

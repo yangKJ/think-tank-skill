@@ -23,7 +23,7 @@ judgement: sufficient_for_think_tank_v0_2
 - `profiles`
 - `capabilities`
 - `platforms/claude-code`
-- `domain-packs` 扩展点
+- `domain-packs` 扩展点（已迁至 `.think-tank/domain-packs/`）
 - `runtime/safety.py`
 - `templates/`
 

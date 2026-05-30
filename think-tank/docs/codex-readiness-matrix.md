@@ -40,23 +40,23 @@ Codex 当前已经足够作为 think-tank 的主工作平台继续使用。
 | protocol structure | verified | `checks/protocol_check.py` |
 | Codex validation package | verified | `checks/codex_validation_check.py` |
 | schema samples | verified | `checks/schema_sample_check.py` |
-| research mode | verified | `examples/codex-smoke-research.md` |
-| council mode | verified | `examples/codex-council-validation.md` |
-| review mode | verified | `examples/codex-review-validation.md` |
-| strategy mode | verified | `examples/codex-strategy-validation.md` |
-| minimal install | verified | `examples/codex-minimal-install-validation.md` |
-| daily operational usage | verified | `examples/codex-operational-validation.md` |
-| local source acquisition | verified | `examples/codex-local-source-validation.md` |
-| Markdown artifact persistence | verified | `examples/codex-local-source-artifact.md` |
-| external readonly source acquisition | verified | `examples/codex-external-source-validation.md` |
-| browser localhost fixture | verified_optional | `examples/browser-automation-integration.md` |
-| browser external readonly | verified_partial | `examples/codex-browser-external-readonly.md` |
-| Codex true council subagents | verified_partial | `examples/codex-true-council-runtime.md` |
-| Codex subagent write lifecycle | verified_partial | `examples/codex-subagent-lifecycle-validation.md` |
-| Codex provider invocation matrix | established | `examples/codex-provider-invocation-matrix.json` |
-| media-processing unavailable | verified_degradation | `examples/capability-degradation-media.md` |
-| social-listening unavailable | verified_degradation | `examples/capability-degradation-social.md` |
-| knowledge-persistence local fallback | verified | `examples/capability-degradation-knowledge.md` |
+| research mode | verified | `think-tank/examples/platforms/codex/codex-smoke-research.md` |
+| council mode | verified | `think-tank/examples/platforms/codex/codex-council-validation.md` |
+| review mode | verified | `examples/platforms/codex/codex-review-validation.md` |
+| strategy mode | verified | `examples/platforms/codex/codex-strategy-validation.md` |
+| minimal install | verified | `think-tank/examples/platforms/codex/codex-minimal-install-validation.md` |
+| daily operational usage | verified | `think-tank/examples/platforms/codex/codex-operational-validation.md` |
+| local source acquisition | verified | `think-tank/examples/platforms/codex/codex-local-source-validation.md` |
+| Markdown artifact persistence | verified | `examples/platforms/codex/codex-local-source-artifact.md` |
+| external readonly source acquisition | verified | `examples/platforms/codex/codex-external-source-validation.md` |
+| browser localhost fixture | verified_optional | `think-tank/examples/providers/browser-automation-integration.md` |
+| browser external readonly | verified_partial | `think-tank/examples/platforms/codex/codex-browser-external-readonly.md` |
+| Codex true council subagents | verified_partial | `examples/platforms/codex/codex-true-council-runtime.md` |
+| Codex subagent write lifecycle | verified_partial | `examples/platforms/codex/codex-subagent-lifecycle-validation.md` |
+| Codex provider invocation matrix | established | `think-tank/examples/platforms/codex/codex-provider-invocation-matrix.json` |
+| media-processing unavailable | verified_degradation | `examples/quality/capability-degradation-media.md` |
+| social-listening unavailable | verified_degradation | `examples/quality/capability-degradation-social.md` |
+| knowledge-persistence local fallback | verified | `examples/quality/capability-degradation-knowledge.md` |
 | Claude Code runtime | implemented_as_repeatable_contract | `platforms/claude-code/minimal-runtime.md` |
 | Codex minimal runtime mirror | verified | `checks/minimal_runtime_execution_check.py` |
 

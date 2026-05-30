@@ -27,11 +27,7 @@ profiles:
 capabilities:
   - source-acquisition
   - knowledge-persistence
-optional_peer_skills:
-  - taskflow
-  - web-access
-  - 36kr-hotlist
-  - obsidian
+# Provider selection is configured in .think-tank/provider-policy.yaml
 ```
 
 ## Runtime Provenance

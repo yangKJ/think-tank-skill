@@ -34,7 +34,7 @@
 - 增加 Skill Experience Layer：`skill-trigger-intelligence`、`skill-invocation-contract`、`progressive-disclosure`、agent compatibility matrix、skill composition guide、skill quality score、v3 examples、self-tests 和 `checks/skill_experience_check.py`。
 - 增加 3.0 规划和发布说明：`think-tank/docs/v3.0-roadmap.md` 和 `think-tank/docs/v3.0-release-notes.md`。
 - 增加 `self-tests/`，用于检查 trigger、anti-trigger、provider boundary、composition 和 memory write 边界。
-- 增加 `think-tank/examples/v3/`，提供 skill route decision、invocation contract、progressive disclosure plan、self-test result 和 quality score 样例。
+- 增加 `think-tank/examples/formats/`，提供 skill route decision、invocation contract、progressive disclosure plan、self-test result 和 quality score 样例。
 
 ### Changed
 
@@ -63,7 +63,7 @@
 - 增加 v2.2 Runtime Provenance Gate，强制 think-tank 风格输出声明 runtime、provider 调用、数据来源、结果回收和真实多 agent 状态。
 - 增加 v2.3 Eval Pack Starter：`evals/`。
 - 增加 v2.3 Codex natural-language orchestrator，把用户请求串联到 policy route、minimal dispatch、source recovery、final output 和 run record。
-- 增加 v2.4 Provider Test Matrix：`think-tank/docs/provider-test-matrix.md` 和 `think-tank/examples/provider-ledgers/`。
+- 增加 v2.4 Provider Test Matrix：`think-tank/docs/provider-test-matrix.md` 和 `think-tank/examples/providers/ledgers/`。
 - 增加 v2.5 Docs Site Ready：`think-tank/docs/index.md`、concepts、guides、reference 和 release sections。
 - 增加 `think-tank/docs/v2.0-roadmap.md`、`think-tank/docs/v2.0-release-notes.md` 和 `think-tank/docs/v2.1-v2.5-release-notes.md`。
 
@@ -83,7 +83,7 @@
 
 - 增加 provider integration patterns、workflow pattern examples、Codex installation guide 和对应 release checks。
 - 增加 `think-tank/docs/provider-integration-patterns.md`、`think-tank/docs/codex-installation.md`、`think-tank/docs/v1.1-roadmap.md` 和 `think-tank/docs/v1.1-release-notes.md`。
-- 增加 `think-tank/examples/provider-patterns/` 和 `think-tank/examples/workflow-patterns/`。
+- 增加 `think-tank/examples/providers/patterns/` 和 `think-tank/examples/workflows/`。
 - 增加 README 视觉资产治理规则和 Image2 prompt 目录说明。
 
 ### Verified
@@ -148,7 +148,7 @@
 - 增加 `templates/council-state.md` 和 v0.4 检查脚本：`agent_council_full_migration_check.py`、`council_runtime_check.py`。
 - 增加 v0.5 专业 subagent runtime 契约、runtime helper、role-result schema、profile prompt pack 和平台适配说明。
 - 增加 `runtime/subagent.py`，支持生成专业 profile task、profile prompt、role result 聚合和 fallback 标签。
-- 增加 `schemas/role-result.schema.json`、`examples/specialist-runtime-fixture.json` 和 v0.5 检查脚本。
+- 增加 `schemas/role-result.schema.json`、`examples/runtime/specialist-runtime-fixture.json` 和 v0.5 检查脚本。
 - 增加 Codex 本机安装验证文档和 `codex_installed_skill_check.py`。
 - 将旧 research agent 工具型 skills 作为 Codex 同级 skills 安装，并增加安装清单和 `codex_external_skills_check.py`。
 - 验证 Codex true multi-agent council 只读路径，状态为 `verified_partial`。

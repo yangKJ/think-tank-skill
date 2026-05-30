@@ -28,13 +28,7 @@ profiles:
 capabilities:
   - source-acquisition
   - knowledge-persistence
-optional_peer_skills:
-  - web-access
-  - summarize
-  - google-ai-mode-skill
-  - juejin-search
-  - pdf-extraction
-  - knowledge-graph-builder
+# Provider selection is configured in .think-tank/provider-policy.yaml
 ```
 
 ## Runtime Provenance

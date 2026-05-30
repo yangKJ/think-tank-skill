@@ -20,9 +20,9 @@ think-tank/
 ## 3. Try Public Examples
 
 ```text
-think-tank/examples/public/research-request.md
-think-tank/examples/public/council-decision.md
-think-tank/examples/public/review-acceptance.md
+think-tank/examples/usage/research-request.md  
+think-tank/examples/usage/council-decision.md
+think-tank/examples/usage/review-acceptance.md  
 ```
 
 ## 4. Learn The User Path

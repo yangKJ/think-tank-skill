@@ -26,7 +26,7 @@ SHARED_LINKS = [
     "think-tank/docs/agent-compatibility-matrix.md",
     "think-tank/docs/skill-composition-guide.md",
     "think-tank/docs/skill-quality-score.md",
-    "think-tank/examples/v3/",
+    "think-tank/examples/formats/",
     "self-tests/",
     "starter-kits/research-workspace/",
     "evals/",

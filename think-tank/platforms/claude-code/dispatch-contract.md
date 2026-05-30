@@ -199,7 +199,7 @@ required_output:
 ```yaml
 dispatch_contract_validation:
   status: verified_partial_pre_invocation_decision
-  evidence: think-tank/examples/claude-code-dispatch-pre-invocation-validation.md
+  evidence: think-tank/examples/platforms/claude-code/claude-code-dispatch-pre-invocation-validation.md
   passed:
     - dispatch_request_present
     - dispatch_decision_present_before_invocation

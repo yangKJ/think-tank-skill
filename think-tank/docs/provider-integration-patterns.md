@@ -68,8 +68,8 @@ Write instead:
 
 ## Example Index
 
-- [`examples/provider-patterns/source-acquisition-web-access.md`](../examples/provider-patterns/source-acquisition-web-access.md)
-- [`examples/provider-patterns/social-listening-xiaohongshu.md`](../examples/provider-patterns/social-listening-xiaohongshu.md)
-- [`examples/provider-patterns/media-processing-yt-dlp-whisper.md`](../examples/provider-patterns/media-processing-yt-dlp-whisper.md)
-- [`examples/provider-patterns/knowledge-persistence-obsidian.md`](../examples/provider-patterns/knowledge-persistence-obsidian.md)
-- [`examples/provider-patterns/media-production-research-to-video.md`](../examples/provider-patterns/media-production-research-to-video.md)
+- [`think-tank/examples/providers/patterns/source-acquisition-web-access.md`](../../think-tank/examples/providers/patterns/source-acquisition-web-access.md)
+- [`think-tank/examples/providers/patterns/social-listening-xiaohongshu.md`](../../think-tank/examples/providers/patterns/social-listening-xiaohongshu.md)
+- [`think-tank/examples/providers/patterns/media-processing-yt-dlp-whisper.md`](../../think-tank/examples/providers/patterns/media-processing-yt-dlp-whisper.md)
+- [`think-tank/examples/providers/patterns/knowledge-persistence-obsidian.md`](../../think-tank/examples/providers/patterns/knowledge-persistence-obsidian.md)
+- [`think-tank/examples/providers/patterns/media-production-research-to-video.md`](../../think-tank/examples/providers/patterns/media-production-research-to-video.md)

@@ -15,224 +15,45 @@ from path_context import PROJECT_SKILLS, SKILL_DIRS, display_path
 
 
 
-KNOWN_PROVIDER_RULES: dict[str, dict[str, Any]] = {
-    "36kr-hotlist": {
-        "capabilities": ["source-acquisition"],
-        "access_level": "network",
-        "requires_permission": False,
-        "recovery_targets": ["sources", "evidence"],
-    },
-    "research-to-video-production": {
-        "capabilities": ["media-processing", "knowledge-persistence"],
-        "access_level": "write",
-        "requires_permission": True,
-        "recovery_targets": ["artifact", "role_result"],
-    },
-    "video-cover-production": {
-        "capabilities": ["media-processing", "knowledge-persistence"],
-        "access_level": "readonly",
-        "requires_permission": False,
-        "recovery_targets": ["artifact", "role_result", "boundary_only"],
-    },
-    "apple-reminders": {
-        "capabilities": ["knowledge-persistence"],
-        "access_level": "private",
-        "requires_permission": True,
-        "recovery_targets": ["artifact", "boundary_only"],
-    },
-    "google-ai-mode-skill": {
-        "capabilities": ["source-acquisition"],
-        "access_level": "network",
-        "requires_permission": False,
-        "recovery_targets": ["sources", "evidence"],
-    },
-    "gpt-image-2": {
-        "capabilities": ["media-processing", "knowledge-persistence"],
-        "access_level": "write",
-        "requires_permission": True,
-        "recovery_targets": ["artifact", "role_result", "boundary_only"],
-    },
-    "juejin-search": {
-        "capabilities": ["source-acquisition"],
-        "access_level": "network",
-        "requires_permission": False,
-        "recovery_targets": ["sources", "evidence"],
-    },
-    "jimeng-visual-prompt-pack": {
-        "capabilities": ["media-processing", "knowledge-persistence"],
-        "access_level": "readonly",
-        "requires_permission": False,
-        "recovery_targets": ["artifact", "role_result", "boundary_only"],
-    },
-    "kb-retriever": {
-        "capabilities": ["source-acquisition", "knowledge-persistence"],
-        "access_level": "readonly",
-        "requires_permission": False,
-        "recovery_targets": ["sources", "evidence", "role_result"],
-    },
-    "knowledge-graph-builder": {
-        "capabilities": ["knowledge-persistence"],
-        "access_level": "write",
-        "requires_permission": True,
-        "recovery_targets": ["artifact", "role_result"],
-    },
-    "mcp-cli": {
-        "capabilities": ["source-acquisition"],
-        "access_level": "privileged",
-        "requires_permission": True,
-        "recovery_targets": ["sources", "evidence", "boundary_only"],
-    },
-    "notebooklm": {
-        "capabilities": ["knowledge-persistence"],
-        "access_level": "private",
-        "requires_permission": True,
-        "recovery_targets": ["artifact", "boundary_only"],
-    },
-    "obsidian": {
-        "capabilities": ["knowledge-persistence"],
-        "access_level": "private",
-        "requires_permission": True,
-        "recovery_targets": ["artifact", "boundary_only"],
-    },
-    "omni-research": {
-        "capabilities": ["source-acquisition"],
-        "access_level": "network",
-        "requires_permission": False,
-        "recovery_targets": ["sources", "evidence", "role_result"],
-    },
-    "openai-whisper": {
-        "capabilities": ["media-processing"],
-        "access_level": "readonly",
-        "requires_permission": False,
-        "recovery_targets": ["artifact", "evidence"],
-    },
-    "ollama-local-inference": {
-        "capabilities": ["knowledge-persistence"],
-        "access_level": "private",
-        "requires_permission": False,
-        "recovery_targets": ["role_result", "evidence", "boundary_only"],
-    },
-    "pdf-extraction": {
-        "capabilities": ["source-acquisition"],
-        "access_level": "readonly",
-        "requires_permission": False,
-        "recovery_targets": ["sources", "evidence", "artifact"],
-    },
-    "playwright-cli": {
-        "capabilities": ["browser-automation", "source-acquisition"],
-        "access_level": "network",
-        "requires_permission": False,
-        "recovery_targets": ["sources", "evidence", "artifact"],
-    },
-    "research-workflow": {
-        "capabilities": ["source-acquisition"],
-        "access_level": "network",
-        "requires_permission": False,
-        "recovery_targets": ["sources", "evidence", "role_result"],
-    },
-    "revieworg-audit-provider": {
-        "capabilities": ["knowledge-persistence"],
-        "access_level": "write",
-        "requires_permission": True,
-        "recovery_targets": ["artifact", "evidence", "role_result", "boundary_only"],
-    },
-    "social-media-analyzer": {
-        "capabilities": ["social-listening"],
-        "access_level": "readonly",
-        "requires_permission": False,
-        "recovery_targets": ["evidence", "role_result"],
-    },
-    "product-intro-video": {
-        "capabilities": ["media-processing", "knowledge-persistence"],
-        "access_level": "write",
-        "requires_permission": True,
-        "recovery_targets": ["artifact", "role_result"],
-    },
-    "sketch-animation-video": {
-        "capabilities": ["media-processing", "knowledge-persistence"],
-        "access_level": "write",
-        "requires_permission": True,
-        "recovery_targets": ["artifact", "role_result"],
-    },
-    "sound-fx-for-video": {
-        "capabilities": ["media-processing"],
-        "access_level": "write",
-        "requires_permission": True,
-        "recovery_targets": ["artifact", "role_result"],
-    },
-    "stable-diffusion-image-generation": {
-        "capabilities": ["media-processing"],
-        "access_level": "write",
-        "requires_permission": True,
-        "recovery_targets": ["artifact", "boundary_only"],
-    },
-    "summarize": {
-        "capabilities": ["source-acquisition", "media-processing"],
-        "access_level": "readonly",
-        "requires_permission": False,
-        "recovery_targets": ["evidence", "role_result"],
-    },
-    "taskflow": {
-        "capabilities": ["knowledge-persistence"],
-        "access_level": "write",
-        "requires_permission": True,
-        "recovery_targets": ["artifact", "boundary_only"],
-    },
-    "vision-analysis": {
-        "capabilities": ["media-processing"],
-        "access_level": "readonly",
-        "requires_permission": False,
-        "recovery_targets": ["evidence", "role_result"],
-    },
-    "voxcpm-tts": {
-        "capabilities": ["media-processing", "knowledge-persistence"],
-        "access_level": "write",
-        "requires_permission": True,
-        "recovery_targets": ["artifact", "evidence", "role_result"],
-    },
-    "web-access": {
-        "capabilities": ["source-acquisition", "browser-automation"],
-        "access_level": "network",
-        "requires_permission": False,
-        "recovery_targets": ["sources", "evidence", "artifact"],
-    },
-    "web-design-engineer": {
-        "capabilities": ["media-processing", "knowledge-persistence"],
-        "access_level": "write",
-        "requires_permission": True,
-        "recovery_targets": ["artifact", "role_result"],
-    },
-    "agent-reach": {
-        "capabilities": ["source-acquisition"],
-        "access_level": "network",
-        "requires_permission": False,
-        "recovery_targets": ["sources", "evidence", "boundary_only"],
-    },
-    "web-video-presentation": {
-        "capabilities": ["media-processing", "knowledge-persistence"],
-        "access_level": "write",
-        "requires_permission": True,
-        "recovery_targets": ["artifact", "role_result"],
-    },
-    "xiaohongshu": {
-        "capabilities": ["social-listening"],
-        "access_level": "network",
-        "requires_permission": True,
-        "recovery_targets": ["sources", "evidence", "boundary_only"],
-    },
-    "xiaoyuzhou-transcribe": {
-        "capabilities": ["media-processing"],
-        "access_level": "network",
-        "requires_permission": True,
-        "recovery_targets": ["artifact", "evidence"],
-    },
-    "yt-dlp": {
-        "capabilities": ["media-processing"],
-        "access_level": "network",
-        "requires_permission": True,
-        "recovery_targets": ["artifact", "boundary_only"],
-    },
-}
+def parse_frontmatter_capabilities(skill_file: Path) -> list[str]:
+    """Extract capabilities from SKILL.md YAML frontmatter.
+
+    Reads the YAML frontmatter block (between ``---`` markers) and extracts the
+    ``capabilities`` list. Returns an empty list if the file has no frontmatter or
+    no capabilities field.
+
+    This keeps think-tank/ provider-agnostic: capability declarations live in each
+    skill's own SKILL.md, not in a hardcoded adapter registry.
+    """
+    text = skill_file.read_text(encoding="utf-8")
+    lines = text.splitlines()
+    if not lines or lines[0].strip() != "---":
+        return []
+
+    # Locate the closing --- marker.
+    end_idx: int | None = None
+    for i in range(1, len(lines)):
+        if lines[i].strip() == "---":
+            end_idx = i
+            break
+
+    if end_idx is None:
+        return []
+
+    # Walk the frontmatter block looking for a capabilities list.
+    capabilities: list[str] = []
+    in_capabilities = False
+    for line in lines[1:end_idx]:
+        stripped = line.strip()
+        if stripped.startswith("capabilities:"):
+            in_capabilities = True
+        elif in_capabilities and stripped.startswith("- "):
+            capabilities.append(stripped[2:].strip())
+        elif in_capabilities and not stripped.startswith("-"):
+            # We've left the capabilities list block.
+            in_capabilities = False
+
+    return capabilities
 
 
 def first_heading(skill_file: Path) -> str:
@@ -244,26 +65,37 @@ def first_heading(skill_file: Path) -> str:
 
 
 def provider_for_skill(skill_file: Path) -> dict[str, Any]:
+    """Build a provider record from a skill's SKILL.md.
+
+    Capabilities are read dynamically from the SKILL.md YAML frontmatter
+    (``capabilities:`` list). When no capabilities are declared the skill is
+    marked ``["unknown"]`` so it is still visible in the registry but never
+    matched by capability-aware routing.
+
+    Other fields use conservative defaults suitable for an unverified peer skill.
+    Concrete provider policy (permission gates, recovery targets, access level
+    overrides) belongs in ``.think-tank/provider-policy.yaml``, not here.
+    """
     skill_name = skill_file.parent.name
-    rule = KNOWN_PROVIDER_RULES.get(
-        skill_name,
-        {
-            "capabilities": [],
-            "access_level": "readonly",
-            "requires_permission": True,
-            "recovery_targets": ["boundary_only"],
-        },
-    )
+    capabilities = parse_frontmatter_capabilities(skill_file)
+
+    # Conservative defaults when SKILL.md does not declare capabilities.
+    # These are intentionally broad — .think-tank/provider-policy.yaml is the
+    # correct place to narrow access_level, requires_permission, and
+    # recovery_targets per skill.
+    if not capabilities:
+        capabilities = ["unknown"]
+
     return {
         "id": skill_name,
         "title": first_heading(skill_file),
         "source": display_path(skill_file),
         "platform": "codex",
         "provider_type": "local_peer_skill",
-        "capabilities": rule["capabilities"],
-        "access_level": rule["access_level"],
-        "requires_permission": rule["requires_permission"],
-        "recovery_targets": rule["recovery_targets"],
+        "capabilities": capabilities,
+        "access_level": "readonly",
+        "requires_permission": True,
+        "recovery_targets": ["boundary_only"],
         "status": "available",
         "verification": "unknown",
     }
@@ -275,6 +107,11 @@ def discover_providers(skills_dirs: list[Path] | tuple[Path, ...] | Path | None 
     Global skills are loaded first. Project-local skills with the same name then
     override them, so project policy can specialize a provider without duplicate
     entries or ambiguous selection.
+
+    Capability discovery is dynamic: each skill's capabilities are read from its
+    ``SKILL.md`` YAML frontmatter rather than a hardcoded registry. Skills that
+    do not declare capabilities are marked ``["unknown"]`` and are excluded from
+    capability-aware routing.
     """
 
     if skills_dirs is None:

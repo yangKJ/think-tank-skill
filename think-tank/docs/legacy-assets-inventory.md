@@ -88,7 +88,7 @@ legacy Claude Code agent-council skill
 - 讨论阶段：`protocol/think-tank-protocol.md`
 - 质量门禁和裁决：`protocol/quality-gates.md`
 - Claude Code 状态契约：`platforms/claude-code/`
-- 示例：`examples/council-request.md`
+- 示例：`examples/usage/council-request.md`
 
 不要直接迁移：
 

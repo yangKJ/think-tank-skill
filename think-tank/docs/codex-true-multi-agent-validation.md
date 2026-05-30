@@ -51,7 +51,7 @@ status: verified_partial
 
 ## Evidence
 
-- `examples/codex-true-council-runtime.md`
+- `examples/platforms/codex/codex-true-council-runtime.md`
 - `runtime/subagent.py`
 - `protocol/subagent-runtime-contract.md`
 - `platforms/codex/specialist-subagent-runtime.md`

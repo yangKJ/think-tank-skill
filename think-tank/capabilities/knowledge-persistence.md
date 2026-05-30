@@ -30,12 +30,14 @@ artifact_type: ""
 follow_up: []
 ```
 
-## 候选 skills
+## 示例实现
 
-- `obsidian`
-- `notebooklm`
-- `knowledge-graph-builder`
-- `taskflow`
+以下为示例，非协议规范。实际 provider 选择由本地 policy 配置决定。
+
+- 本地笔记系统 provider
+- AI 笔记本 provider
+- 知识图谱构建 provider
+- 任务流持久化 provider
 
 ## 降级策略
 

@@ -26,9 +26,7 @@ profiles:
   - product-strategist
 capabilities:
   - source-acquisition
-optional_peer_skills:
-  - summarize
-  - pdf-extraction
+# Provider selection is configured in .think-tank/provider-policy.yaml
 ```
 
 ## Runtime Provenance

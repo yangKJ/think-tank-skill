@@ -162,8 +162,8 @@ planned:
 Claude Code 平台首轮验证结束后，应新增：
 
 ```text
-think-tank/examples/claude-code-research-validation.md
-think-tank/examples/claude-code-council-validation.md
+think-tank/examples/platforms/claude-code/claude-code-research-validation.md
+think-tank/examples/platforms/claude-code/claude-code-council-validation.md
 think-tank/docs/claude-code-validation-report.md
 ```
 
@@ -225,7 +225,7 @@ dispatch_contract_validation: verified_partial_with_order_gap
 dispatch_pre_invocation_decision: verified_partial
 result_recovery_contract: partial_manual_mapping
 minimal_runtime_contract: implemented_as_repeatable_contract
-minimal_runtime_success_sample: think-tank/examples/claude-runtime-sample.json
-minimal_runtime_failure_sample: think-tank/examples/claude-runtime-failure-sample.json
+minimal_runtime_success_sample: think-tank/examples/runtime/claude-runtime-sample.json
+minimal_runtime_failure_sample: think-tank/examples/runtime/claude-runtime-failure-sample.json
 claude_code_validation_report: think-tank/docs/claude-code-validation-report.md
 ```

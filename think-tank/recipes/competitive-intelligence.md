@@ -30,13 +30,7 @@ capabilities:
   - source-acquisition
   - social-listening
   - knowledge-persistence
-optional_peer_skills:
-  - web-access
-  - summarize
-  - juejin-search
-  - xiaohongshu
-  - social-media-analyzer
-  - obsidian
+# Provider selection is configured in .think-tank/provider-policy.yaml
 fallback_inputs:
   - user_provided_materials
   - local_files
@@ -92,4 +86,4 @@ runtime_provenance:
 
 ## Legacy Note
 
-旧竞品分析编排职责已由 routing policy 取代。竞品方法论和报告结构应沉淀到本 recipe、templates 或 domain-packs，不再作为独立 provider。
+旧竞品分析编排职责已由 routing policy 取代。竞品方法论和报告结构应沉淀到本 recipe、templates 或 `.think-tank/domain-packs/`（domain-packs 已迁至本地配置目录），不再作为独立 provider。

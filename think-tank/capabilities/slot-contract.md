@@ -78,19 +78,20 @@ capability_resolution:
 ## Platform Examples
 
 ```yaml
+# 以下为示例，非协议规范。实际 provider 选择由本地 policy 配置决定。
 claude_code:
   source-acquisition:
     candidates:
-      - WebFetch
-      - web-access
-      - google-ai-mode-skill
+      - builtin web fetch (platform-native)
+      - browser automation provider
+      - AI-enhanced search provider
 
 codex:
   source-acquisition:
     candidates:
-      - local_static_reader
-      - web.run
-      - user_provided_material
+      - local static reader (platform-native)
+      - web run provider
+      - user-provided material
 ```
 
 ## Verification Status

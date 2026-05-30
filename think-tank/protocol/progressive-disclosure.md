@@ -105,8 +105,8 @@ protocol/provider-invocation-ledger.md
 Load examples only to clarify expected structure:
 
 ```text
-examples/public/
-examples/v3/
+examples/usage/
+examples/formats/
 self-tests/
 ```
 

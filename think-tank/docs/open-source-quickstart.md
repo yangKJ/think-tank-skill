@@ -42,7 +42,7 @@
 ```text
 README.md
   -> think-tank/README.md
-  -> think-tank/examples/public/
+  -> think-tank/examples/usage/
   -> think-tank/platforms/codex/operating-guide.md
   -> think-tank/docs/support-matrix.md
   -> think-tank/docs/validation-tiers.md
@@ -96,9 +96,9 @@ python3 checks/open_source_release_check.py
 可直接复制的模板：
 
 ```text
-think-tank/examples/public/research-request.md
-think-tank/examples/public/council-decision.md
-think-tank/examples/public/review-acceptance.md
+think-tank/examples/usage/research-request.md
+think-tank/examples/usage/council-decision.md
+think-tank/examples/usage/review-acceptance.md
 ```
 
 ## 升级路径

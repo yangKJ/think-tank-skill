@@ -28,11 +28,7 @@ profiles:
 capabilities:
   - social-listening
   - source-acquisition
-optional_peer_skills:
-  - xiaohongshu
-  - social-media-analyzer
-  - summarize
-  - web-access
+# Provider selection is configured in .think-tank/provider-policy.yaml
 fallback_inputs:
   - pasted_comments
   - exported_reviews

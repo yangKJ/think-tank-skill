@@ -47,11 +47,11 @@ test -f "$HOME/.codex/skills/think-tank/SKILL.md" && echo "think-tank installed"
 4. 先试用公开模板：
 
 ```text
-think-tank/examples/public/research-request.md
-think-tank/examples/public/council-decision.md
-think-tank/examples/public/review-acceptance.md
-think-tank/examples/public/research-to-action.md
-think-tank/examples/public/strategy-backlog.md
+think-tank/examples/usage/research-request.md
+think-tank/examples/usage/council-decision.md
+think-tank/examples/usage/review-acceptance.md
+think-tank/examples/usage/research-to-action.md
+think-tank/examples/usage/strategy-backlog.md
 ```
 
 5. 再阅读 [`think-tank/README.md`](think-tank/README.md) 和 [`think-tank/docs/open-source-quickstart.md`](think-tank/docs/open-source-quickstart.md)，理解协议面和运行边界。
@@ -150,7 +150,7 @@ Use think-tank to review these notes, separate facts from assumptions, and give 
 | social-listening | `xiaohongshu` | 模式已记录，需要登录和授权 |
 | media-processing | `yt-dlp`, `openai-whisper` | 模式已记录，需要媒体权限和授权 |
 | knowledge-persistence | `obsidian` | 模式已记录，私有写入必须确认 |
-| media-production | `research-to-video-production` | verified_partial，限定生产链路 |
+| media-production | `ai-research-to-video-production` | verified_partial，限定生产链路 |
 
 更多说明见 [`think-tank/docs/provider-ecosystem-examples.md`](think-tank/docs/provider-ecosystem-examples.md) 和 [`think-tank/docs/provider-integration-patterns.md`](think-tank/docs/provider-integration-patterns.md)。
 
@@ -189,7 +189,7 @@ Use think-tank to review these notes, separate facts from assumptions, and give 
 - **Agent Compatibility Matrix：** [`think-tank/docs/agent-compatibility-matrix.md`](think-tank/docs/agent-compatibility-matrix.md)
 - **Skill Composition Guide：** [`think-tank/docs/skill-composition-guide.md`](think-tank/docs/skill-composition-guide.md)
 - **Skill Quality Score：** [`think-tank/docs/skill-quality-score.md`](think-tank/docs/skill-quality-score.md)
-- **Skill Experience 示例：** [`think-tank/examples/v3/`](think-tank/examples/v3/)
+- **Skill Experience 示例：** [`think-tank/examples/formats/`](think-tank/examples/formats/)
 - **Skill Self Tests：** [`self-tests/`](self-tests/)
 
 版本更新记录统一放在 [`CHANGELOG.md`](CHANGELOG.md)。
@@ -254,9 +254,9 @@ Stable 不表示：
 | 范围 | 状态 | 来源 |
 |---|---|---|
 | Codex foundation | verified | [`think-tank/docs/codex-readiness-matrix.md`](think-tank/docs/codex-readiness-matrix.md) |
-| Provider invocation proofs | 4 public proofs | [`think-tank/examples/stable-release-readiness.yaml`](think-tank/examples/stable-release-readiness.yaml) |
-| 外部浏览器只读 | verified_partial | [`think-tank/examples/codex-browser-external-readonly.md`](think-tank/examples/codex-browser-external-readonly.md) |
-| subagent runtime | verified_partial | [`think-tank/examples/codex-subagent-lifecycle-validation.md`](think-tank/examples/codex-subagent-lifecycle-validation.md) |
+| Provider invocation proofs | 4 public proofs | [`think-tank/examples/quality/stable-release-readiness.yaml`](think-tank/examples/quality/stable-release-readiness.yaml) |
+| 外部浏览器只读 | verified_partial | [`think-tank/examples/platforms/codex/codex-browser-external-readonly.md`](think-tank/examples/platforms/codex/codex-browser-external-readonly.md) |
+| subagent runtime | verified_partial | [`think-tank/examples/platforms/codex/codex-subagent-lifecycle-validation.md`](think-tank/examples/platforms/codex/codex-subagent-lifecycle-validation.md) |
 | Claude Code runtime | deferred | [`think-tank/docs/support-matrix.md`](think-tank/docs/support-matrix.md) |
 
 ## 推荐阅读

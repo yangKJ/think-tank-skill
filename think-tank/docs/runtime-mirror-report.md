@@ -13,10 +13,10 @@ codex_minimal_runtime:
 
 claude_code_minimal_runtime:
   status: verified_partial_with_success_pre_invocation_and_failure_degradation
-  success_sample: examples/claude-runtime-sample.json
-  failure_sample: examples/claude-runtime-failure-sample.json
+  success_sample: examples/runtime/claude-runtime-sample.json
+  failure_sample: examples/runtime/claude-runtime-failure-sample.json
   final_validation_prompt: platforms/claude-code/final-validation-prompt.md
-  final_validation_record: examples/claude-code-final-validation.md
+  final_validation_record: think-tank/examples/platforms/claude-code/claude-code-final-validation.md
 
 cross_platform_contract:
   protocol_shape: aligned

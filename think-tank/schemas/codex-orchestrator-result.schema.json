@@ -75,7 +75,6 @@
     },
     "dispatch_log": {"type": "object"},
     "source_result": {"type": ["object", "null"]},
-    "auto_handoff_result": {"type": ["object", "null"]},
     "final_output": {
       "type": "object",
       "required": ["request", "conclusion", "evidence", "recommendations"],

@@ -39,12 +39,14 @@ risks: []
 confidence: low | medium | high
 ```
 
-## 候选 skills
+## 示例实现
 
-- `xiaohongshu`
-- `social-media-analyzer`
-- `web-access`
-- `summarize`
+以下为示例，非协议规范。实际 provider 选择由本地 policy 配置决定。
+
+- 社交平台专用 provider
+- 社媒分析 provider
+- 通用网页抓取 provider
+- 内容摘要 provider
 
 ## 降级策略
 
