@@ -26,12 +26,12 @@ peer_skills:
 
 | capability slot | representative peer skill | why it is useful | current public status | requires | not claimed |
 |---|---|---|---|---|---|
-| source-acquisition | `web-access` / `agent-reach` | external source discovery and page reading | available_not_verified | network, per-run permission | default verified provider invocation |
+| source-acquisition | `web-access` / `google-ai-mode-skill` | external source discovery and page reading | available_not_verified | network, per-run permission | default verified provider invocation |
 | browser-automation | `playwright-cli` / Browser | readonly page snapshots and browser fixtures | verified_partial | browser runtime, task permission | login flows or dynamic app automation |
 | social-listening | `xiaohongshu` | social sample collection when user has access | planned | MCP service, login, platform permission | default social scraping |
 | media-processing | `yt-dlp` / `openai-whisper` | media download, audio extraction, transcript workflows | planned | network, media rights, task permission | default media download or transcription |
 | knowledge-persistence | `obsidian` | optional local knowledge artifact persistence | planned | vault path, explicit write confirmation | default private knowledge-base write |
-| media-production | `ai-research-to-video-production` | structured brief to production package workflow | verified_partial | task-specific media boundary | fully automated publishing |
+| media-production | `remotion-render` | structured brief to production package workflow | verified_partial | task-specific media boundary | fully automated publishing |
 
 ## Evidence Rule
 

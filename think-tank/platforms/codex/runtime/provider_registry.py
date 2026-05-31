@@ -69,8 +69,9 @@ def provider_for_skill(skill_file: Path) -> dict[str, Any]:
 
     Capabilities are read dynamically from the SKILL.md YAML frontmatter
     (``capabilities:`` list). When no capabilities are declared the skill is
-    marked ``["unknown"]`` so it is still visible in the registry but never
-    matched by capability-aware routing.
+    marked ``["unknown"]`` so it is still visible in the registry. Capability-
+    aware routing will not infer a match from it unless a project policy names
+    that provider explicitly.
 
     Other fields use conservative defaults suitable for an unverified peer skill.
     Concrete provider policy (permission gates, recovery targets, access level
@@ -110,8 +111,8 @@ def discover_providers(skills_dirs: list[Path] | tuple[Path, ...] | Path | None 
 
     Capability discovery is dynamic: each skill's capabilities are read from its
     ``SKILL.md`` YAML frontmatter rather than a hardcoded registry. Skills that
-    do not declare capabilities are marked ``["unknown"]`` and are excluded from
-    capability-aware routing.
+    do not declare capabilities are marked ``["unknown"]`` and require explicit
+    policy preference or allow-listing before selection.
     """
 
     if skills_dirs is None:

@@ -39,7 +39,7 @@ TeamCreate(team_name="think-tank-council", description="讨论任务")
 
 **实测结果**：
 - 同步执行，立即返回
-- 创建了 `/Users/condy/.claude/teams/{team_name}/config.json`
+- 创建了 `~/.claude/teams/{team_name}/config.json`
 - lead_agent_id 格式: `team-lead@{team_name}`
 
 ## TaskCreate
@@ -278,4 +278,3 @@ role_result:
 - [ ] 状态文件协调机制
 - [ ] 大规模并发 (5+ agents)
 - [ ] 跨 team 通信
-

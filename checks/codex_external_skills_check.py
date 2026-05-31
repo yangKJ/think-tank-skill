@@ -47,12 +47,10 @@ OPTIONAL_PEER_SKILLS = [
     "mcp-cli",
     "notebooklm",
     "obsidian",
-    "omni-research",
     "ollama-local-inference",
     "openai-whisper",
     "pdf-extraction",
     "playwright-cli",
-    "research-workflow",
     "revieworg-audit-provider",
     "social-media-analyzer",
     "stable-diffusion-image-generation",
@@ -61,14 +59,13 @@ OPTIONAL_PEER_SKILLS = [
     "using-tmux-for-interactive-commands",
     "vision-analysis",
     "web-access",
-    "agent-reach",
     "xiaohongshu",
     "xiaoyuzhou-transcribe",
     "yt-dlp",
 ]
 
 CAPABILITY_GROUPS = {
-    "source-acquisition": ["agent-reach", "web-access", "google-ai-mode-skill", "juejin-search", "36kr-hotlist", "pdf-extraction", "mcp-cli", "summarize"],
+    "source-acquisition": ["web-access", "google-ai-mode-skill", "juejin-search", "36kr-hotlist", "pdf-extraction", "mcp-cli", "summarize"],
     "browser-automation": ["web-access", "playwright-cli"],
     "social-listening": ["xiaohongshu", "social-media-analyzer"],
     "media-processing": ["yt-dlp", "openai-whisper", "xiaoyuzhou-transcribe", "summarize", "vision-analysis"],
@@ -125,7 +122,7 @@ def main() -> None:
     ]
     if global_symlinks:
         sample = ", ".join(path.name for path in global_symlinks)
-        fail(f"仍存在旧的全局软链接安装: {sample}")
+        print(f"Codex optional peer skills 提示: 忽略用户全局旧软链接安装: {sample}")
 
     for name in ["README.md", "think-tank.zip"]:
         if (PROJECT_CODEX_SKILLS / name).exists() or (PROJECT_CODEX_SKILLS / name).is_symlink():

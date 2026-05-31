@@ -20,7 +20,7 @@ think-tank 是高阶编排 Skill，不复制外部工具型 skill。
 
 | Capability | 候选外部 skills |
 |------------|------------------|
-| `source-acquisition` | `agent-reach`、`web-access`、`google-ai-mode-skill`、`juejin-search`、`36kr-hotlist`、`pdf-extraction`、`mcp-cli`、`summarize` |
+| `source-acquisition` | `web-access`、`google-ai-mode-skill`、`juejin-search`、`36kr-hotlist`、`pdf-extraction`、`mcp-cli`、`summarize` |
 | `browser-automation` | `web-access`、`playwright-cli` |
 | `social-listening` | `xiaohongshu`、`social-media-analyzer` |
 | `media-processing` | `yt-dlp`、`openai-whisper`、`xiaoyuzhou-transcribe`、`summarize`、`vision-analysis` |
@@ -33,7 +33,7 @@ think-tank 是高阶编排 Skill，不复制外部工具型 skill。
 | 旧 skill | 新抽象 |
 |----------|--------|
 | `research-workflow` | 旧 route wrapper 已删除；研究深度进入 `modes/research.md`，Codex 触发迁移到 provider policy |
-| `omni-research` | `research_depth: autonomous_research` |
+| 旧 `omni-research` wrapper | `research_depth: autonomous_research` |
 | `think-tank` | `council mode`、`research mode` 和 runtime contracts |
 
 ### Out-of-Core Optional Skills
@@ -42,7 +42,7 @@ think-tank 是高阶编排 Skill，不复制外部工具型 skill。
 
 | 旧 skill | 原因 |
 |----------|------|
-| `agent-reach` | 统一 source-acquisition 入口，不承担真实抓取，而是做能力路由 |
+| 旧 `agent-reach` wrapper | 已吸收到 source-acquisition policy；真实获取仍由具体 provider 执行 |
 | `apple-reminders` | 个人提醒和系统 App 操作，不是 think-tank 研究协议 |
 | `stable-diffusion-image-generation` | 生成图片，不是信息收集或审议协议本身 |
 | `using-tmux-for-interactive-commands` | 平台执行辅助，不是 think-tank capability |

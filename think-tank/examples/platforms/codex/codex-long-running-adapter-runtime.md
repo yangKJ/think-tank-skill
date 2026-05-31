@@ -5,7 +5,7 @@
 ## 测试任务
 
 ```text
-AI快报：把今天的AI资讯做成视频
+把一份有来源的行业研究做成视频 brief
 ```
 
 ## 执行声明
@@ -15,11 +15,11 @@ platform: codex
 runtime: codex-natural-language-orchestrator
 intent: research_to_video
 mode: research
-provider: ai-research-to-video-production
+provider: remotion-render
 status: verified_partial
 dispatch_decision:
   route_selected: local-ai-tech-news-video-production
-  provider_selected: ai-research-to-video-production
+  provider_selected: remotion-render
   provider_preflight: ready
 runtime_provenance:
   true_multi_agent_runtime: false
@@ -60,14 +60,14 @@ delivery_status: publish_candidate
 
 ## 关键观察
 
-1. `ai-research-to-video-production` 在当前机器上完成了真实 provider invocation，而不是只有 policy selection。
+1. `remotion-render` 在当前机器上完成了真实 provider invocation，而不是只有 policy selection。
 2. source-acquisition 对 `https://example.com` 的本地读取因权限边界失败，但没有伪造来源结果。
 3. 下游 video adapter 仍然完成了 run 初始化、脚本、字幕、SFX、BGM、封面包、渲染和交付报告。
 4. 这证明 Codex 已有一条真实的 long-running adapter lifecycle recovery 路径。
 
 ## 结果判断
 
-该样例可以把 `ai-research-to-video-production` 提升为公开 `verified_partial` provider 证据，并证明：
+该样例可以把 `remotion-render` 提升为公开 `verified_partial` provider 证据，并证明：
 
 - provider preflight
 - dispatch decision

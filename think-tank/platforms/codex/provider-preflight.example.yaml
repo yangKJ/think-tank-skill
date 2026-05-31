@@ -50,19 +50,11 @@ providers:
     fallbacks:
       - static_fetch
       - user_materials
+      - local_static_reader
+      - core_protocol
     risk: network
     notes:
       - Browser/CDP availability may still require runtime verification.
-
-  agent-reach:
-    requires: {}
-    requires_permission: false
-    fallbacks:
-      - local_static_reader
-      - core_protocol
-    risk: read_routing
-    notes:
-      - A unified source-acquisition entry should only route, not directly invoke external providers.
       - Real acquisition still requires explicit runtime invocation and recovery.
 
   summarize:

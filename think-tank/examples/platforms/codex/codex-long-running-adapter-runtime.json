@@ -1,6 +1,6 @@
 {
   "runtime": "codex-natural-language-orchestrator",
-  "request": "AI快报：把今天的AI资讯做成视频",
+  "request": "把一份有来源的行业研究做成视频 brief",
   "mode": "research",
   "runtime_provenance": {
     "think_tank_runtime_used": true,
@@ -30,24 +30,24 @@
     "selected_mode": "research",
     "selected_capabilities": ["source-acquisition", "media-production", "knowledge-persistence"],
     "skill_route": {
-      "selected_provider": "ai-research-to-video-production",
-      "candidate_providers": ["ai-research-to-video-production", "web-access", "36kr-hotlist"],
-      "selection_reason": "Policy prefer match: ai-research-to-video-production"
+      "selected_provider": "remotion-render",
+      "candidate_providers": ["remotion-render", "web-access", "36kr-hotlist"],
+      "selection_reason": "Policy prefer match: remotion-render"
     }
   },
   "provider_preflight": {
-    "provider": "ai-research-to-video-production",
+    "provider": "remotion-render",
     "status": "ready",
     "can_invoke": true,
     "missing": [],
-    "present": ["ai-research-to-video-production"],
+    "present": ["remotion-render"],
     "manual_checks": [],
     "fallbacks": ["production_plan_ready"],
     "boundaries": ["Preflight passed. Actual invocation depends on local dispatch configuration."]
   },
   "dispatch_record": {
     "dispatch_decision_emitted": true,
-    "policy_selected_provider": "ai-research-to-video-production",
+    "policy_selected_provider": "remotion-render",
     "runtime_selected_provider": "local_static_reader",
     "status": "dispatched",
     "boundary": "Provider dispatch is determined by local .think-tank/ policy configuration."
@@ -59,7 +59,7 @@
       "recipe": "research-to-video",
       "mode": "research",
       "capability": "source-acquisition",
-      "task": "AI快报：把今天的AI资讯做成视频",
+      "task": "把一份有来源的行业研究做成视频 brief",
       "target": null,
       "constraints": ["readonly", "no_login", "no_download", "no_private_write"]
     },
@@ -69,7 +69,7 @@
       "mode": "research",
       "capability": "source-acquisition",
       "selected_peer_skill": "local_static_reader",
-      "policy_selected_peer_skill": "ai-research-to-video-production",
+      "policy_selected_peer_skill": "remotion-render",
       "invocation_method": "local_static_reader",
       "fallback": "production_plan_ready",
       "risk_level": "low",
@@ -102,7 +102,7 @@
     "boundaries": ["Source acquisition succeeded with minimal runtime adapter."]
   },
   "final_output": {
-    "request": "AI快报：把今天的AI资讯做成视频",
+    "request": "把一份有来源的行业研究做成视频 brief",
     "conclusion": "Request routed to research-to-video and completed minimal source recovery.",
     "evidence": ["local_static_reader returned readable static content."],
     "recommendations": [

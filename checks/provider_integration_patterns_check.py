@@ -8,7 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DOC = ROOT / "think-tank" / "docs" / "provider-integration-patterns.md"
-PATTERN_DIR = ROOT / "think-tank" / "examples" / "provider-patterns"
+PATTERN_DIR = ROOT / "think-tank" / "examples" / "providers" / "patterns"
 PATTERN_FILES = [
     PATTERN_DIR / "source-acquisition-web-access.md",
     PATTERN_DIR / "social-listening-xiaohongshu.md",

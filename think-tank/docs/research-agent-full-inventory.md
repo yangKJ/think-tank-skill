@@ -51,7 +51,7 @@ legacy research workspace
 | `mcp-cli` | dynamic tool discovery | `source-acquisition` / platform adapter | mapped |
 | `notebooklm` | knowledge notebook | `knowledge-persistence` | mapped |
 | `obsidian` | knowledge base write | `knowledge-persistence` | mapped |
-| `omni-research` | autonomous research loop | `research mode: autonomous_research` | migrated |
+| legacy omni-research wrapper | autonomous research loop | `research mode: autonomous_research` | migrated |
 | `openai-whisper` | audio transcription | `media-processing` | mapped |
 | `pdf-extraction` | document extraction | `source-acquisition` | mapped |
 | `playwright-cli` | browser automation | `browser-automation` | mapped |

@@ -24,7 +24,6 @@ invoked_providers:
   - playwright-cli
 not_invoked_providers:
   - web-access
-  - agent-reach
   - taskflow
 verified:
   - external_browser_launch

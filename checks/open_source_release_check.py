@@ -29,9 +29,9 @@ CAPABILITY_STATUS = ROOT / "think-tank" / "platforms" / "codex" / "capability-st
 RELEASE_SUITE = ROOT / "checks" / "open_source_release_suite.py"
 WORKFLOW = ROOT / ".github" / "workflows" / "open-source-release.yml"
 PACKAGE_MANIFEST = ROOT / "public-release-manifest.yaml"
-PUBLIC_RESEARCH = ROOT / "think-tank" / "examples" / "public" / "research-request.md"
-PUBLIC_COUNCIL = ROOT / "think-tank" / "examples" / "public" / "council-decision.md"
-PUBLIC_REVIEW = ROOT / "think-tank" / "examples" / "public" / "review-acceptance.md"
+PUBLIC_RESEARCH = ROOT / "think-tank" / "examples" / "usage" / "public-research-request.md"
+PUBLIC_COUNCIL = ROOT / "think-tank" / "examples" / "usage" / "council-decision.md"
+PUBLIC_REVIEW = ROOT / "think-tank" / "examples" / "usage" / "review-acceptance.md"
 VISUALS = [
     ROOT / "think-tank" / "assets" / "brand" / "think-tank-hero-image2.png",
     ROOT / "think-tank" / "assets" / "brand" / "think-tank-hero-cn-image2.png",
@@ -41,11 +41,6 @@ VISUALS = [
     ROOT / "think-tank" / "assets" / "brand" / "review-card-image2.png",
     ROOT / "think-tank" / "assets" / "brand" / "provider-ecosystem-image2.png",
     ROOT / "think-tank" / "assets" / "brand" / "research-os-memory-runtime-image2.png",
-    ROOT / "think-tank" / "assets" / "prompts" / "hero-image2-prompt.md",
-    ROOT / "think-tank" / "assets" / "prompts" / "hero-v2-image2-prompt.md",
-    ROOT / "think-tank" / "assets" / "prompts" / "hero-v2-cn-image2-prompt.md",
-    ROOT / "think-tank" / "assets" / "prompts" / "provider-ecosystem-image2-prompt.md",
-    ROOT / "think-tank" / "assets" / "prompts" / "research-os-memory-runtime-image2-prompt.md",
 ]
 
 
@@ -146,7 +141,7 @@ def main() -> None:
             "multi_agent_runtime: verified_partial_with_scoped_write_lifecycle",
             "| Codex | verified_foundation |",
             "| Claude Code | deferred |",
-            "| agent-reach | available_not_verified |",
+            "| web-access | available_not_verified |",
             "default included?",
             "do not claim",
             "think-tank/docs/validation-tiers.md",

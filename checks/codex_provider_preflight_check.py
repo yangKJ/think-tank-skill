@@ -14,7 +14,12 @@ ROOT = Path(__file__).resolve().parents[1]
 RUNTIME_DIR = ROOT / "think-tank" / "platforms" / "codex" / "runtime"
 PREFLIGHT_RUNTIME = RUNTIME_DIR / "provider_preflight.py"
 PREFLIGHT_EXAMPLE = ROOT / "think-tank" / "platforms" / "codex" / "provider-preflight.example.yaml"
-LOCAL_PREFLIGHT = ROOT / ".think-tank" / "provider-preflight.yaml"
+PROJECT_LOCAL_PREFLIGHT = ROOT / ".think-tank" / "provider-preflight.yaml"
+LOCAL_PREFLIGHT = (
+    PROJECT_LOCAL_PREFLIGHT
+    if (ROOT / ".think-tank").exists()
+    else (Path.home() / ".think-tank" / "provider-preflight.yaml").resolve()
+)
 
 
 def fail(message: str) -> None:
@@ -51,11 +56,15 @@ def main() -> None:
     if module.LOCAL_WORKSPACE_PREFLIGHT != LOCAL_PREFLIGHT:
         fail("provider_preflight.py 的 local preflight 路径不正确")
 
-    policy, sources = module.load_effective_preflight()
+    effective_policy, sources = module.load_effective_preflight()
     if module.DEFAULT_PREFLIGHT not in sources:
         fail("effective preflight 必须包含默认 preflight")
-    if LOCAL_PREFLIGHT.exists() and LOCAL_PREFLIGHT not in sources:
-        fail("effective preflight 必须包含 .think-tank 本地 preflight")
+    if PROJECT_LOCAL_PREFLIGHT.exists() and PROJECT_LOCAL_PREFLIGHT not in sources:
+        fail("effective preflight 必须包含 project-local .think-tank preflight")
+
+    # Provider assertions must use the public example, not the user's global
+    # ~/.think-tank overlay, otherwise the release check depends on local state.
+    policy = example
 
     voxcpm = module.preflight_provider("voxcpm-tts", policy)
     if voxcpm["status"] not in {"ready", "needs_install", "needs_key_or_env", "available_unverified"}:
@@ -86,12 +95,14 @@ def main() -> None:
         fail("xiaohongshu 必须声明登录态/MCP 手动检查")
 
     notebooklm = module.preflight_provider("notebooklm", policy)
-    if notebooklm["status"] != "blocked" or notebooklm["can_invoke"] is not False:
-        fail("notebooklm 在当前本地配置中必须 blocked 且不可调用")
-    if notebooklm["fallbacks"][:3] != ["obsidian", "kb-retriever", "summarize"]:
-        fail("notebooklm 必须优先降级到 obsidian / kb-retriever / summarize")
-    if notebooklm["risk"] != "private_login_blocked":
-        fail("notebooklm 必须标记 private_login_blocked")
+    if notebooklm["status"] not in {"ready", "needs_install", "available_unverified"}:
+        fail(f"notebooklm 状态异常: {notebooklm['status']}")
+    if not notebooklm["requires_permission"] and not notebooklm["manual_checks"]:
+        fail("notebooklm 必须声明登录态或人工确认边界")
+    if notebooklm["fallbacks"][:3] != ["kb-retriever", "summarize", "obsidian"]:
+        fail("notebooklm 必须优先降级到 kb-retriever / summarize / obsidian")
+    if notebooklm["risk"] != "private_login":
+        fail("notebooklm 必须标记 private_login")
 
     unknown = module.preflight_provider("unknown-provider", policy)
     if unknown["status"] != "unknown" or unknown["can_invoke"] is not False:

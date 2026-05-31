@@ -10,8 +10,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 MATRIX_DOC = ROOT / "think-tank" / "docs" / "codex-runtime-verification-matrix.md"
 MULTI_AGENT_DOC = ROOT / "think-tank" / "docs" / "codex-true-multi-agent-validation.md"
-COUNCIL_EXAMPLE = ROOT / "think-tank" / "examples" / "codex-true-council-runtime.md"
-PROVIDER_MATRIX = ROOT / "think-tank" / "examples" / "codex-provider-invocation-matrix.json"
+COUNCIL_EXAMPLE = ROOT / "think-tank" / "examples" / "platforms" / "codex" / "codex-true-council-runtime.md"
+PROVIDER_MATRIX = ROOT / "think-tank" / "examples" / "platforms" / "codex" / "codex-provider-invocation-matrix.json"
 POLICY_RUNTIME = ROOT / "think-tank" / "platforms" / "codex" / "runtime" / "provider_policy.py"
 POLICY_CHECK = ROOT / "checks" / "codex_provider_policy_check.py"
 
@@ -105,4 +105,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

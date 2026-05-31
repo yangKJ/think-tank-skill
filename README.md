@@ -146,12 +146,12 @@ Representative peer skill pattern examples:
 
 | capability slot | example peer skills | status boundary |
 |---|---|---|
-| source-acquisition | `web-access`, `agent-reach` | pattern documented, evidence required |
+| source-acquisition | `web-access`, `google-ai-mode-skill` | pattern documented, evidence required |
 | browser-automation | `browser`, `playwright-cli` | verified_partial for readonly paths |
 | social-listening | `xiaohongshu` | pattern documented, login and permission required |
 | media-processing | `yt-dlp`, `openai-whisper` | pattern documented, rights and permission required |
 | knowledge-persistence | `obsidian` | pattern documented, private write confirmation required |
-| media-production | `ai-research-to-video-production` | verified_partial, scoped production workflow |
+| media-production | `remotion-render` | verified_partial, scoped production workflow |
 
 See [`think-tank/docs/provider-ecosystem-examples.md`](think-tank/docs/provider-ecosystem-examples.md) and [`think-tank/docs/provider-integration-patterns.md`](think-tank/docs/provider-integration-patterns.md).
 

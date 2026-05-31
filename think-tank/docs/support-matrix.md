@@ -55,8 +55,7 @@ Packaging:
 | local_static_reader | verified | yes | no | no | no | user-provided material | external provider runtime |
 | public_http_static_reader | verified_partial | yes | no | yes | task-dependent | user-provided excerpt | broad web automation |
 | playwright-cli | verified_partial | optional | no for readonly fixtures | yes for external pages | yes before automation | static snapshots or user-provided excerpt | login, click flows, or dynamic app automation |
-| ai-research-to-video-production | verified_partial | optional | no by default | task-dependent | yes before media production | markdown brief | fully automated publishing |
-| agent-reach | available_not_verified | no | provider-dependent | provider-dependent | yes | core protocol synthesis | invoked provider |
+| remotion-render | verified_partial | optional | no by default | task-dependent | yes before media production | markdown brief | fully automated publishing |
 | web-access | available_not_verified | no | provider-dependent | yes | yes | user-provided excerpt | verified source acquisition |
 | taskflow | available_not_verified | no | provider-dependent | provider-dependent | yes before writes | markdown artifact | external state write |
 | obsidian | planned | no | local vault access | no by default | yes before private write | markdown artifact | default private knowledge write |

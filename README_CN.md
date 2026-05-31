@@ -145,12 +145,12 @@ Use think-tank to review these notes, separate facts from assumptions, and give 
 
 | 能力槽 | 典型 peer skills | 状态边界 |
 |---|---|---|
-| source-acquisition | `web-access`, `agent-reach` | 模式已记录，需要证据 |
+| source-acquisition | `web-access`, `google-ai-mode-skill` | 模式已记录，需要证据 |
 | browser-automation | `browser`, `playwright-cli` | 只读路径 `verified_partial` |
 | social-listening | `xiaohongshu` | 模式已记录，需要登录和授权 |
 | media-processing | `yt-dlp`, `openai-whisper` | 模式已记录，需要媒体权限和授权 |
 | knowledge-persistence | `obsidian` | 模式已记录，私有写入必须确认 |
-| media-production | `ai-research-to-video-production` | verified_partial，限定生产链路 |
+| media-production | `remotion-render` | verified_partial，限定生产链路 |
 
 更多说明见 [`think-tank/docs/provider-ecosystem-examples.md`](think-tank/docs/provider-ecosystem-examples.md) 和 [`think-tank/docs/provider-integration-patterns.md`](think-tank/docs/provider-integration-patterns.md)。
 

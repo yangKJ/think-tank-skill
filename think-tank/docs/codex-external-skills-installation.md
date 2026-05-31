@@ -41,7 +41,6 @@ think_tank_core_depends_on_peer_skills: false
 ```yaml
 installed_optional_peer_skills:
   - 36kr-hotlist
-  - agent-reach
   - apple-reminders
   - google-ai-mode-skill
   - juejin-search
@@ -49,7 +48,6 @@ installed_optional_peer_skills:
   - mcp-cli
   - notebooklm
   - obsidian
-  - omni-research
   - openai-whisper
   - pdf-extraction
   - playwright-cli
@@ -71,13 +69,12 @@ installed_optional_peer_skills:
 
 | Capability | 已安装同级 skills |
 |------------|-------------------|
-| `source-acquisition` | `agent-reach`、`web-access`、`google-ai-mode-skill`、`juejin-search`、`36kr-hotlist`、`pdf-extraction`、`mcp-cli`、`summarize` |
+| `source-acquisition` | `web-access`、`google-ai-mode-skill`、`juejin-search`、`36kr-hotlist`、`pdf-extraction`、`mcp-cli`、`summarize` |
 | `browser-automation` | `web-access`、`playwright-cli` |
 | `social-listening` | `xiaohongshu`、`social-media-analyzer` |
 | `media-processing` | `yt-dlp`、`openai-whisper`、`xiaoyuzhou-transcribe`、`summarize`、`vision-analysis` |
 | `knowledge-persistence` | `obsidian`、`notebooklm`、`knowledge-graph-builder`、`taskflow` |
 | out-of-core optional | `apple-reminders`、`stable-diffusion-image-generation`、`using-tmux-for-interactive-commands` |
-| domain workflow | `omni-research` |
 
 ## 状态边界
 

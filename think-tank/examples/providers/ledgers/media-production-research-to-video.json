@@ -1,6 +1,6 @@
 {
   "capability_slot": "media-production",
-  "provider_name": "ai-research-to-video-production",
+  "provider_name": "remotion-render",
   "state": "selected",
   "preflight": {"checked": true, "result": "available_if_user_installs_provider", "blockers": ["asset rights not reviewed"]},
   "dispatch": {"decision": "do_not_invoke", "reason": "Public sample only", "permission_gate": "production_scope_required"},

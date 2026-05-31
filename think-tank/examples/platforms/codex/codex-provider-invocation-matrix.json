@@ -4,7 +4,7 @@
   "status": "established",
   "providers": [
     {
-      "provider": "agent-reach",
+      "provider": "web-access",
       "capability": "source-acquisition",
       "selected_by_policy": true,
       "dispatch_decision_before_invocation": true,
@@ -14,7 +14,7 @@
       "recovery_targets": [],
       "status": "available_not_verified",
       "boundaries": [
-        "policy route now统一选择 agent-reach 作为 source-acquisition 统一入口",
+        "policy route now统一选择 web-access 作为 source-acquisition 统一入口",
         "selection does not execute network skill or local readers",
         "actual acquisition still depends on minimal runtime dispatch or explicit handoff"
       ]
@@ -73,12 +73,12 @@
       ]
     },
     {
-      "provider": "ai-research-to-video-production",
+      "provider": "remotion-render",
       "capability": "media-production",
       "selected_by_policy": true,
       "dispatch_decision_before_invocation": true,
       "invoked": true,
-      "target": "AI快报：把今天的AI资讯做成视频",
+      "target": "把一份有来源的行业研究做成视频 brief",
       "result_status": "success",
       "recovery_targets": ["artifact[]", "evidence[]", "role_result"],
       "status": "verified_partial",
@@ -107,7 +107,7 @@
       "status": "available_not_verified",
       "boundaries": [
         "web-access is no longer the first policy selection target for default source-acquisition routes.",
-        "Current default routes select agent-reach first.",
+        "Current default routes select web-access first.",
         "Selection does not invoke the peer skill."
       ]
     },
@@ -133,7 +133,7 @@
       "route_id": "general-research-default",
       "selected_mode": "research",
       "selected_recipe": "evidence-synthesis",
-      "selected_provider": "agent-reach",
+      "selected_provider": "web-access",
       "provider_invoked": false
     },
     {
@@ -141,7 +141,7 @@
       "route_id": "competitive-intelligence",
       "selected_mode": "research",
       "selected_recipe": "competitive-intelligence",
-      "selected_provider": "agent-reach",
+      "selected_provider": "web-access",
       "provider_invoked": false
     },
     {
@@ -157,7 +157,7 @@
       "route_id": "review-acceptance",
       "selected_mode": "review",
       "selected_recipe": "review-acceptance",
-      "selected_provider": "agent-reach",
+      "selected_provider": "web-access",
       "provider_invoked": false
     },
     {

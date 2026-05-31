@@ -53,6 +53,21 @@ def _looks_like_project_root(path: Path) -> bool:
     return any((path / marker).exists() for marker in markers)
 
 
+def _fallback_project_roots(start: Path | None = None) -> list[Path]:
+    """Return additional project candidates when normal traversal finds nothing.
+
+    In some execution contexts (例如由平台直接启动适配器但 cwd 不在仓库内)，
+    基于当前目录的自动发现会失效，此时尝试使用本插件安装目录中的本地配置。
+    """
+    candidate_roots = []
+    if start is not None and (start / ".think-tank").exists():
+        candidate_roots.append(start)
+    skill_repo_root = SKILL_ROOT.parent
+    if (skill_repo_root / ".think-tank").exists():
+        candidate_roots.append(skill_repo_root)
+    return candidate_roots
+
+
 def project_root(start: Path | None = None) -> Path | None:
     """Return the nearest project root for project skills and path display."""
 
@@ -65,6 +80,9 @@ def project_root(start: Path | None = None) -> Path | None:
         if _is_runtime_excluded(candidate):
             continue
         if _looks_like_project_root(candidate):
+            return candidate
+    for candidate in _fallback_project_roots(current):
+        if candidate is not None and _looks_like_project_root(candidate):
             return candidate
     return None
 
@@ -80,6 +98,9 @@ def project_think_tank_root(start: Path | None = None) -> Path | None:
     for candidate in [current, *current.parents]:
         if _is_runtime_excluded(candidate):
             continue
+        if (candidate / ".think-tank").exists():
+            return candidate
+    for candidate in _fallback_project_roots(current):
         if (candidate / ".think-tank").exists():
             return candidate
     return None

@@ -31,7 +31,6 @@ provider_boundary:
   invoked_providers: []
   not_invoked_providers:
     - web-access
-    - agent-reach
   recovery: no provider output recovered in this pattern document
   boundaries:
     - route selection is not provider invocation

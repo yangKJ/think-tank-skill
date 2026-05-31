@@ -28,11 +28,10 @@ claude_code_runtime: deferred
 | provider | capability | status | evidence | boundary |
 |----------|------------|--------|----------|----------|
 | local_static_reader | source-acquisition | verified | `examples/platforms/codex/codex-provider-invocation-matrix.json` | 本地静态文件 |
-| agent-reach | source-acquisition | available_not_verified | `provider-policy.example.yaml` | 统一入口分派，不直接执行抓取 |
+| web-access | source-acquisition | available_not_verified | `provider-policy.example.yaml` | 统一入口分派，不直接执行抓取 |
 | public_http_static_reader | source-acquisition | verified_partial | `examples/platforms/codex/codex-provider-invocation-matrix.json` | HTTP 成功，HTTPS 本地证书失败 |
 | playwright-cli | browser-automation | verified_partial | `examples/platforms/codex/codex-provider-invocation-matrix.json` + `examples/platforms/codex/codex-browser-external-readonly.md` | 外部静态页面只读 DOM 回收；不含登录态和交互 |
-| ai-research-to-video-production | media-production | verified_partial | `examples/platforms/codex/codex-provider-invocation-matrix.json` + `examples/platforms/codex/codex-long-running-adapter-runtime.md` | 长生命周期本地 adapter run；不含 true multi-agent |
-| web-access | source-acquisition | available_not_verified | `provider-policy.example.yaml` | policy selection only |
+| remotion-render | media-production | verified_partial | `examples/platforms/codex/codex-provider-invocation-matrix.json` + `examples/platforms/codex/codex-long-running-adapter-runtime.md` | 长生命周期本地 adapter run；不含 true multi-agent |
 | taskflow | knowledge-persistence | available_not_verified | `provider-policy.example.yaml` | policy selection only |
 | xiaohongshu | social-listening | available_not_verified | `provider-registry.md` | 未真实调用 |
 | yt-dlp | media-processing | available_not_verified | `provider-registry.md` | 未真实调用 |
@@ -42,10 +41,10 @@ claude_code_runtime: deferred
 
 | trigger | route | mode | provider behavior |
 |---------|-------|------|-------------------|
-| 研究一下 | general-research-default | research | selects agent-reach, does not invoke |
-| 竞品分析 | competitive-intelligence | research | selects agent-reach, does not invoke |
+| 研究一下 | general-research-default | research | selects web-access as source-acquisition provider |
+| 竞品分析 | competitive-intelligence | research | selects web-access as source-acquisition provider |
 | 开会讨论 | council-discussion | council | no provider selected because no capability is required |
-| 审查 | review-acceptance | review | selects agent-reach, does not invoke |
+| 审查 | review-acceptance | review | selects web-access as source-acquisition provider |
 | 制定策略 | strategy-planning | strategy | no provider selected because no capability is required |
 | 持续关注 | monitoring-plan | strategy | selects taskflow, does not invoke |
 
@@ -53,7 +52,7 @@ claude_code_runtime: deferred
 
 - `council-discussion` 原本在没有 capability 的情况下会默认选择 `web-access`。
 - 已修复为：无 capability 且无显式 provider 偏好时，不选择 provider。
-- `source-acquisition` 的默认路由已改为优先 `agent-reach`，并保持 policy selection 与 runtime invocation 的边界。
+- `source-acquisition` 的默认路由已改为优先 `web-access`，并保持 policy selection 与 runtime invocation 的边界。
 - 已新增 `strategy-planning` route 支持 `制定策略`、`策略规划`、`路线规划` 等触发词。
 
 ## Acceptance Boundary

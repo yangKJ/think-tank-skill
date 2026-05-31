@@ -17,7 +17,7 @@ recipes/
 
 1. 身份规则：研究员负责外部资料、竞品、行业、市场、新技术调研。
 2. 触发词：快速了解、研究一下、深度研究、竞品分析、舆情分析、持续监控、开会讨论。
-3. 组合技能：`web-access`、`summarize`、`omni-research`、`xiaohongshu`、`yt-dlp`、`whisper`、`obsidian` 等组合。
+3. 组合技能：`web-access`、`summarize`、legacy omni-research wrapper、`xiaohongshu`、`yt-dlp`、`whisper`、`obsidian` 等组合。
 4. 专业 subagent：source collector、trend analyst、social listener、feedback synthesizer、report architect、skeptic 等角色。
 
 迁移后的归属：

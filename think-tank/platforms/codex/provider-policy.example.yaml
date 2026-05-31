@@ -32,7 +32,6 @@ routes:
       - source-acquisition
     providers:
       prefer:
-        - agent-reach
         - web-access
         - summarize
       allow: []
@@ -87,7 +86,6 @@ routes:
       - social-listening
     providers:
       prefer:
-        - agent-reach
         - web-access
         - summarize
         - juejin-search
@@ -136,7 +134,7 @@ routes:
       - source-acquisition
     providers:
       prefer:
-        - agent-reach
+        - web-access
         - summarize
       allow: []
       deny: []
@@ -160,7 +158,7 @@ routes:
       - source-acquisition
     providers:
       prefer:
-        - agent-reach
+        - web-access
         - openai-whisper
         - yt-dlp
         - summarize
@@ -185,7 +183,7 @@ routes:
       - source-acquisition
     providers:
       prefer:
-        - agent-reach
+        - web-access
         - pdf-extraction
         - summarize
       allow: []

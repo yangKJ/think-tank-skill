@@ -163,7 +163,9 @@ def select_providers(route: dict[str, Any], available_providers: list[dict[str, 
         if allow and provider_id not in allow:
             continue
         if capabilities and not (provider_capabilities & capabilities):
-            continue
+            explicitly_named = provider_id in prefer or (allow and provider_id in allow)
+            if "unknown" not in provider_capabilities or not explicitly_named:
+                continue
         candidates.append(provider)
 
     def score(provider: dict[str, Any]) -> tuple[int, str]:

@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CRITERIA = ROOT / "think-tank" / "docs" / "stable-release-criteria.md"
 MATRIX = ROOT / "think-tank" / "docs" / "stable-readiness-matrix.md"
 CHECKLIST = ROOT / "think-tank" / "docs" / "stable-release-checklist.md"
-READINESS = ROOT / "think-tank" / "examples" / "stable-release-readiness.yaml"
+READINESS = ROOT / "think-tank" / "examples" / "quality" / "stable-release-readiness.yaml"
 OPEN_SOURCE_RELEASE = ROOT / "think-tank" / "docs" / "open-source-release.md"
 
 

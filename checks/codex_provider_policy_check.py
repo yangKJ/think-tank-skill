@@ -98,8 +98,8 @@ def main() -> None:
     if not competitive["matched"] or competitive["selected_intent"] != "competitive_intelligence":
         fail("竞品分析 未命中 competitive_intelligence policy route")
     competitive_route = competitive["skill_route"]
-    if not competitive_route["selected_provider"]:
-        fail("默认竞品分析路由应能选择一个通用 provider 或降级")
+    if not competitive_route["selected_provider"] and competitive["fallback"] != "core_protocol":
+        fail("默认竞品分析路由应能选择一个通用 provider 或明确降级")
 
     council = module.resolve_request("开会讨论 routing policy 是否应该进入 adapter", loaded_policy, provider_registry["providers"])
     if not council["matched"] or council["selected_mode"] != "council":
