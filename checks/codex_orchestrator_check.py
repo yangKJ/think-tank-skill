@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 ORCHESTRATOR = ROOT / "think-tank" / "platforms" / "codex" / "runtime" / "orchestrator.py"
 PROTOCOL = ROOT / "think-tank" / "protocol" / "natural-language-runtime-orchestration.md"
 SCHEMA = ROOT / "think-tank" / "schemas" / "codex-orchestrator-result.schema.json"
-SAMPLE = ROOT / "think-tank" / "examples" / "codex-orchestrator-sample.json"
+SAMPLE = ROOT / "think-tank" / "examples" / "runtime" / "codex-orchestrator-sample.json"
 FIXTURE = "think-tank/examples/browser-automation-fixture.html"
 
 
@@ -99,8 +99,13 @@ def main() -> None:
         fail("必须声明 provider_policy_checked")
     if provenance.get("authority_level") == "full_runtime":
         fail("minimal orchestrator 不得把 adapter runtime 标成 full_runtime authority")
-    if provenance["result_recovered"] is not True:
-        fail("成功路径必须回收结果")
+    expects_source_recovery = "source-acquisition" in (
+        policy_route.get("selected_capabilities", []) or []
+    )
+    if expects_source_recovery and provenance["result_recovered"] is not True:
+        fail("source-acquisition 路径必须回收结果")
+    if not expects_source_recovery and provenance["provider_invoked"] is not False:
+        fail("无 source-acquisition capability 时不得声明 provider 已调用")
     if provenance["true_multi_agent_runtime"] is not False:
         fail("minimal orchestrator 不得声称真实多 agent")
     for leader_field in ["leader_context", "expert_registry_summary", "expert_task_packets", "acceptance_report"]:
@@ -120,9 +125,12 @@ def main() -> None:
         fail("默认不应写 run artifact")
 
     local_markdown = run_orchestrator("竞品分析 Cursor 和 Codex", "--target", "AGENTS.md")
-    source_type = local_markdown["source_result"]["sources"][0]["source_type"]
-    if source_type != "markdown":
-        fail(f"Markdown 目标不应标成 HTML source_type: {source_type}")
+    if "source-acquisition" in (local_markdown["policy_route"].get("selected_capabilities", []) or []):
+        source_type = local_markdown["source_result"]["sources"][0]["source_type"]
+        if source_type != "markdown":
+            fail(f"Markdown 目标不应标成 HTML source_type: {source_type}")
+    elif local_markdown["source_result"] is not None:
+        fail("无 source-acquisition capability 时不应生成 source_result")
 
     run_dir = ROOT / ".think-tank" / "runs"
     written = run_orchestrator("竞品分析 Cursor 和 Codex", "--target", FIXTURE, "--write-run", "--runs-dir", str(run_dir))

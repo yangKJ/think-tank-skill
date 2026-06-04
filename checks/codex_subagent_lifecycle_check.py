@@ -6,10 +6,16 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+from example_paths import resolve_example_path
+
 
 ROOT = Path(__file__).resolve().parents[1]
-EXAMPLE_MD = ROOT / "think-tank" / "examples" / "codex-subagent-lifecycle-validation.md"
-EXAMPLE_JSON = ROOT / "think-tank" / "examples" / "codex-subagent-lifecycle-validation.json"
+EXAMPLE_MD = resolve_example_path(
+    ROOT, ROOT / "think-tank" / "examples" / "codex-subagent-lifecycle-validation.md"
+)
+EXAMPLE_JSON = resolve_example_path(
+    ROOT, ROOT / "think-tank" / "examples" / "codex-subagent-lifecycle-validation.json"
+)
 
 
 def fail(message: str) -> None:

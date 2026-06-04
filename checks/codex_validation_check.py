@@ -105,7 +105,18 @@ def fail(message: str) -> None:
     raise SystemExit(f"Codex 验证检查失败: {message}")
 
 
+def resolve_example_path(path: Path) -> Path:
+    examples_root = THINK_TANK / "examples"
+    if path.exists() or path.parent != examples_root:
+        return path
+    matches = sorted(examples_root.rglob(path.name))
+    if len(matches) == 1:
+        return matches[0]
+    return path
+
+
 def read(path: Path) -> str:
+    path = resolve_example_path(path)
     if not path.exists():
         fail(f"缺少文件: {path.relative_to(ROOT)}")
     return path.read_text(encoding="utf-8")
@@ -119,7 +130,7 @@ def require_snippets(path: Path, snippets: list[str]) -> None:
 
 
 def check_required_files() -> None:
-    missing = [path for path in REQUIRED_VALIDATION_FILES if not path.exists()]
+    missing = [path for path in REQUIRED_VALIDATION_FILES if not resolve_example_path(path).exists()]
     if missing:
         fail("缺少文件: " + ", ".join(str(path.relative_to(ROOT)) for path in missing))
 

@@ -30,6 +30,13 @@ timestamps: []
 limitations: []
 ```
 
+## 候选 skills
+
+- `yt-dlp`
+- `openai-whisper`
+- `xiaoyuzhou-transcribe`
+- `video-localization-render`
+
 ## 示例实现
 
 以下为示例，非协议规范。实际 provider 选择由本地 policy 配置决定。
@@ -44,4 +51,3 @@ limitations: []
 - 若不能下载媒体，尝试页面摘要或公开文字稿。
 - 若不能转录，提取标题、描述、评论和已有摘要。
 - 若媒体平台存在访问限制，标注未覆盖内容。
-

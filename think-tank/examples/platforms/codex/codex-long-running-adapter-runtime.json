@@ -2,18 +2,23 @@
   "runtime": "codex-natural-language-orchestrator",
   "request": "把一份有来源的行业研究做成视频 brief",
   "mode": "research",
+  "_example_purpose": [
+    "Self-test sample that demonstrates the Codex adapter runtime truthfully reporting a non-recovery scenario.",
+    "It is NOT a verified_partial evidence sample. No source-acquisition and no post-dispatch hook ran in this run.",
+    "The dispatch_decision, dispatch_log.invocation, and dispatch_log.recovery fields are mutually consistent: target is null, source_result is null, provider_invoked is false, sources_recovered is false, result_recovered is false."
+  ],
   "runtime_provenance": {
     "think_tank_runtime_used": true,
     "provider_policy_checked": true,
     "dispatch_decision_emitted": true,
-    "provider_invoked": true,
-    "result_recovered": true,
+    "provider_invoked": false,
+    "result_recovered": false,
     "true_multi_agent_runtime": false,
-    "execution_method": "adapter_runtime",
-    "authority_level": "adapter_runtime",
-    "data_collection": "provider_managed",
-    "evidence_state": "verified_partial",
-    "result_recovery": "automatic",
+    "execution_method": "single_agent_multi_profile_fallback",
+    "authority_level": "lower_fallback_single_context",
+    "data_collection": "direct_assistant_tool",
+    "evidence_state": "selected",
+    "result_recovery": "none",
     "boundaries": [
       "Codex natural-language orchestrator is a minimal adapter runtime.",
       "It does not claim true independent multi-agent execution.",
@@ -23,42 +28,102 @@
     ]
   },
   "policy_route": {
-    "route_id": "local-ai-tech-news-video-production",
+    "policy_status": "loaded",
     "matched": true,
+    "route_id": "media-production-handoff",
+    "route_source": ".think-tank/provider-policy.yaml",
     "selected_intent": "research_to_video",
-    "selected_recipe": "research-to-video",
     "selected_mode": "research",
-    "selected_capabilities": ["source-acquisition", "media-production", "knowledge-persistence"],
+    "selected_recipe": "research-to-video",
+    "selected_profiles": [
+      "source-collector",
+      "report-architect",
+      "skeptic"
+    ],
+    "selected_capabilities": [],
     "skill_route": {
+      "candidate_providers": [
+        "remotion-render",
+        "summarize",
+        "web-access",
+        "voxcpm-tts",
+        "sound-fx-for-video"
+      ],
       "selected_provider": "remotion-render",
-      "candidate_providers": ["remotion-render", "web-access", "36kr-hotlist"],
-      "selection_reason": "Policy prefer match: remotion-render"
-    }
+      "provider_policy": {
+        "prefer": [
+          "remotion-render",
+          "summarize",
+          "web-access",
+          "voxcpm-tts",
+          "sound-fx-for-video"
+        ],
+        "allow": [],
+        "deny": [],
+        "auto_select": true
+      },
+      "selection_reason": "Selected by routing policy preference and capability match."
+    },
+    "post_dispatch": {},
+    "fallback": "production_plan_ready",
+    "boundaries": [
+      "Policy route selection does not invoke any provider.",
+      "Selected provider must still pass dispatch-policy and result-recovery before it can be verified."
+    ],
+    "policy_path": ".think-tank/provider-policy.yaml",
+    "policy_sources": [
+      "think-tank/platforms/codex/provider-policy.example.yaml",
+      "provider-policy.yaml",
+      ".think-tank/provider-policy.yaml"
+    ],
+    "provider_count": 31
   },
   "provider_preflight": {
     "provider": "remotion-render",
     "status": "ready",
     "can_invoke": true,
     "missing": [],
-    "present": ["remotion-render"],
+    "present": [
+      "command:node"
+    ],
     "manual_checks": [],
-    "fallbacks": ["production_plan_ready"],
-    "boundaries": ["Preflight passed. Actual invocation depends on local dispatch configuration."]
+    "fallbacks": [
+      "storyboard_ready",
+      "production_plan_ready",
+      "markdown_artifact"
+    ],
+    "requires_permission": true,
+    "risk": "local_artifact_write",
+    "notes": [
+      "Preflight only proves the local skill and runtime dependency are visible.",
+      "Real render verification requires dispatch, output file checks, and recovery.",
+      "preflight ready status does NOT auto-promote this sample to verified_partial; the orchestrator only runs the hook when a post_dispatch config is present, and this policy has no post_dispatch on media-production-handoff."
+    ],
+    "preflight_path": ".think-tank/provider-preflight.yaml",
+    "preflight_sources": [
+      "think-tank/platforms/codex/provider-policy.example.yaml",
+      "provider-policy.yaml",
+      ".think-tank/provider-policy.yaml"
+    ],
+    "boundaries": [
+      "Preflight checks prerequisites only; it does not invoke the provider.",
+      "A ready status does not prove end-to-end result recovery."
+    ]
   },
   "dispatch_record": {
     "dispatch_decision_emitted": true,
     "policy_selected_provider": "remotion-render",
-    "runtime_selected_provider": "local_static_reader",
-    "status": "dispatched",
-    "boundary": "Provider dispatch is determined by local .think-tank/ policy configuration."
+    "runtime_selected_provider": null,
+    "status": "not_dispatched",
+    "boundary": "Provider dispatch is determined by local .think-tank/ policy configuration; this run had no target and no post_dispatch hook, so no provider was actually invoked."
   },
   "dispatch_log": {
-    "started_at": "2026-05-30T00:00:00+00:00",
+    "started_at": "2026-06-04T00:00:00+00:00",
     "dispatch_request": {
       "intent": "research_to_video",
       "recipe": "research-to-video",
       "mode": "research",
-      "capability": "source-acquisition",
+      "capability": "protocol_only",
       "task": "把一份有来源的行业研究做成视频 brief",
       "target": null,
       "constraints": ["readonly", "no_login", "no_download", "no_private_write"]
@@ -67,22 +132,35 @@
       "intent": "research_to_video",
       "recipe": "research-to-video",
       "mode": "research",
-      "capability": "source-acquisition",
-      "selected_peer_skill": "local_static_reader",
+      "capability": "protocol_only",
+      "task": "把一份有来源的行业研究做成视频 brief",
+      "target": null,
+      "constraints": ["readonly", "no_login", "no_download", "no_private_write"],
+      "evidence_policy": {"network": "allowed", "citations": "optional"},
+      "candidate_peer_skills": [
+        "remotion-render",
+        "summarize",
+        "web-access",
+        "voxcpm-tts",
+        "sound-fx-for-video"
+      ],
+      "selected_peer_skill": null,
       "policy_selected_peer_skill": "remotion-render",
-      "invocation_method": "local_static_reader",
+      "selection_reason": "Selected by routing policy preference and capability match.",
+      "invocation_method": "not_invoked",
       "fallback": "production_plan_ready",
-      "risk_level": "low",
-      "dispatch_allowed": true
+      "risk_level": "medium",
+      "dispatch_allowed": false
     },
     "invocation": {
-      "provider_invoked": true,
-      "provider": "local_static_reader",
-      "status": "success"
+      "provider_invoked": false,
+      "provider": null,
+      "status": "not_invoked",
+      "post_dispatch_status": "not_configured"
     },
     "recovery": {
-      "sources_recovered": true,
-      "result_recovered": true
+      "sources_recovered": false,
+      "result_recovered": false
     },
     "boundaries": [
       "Provider dispatch is determined by local .think-tank/ policy configuration.",
@@ -90,24 +168,16 @@
       "For provider-specific handoff, configure a post-dispatch hook in local policy."
     ]
   },
-  "source_result": {
-    "runtime": "codex-minimal",
-    "sources": [
-      {
-        "title": "Example source from static reader",
-        "url": "think-tank/examples/browser-automation-fixture.html"
-      }
-    ],
-    "evidence": ["local_static_reader returned readable static content."],
-    "boundaries": ["Source acquisition succeeded with minimal runtime adapter."]
-  },
+  "source_result": null,
+  "post_dispatch_result": null,
   "final_output": {
     "request": "把一份有来源的行业研究做成视频 brief",
-    "conclusion": "Request routed to research-to-video and completed minimal source recovery.",
-    "evidence": ["local_static_reader returned readable static content."],
+    "conclusion": "Request routed to research-to-video without provider invocation; no source-acquisition and no post-dispatch hook ran in this run.",
+    "evidence": [],
     "recommendations": [
-      "Use recovered sources as input for role analysis.",
-      "Do not mark external peer providers verified until they are invoked and recovered."
+      "Provide a target via --target to enable minimal source-acquisition.",
+      "Configure a post_dispatch block in .think-tank/provider-policy.yaml to enable provider-specific handoff.",
+      "Do not mark this sample as verified_partial; evidence_state is 'selected', not 'verified_partial'."
     ]
   },
   "quality_check": {
@@ -118,9 +188,9 @@
     "actionable": true
   },
   "boundaries": [
-    "This run demonstrates generic orchestrator dispatch, not provider-specific handoff.",
-    "Provider-specific handoff (e.g. video production pipeline) is configured in .think-tank/ local policy.",
-    "think-tank core orchestrator only handles routing, preflight, dispatch decision, and source acquisition.",
-    "Source acquisition for the example target succeeded, but downstream media production requires local configuration."
+    "This sample is a self-test of truthful no-recovery reporting, not a verified_partial provider evidence sample.",
+    "execution_method is single_agent_multi_profile_fallback, not adapter_runtime.",
+    "evidence_state is 'selected', which is the correct label for a route that matched but did not invoke any provider.",
+    "To produce a real verified_partial sample, configure both a target with a read-capable source and a post_dispatch hook in .think-tank/provider-policy.yaml; the orchestrator will then run source-acquisition and the hook (subject to preflight gates) and the result will be genuinely recovered."
   ]
 }

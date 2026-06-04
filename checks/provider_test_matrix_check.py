@@ -9,7 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 MATRIX = ROOT / "think-tank" / "docs" / "provider-test-matrix.md"
-LEDGER_DIR = ROOT / "think-tank" / "examples" / "provider-ledgers"
+LEDGER_DIR = ROOT / "think-tank" / "examples" / "providers" / "ledgers"
 LEDGERS = [
     "source-acquisition-web-access.json",
     "social-listening-xiaohongshu.json",

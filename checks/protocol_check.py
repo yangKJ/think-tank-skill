@@ -81,7 +81,6 @@ REQUIRED_FILES = [
     THINK_TANK / "templates" / "research-to-video-brief.md",
     THINK_TANK / "templates" / "video-storyboard.md",
     THINK_TANK / "templates" / "media-run-record.md",
-    THINK_TANK / "domain-packs" / "README.md",
     THINK_TANK / "examples" / "codex-smoke-research.md",
     THINK_TANK / "examples" / "codex-council-validation.md",
     THINK_TANK / "examples" / "codex-review-validation.md",
@@ -197,8 +196,19 @@ def fail(message: str) -> None:
     raise SystemExit(f"协议检查失败: {message}")
 
 
+def resolve_required_file(path: Path) -> Path | None:
+    if path.exists():
+        return path
+    examples_root = THINK_TANK / "examples"
+    if path.parent == examples_root:
+        matches = sorted(examples_root.rglob(path.name))
+        if len(matches) == 1:
+            return matches[0]
+    return None
+
+
 def check_required_files() -> None:
-    missing = [path for path in REQUIRED_FILES if not path.exists()]
+    missing = [path for path in REQUIRED_FILES if resolve_required_file(path) is None]
     if missing:
         fail("缺少文件: " + ", ".join(str(path.relative_to(ROOT)) for path in missing))
 

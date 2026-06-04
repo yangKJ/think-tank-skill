@@ -7,6 +7,8 @@ import json
 from pathlib import Path
 from typing import Any
 
+from example_paths import resolve_example_path
+
 
 ROOT = Path(__file__).resolve().parents[1]
 THINK_TANK = ROOT / "think-tank"
@@ -24,6 +26,7 @@ def fail(message: str) -> None:
 
 
 def load_json(path: Path) -> dict[str, Any]:
+    path = resolve_example_path(ROOT, path)
     if not path.exists():
         fail(f"缺少文件: {path.relative_to(ROOT)}")
     try:

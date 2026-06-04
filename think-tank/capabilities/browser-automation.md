@@ -31,6 +31,12 @@ actions_taken: []
 limitations: []
 ```
 
+## 候选 skills
+
+- `web-access` / 浏览器访问类 provider
+- `playwright-cli` / Playwright 自动化类 provider
+- 平台内置 Browser / Chrome connector
+
 ## 示例实现
 
 以下为示例，非协议规范。实际 provider 选择由本地 policy 配置决定。

@@ -28,6 +28,10 @@ profiles:
 capabilities:
   - source-acquisition
   - knowledge-persistence
+optional_peer_skills:
+  - web-access
+  - summarize
+  - obsidian
 # Provider selection is configured in .think-tank/provider-policy.yaml
 ```
 

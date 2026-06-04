@@ -244,14 +244,181 @@ def invoke_post_dispatch(
         except json.JSONDecodeError:
             result = {"status": "failed", "stderr": completed.stderr[:1000]}
         result["returncode"] = completed.returncode
+        # 硬门禁：非零 returncode 必须覆盖 stdout 里声明的 success。
+        # 否则 hook 可以一边 exit 1，一边输出 success JSON，被错误提升为 recovered=true。
+        if completed.returncode != 0:
+            result["status"] = "failed"
+            result["stderr_tail"] = completed.stderr[-1000:]
+            result["stdout_tail"] = completed.stdout[-1000:]
+            result["boundary"] = (
+                "Hook exited with non-zero returncode; status was overridden to failed."
+            )
+        elif result.get("status") == "success" and not _has_recovery_evidence(result, work_dir):
+            result["status"] = "failed"
+            result["boundary"] = (
+                "Hook reported success but did not provide recovered "
+                "artifact/evidence/output_path; status was downgraded to failed."
+            )
         return result
     except subprocess.TimeoutExpired:
-        return {"status": "timeout", "provider": post_dispatch_config.get("provider")}
+        return {
+            "status": "timeout",
+            "provider": post_dispatch_config.get("provider"),
+            "boundary": "Hook exceeded the 600s timeout; no recovery claimed.",
+        }
     except Exception as exc:
         return {"status": "failed", "reason": str(exc)}
     finally:
         if source_file and source_file.exists():
             source_file.unlink(missing_ok=True)
+
+
+def _gate_post_dispatch(
+    post_dispatch_config: dict[str, Any],
+    selected_provider: str | None,
+    provider_preflight: dict[str, Any],
+) -> dict[str, Any] | None:
+    """Decide whether a post-dispatch hook may auto-invoke.
+
+    Returns:
+        - a structured refusal dict (status=blocked / pending_manual) when the
+          hook MUST NOT run under the current preflight/permission state;
+        - None when the preflight has cleared and the hook is allowed to run.
+
+    The gate enforces four conditions. If any of them fails, the hook is
+    refused and the orchestrator never invokes it. This is the only path
+    that protects local policy from auto-running providers that the
+    preflight explicitly said are not ready.
+    """
+    hook_provider = post_dispatch_config.get("provider")
+    preflight_status = provider_preflight.get("status", "not_required")
+    preflight_can_invoke = bool(provider_preflight.get("can_invoke", False))
+    preflight_missing = list(provider_preflight.get("missing", []) or [])
+    preflight_manual = list(provider_preflight.get("manual_checks", []) or [])
+    preflight_requires_permission = bool(provider_preflight.get("requires_permission", False))
+
+    if not hook_provider:
+        return {
+            "status": "blocked",
+            "reason": "post_dispatch is enabled but has no provider; refusing to auto-invoke.",
+        }
+    if not selected_provider:
+        return {
+            "status": "blocked",
+            "provider": hook_provider,
+            "reason": "No provider was selected from policy; refusing to auto-invoke a hook.",
+            "preflight_status": preflight_status,
+        }
+    if hook_provider != selected_provider:
+        return {
+            "status": "blocked",
+            "provider": hook_provider,
+            "selected_provider": selected_provider,
+            "reason": (
+                "post_dispatch.provider does not match the policy-selected provider; "
+                "refusing to auto-invoke to prevent a misrouted local hook."
+            ),
+            "preflight_status": preflight_status,
+        }
+    if not preflight_can_invoke:
+        return {
+            "status": "blocked",
+            "provider": hook_provider,
+            "reason": (
+                f"provider_preflight returned can_invoke=false (status={preflight_status}); "
+                "refusing to auto-invoke a hook for a provider that did not clear preflight."
+            ),
+            "preflight_status": preflight_status,
+            "missing": preflight_missing,
+        }
+    if preflight_requires_permission:
+        return {
+            "status": "pending_manual",
+            "provider": hook_provider,
+            "reason": (
+                "provider_preflight requires explicit permission; "
+                "auto-invoke is disabled until the user grants permission."
+            ),
+            "preflight_status": preflight_status,
+        }
+    if preflight_manual:
+        return {
+            "status": "pending_manual",
+            "provider": hook_provider,
+            "reason": (
+                "provider_preflight returned manual_checks; "
+                "manual confirmation required before hook invocation."
+            ),
+            "preflight_status": preflight_status,
+            "manual_checks": preflight_manual,
+        }
+    return None
+
+
+def _has_recovery_evidence(result: dict[str, Any], work_dir: Path | None = None) -> bool:
+    """hook 打印 status=success 时，也必须交回可验证证据。
+
+    没有这层检查时，hook 只要输出 "fake.mp4" 这样的非空字符串就能伪装
+    已恢复结果。字段名保持通用，因为 hook 由用户配置；但至少一个常见
+    recovery carrier 必须能解析到真实存在的文件。
+    """
+    if not isinstance(result, dict):
+        return False
+    root = work_dir or WORKSPACE_ROOT
+
+    def existing_path(value: str) -> bool:
+        if not value or value.startswith(("http://", "https://")):
+            return False
+        candidate = Path(value).expanduser()
+        if not candidate.is_absolute():
+            candidate = root / candidate
+        return candidate.exists() and candidate.is_file()
+
+    def contains_verifiable_path(value: Any) -> bool:
+        if isinstance(value, bool) or value in (None, "", [], {}):
+            return False
+        if isinstance(value, str):
+            return existing_path(value)
+        if isinstance(value, list):
+            return any(contains_verifiable_path(item) for item in value)
+        if isinstance(value, dict):
+            for path_key in (
+                "path",
+                "file",
+                "output_path",
+                "source_path",
+                "artifact_path",
+                "delivery_path",
+                "report_path",
+            ):
+                if contains_verifiable_path(value.get(path_key)):
+                    return True
+            for nested_key in (
+                "artifacts",
+                "evidence",
+                "outputs",
+                "files",
+                "generated_artifacts",
+                "deliverables",
+                "run_record",
+            ):
+                if contains_verifiable_path(value.get(nested_key)):
+                    return True
+        return False
+
+    for key in (
+        "artifacts",
+        "evidence",
+        "output_path",
+        "source_path",
+        "artifact_path",
+        "run_record",
+        "generated_artifacts",
+        "deliverables",
+    ):
+        if contains_verifiable_path(result.get(key)):
+            return True
+    return False
 
 
 def run_orchestrator(
@@ -345,17 +512,45 @@ def run_orchestrator(
     # Post-dispatch hook — generic, driven by local .think-tank/ policy config.
     # The orchestrator does NOT know what the hook does; it just runs the
     # configured entrypoint with the provider name and request context.
+    #
+    # 硬门禁：只有 selected provider 的 preflight 真正 cleared，才允许自动调用 hook。
+    # 这里要求 can_invoke=True、无缺失项、无 requires_permission、无 manual_checks。
+    # 这是 permission/preflight 边界；绕过它会让错误配置的本地 policy 在
+    # provider 未就绪时执行可能写产物或需要登录态的 provider。
     post_dispatch_config = route_result.get("post_dispatch") or {}
-    post_dispatch_result = invoke_post_dispatch(
-        post_dispatch_config, request, source_result, WORKSPACE_ROOT
-    )
+    post_dispatch_result: dict[str, Any] | None = None
+    if post_dispatch_config and post_dispatch_config.get("enabled"):
+        post_dispatch_result = _gate_post_dispatch(
+            post_dispatch_config, selected_provider, provider_preflight
+        )
+        if post_dispatch_result is None:
+            post_dispatch_result = invoke_post_dispatch(
+                post_dispatch_config, request, source_result, WORKSPACE_ROOT
+            )
     if post_dispatch_result and post_dispatch_result.get("status") == "success":
-        invoked = True
-        recovered = True
-        runtime_selected_provider = post_dispatch_config.get("provider") or runtime_selected_provider
-        dispatch_decision["selected_peer_skill"] = runtime_selected_provider
-        dispatch_decision["invocation_method"] = "post_dispatch_hook"
-        dispatch_decision["dispatch_allowed"] = True
+        # 纵深防御：invoke_post_dispatch 已经检查 returncode 和 recovery evidence，
+        # 但 orchestrator 仍会复核一次；任一条件不满足都不能提升 invoked/recovered。
+        hook_returncode = post_dispatch_result.get("returncode")
+        if hook_returncode != 0 or not _has_recovery_evidence(post_dispatch_result, WORKSPACE_ROOT):
+            post_dispatch_result = {
+                "status": "failed",
+                "provider": post_dispatch_config.get("provider"),
+                "reason": (
+                    "orchestrator re-validation failed: hook reported success but "
+                    f"returncode={hook_returncode} and recovery evidence is empty."
+                ),
+                "returncode": hook_returncode,
+                "boundary": (
+                    "post_dispatch success was demoted to failed by orchestrator re-validation."
+                ),
+            }
+        else:
+            invoked = True
+            recovered = True
+            runtime_selected_provider = post_dispatch_config.get("provider") or runtime_selected_provider
+            dispatch_decision["selected_peer_skill"] = runtime_selected_provider
+            dispatch_decision["invocation_method"] = "post_dispatch_hook"
+            dispatch_decision["dispatch_allowed"] = True
 
     # Dispatch log (generic — no hardcoded provider names in boundaries)
     dispatch_log = {
@@ -374,6 +569,9 @@ def run_orchestrator(
             "provider_invoked": invoked,
             "provider": runtime_selected_provider,
             "status": "success" if invoked else "not_invoked",
+            "post_dispatch_status": (
+                post_dispatch_result.get("status") if post_dispatch_result else "not_configured"
+            ),
         },
         "recovery": {
             "sources_recovered": bool(source_result and source_result.get("sources")),

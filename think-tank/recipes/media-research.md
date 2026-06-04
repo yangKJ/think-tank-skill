@@ -26,6 +26,11 @@ profiles:
 capabilities:
   - media-processing
   - source-acquisition
+optional_peer_skills:
+  - yt-dlp
+  - openai-whisper
+  - summarize
+  - web-access
 # Provider selection is configured in .think-tank/provider-policy.yaml
 fallback_inputs:
   - user_provided_transcript

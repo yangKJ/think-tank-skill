@@ -28,6 +28,11 @@ profiles:
 capabilities:
   - social-listening
   - source-acquisition
+optional_peer_skills:
+  - xiaohongshu
+  - juejin-search
+  - social-media-analyzer
+  - web-access
 # Provider selection is configured in .think-tank/provider-policy.yaml
 fallback_inputs:
   - pasted_comments

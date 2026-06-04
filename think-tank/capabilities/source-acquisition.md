@@ -42,6 +42,13 @@ sources:
 gaps: []
 ```
 
+## 候选 skills
+
+- `web-access`
+- `summarize`
+- `pdf-extraction`
+- `kb-retriever`
+
 ## 示例实现
 
 以下为示例，非协议规范。实际 provider 选择由本地 policy 配置决定。
@@ -59,4 +66,3 @@ gaps: []
 - 找不到一手来源时，可使用权威二手来源，并标注边界。
 - 当前信息无法获取时，必须说明未验证。
 - 工具不可用时，可使用用户提供资料或本地知识库。
-

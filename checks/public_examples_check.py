@@ -7,10 +7,10 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PUBLIC = ROOT / "think-tank" / "examples" / "public"
+PUBLIC = ROOT / "think-tank" / "examples" / "usage"
 
 FILES_AND_TERMS = {
-    PUBLIC / "research-request.md": [
+    PUBLIC / "public-research-request.md": [
         "selected_intent:",
         "selected_mode:",
         "boundaries:",

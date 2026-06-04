@@ -46,6 +46,11 @@ capabilities:
   - source-acquisition
   - media-production
   - knowledge-persistence
+optional_peer_skills:
+  - remotion-render
+  - summarize
+  - voxcpm-tts
+  - sound-fx-for-video
 optional_peer_skills_are_dependencies: false
 missing_peer_skill_behavior: degrade_to_core_protocol
 ```

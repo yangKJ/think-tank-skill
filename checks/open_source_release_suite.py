@@ -22,6 +22,7 @@ COMMANDS = [
     ["python3", "checks/runtime_provenance_check.py"],
     ["python3", "checks/codex_runtime_verification_matrix_check.py"],
     ["python3", "checks/codex_runtime_pipeline_check.py"],
+    ["python3", "checks/codex_post_dispatch_safety_check.py"],
     ["python3", "checks/release_privacy_check.py"],
     ["python3", "checks/markdown_image_links_check.py"],
     ["python3", "checks/provider_integration_patterns_check.py"],

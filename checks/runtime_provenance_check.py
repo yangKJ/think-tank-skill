@@ -6,6 +6,8 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+from example_paths import resolve_example_path
+
 
 ROOT = Path(__file__).resolve().parents[1]
 PROTOCOL = ROOT / "think-tank" / "protocol" / "runtime-provenance.md"
@@ -63,6 +65,7 @@ def require_text(path: Path, terms: list[str]) -> str:
 
 
 def load_json(path: Path) -> dict:
+    path = resolve_example_path(ROOT, path)
     if not path.exists():
         fail(f"缺少 JSON: {path.relative_to(ROOT)}")
     data = json.loads(path.read_text(encoding="utf-8"))
@@ -151,4 +154,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

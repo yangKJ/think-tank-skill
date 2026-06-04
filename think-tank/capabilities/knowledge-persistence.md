@@ -30,6 +30,13 @@ artifact_type: ""
 follow_up: []
 ```
 
+## 候选 skills
+
+- `obsidian`
+- `kb-retriever`
+- `knowledge-graph-builder`
+- Markdown artifact / 本地研究工作区
+
 ## 示例实现
 
 以下为示例，非协议规范。实际 provider 选择由本地 policy 配置决定。
@@ -44,4 +51,3 @@ follow_up: []
 - 没有知识库工具时，输出 Markdown artifact。
 - 目标路径不明确时，不硬编码用户私有路径。
 - 持续监控类任务应记录状态和下一次检查条件。
-

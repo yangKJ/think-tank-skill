@@ -30,6 +30,11 @@ capabilities:
   - source-acquisition
   - social-listening
   - knowledge-persistence
+optional_peer_skills:
+  - web-access
+  - summarize
+  - social-media-analyzer
+  - obsidian
 # Provider selection is configured in .think-tank/provider-policy.yaml
 ```
 

@@ -39,6 +39,13 @@ risks: []
 confidence: low | medium | high
 ```
 
+## 候选 skills
+
+- `xiaohongshu`
+- `juejin-search`
+- `social-media-analyzer`
+- `web-access`
+
 ## 示例实现
 
 以下为示例，非协议规范。实际 provider 选择由本地 policy 配置决定。
@@ -53,4 +60,3 @@ confidence: low | medium | high
 - 平台专用 skill 不可用时，使用公开网页、搜索结果或用户提供样本。
 - 样本不足时，不输出总体结论，只输出观察。
 - 情绪判断必须标注样本量和置信度。
-

@@ -7,7 +7,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-WORKFLOW_DIR = ROOT / "think-tank" / "examples" / "workflow-patterns"
+WORKFLOW_DIR = ROOT / "think-tank" / "examples" / "workflows"
 FILES = [
     WORKFLOW_DIR / "research-provider-assisted.md",
     WORKFLOW_DIR / "council-release-decision.md",

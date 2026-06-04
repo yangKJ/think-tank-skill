@@ -26,6 +26,10 @@ profiles:
   - product-strategist
 capabilities:
   - source-acquisition
+optional_peer_skills:
+  - web-access
+  - summarize
+  - kb-retriever
 # Provider selection is configured in .think-tank/provider-policy.yaml
 ```
 

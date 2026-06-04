@@ -73,10 +73,10 @@ TEMPLATES = [
     "memory-runtime-result.md",
 ]
 EXAMPLES = [
-    ROOT / "think-tank" / "examples" / "v2" / "research-os-run-record.json",
-    ROOT / "think-tank" / "examples" / "v2" / "provider-invocation-ledger.json",
-    ROOT / "think-tank" / "examples" / "v2" / "handoff-guardrail-eval.json",
-    ROOT / "think-tank" / "examples" / "v2" / "research-workspace-contract.json",
+    ROOT / "think-tank" / "examples" / "formats" / "research-os-run-record.json",
+    ROOT / "think-tank" / "examples" / "formats" / "provider-invocation-ledger.json",
+    ROOT / "think-tank" / "examples" / "formats" / "handoff-guardrail-eval.json",
+    ROOT / "think-tank" / "examples" / "formats" / "research-workspace-contract.json",
 ]
 
 
@@ -113,7 +113,7 @@ def require_keys(data: dict[str, Any], keys: list[str], label: str) -> None:
 
 
 def check_run_record() -> None:
-    data = load_json(ROOT / "think-tank" / "examples" / "v2" / "research-os-run-record.json")
+    data = load_json(ROOT / "think-tank" / "examples" / "formats" / "research-os-run-record.json")
     require_keys(
         data,
         [
@@ -148,7 +148,7 @@ def check_run_record() -> None:
 
 
 def check_provider_ledger() -> None:
-    data = load_json(ROOT / "think-tank" / "examples" / "v2" / "provider-invocation-ledger.json")
+    data = load_json(ROOT / "think-tank" / "examples" / "formats" / "provider-invocation-ledger.json")
     entries = data.get("entries", [])
     if not entries:
         fail("provider-invocation-ledger.json 缺少 entries")
@@ -159,7 +159,7 @@ def check_provider_ledger() -> None:
 
 
 def check_handoff_guardrail_eval() -> None:
-    data = load_json(ROOT / "think-tank" / "examples" / "v2" / "handoff-guardrail-eval.json")
+    data = load_json(ROOT / "think-tank" / "examples" / "formats" / "handoff-guardrail-eval.json")
     require_keys(data, ["handoff", "guardrail_result", "eval_result"], "handoff fixture")
     handoff = data["handoff"]
     if handoff["runtime_provenance"].get("true_multi_agent_runtime") is not False:
@@ -172,7 +172,7 @@ def check_handoff_guardrail_eval() -> None:
 
 
 def check_workspace_contract() -> None:
-    data = load_json(ROOT / "think-tank" / "examples" / "v2" / "research-workspace-contract.json")
+    data = load_json(ROOT / "think-tank" / "examples" / "formats" / "research-workspace-contract.json")
     required_dirs = {
         "inbox/",
         "sources/",

@@ -9,12 +9,14 @@ import sys
 from pathlib import Path
 from typing import Any
 
+from example_paths import resolve_example_path
+
 
 ROOT = Path(__file__).resolve().parents[1]
 RUNTIME = ROOT / "think-tank" / "platforms" / "codex" / "runtime" / "source_acquisition_minimal.py"
 FIXTURE = ROOT / "think-tank" / "examples" / "browser-automation-fixture.html"
-CODEX_SUCCESS_SAMPLE = ROOT / "think-tank" / "examples" / "codex-runtime-sample.json"
-CODEX_FAILURE_SAMPLE = ROOT / "think-tank" / "examples" / "codex-runtime-failure-sample.json"
+CODEX_SUCCESS_SAMPLE = resolve_example_path(ROOT, ROOT / "think-tank" / "examples" / "codex-runtime-sample.json")
+CODEX_FAILURE_SAMPLE = resolve_example_path(ROOT, ROOT / "think-tank" / "examples" / "codex-runtime-failure-sample.json")
 
 
 def fail(message: str) -> None:

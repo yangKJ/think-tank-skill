@@ -1,12 +1,19 @@
-# Codex Long-Running Adapter Runtime Validation
+# Codex Adapter Runtime Self-Test (No Source-Recovery)
 
-本文记录 Codex 平台上一条真实的长生命周期 adapter runtime 样例。
+本文档是一份**自检样例**，用来证明 Codex natural-language orchestrator 在没有真实 source-recovery 发生时，能诚实地报告未发生，而不是伪造 `verified_partial` 证据。
 
 ## 测试任务
 
 ```text
 把一份有来源的行业研究做成视频 brief
 ```
+
+本次运行**没有**通过 `--target` 提供 source target，并且当前 `.think-tank/provider-policy.yaml` 的 `media-production-handoff` 路由没有配置 `post_dispatch` 钩子，因此：
+
+- 没有 source-acquisition 被触发（`selected_capabilities` 为空）
+- 没有 post-dispatch hook 被调用
+- 没有真实产物被 recover
+- `evidence_state` 正确地落到 `selected`（不是 `verified_partial`）
 
 ## 执行声明
 
@@ -15,84 +22,48 @@ platform: codex
 runtime: codex-natural-language-orchestrator
 intent: research_to_video
 mode: research
-provider: remotion-render
-status: verified_partial
-dispatch_decision:
-  route_selected: local-ai-tech-news-video-production
-  provider_selected: remotion-render
-  provider_preflight: ready
-runtime_provenance:
-  true_multi_agent_runtime: false
-  execution_method: adapter_runtime
-  authority_level: full_runtime
-  result_recovery: automatic
-```
-
-## Lifecycle
-
-```yaml
-steps:
-  - init_video_run
-  - write_handoff_artifacts
-  - prepare_voiceover_manifest
-  - synthesize_voiceover
-  - create_subtitle_timeline
-  - render_sfx
-  - synthesize_bgm
-  - create_cover_package:bilibili
-  - create_cover_package:youtube
-  - render_research_video_layout
-  - create_delivery_report
-```
-
-## 回收结果
-
-```yaml
-run_record:
-  artifact_written: true
-  artifact_path: .think-tank/runs/nlrt-cf00e9c29ca1.json
-generated_artifacts:
-  run_dir: .think-tank/artifacts/media/auto-video-runs/video-run-20260521-ai快报-把今天的ai资讯做成视频
-  render_output: .think-tank/artifacts/media/auto-video-runs/video-run-20260521-ai快报-把今天的ai资讯做成视频/renders/final-news.mp4
-  delivery_report: .think-tank/artifacts/media/auto-video-runs/video-run-20260521-ai快报-把今天的ai资讯做成视频/video_delivery_report.json
-delivery_status: publish_candidate
+provider_selected_by_policy: remotion-render
+provider_invoked: false
+post_dispatch_status: not_configured
+source_recovered: false
+evidence_state: selected
+execution_method: single_agent_multi_profile_fallback
+authority_level: lower_fallback_single_context
+true_multi_agent_runtime: false
+verified_partial: false
 ```
 
 ## 关键观察
 
-1. `remotion-render` 在当前机器上完成了真实 provider invocation，而不是只有 policy selection。
-2. source-acquisition 对 `https://example.com` 的本地读取因权限边界失败，但没有伪造来源结果。
-3. 下游 video adapter 仍然完成了 run 初始化、脚本、字幕、SFX、BGM、封面包、渲染和交付报告。
-4. 这证明 Codex 已有一条真实的 long-running adapter lifecycle recovery 路径。
+1. 本次 `policy_selected_provider` 是 `remotion-render`，但 `runtime_selected_provider` 是 `null`。这正是 orchestrator 应该做的——policy 选择不等于 runtime 调用。
+2. `dispatch_log.invocation.provider_invoked = false` 与 `dispatch_log.recovery.sources_recovered = false` 互相一致：source 没被恢复，所以 provider 也没被声明为 invoked。
+3. `dispatch_log.dispatch_request.target = null`，因此 `should_invoke_source` 返回 `False`，`source_result` 是 `null`，这与 JSON 里的 `source_result: null` 一致。
+4. `evidence_state: selected` 准确反映了"route matched 但没有 provider invocation"的真实状态，**不是** `verified_partial`。
 
-## 结果判断
+## 这次不能证明什么
 
-该样例可以把 `remotion-render` 提升为公开 `verified_partial` provider 证据，并证明：
+为了避免把这份自检样例偷换成"已验证的能力证据"，下面这些**不能**用本样例证明：
 
-- provider preflight
-- dispatch decision
-- provider invocation
-- artifact recovery
-- multi-step lifecycle continuation
+- `remotion-render` 真的在当前机器上跑过
+- source-acquisition 真的恢复过来源
+- 多步 lifecycle（init_video_run / 渲染 / 交付报告）真的发生过
+- 任何 `verified_partial` 状态的 provider 能力
 
-已经在同一条真实运行链路里发生。
+## 想得到真实 verified_partial 证据怎么办
 
-但它**不能**证明：
+需要**同时**满足：
 
-- true multi-agent runtime
-- long-running subagent lifecycle
-- 登录态网页或复杂外部 source-acquisition
+1. 在 `.think-tank/provider-policy.yaml` 的目标 route 上声明 `capabilities: ["source-acquisition", ...]` 并提供一个可读的 target（本地文件路径、`http(s)://` URL 或 `file://` 路径）。
+2. 在同一 route 上配置 `post_dispatch`（含 `enabled: true`、`auto_invoke: true`、`provider` 与 selected provider 一致、entrypoint 存在），且 preflight 真正 cleared（`can_invoke: true`，无 `requires_permission`，无 `manual_checks`）。
+3. 跑一次 `python3 think-tank/platforms/codex/runtime/orchestrator.py "..." --target <readable_target>`，让 orchestrator 真实运行 source-acquisition + post-dispatch hook。
+4. 验证输出里：`source_result.sources` 非空、`post_dispatch_result.status == "success"` 且 `returncode == 0`、`runtime_provenance.evidence_state == "verified_partial"`、`runtime_provenance.execution_method == "adapter_runtime"`。
 
-## 边界
-
-- 本次运行的 `true_multi_agent_runtime` 明确为 `false`。
-- 语音合成阶段依赖 fallback，而不是证明外部语音 provider 稳定可用。
-- 该样例属于 long-running adapter runtime，不应偷换成 subagent lifecycle verified。
+如果其中任何一步缺失，orchestrator 会诚实地把 `evidence_state` 保持在 `selected` / `failed` / `pending_manual` 等正确状态。
 
 ## Quality Check
 
 ```yaml
 protocol_complete: true
 evidence_boundary_clear: true
-actionable: true
+provider_invocation_truthful: true
 ```
